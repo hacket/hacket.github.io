@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hacket.me/"/>
-  <updated>2016-07-22T16:36:49.870Z</updated>
+  <updated>2016-07-22T16:43:00.082Z</updated>
   <id>http://hacket.me/</id>
   
   <author>
@@ -20,15 +20,20 @@
     <link href="http://hacket.me/2016/07/23/first-blog/"/>
     <id>http://hacket.me/2016/07/23/first-blog/</id>
     <published>2016-07-22T16:34:27.000Z</published>
-    <updated>2016-07-22T16:36:49.870Z</updated>
+    <updated>2016-07-22T16:43:00.082Z</updated>
     
-    <content type="html"><![CDATA[<p>经过了2天时间，终于把博客搭建好了，博客目前托管在4个平台，github,gitlab,gitcafe,oschina。</p>
+    <content type="html"><![CDATA[<p>经过了2天时间，终于把blog搭建好了。blog用<a href="https://hexo.io/" title="https://hexo.io/" target="_blank" rel="external">hexo</a>搭建的，blog目前托管在4个平台：</p>
+<ul>
+<li><a href="https://github.com/" title="https://github.com/" target="_blank" rel="external">github</a></li>
+<li><a href="https://gitlab.com/" title="https://gitlab.com/" target="_blank" rel="external">gitlab</a></li>
+<li><a href="https://coding.net/gitcafe.html" title="https://coding.net/gitcafe.html" target="_blank" rel="external">coding(收购了gitcafe)</a></li>
+<li><a href="http://git.oschina.net/" title="http://git.oschina.net/" target="_blank" rel="external">oschina</a></li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;经过了2天时间，终于把博客搭建好了，博客目前托管在4个平台，github,gitlab,gitcafe,oschina。&lt;/p&gt;
-
+      &lt;p&gt;经过了2天时间，终于把blog搭建好了。blog用&lt;a href=&quot;https://hexo.io/&quot; title=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo&lt;/a&gt;搭建的，blog目前托管在4个平台：&lt;/p
     
     </summary>
     
