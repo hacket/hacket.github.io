@@ -3,33 +3,26 @@
 
 
     
-  <url>
-    <loc>http://hacket.me/2016/07/23/about/about/</loc>
-    <lastmod>2016-07-22T16:50:07.845Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2016-07-22T16:45:11.471Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
+    
     
   <url>
     <loc>http://hacket.me/2016/07/23/first-blog/</loc>
-    <lastmod>2016-07-22T16:43:00.082Z</lastmod>
+    <lastmod>2016-07-22T17:03:35.689Z</lastmod>
     <data>
         <display>
         <title>第一篇blog</title>
         <pubTime>2016-07-22T16:34:27.000Z</pubTime>
         
+        <tag>android</tag>
+         
          
            
+             
+              <breadCrumb title="漫谈" url="http://hacket.me/categories/%E6%BC%AB%E8%B0%88/"/>
+          
         </display>
     </data>
     </url>
 
+    
 </urlset>
