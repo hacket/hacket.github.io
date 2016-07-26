@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hacket.me/"/>
-  <updated>2016-07-22T17:03:35.689Z</updated>
+  <updated>2016-07-26T16:11:26.429Z</updated>
   <id>http://hacket.me/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Proguard拆分</title>
+    <link href="http://hacket.me/2016/07/26/Proguard%E6%8B%86%E5%88%86/"/>
+    <id>http://hacket.me/2016/07/26/Proguard拆分/</id>
+    <published>2016-07-26T14:09:26.000Z</published>
+    <updated>2016-07-26T16:11:26.429Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Proguard"><a href="#Proguard" class="headerlink" title="Proguard"></a>Proguard</h4><p>最近开始做新项目，需要做代码混淆。就直接从之前的项目中将<code>proguard-rules.pro</code>文件拷贝过来，然后在gradle中配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">buildTypes &#123;</div><div class="line">    release &#123;</div><div class="line">        minifyEnabled true</div><div class="line">        zipAlignEnabled true</div><div class="line">        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &quot;$rootDir/config/proguard-rules.pro&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="存在的不足"><a href="#存在的不足" class="headerlink" title="存在的不足"></a>存在的不足</h4><p>像我这种情况，新启动的一个项目，需要Proguard。但是如果写在一个文件中，而且没有任何注释，如果还没有写在一块，拷贝过来还是需要一个个去检查是否需要，去掉了某个库的混淆，增加了某些库的混淆。</p>
+<p>比如我之前用的是Retrofit1，在<code>proguard-rules.pro</code>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># Retrofit 1.X</div><div class="line"></div><div class="line">-keep class com.squareup.okhttp.** &#123; *; &#125;</div><div class="line">-keep class retrofit.** &#123; *; &#125;</div><div class="line">-keep interface com.squareup.okhttp.** &#123; *; &#125;</div><div class="line"></div><div class="line">-dontwarn com.squareup.okhttp.**</div><div class="line">-dontwarn okio.**</div><div class="line">-dontwarn retrofit.**</div><div class="line">-dontwarn rx.**</div><div class="line"></div><div class="line">-keepclasseswithmembers class * &#123;</div><div class="line">    @retrofit.http.* &lt;methods&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># If in your rest service interface you use methods with Callback argument.</div><div class="line">-keepattributes Exceptions</div><div class="line"></div><div class="line"># If your rest service methods throw custom exceptions, because you&apos;ve defined an ErrorHandler.</div><div class="line">-keepattributes Signature</div><div class="line"></div><div class="line"># Also you must note that if you are using GSON for conversion from JSON to POJO representation, you must ignore those POJO classes from being obfuscated.</div><div class="line"># Here include the POJO&apos;s that have you have created for mapping JSON response to POJO for example.</div></pre></td></tr></table></figure>
+<p>现在我升级到retrofit2，由于retrofit2库做了修改，Proguard规则也需要更新为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Retrofit 2.X</div><div class="line">## https://square.github.io/retrofit/ ##</div><div class="line"></div><div class="line">-dontwarn retrofit2.**</div><div class="line">-keep class retrofit2.** &#123; *; &#125;</div><div class="line">-keepattributes Signature</div><div class="line">-keepattributes Exceptions</div><div class="line"></div><div class="line">-keepclasseswithmembers class * &#123;</div><div class="line">    @retrofit2.http.* &lt;methods&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果存在多个这样的库，那是不是很增加工作量。下面我们换一种姿势来看。</p>
+<h4 id="换一种姿势"><a href="#换一种姿势" class="headerlink" title="换一种姿势"></a>换一种姿势</h4><p>参考库<a href="https://github.com/krschultz/android-proguard-snippets" title="https://github.com/krschultz/android-proguard-snippets" target="_blank" rel="external">android-proguard-snippets</a> 在项目的根目录建立<code>config/proguard-pro/</code>目录，将所有第三方的库和一些通用的配置全部配置在里面：</p>
+<ul>
+<li><p>基本不用动的规则</p>
+<p><code>proguard-normal.pro</code></p>
+</li>
+<li><p>okhttp3</p>
+<p><code>proguard-square-okhttp3.pro</code></p>
+</li>
+<li><p>eventbus3</p>
+<p>proguard-eventbus-3.pro</p>
+</li>
+</ul>
+<p>最后在<code>proguard-rules.pro</code>将他们全部导入进来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">-basedirectory proguard-pro</div><div class="line"></div><div class="line">-include proguard-normal.pro</div><div class="line"></div><div class="line">-include proguard-google.pro</div><div class="line">-include proguard-google-gson2.pro</div><div class="line">-include proguard-google-protobuf.pro</div><div class="line">-include proguard-google-volley.pro</div><div class="line"></div><div class="line">-include proguard-eventbus-3.pro</div><div class="line"></div><div class="line">-include proguard-facebook-stetho.pro</div><div class="line"></div><div class="line">-include proguard-glide.pro</div><div class="line"></div><div class="line">-include proguard-leakcanary.pro</div><div class="line"></div><div class="line">-include proguard-jpush.pro</div><div class="line"></div><div class="line">-include proguard-qiniu.pro</div><div class="line"></div><div class="line">-include proguard-tencent-bugly.pro</div><div class="line"></div><div class="line">-include proguard-umeng.pro</div><div class="line"></div><div class="line">-include proguard-baidu-map.pro</div></pre></td></tr></table></figure>
+<p>如果后面替换了某个库，或者增加了某个库，直接在这个文件注释或者增加一条<code>-include</code>就行了。</p>
+<p>在<code>build.gradle</code>中配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">buildTypes &#123;</div><div class="line">    release &#123;</div><div class="line">        minifyEnabled true</div><div class="line">        zipAlignEnabled true</div><div class="line">        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &quot;$rootDir/config/proguard-rules.pro&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然也可以采用这种方式，但这种会导致<code>build.gradle</code>文件庞大：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">  buildTypes &#123;</div><div class="line">    release &#123;</div><div class="line">      minifyEnabled true</div><div class="line">      // Library specific proguard files</div><div class="line">      proguardFile &apos;proguard-google-play-services.pro&apos;</div><div class="line">      proguardFile &apos;proguard-gson.pro&apos;</div><div class="line">      ...</div><div class="line">      // Default proguard files &amp; project app specific rules,</div><div class="line">      //  see examples folder for more information</div><div class="line">      proguardFile &apos;proguard-project-app.pro&apos;</div><div class="line">      proguardFile getDefaultProguardFile(&apos;proguard-android.txt&apos;)</div><div class="line">      // As of Gradle Android plugin 1.1.0, the test APK has a separate config</div><div class="line">      testProguardFile &apos;proguard-project-test.pro&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/hacket/proguard-tips" title="https://github.com/hacket/proguard-tips" target="_blank" rel="external">源码</a> </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Proguard&quot;&gt;&lt;a href=&quot;#Proguard&quot; class=&quot;headerlink&quot; title=&quot;Proguard&quot;&gt;&lt;/a&gt;Proguard&lt;/h4&gt;&lt;p&gt;最近开始做新项目，需要做代码混淆。就直接从之前的项目中将&lt;code&gt;proguard-rul
+    
+    </summary>
+    
+      <category term="android" scheme="http://hacket.me/categories/android/"/>
+    
+    
+      <category term="proguard" scheme="http://hacket.me/tags/proguard/"/>
+    
+  </entry>
   
   <entry>
     <title>第一篇blog</title>
