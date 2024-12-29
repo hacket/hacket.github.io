@@ -1,6 +1,6 @@
 ---
 date created: 2024-12-24 00:28
-date updated: 2024-12-24 00:28
+date updated: 2024-12-30 00:40
 dg-publish: true
 ---
 
@@ -308,6 +308,7 @@ void animateValue(float fraction) {
 
 ### ObjectAnimator实现动画的of方法
 
+```java
 > ofArgb(Object target, String propertyName, int... values)
 > ofArgb(T target, Property<T, Integer> property, int... values)
 >
@@ -336,6 +337,7 @@ void animateValue(float fraction) {
 > ofMultiInt(Object target, String propertyName, int[][] values)
 > ofMultiInt(Object target, String propertyName, Path path)
 > ofMultiInt(Object target, String propertyName, TypeConverter<T, int[]> converter, TypeEvaluator<T> evaluator, T... values)
+```
 
 ## 利用ObjectAnimator实现补间动画效果(Java代码方式)
 
@@ -372,8 +374,6 @@ ObjectAnimator animator = ObjectAnimator.ofFloat(tv, "translationY", 0, 200, -10
 animator.setDuration(2000);  
 animator.start();
 ```
-
-![](https://wiki.jikexueyuan.com/project/android-animation/images/74.gif#clientId=ube8c8cf8-1eef-4&id=vpL3a&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u07899de9-660a-426a-ad97-59f076633b0&title=)
 
 移动位置的坐标也都是以当前控件所在位置为中心点的。所以对应的移动位置从原点移动向下移动 200 像素，然后再移动到向下到距原点 200 像素的位置，最后再回到(0,0)从效果图中很明显可以看出来。 从上面可以看出：每次移动距离的计算都是以原点为中心的；比如初始动画为`ObjectAnimator.ofFloat(tv, “translationY”, 0, 200, -100,0)`表示首先从 0 移动到正方向 200 的位置，然后再移动到负方向 100 的位置，最后移动到原点。
 
@@ -1250,8 +1250,9 @@ objectAnimator.start();
 
 ![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188826895-f362649c-d8a4-425f-95dd-189dbde324f6.gif#averageHue=%23eeeeee&clientId=ube8c8cf8-1eef-4&id=cOyaQ&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=uee52a483-8cd9-404b-b788-27b411017a9&title=)
 
-### ofFloat(T target, Property<T, Float> property, float… values)  自定义Property
+### ofFloat 自定义Property
 
+ofFloat (T target, Property<T, Float> property, float… values)
 **参数说明：**
 
 1. target:动画目标对象
@@ -1301,7 +1302,9 @@ objectAnimator.start();
 
 ![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188827458-135801a2-a110-44da-9c2d-07817f171592.gif#averageHue=%23ececec&clientId=ube8c8cf8-1eef-4&id=Evreh&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u475d3794-01c2-41ad-837d-effab9fd437&title=)
 
-### ofFloat(T target, Property<T, Float> xProperty, Property<T, Float> yProperty, Path path)
+### ofFloat Property
+
+Float (T target, Property<T, Float> xProperty, Property<T, Float> yProperty, Path path)
 
 和前面的path一样，xProperty的变化由path的x控制；yProperty的变化由path的y控制。
 
@@ -1329,7 +1332,9 @@ objectAnimator.start();
 
 ![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188827619-4959e961-9134-4de1-8a41-dd8898307275.gif#averageHue=%23ebe8e6&clientId=ube8c8cf8-1eef-4&id=OLLWi&originHeight=536&originWidth=360&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u56b3774a-17ab-45c8-a66d-602e362da01&title=)
 
-### ofArgb(T target, Property<T, Integer> property, int… values) (API21) 自定义Property
+### ofArgb (API21) 自定义Property
+
+ofArgb (T target, Property<T, Integer> property, int… values)
 
 用到了Property属性，但是View中没有类似`ROTATION`属性的对颜色属性的简写，可以**自定义Property**，下面的例子只是数值的渐变，如果真的需要颜色渐变，需要设置颜色估值器：
 
@@ -1509,8 +1514,9 @@ I: data1:4，data2:9
 I: data1:5，data2:9
 ```
 
-### ofMultiInt(Object target, String propertyName,TypeConverter<T, int[]> converter, TypeEvaluator evaluator, T… values) (API21)
+### ofMultiInt() (API21)
 
+`ofMultiInt (Object target, String propertyName, TypeConverter<T, int[]> converter, TypeEvaluator evaluator, T… values)` (API 21)
 **参数说明**
 
 1. propertyName:进行动画的属性名
@@ -1639,8 +1645,9 @@ ofObject(T target, Property<T, V> property, TypeEvaluator<V> evaluator, V... val
 
 > 上面讲解了ofInt ,ofFloat,ofMultiInt,ofMultiFloat等函数，仔细观察上面的ofObject函数，可以分析得到ofObject把类型泛型化了，每个函数都提供了TypeEvaluator供ObjectAnimator识别参数，所以ofObject的用法和ofInt，ofFloat相同。
 
-### ofObject(T target, Property<T, V> property, TypeEvaluator evaluator, V… values)
+### ofObject() TypeEvaluator
 
+ofObject (T target, Property<T, V> property, TypeEvaluator evaluator, V… values)
 **参数说明：**
 
 1. target:动画目标对象

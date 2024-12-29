@@ -1,6 +1,6 @@
 ---
 date created: 2024-09-10 01:11
-date updated: 2024-12-27 23:55
+date updated: 2024-12-30 00:16
 dg-publish: true
 ---
 
@@ -59,12 +59,12 @@ Host gitee.com
 当我们成功与服务端进行连接时，ssh 会记录服务端的 Host、IP 以及 rsa 文件
 
 ```
-gitee.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKxHSJ7084RmkJ4YdEi5tngynE8aZe2uEoVVsB/OvYN
-git.moumentei.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILQaptBrtDif6wQFGBxH+QM6SrUi9qVzXBdNdXX7roBcgithub.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
-github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
-github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
-github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
-git.moumentei.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILQaptBrtDif6wQFGBxH+QM6SrUi9qVzXBdNdXX7roBc
+gitee.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKxHSJ7084RmkJ4YdEi5tngynE8aZe2uExxx
+git.moumentei.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILQaptBrxxxxH+QM6SrUi9qVzXBdNdXX7roBcgithub.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVxxxoqKLsabgH5C9okWi0dh2l9GKJl
+github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2xxxbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTxxxNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+github.com ssh-ed25519 AAAAC3NzaC1lZDxxxMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+git.moumentei.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILQaptBrtxxxQM6SrUi9qVzXBdNdXX7roBc
 ```
 
 ## 快速配置SSH keys
@@ -216,7 +216,7 @@ Mac下打开终端，输入open ~/.ssh，进入.ssh文件夹<br>查看`id_rsa.pu
 ```
 $ ssh -T git@git.gxatek.com
 The authenticity of host 'git.gxatek.com (10.103.106.14)' can't be established.
-ED25519 key fingerprint is SHA256:RCkEUtOACSLGzMYEc2aIlR9PKtTQxe8moYi47iMYAek.
+ED25519 key fingerprint is SHA256:RCkEUtOACSLGzMYEcxxxmoYi47iMYAek.
 This key is not known by any other names
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added 'git.gxatek.com' (ED25519) to the list of known hosts.
