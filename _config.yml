@@ -19,18 +19,18 @@
 # in the templates via {{ site.myvariable }}.
 
 # URL is the base hostname with protocol for your site, eg http://example.com
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://pages.hacket.me/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # If you want to install this jekyll in a subpath (eg /digitalgarden) set it here. 
 # Else keep it Empty (DON'T PUT /; Keep it empty)
-baseurl: ""
+baseurl: "obsidian/garden"
 
 # Website Header, Description, Footer year and text. 
 # If you are deleting this, make sure you remove it from HTML files too 
-heading: Jekyll Garden # Change this 
+heading: Hacket Garden # Change this 
 content: Obsidian ready Jekyll Theme
 copyright:  
-  year: © 2022
+  year: © 2025
   msg: Contents under CC-BY-NC 
 
 # Set title and content for private & broken link tooltop
