@@ -1,6 +1,6 @@
 ---
 date created: 2024-12-24 00:28
-date updated: 2024-12-30 00:40
+date updated: 2024-12-30 00:44
 dg-publish: true
 ---
 
@@ -1388,12 +1388,13 @@ ofMultiInt(Object target, String propertyName,
 TypeConverter<T, int[]> converter, TypeEvaluator evaluator, T… values)
 ```
 
-### ofMultiInt(Object target, String propertyName, int[][] values) (API21)
+### ofMultiInt (API21)
 
+`OfMultiInt (Object target, String propertyName, int[][] values)`
 **参数说明：**
 
 1. propertyName:进行动画的属性名
-2. values[][]:二维数组，至少两组数据，每个values[]中存放一个setter函数中所有的参数，然后从values[0]中取值为动画开始值，从values[最后一组]中取值为动画最后的值，如果之间还有值，就作为过渡，从values[0]-values[1]-…
+2. `values[][]`:二维数组，至少两组数据，每个`values[]`中存放一个setter函数中所有的参数，然后从`values[0]`中取值为动画开始值，从`values[最后一组]`中取值为动画最后的值，如果之间还有值，就作为过渡，从`values[0]-values[1]-…`
 
 > setXXX有n个参数，就是n维数组；起始values和结束values是固定的；需要自定义view添加getter，setter函数。
 
@@ -1514,7 +1515,7 @@ I: data1:4，data2:9
 I: data1:5，data2:9
 ```
 
-### ofMultiInt() (API21)
+### ofMultiInt()  TypeConverter (API21)
 
 `ofMultiInt (Object target, String propertyName, TypeConverter<T, int[]> converter, TypeEvaluator evaluator, T… values)` (API 21)
 **参数说明**
