@@ -4,7 +4,7 @@ tags:
   - '#!/bin/zsh'
   - '#=号两边不能有空格'
   - '#adb'
-date updated: 2024-12-23 23:41
+date updated: 2024-12-31 00:07
 dg-publish: true
 ---
 
@@ -14,7 +14,7 @@ dg-publish: true
 
 > /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
 
-报错：Warning: /opt/homebrew/bin is not in your PATH.<br />解决：`export PATH=/opt/homebrew/bin:$PATH`，或永久编辑到`~/.zshrc`或`~/.bashrc`
+报错：Warning: /opt/homebrew/bin is not in your PATH.<br>解决：`export PATH=/opt/homebrew/bin:$PATH`，或永久编辑到`~/.zshrc`或`~/.bashrc`
 
 # iTerm2
 
@@ -22,7 +22,7 @@ dg-publish: true
 
 1. 手动下载安装
 
-是一个终端，替代Mac自带的终端，可以设置终端的主题	<br /><https://iterm2.com/downloads.html>
+是一个终端，替代Mac自带的终端，可以设置终端的主题	<br><https://iterm2.com/downloads.html>
 
 2. 通过homebrew安装
 
@@ -58,54 +58,34 @@ cat /etc/shells
 
 ### 安装Nerd Fonts
 
-使用的theme中有很多小图标，需要使用支持这些图标的icon font，这类字体称为powerline font(plus版的支持更多图标的称为：nerd font)<br />没有安装icon font的界面：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1683525712264-743edf35-0dbd-4937-8484-748bf5f310ce.png#averageHue=%2315212a&clientId=uc5fb2a63-2aab-4&from=paste&height=38&id=ucc06610a&originHeight=76&originWidth=1706&originalType=binary&ratio=2&rotation=0&showTitle=false&size=50109&status=done&style=none&taskId=u0b5ac531-1d3f-4b30-9cd8-687125a45fd&title=&width=853)<br />设置字体：`iTerm2 -> Preferences -> Profiles -> Text -> Font -> Change Font`
+使用的theme中有很多小图标，需要使用支持这些图标的icon font，这类字体称为powerline font(plus版的支持更多图标的称为：nerd font)<br>没有安装icon font的界面：<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1683525712264-743edf35-0dbd-4937-8484-748bf5f310ce.png#averageHue=%2315212a&clientId=uc5fb2a63-2aab-4&from=paste&height=38&id=ucc06610a&originHeight=76&originWidth=1706&originalType=binary&ratio=2&rotation=0&showTitle=false&size=50109&status=done&style=none&taskId=u0b5ac531-1d3f-4b30-9cd8-687125a45fd&title=&width=853)<br>设置字体：`iTerm2 -> Preferences -> Profiles -> Text -> Font -> Change Font`
 
 ### window设置半透明/blur
 
-路径：`菜单栏 -> Preferences -> Profiles -> Window`<br />Transparency：10 透明度设置<br />Blur：4 模糊度设置<br />Enabled：开启背景图片<br />Mode：Scale to Fill 填充<br />Blending：30 背景纯色与背景图片的混合度<br />Rows：20 新窗口显示的行数（高度）<br />style：新窗口的位置，我习惯设置Full-Width Top of Screen
+路径：`菜单栏 -> Preferences -> Profiles -> Window`<br>Transparency：10 透明度设置<br>Blur：4 模糊度设置<br>Enabled：开启背景图片<br>Mode：Scale to Fill 填充<br>Blending：30 背景纯色与背景图片的混合度<br>Rows：20 新窗口显示的行数（高度）<br>style：新窗口的位置，我习惯设置Full-Width Top of Screen
 
 ### 状态栏设置
 
-路径：`菜单栏 -> Preferences -> Profiles -> 分栏Session`<br />Status bar enabled：拖动你喜欢的Item
+路径：`菜单栏 -> Preferences -> Profiles -> 分栏Session`<br>Status bar enabled：拖动你喜欢的Item
 
 ### iterm2 zsh隐藏命令行前面的用户名和主机名
 
 修改`vim ~/.zshrc`文件,在文件底部增加
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202412310007947.png)
 
-```shell
-# 隐藏用户名和主机名
-prompt_context() {}
-
-# 只保留用户名，隐藏主机名
-# prompt_context() {
-#   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-#     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-#     ## # 修改如下代码，@Mac可以你自己定义的字符串
-#     # prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@Mac"
-#   fi
-# }
-
-# 只保留主机名，隐藏用户名
-# prompt_context() {
-#   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-#     prompt_segment black default "%(!.%{%F{yellow}%}.)$HOST"
-#   fi
-# }
-```
-
-修改后执行 `source ~/.zshrc`就能看到效果。<br />用户名也可以自定义
+修改后执行 `source ~/.zshrc`就能看到效果。<br>用户名也可以自定义
 
 # zsh
 
 ## 什么是zsh?
 
-Zsh 也被称为 z Shell，它扩展了 Bourne Shell (sh)的功能，提供了更新的特性以及对插件和主题的更多支持。从2019年的 MacOS Catalina 开始，Zsh 成为 Mac 电脑中默认的登录和交互式 shell。<br />Zsh 本身既不美观也不智能，但它具有可扩展性，因此可以应用社区开发的插件使其美观而强大。<br />Zsh 非常受欢迎,它被发布到几乎所有 Unix 发行版(Ubuntu、Centos、macOS 等)的包存储库中，因此您可以使用包管理器轻松安装 Zsh
+Zsh 也被称为 z Shell，它扩展了 Bourne Shell (sh)的功能，提供了更新的特性以及对插件和主题的更多支持。从2019年的 MacOS Catalina 开始，Zsh 成为 Mac 电脑中默认的登录和交互式 shell。<br>Zsh 本身既不美观也不智能，但它具有可扩展性，因此可以应用社区开发的插件使其美观而强大。<br>Zsh 非常受欢迎,它被发布到几乎所有 Unix 发行版(Ubuntu、Centos、macOS 等)的包存储库中，因此您可以使用包管理器轻松安装 Zsh
 
 ## antigen 用于 zsh 的插件管理器
 
 ### 什么是[antigen](https://github.com/zsh-users/antigen)？
 
-Zsh 支持可插拔性,以便用户可以安装插件并扩展其功能。但是 Zsh 本身并没有提供很好的插件管理机制,包括获取、安装、更新、移除插件等。<br />Antigen很好地承担了这个责任。大多数 Zsh 插件都以 git 存储库的形式发布。 Antigen 允许我们简单地指定远程存储库的路径，然后它会在第一次运行时自动获取和安装。 Antigen 还提供了轻松更新和删除插件的命令。
+Zsh 支持可插拔性,以便用户可以安装插件并扩展其功能。但是 Zsh 本身并没有提供很好的插件管理机制,包括获取、安装、更新、移除插件等。<br>Antigen很好地承担了这个责任。大多数 Zsh 插件都以 git 存储库的形式发布。 Antigen 允许我们简单地指定远程存储库的路径，然后它会在第一次运行时自动获取和安装。 Antigen 还提供了轻松更新和删除插件的命令。
 
 ### [安装antigen](https://github.com/zsh-users/antigen/wiki/Installation)
 
@@ -207,7 +187,7 @@ rm -rf fonts
 
 ### [nerd-fonts](https://github.com/ryanoasis/nerd-fonts#font-installation)
 
-nerd font很多安装方式，推荐用homebrew<br />[homebrew 安装 nerd fonts](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
+nerd font很多安装方式，推荐用homebrew<br>[homebrew 安装 nerd fonts](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
 
 ```shell
 brew tap homebrew/cask-fonts
@@ -294,7 +274,7 @@ ZSH_THEME="agnoster"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 ```
 
-Oh my zsh主题查看：在`~/.oh-my-zsh/themes`<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1683515137238-1729e9ba-d879-462d-b774-a98fe688345b.png#averageHue=%237a7b7a&clientId=u2345c8ec-0eda-4&from=paste&height=358&id=u5d12fef2&originHeight=956&originWidth=524&originalType=binary&ratio=2&rotation=0&showTitle=false&size=122096&status=done&style=none&taskId=u23bc984c-bf70-40fc-a5ec-53dd5f412d9&title=&width=196)
+Oh my zsh主题查看：在`~/.oh-my-zsh/themes`<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1683515137238-1729e9ba-d879-462d-b774-a98fe688345b.png#averageHue=%237a7b7a&clientId=u2345c8ec-0eda-4&from=paste&height=358&id=u5d12fef2&originHeight=956&originWidth=524&originalType=binary&ratio=2&rotation=0&showTitle=false&size=122096&status=done&style=none&taskId=u23bc984c-bf70-40fc-a5ec-53dd5f412d9&title=&width=196)
 
 ### 系统主题
 
@@ -302,14 +282,14 @@ Oh my zsh主题查看：在`~/.oh-my-zsh/themes`<br />![image.png](https://cdn.n
 
 #### [powerlevel9k（p9k）](https://github.com/Powerlevel9k/powerlevel9k) zsh下最棒的Powerline主题
 
-Powerlevel9k主题可以用于 vanilla ZSH 或 ZSH 框架，如 oh-my-ZSH、 Prezto、 Antigen 等。<br />Powerlevel9k的四个主要目标：
+Powerlevel9k主题可以用于 vanilla ZSH 或 ZSH 框架，如 oh-my-ZSH、 Prezto、 Antigen 等。<br>Powerlevel9k的四个主要目标：
 
 - 开箱即用：让用户无需过多配置即可拥有一个让人眼前一亮的主题
 - 极易定制：为那些想调整提示符的用户，提供更加语义化和模块化的方式直接在 ~/.zshrc 中进行配置。Powerlevel9k将提示符分割成不同的分段，用户可以使用这些内置的分段来自由组合最终的提示符。
 - 提供丰富的配置分段(Segments)：内置分段涵盖使用场景非常多；从表示计算机状态的分段到单元测试覆盖率的分段再到 AWS 实例的分段，都有提供。
 - 保证主题渲染的速度：Powerlevel9k 尽可能优化代码以提高执行速度
 
-**安装 Powerlevel9k**<br />涉及两个步骤：
+**安装 Powerlevel9k**<br>涉及两个步骤：
 
 - [安装 Powerline 字体](https://github.com/Powerlevel9k/powerlevel9k/wiki/Install-Instructions#step-2-install-a-powerline-font)/nerd字体（p9k依赖[powerline/fonts](https://github.com/powerline/fonts)字体库） 安装步骤见`zsh字体`章节
 - 安装 Powerlevel9k 主题
@@ -341,7 +321,7 @@ Powerlevel9k主题可以用于 vanilla ZSH 或 ZSH 框架，如 oh-my-ZSH、 Pre
 
 ### solarized
 
-solarized是目前最完整的配色项目了，几乎覆盖主流的操作系统（Mac OS X，Linux，Windows）、编辑器和IDE（Vim，Emacs,Xcode等）、终端（Iterm2, Terminal.app等）<br />[下载链接](http://ethanschoonover.com/solarized/files/solarized.zip)<br />在solarized/iterm2-colors-solarized 下双击 `Solarized Dark.itermcolors` 和 `Solarized Light.itermcolors`两个文件就可以把配置文件导入到 iTerm2 里<br />在`iTerm→Preferences→Colors→color Presets→选择solarized Dark或Light`
+solarized是目前最完整的配色项目了，几乎覆盖主流的操作系统（Mac OS X，Linux，Windows）、编辑器和IDE（Vim，Emacs,Xcode等）、终端（Iterm2, Terminal.app等）<br>[下载链接](http://ethanschoonover.com/solarized/files/solarized.zip)<br>在solarized/iterm2-colors-solarized 下双击 `Solarized Dark.itermcolors` 和 `Solarized Light.itermcolors`两个文件就可以把配置文件导入到 iTerm2 里<br>在`iTerm→Preferences→Colors→color Presets→选择solarized Dark或Light`
 
 ## 其他配置
 
@@ -358,7 +338,7 @@ export LC_ALL=en_US.UTF-8
 
 ## `大圣.zshrc单独完整配置`
 
-[zsh终端环境配置.zshrc 截止2023年08月19日.zip](https://www.yuque.com/attachments/yuque/0/2023/zip/694278/1693487191712-ac2df86e-86a6-4c46-bc7a-567ab62d1941.zip?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fzip%2F694278%2F1693487191712-ac2df86e-86a6-4c46-bc7a-567ab62d1941.zip%22%2C%22name%22%3A%22zsh%E7%BB%88%E7%AB%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.zshrc%20%E6%88%AA%E6%AD%A22023%E5%B9%B408%E6%9C%8819%E6%97%A5.zip%22%2C%22size%22%3A6192%2C%22ext%22%3A%22zip%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22uc67e6e80-3424-43a1-b02a-78eb1e05160%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22application%2Fzip%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u28e4a15e%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br />[easyproxy_proxyman.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170245466-ade90fb0-c54c-4653-b748-09a301445590.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170245466-ade90fb0-c54c-4653-b748-09a301445590.sh%22%2C%22name%22%3A%22easyproxy_proxyman.sh%22%2C%22size%22%3A1299%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u93c51aff-2437-4179-a025-3fd3d4f207d%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u3c86580d%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br />[easyproxy.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170245458-243d97da-b341-45fc-9398-5db9b054bc12.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170245458-243d97da-b341-45fc-9398-5db9b054bc12.sh%22%2C%22name%22%3A%22easyproxy.sh%22%2C%22size%22%3A1299%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u9c8f3bfb-badb-4517-9209-f19cb3590b1%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22uf43a7551%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br />[script_of_justice.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170245478-873bd824-88eb-4178-8a69-2cdcf9137478.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170245478-873bd824-88eb-4178-8a69-2cdcf9137478.sh%22%2C%22name%22%3A%22script_of_justice.sh%22%2C%22size%22%3A586%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22ue1db15de-7d13-4041-a9ca-536b89a9f98%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u2a8b060d%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br />[work.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170427269-7db6ed72-f028-47ed-a1ca-889c4f7cb41e.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170427269-7db6ed72-f028-47ed-a1ca-889c4f7cb41e.sh%22%2C%22name%22%3A%22work.sh%22%2C%22size%22%3A439%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u0e8dd147-02b7-4cfe-8d4d-7d1bf2d8bb0%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22ue73ae702%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br />[click.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170245607-9c39afc5-ddc3-459b-b14b-65f1e658469a.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170245607-9c39afc5-ddc3-459b-b14b-65f1e658469a.sh%22%2C%22name%22%3A%22click.sh%22%2C%22size%22%3A169%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u4ae7d1a3-cd38-4aca-bb88-f6a0f020664%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u72b2bd84%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br />[git-batch.py](https://www.yuque.com/attachments/yuque/0/2023/py/694278/1693487237211-2fd117bb-48d9-424b-85da-fa3d5788ce62.py?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fpy%2F694278%2F1693487237211-2fd117bb-48d9-424b-85da-fa3d5788ce62.py%22%2C%22name%22%3A%22git-batch.py%22%2C%22size%22%3A15271%2C%22ext%22%3A%22py%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22uacce4ed8-f3da-45e6-bb22-0ae634d3801%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-python-script%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22ua21d2171%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)
+[zsh终端环境配置.zshrc 截止2023年08月19日.zip](https://www.yuque.com/attachments/yuque/0/2023/zip/694278/1693487191712-ac2df86e-86a6-4c46-bc7a-567ab62d1941.zip?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fzip%2F694278%2F1693487191712-ac2df86e-86a6-4c46-bc7a-567ab62d1941.zip%22%2C%22name%22%3A%22zsh%E7%BB%88%E7%AB%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.zshrc%20%E6%88%AA%E6%AD%A22023%E5%B9%B408%E6%9C%8819%E6%97%A5.zip%22%2C%22size%22%3A6192%2C%22ext%22%3A%22zip%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22uc67e6e80-3424-43a1-b02a-78eb1e05160%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22application%2Fzip%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u28e4a15e%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br>[easyproxy_proxyman.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170245466-ade90fb0-c54c-4653-b748-09a301445590.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170245466-ade90fb0-c54c-4653-b748-09a301445590.sh%22%2C%22name%22%3A%22easyproxy_proxyman.sh%22%2C%22size%22%3A1299%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u93c51aff-2437-4179-a025-3fd3d4f207d%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u3c86580d%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br>[easyproxy.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170245458-243d97da-b341-45fc-9398-5db9b054bc12.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170245458-243d97da-b341-45fc-9398-5db9b054bc12.sh%22%2C%22name%22%3A%22easyproxy.sh%22%2C%22size%22%3A1299%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u9c8f3bfb-badb-4517-9209-f19cb3590b1%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22uf43a7551%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br>[script_of_justice.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170245478-873bd824-88eb-4178-8a69-2cdcf9137478.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170245478-873bd824-88eb-4178-8a69-2cdcf9137478.sh%22%2C%22name%22%3A%22script_of_justice.sh%22%2C%22size%22%3A586%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22ue1db15de-7d13-4041-a9ca-536b89a9f98%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u2a8b060d%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br>[work.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170427269-7db6ed72-f028-47ed-a1ca-889c4f7cb41e.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170427269-7db6ed72-f028-47ed-a1ca-889c4f7cb41e.sh%22%2C%22name%22%3A%22work.sh%22%2C%22size%22%3A439%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u0e8dd147-02b7-4cfe-8d4d-7d1bf2d8bb0%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22ue73ae702%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br>[click.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1692170245607-9c39afc5-ddc3-459b-b14b-65f1e658469a.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1692170245607-9c39afc5-ddc3-459b-b14b-65f1e658469a.sh%22%2C%22name%22%3A%22click.sh%22%2C%22size%22%3A169%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u4ae7d1a3-cd38-4aca-bb88-f6a0f020664%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u72b2bd84%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br>[git-batch.py](https://www.yuque.com/attachments/yuque/0/2023/py/694278/1693487237211-2fd117bb-48d9-424b-85da-fa3d5788ce62.py?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fpy%2F694278%2F1693487237211-2fd117bb-48d9-424b-85da-fa3d5788ce62.py%22%2C%22name%22%3A%22git-batch.py%22%2C%22size%22%3A15271%2C%22ext%22%3A%22py%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22uacce4ed8-f3da-45e6-bb22-0ae634d3801%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-python-script%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22ua21d2171%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)
 
 ## 大圣zshrc和shell脚本分开
 
@@ -1516,7 +1496,7 @@ function whenceFunction() {
 }
 ```
 
-[git-batch.py](https://www.yuque.com/attachments/yuque/0/2023/py/694278/1693487253171-f3d430e2-10bb-4588-a769-0bb7c4fe01cd.py?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fpy%2F694278%2F1693487253171-f3d430e2-10bb-4588-a769-0bb7c4fe01cd.py%22%2C%22name%22%3A%22git-batch.py%22%2C%22size%22%3A15271%2C%22ext%22%3A%22py%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22udb2ac898-6600-4514-9fb7-90e0f947fe2%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-python-script%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u5803d5a3%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br />[click.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1693487274191-9c3d2d7d-c42e-42e1-995e-0a1253b30f27.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1693487274191-9c3d2d7d-c42e-42e1-995e-0a1253b30f27.sh%22%2C%22name%22%3A%22click.sh%22%2C%22size%22%3A169%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u8ace6504-a860-4d4a-b20d-0e5d675c906%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22ue3957b27%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)
+[git-batch.py](https://www.yuque.com/attachments/yuque/0/2023/py/694278/1693487253171-f3d430e2-10bb-4588-a769-0bb7c4fe01cd.py?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fpy%2F694278%2F1693487253171-f3d430e2-10bb-4588-a769-0bb7c4fe01cd.py%22%2C%22name%22%3A%22git-batch.py%22%2C%22size%22%3A15271%2C%22ext%22%3A%22py%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22udb2ac898-6600-4514-9fb7-90e0f947fe2%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-python-script%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u5803d5a3%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)<br>[click.sh](https://www.yuque.com/attachments/yuque/0/2023/sh/694278/1693487274191-9c3d2d7d-c42e-42e1-995e-0a1253b30f27.sh?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fsh%2F694278%2F1693487274191-9c3d2d7d-c42e-42e1-995e-0a1253b30f27.sh%22%2C%22name%22%3A%22click.sh%22%2C%22size%22%3A169%2C%22ext%22%3A%22sh%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u8ace6504-a860-4d4a-b20d-0e5d675c906%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22text%2Fx-sh%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22ue3957b27%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)
 
 # 遇到的问题
 
@@ -1527,7 +1507,7 @@ function whenceFunction() {
 
 ## oh-my-zsh 特殊字符无法显示
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1683520671297-530696a4-5d53-4a25-8683-a4a2e74d8a8b.png#averageHue=%23ece9e7&clientId=u1efcb5de-6a7e-4&from=paste&height=62&id=u943723bb&originHeight=124&originWidth=1136&originalType=binary&ratio=2&rotation=0&showTitle=false&size=36479&status=done&style=none&taskId=uf40e15a7-6807-4d04-8cb0-937b6fa0778&title=&width=568)<br />**原因**<br />现有的字体不支持这些符合的显示<br />**解决1**
+![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1683520671297-530696a4-5d53-4a25-8683-a4a2e74d8a8b.png#averageHue=%23ece9e7&clientId=u1efcb5de-6a7e-4&from=paste&height=62&id=u943723bb&originHeight=124&originWidth=1136&originalType=binary&ratio=2&rotation=0&showTitle=false&size=36479&status=done&style=none&taskId=uf40e15a7-6807-4d04-8cb0-937b6fa0778&title=&width=568)<br>**原因**<br>现有的字体不支持这些符合的显示<br>**解决1**
 
 1. 安装nerd fonts
 2. iTerm2中设置字体为nerd相关的字体
@@ -1536,7 +1516,7 @@ function whenceFunction() {
 
 3. 解决后
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1683520835930-033c71a1-e35d-4381-acc8-c20ae85b412d.png#averageHue=%234e4d4b&clientId=u1efcb5de-6a7e-4&from=paste&height=92&id=u27a22942&originHeight=184&originWidth=1134&originalType=binary&ratio=2&rotation=0&showTitle=false&size=43269&status=done&style=none&taskId=u453ad5a3-f70d-4615-b36d-cac83d22306&title=&width=567)<br />**解决2：**
+![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1683520835930-033c71a1-e35d-4381-acc8-c20ae85b412d.png#averageHue=%234e4d4b&clientId=u1efcb5de-6a7e-4&from=paste&height=92&id=u27a22942&originHeight=184&originWidth=1134&originalType=binary&ratio=2&rotation=0&showTitle=false&size=43269&status=done&style=none&taskId=u453ad5a3-f70d-4615-b36d-cac83d22306&title=&width=567)<br>**解决2：**
 
 - 安装Menlo for Powerline字体	mkdir ~/.fonts
 
