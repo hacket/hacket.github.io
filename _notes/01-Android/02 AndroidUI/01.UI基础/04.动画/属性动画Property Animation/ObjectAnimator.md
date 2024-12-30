@@ -1,6 +1,6 @@
 ---
 date created: 2024-12-24 00:28
-date updated: 2024-12-30 23:40
+date updated: 2024-12-30 23:44
 dg-publish: true
 tags:
   - '#ofInt'
@@ -1442,7 +1442,6 @@ public class ViewDemo24 extends android.support.v7.widget.AppCompatTextView {
 使用：
 
 ```java
-// int[][] data = {{0,2},{4,12}};
 ObjectAnimator objectAnimator = ObjectAnimator.ofMultiInt(viewDemo24,"mulText",data);
 objectAnimator.setDuration(3000);
 objectAnimator.setRepeatCount(-1);
@@ -1464,7 +1463,7 @@ I: data1:4data2:12
 
 过程分析：
 
-`setMulText` 有2个参数，对应了二维数组，从 `data[0][0]=0,2` 开始，到 `data[1][1]=4,12`，这2个是固定的，如果中间有过渡值，那么就慢慢过渡过来。如data第1个参数就从 `1~4`，第2个参数就从 `9~12`.
+`setMulText` 有2个参数，对应了二维数组，从 `data[0][0]=1,9` 开始，到 `data[1][1]=4,12`，这2个是固定的，如果中间有过渡值，那么就慢慢过渡过来。如data第1个参数就从 `1~4`，第2个参数就从 `9~12`.
 
 若改成下面，data第1个参数就没有渐变了，直接1最后到2。
 
