@@ -1,7 +1,15 @@
 ---
 date created: 2024-12-24 00:28
-date updated: 2024-12-30 00:44
+date updated: 2024-12-30 08:03
 dg-publish: true
+tags:
+  - '#ofInt'
+  - '#ofFloat'
+  - '#ofObject'
+  - '#ofMultiInt'
+  - '#ofMultiFloat'
+  - '#ofKeyframes'
+  - '#ofKeyframe'
 ---
 
 # ObjectAnimator
@@ -1434,7 +1442,7 @@ public class ViewDemo24 extends android.support.v7.widget.AppCompatTextView {
 使用：
 
 ```java
-int[][] data = {{1,9},{4,12}};
+// int[][] data = {{1,9},{4,12}};
 ObjectAnimator objectAnimator = ObjectAnimator.ofMultiInt(viewDemo24,"mulText",data);
 objectAnimator.setDuration(3000);
 objectAnimator.setRepeatCount(-1);
@@ -1525,7 +1533,7 @@ I: data1:5，data2:9
 3. evaluator 估值器
 4. values，同上面的values
 
-> Converter:把T类型转换成需要的int[]数组，然后利用估值器计算T 得到ObjectAnimator需要的类型。
+> Converter:把T类型转换成需要的`int[]`数组，然后利用估值器计算T 得到ObjectAnimator需要的类型。
 
 用到的自定义T类型：
 
@@ -1552,7 +1560,7 @@ public static class Point {
 }
 ```
 
-自定义类型转换，把上面自定义的Point类型转换成int[]数组：
+自定义类型转换，把上面自定义的Point类型转换成`int[]`数组：
 
 ```java
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -1648,7 +1656,7 @@ ofObject(T target, Property<T, V> property, TypeEvaluator<V> evaluator, V... val
 
 ### ofObject() TypeEvaluator
 
-ofObject (T target, Property<T, V> property, TypeEvaluator evaluator, V… values)
+`ofObject(T target, Property<T, V> property, TypeEvaluator evaluator, V… values)`
 **参数说明：**
 
 1. target:动画目标对象
@@ -1779,19 +1787,19 @@ objectAnimator.start();
 
 ### PropertyValuesHolder
 
-#### PropertyValuesHolder#ofInt
+- `PropertyValuesHolder#ofInt`
 
-#### PropertyValuesHolder#ofFloat
+- `PropertyValuesHolder#ofFloat`
 
-#### PropertyValuesHolder#ofObject
+- `PropertyValuesHolder#ofObject`
 
-#### PropertyValuesHolder#ofMultiInt
+- `PropertyValuesHolder#ofMultiInt`
 
-#### PropertyValuesHolder#ofMultiFloat
+- `PropertyValuesHolder#ofMultiFloat`
 
-#### PropertyValuesHolder#ofKeyframes
+- `PropertyValuesHolder#ofKeyframes`
 
-#### PropertyValuesHolder#ofKeyframe 把同一个属性拆分
+- `PropertyValuesHolder#ofKeyframe` 把同一个属性拆分
 
 ```java
 // 在 0% 处开始
@@ -1806,4 +1814,5 @@ ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view, holder);
 animator.start();
 ```
 
-通过设置 Keyframe （关键帧），把同一个动画属性拆分成多个阶段。例如，你可以让一个进度增加到 100% 后再「反弹」回来。<br />![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188828445-2010109e-8f1e-4f59-9d27-fc95d37ae9a6.gif#averageHue=%23292b29&clientId=ube8c8cf8-1eef-4&height=201&id=AWio5&originHeight=252&originWidth=452&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u1c45a571-7403-4330-ad90-bea4c934dc9&title=&width=361)
+通过设置 Keyframe （关键帧），把同一个动画属性拆分成多个阶段。例如，你可以让一个进度增加到 100% 后再「反弹」回来。
+![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188828445-2010109e-8f1e-4f59-9d27-fc95d37ae9a6.gif#averageHue=%23292b29&clientId=ube8c8cf8-1eef-4&height=201&id=AWio5&originHeight=252&originWidth=452&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u1c45a571-7403-4330-ad90-bea4c934dc9&title=&width=361)

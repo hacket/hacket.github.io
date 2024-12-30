@@ -712,7 +712,7 @@ btn_query_all_coroutine.setOnClickListener {
 
 1. java
 
-```
+```groovy
 android {
     // ...
     defaultConfig {
@@ -729,7 +729,7 @@ android {
 
 2. kotlin
 
-```
+```groovy
 kapt {
     arguments {
         // 配置并启用将数据库架构导出到给定目录中的 JSON 文件的功能
