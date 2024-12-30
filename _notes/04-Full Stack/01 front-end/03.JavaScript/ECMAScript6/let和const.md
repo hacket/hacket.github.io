@@ -1,6 +1,6 @@
 ---
 date created: 2024-12-25 00:57
-date updated: 2024-12-25 00:57
+date updated: 2024-12-31 00:01
 dg-publish: true
 ---
 
@@ -140,19 +140,19 @@ function f1() {
 ES6 允许块级作用域的任意嵌套。
 
 ```javascript
-{{{{
-  {let insane = 'Hello World'}
+\{\{\{\{
+  \{let insane = 'Hello World'\}
   console.log(insane); // 报错
-}}}};
+\}\}\}\};
 ```
 
 内层作用域可以定义外层作用域的同名变量。
 
 ```javascript
-{{{{
+\{\{\{\{
   let insane = 'Hello World';
-  {let insane = 'Hello World'}
-}}}};
+  \{let insane = 'Hello World'\}
+\}\}\}\};
 ```
 
 块级作用域的出现，实际上使得获得广泛应用的匿名立即执行函数表达式（`匿名 IIFE`）不再必要了。
