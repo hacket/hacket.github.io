@@ -1,7 +1,10 @@
 ---
 date created: 2024-12-27 23:47
-date updated: 2024-12-27 23:47
+date updated: 2025-01-02 23:26
 dg-publish: true
+image-auto-upload: true
+feed: show
+format: list
 ---
 
 Python中实现并发编程的三种方案：`多线程`、`多进程`和`异步I/O`。并发编程的好处在于可以提升程序的执行效率以及改善用户体验；坏处在于并发的程序不容易开发和调试，同时对其他程序来说它并不友好。#

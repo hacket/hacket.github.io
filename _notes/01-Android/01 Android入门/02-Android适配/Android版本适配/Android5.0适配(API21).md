@@ -1,26 +1,31 @@
 ---
-date created: 2024-03-13 20:38
-tags:
-  - '#33:'
-date updated: 2024-12-24 00:26
+date created: 星期三, 三月 13日 2024, 8:38:00 晚上
+date updated: 星期四, 一月 2日 2025, 9:02:26 晚上
+title: Android5.0适配(API21)
 dg-publish: true
+image-auto-upload: true
+feed: show
+format: list
+tags: []
+aliases: [Android5（API21）]
+linter-yaml-title-alias: Android5（API21）
 ---
 
 # Android5（API21）
 
 ## ViewOutlineProvider
 
-### 什么是ViewOutlineProvider？
+### 什么是 ViewOutlineProvider？
 
-ViewOutlineProvider可以用它来把 View 裁剪成一些特定(圆形、矩形、圆角矩形)的形状。
+ViewOutlineProvider 可以用它来把 View 裁剪成一些特定 (圆形、矩形、圆角矩形) 的形状。
 
 ViewOutlineProvider(轮廓提供者的使用步骤)
 
-1. 自定义轮廓提供者，并重写getOutline方法来提取轮廓；
-2. 通过view.setClipToOutline(true)方法来开启组件的裁剪功能；
-3. 通过view.setOutlineProvider(new MyViewOutlineProvider() 方法设置自定义的轮廓提供者来完成裁剪。
+1. 自定义轮廓提供者，并重写 getOutline 方法来提取轮廓；
+2. 通过 view.setClipToOutline(true) 方法来开启组件的裁剪功能；
+3. 通过 view.setOutlineProvider(new MyViewOutlineProvider() 方法设置自定义的轮廓提供者来完成裁剪。
 
-### ViewOutlineProvider功能
+### ViewOutlineProvider 功能
 
 #### setOval 圆形
 
@@ -47,7 +52,7 @@ fun setOvalClick(view: View) {
 }
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687708028120-e5669f59-584a-4e28-9575-39e32217dfe2.png#averageHue=%23d4d5d5&clientId=u6489606a-5baf-4&from=paste&height=347&id=ube3de814&originHeight=532&originWidth=454&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ua9658cd6-4c14-49ab-87f2-06b1b70f927&title=&width=296)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1687708028120-e5669f59-584a-4e28-9575-39e32217dfe2.png)
 
 #### setRoundRect 圆角
 
@@ -61,7 +66,7 @@ view.setOutlineProvider(new ViewOutlineProvider() {
 view.setClipToOutline(true);
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687708037445-bd79fa50-5111-4f2c-87af-b156426f3d5f.png#averageHue=%23f9fafb&clientId=u6489606a-5baf-4&from=paste&id=u2ea773dd&originHeight=194&originWidth=310&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u6da70809-2127-4274-aee4-df75a38672f&title=)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1687708037445-bd79fa50-5111-4f2c-87af-b156426f3d5f.png)
 
 #### setRect 裁剪
 
@@ -91,7 +96,7 @@ fun setRectClick(view: View) {
 }
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687708047914-5aa39fec-d4a7-4a5d-ba1a-cb568be803e4.png#averageHue=%2394abbc&clientId=u6489606a-5baf-4&from=paste&height=253&id=u2ccc47b8&originHeight=504&originWidth=932&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u3d86c758-213e-43c5-b960-25c6136a3aa&title=&width=467)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1687708047914-5aa39fec-d4a7-4a5d-ba1a-cb568be803e4.png)
 
 #### setPath 设置投影
 
@@ -113,7 +118,7 @@ view.setOutlineProvider(new ViewOutlineProvider() {
 });
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687708059208-d956f75e-61db-493c-a66c-49a9321d0f56.png#averageHue=%23f9f9f7&clientId=u6489606a-5baf-4&from=paste&height=229&id=u180053af&originHeight=370&originWidth=608&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u41869ac5-292a-43ad-b836-adda13bc9d0&title=&width=376)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1687708059208-d956f75e-61db-493c-a66c-49a9321d0f56.png)
 
 #### 封装
 
@@ -192,11 +197,11 @@ cardView.outlineProvider = if (DirectionHelper.isRtl()) {
 }
 ```
 
-## Android5.1及以下onVisibilityChanged访问成员变量空指针
+## Android5.1 及以下 onVisibilityChanged 访问成员变量空指针
 
 ### 问题描述
 
-问题现象：Android5.1会出现npe，高版本不会
+问题现象：Android5.1 会出现 npe，高版本不会
 
 问题代码：
 
@@ -262,8 +267,8 @@ java.lang.RuntimeException:Unable to start activity ComponentInfo{qsbk.app.remix
 
 ### 问题复现
 
-1. 一个对象实例化过程为：初始化成员变量->调用init函数->调用构造函数
-2. 一个子类对象实例化过程为：父类初始化成员变量->父类init函数->父类构造函数→子类初始化成员变量->子类调用init函数->子类调用构造函数
+1. 一个对象实例化过程为：初始化成员变量 ->调用 init 函数 ->调用构造函数
+2. 一个子类对象实例化过程为：父类初始化成员变量 ->父类 init 函数 ->父类构造函数→子类初始化成员变量 ->子类调用 init 函数 ->子类调用构造函数
 
 现在复现问题：
 
@@ -323,11 +328,11 @@ Exception in thread "main" kotlin.TypeCastException: null cannot be cast to non-
 	at me.hacket.hello.Test2Kt.main(Test2.kt)
 ```
 
-原因：父类构造方法调用了子类需要重写的方法，子类在这方法调用了成员变量，而此时子类还没有成员变量初始化，就会NPE<br>结论：避免在父类的成员变量、构造方法、init方法中调用子类需要重写的方法；如果不可避免，需要避免子类在该重写的方法中调用成员变量，因为此时子类的成员变量还未初始化，可能导致不可预测的结果
+原因：父类构造方法调用了子类需要重写的方法，子类在这方法调用了成员变量，而此时子类还没有成员变量初始化，就会 NPE<br>结论：避免在父类的成员变量、构造方法、init 方法中调用子类需要重写的方法；如果不可避免，需要避免子类在该重写的方法中调用成员变量，因为此时子类的成员变量还未初始化，可能导致不可预测的结果
 
-### onVisibilityChanged源码追溯
+### onVisibilityChanged 源码追溯
 
-看Android5.1.1
+看 Android5.1.1
 
 ```java
 // View Android5.1.1_r38 https://cs.android.com/android/platform/superproject/+/android-5.1.1_r38:frameworks/base/core/java/android/view/View.java;bpv=0;bpt=1
@@ -352,9 +357,9 @@ protected void dispatchVisibilityChanged(@NonNull View changedView,
 }
 ```
 
-在构造方法中，调用setFlags，然后在setFlags调用dispatchVisibilityChanged，所以就会出现上诉问题。
+在构造方法中，调用 setFlags，然后在 setFlags 调用 dispatchVisibilityChanged，所以就会出现上诉问题。
 
-现在看Android6.0.1
+现在看 Android6.0.1
 
 ```java
 // View Android6.0.1_r67 https://cs.android.com/android/platform/superproject/+/android-6.0.1_r67:frameworks/base/core/java/android/view/View.java;l=10646;bpv=0;bpt=0
@@ -375,13 +380,13 @@ void dispatchAttachedToWindow(AttachInfo info, int visibility) {
 }
 ```
 
-在setFlags回调onVisibilityChanged之前会判断mAttachInfo是否为空，而mAttachInfo赋值的时机是该View被添加到窗口，即绘制第一帧时，且赋值后会回调onAttachedToWindow，在dispatchAttachedToWindow才会回调onVisibilityChanged。
+在 setFlags 回调 onVisibilityChanged 之前会判断 mAttachInfo 是否为空，而 mAttachInfo 赋值的时机是该 View 被添加到窗口，即绘制第一帧时，且赋值后会回调 onAttachedToWindow，在 dispatchAttachedToWindow 才会回调 onVisibilityChanged。
 
-可见在6.0，谷歌官方已经修复了这个可能导致开发者使用时崩溃的设计不合理的问题：不应该在构造方法中调用一个可被重写的方法。
+可见在 6.0，谷歌官方已经修复了这个可能导致开发者使用时崩溃的设计不合理的问题：不应该在构造方法中调用一个可被重写的方法。
 
 ### 问题解决
 
-1. 未attach的不执行逻辑
+1. 未 attach 的不执行逻辑
 
 ```kotlin
 override fun onVisibilityChanged(changedView: View, visibility: Int) {

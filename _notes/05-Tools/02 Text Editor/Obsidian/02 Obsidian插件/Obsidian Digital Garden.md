@@ -1,7 +1,10 @@
 ---
 date created: 2024-12-23 00:48
-date updated: 2024-12-29 23:03
+date updated: 2025-01-02 08:48
 dg-publish: true
+image-auto-upload: true
+feed: show
+format: list
 ---
 
 # Obsidian Digital Garden 插件
@@ -55,8 +58,14 @@ dg-home: true
 
 ![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202412232338250.png)
 
+## 版本更新
+
+obsidian-digital-garden 插件中提供了一个功能，它会自动检测 digitalgarden 的版本，使我们能够在 Obsidian 内部完成对我们的 Repo 的升级。功能的截图如下：
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501020847783.png)
+
+点击 Update 按钮，插件会自动发起一个 PR，将 digitalgarden 的更新发送到我们的 Repo。不过，合并 PR 还是得我们自己动手。
+
 ## Ref
 
 - [01 Getting started](https://dg-docs.ole.dev/getting-started/01-getting-started/)
-
-
+- [Obsidian-Digital-Garden](https://garden.maxieewong.com/000.wiki/Obsidian-Digital-Garden/)

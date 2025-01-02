@@ -1,9 +1,10 @@
 ---
 date created: 2024-12-24 00:25
-date updated: 2024-12-24 00:25
+date updated: 2025-01-01 20:41
 dg-publish: true
-tags:
-  - '#doOnApplyWindowInsets(View,ViewUtils.OnApplyWindowInsetsListener)}.'
+image-auto-upload: true
+feed: show
+format: list
 ---
 
 # fitsSystemWindow
@@ -37,8 +38,8 @@ System Windows顾名思义就是系统窗口，系统在这里显示系统一些
 
 ### fitSystemWindows(Rect)/dispatchApplyWindowInsets(Rect) 分发
 
-1. `~~View#fitSystemWindows(Rect insets)~~` 过时<br />API20过时，API20用`dispatchApplyWindowInsets(WindowInsets)`应用insets给view。
-2. `View#WindowInsets dispatchApplyWindowInsets(WindowInsets insets)`<br />该方法用于替代过时的`boolean fitSystemWindows(Rect insets)`方法，分发WindowInsets。
+1. `View#fitSystemWindows(Rect insets)` 过时<br />API20过时，API20用`dispatchApplyWindowInsets(WindowInsets)`应用insets给view。
+2. `View#WindowInsets dispatchApplyWindowInsets(WindowInsets insets)` 该方法用于替代过时的 `boolean fitSystemWindows(Rect insets)` 方法，分发WindowInsets。
 
 ### requestFitSystemWindows()/requestApplyInsets() 请求分发WindowInsets，onApplyWindowInsets(WindowInsets)会被调用
 
@@ -95,7 +96,8 @@ public static void requestApplyInsets(@NonNull View view) {
 
 ## 什么是WindowInsets？
 
-屏幕上除了开发者 app 绘制的内容还有系统的 Insets（插入物），Insets 区域负责描述屏幕的哪些部分会与系统 UI 相交。如 `Starus bar` 或 `Navigation bar`：<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487562358-8ed434d8-b56f-4732-980e-446299645f0c.png#averageHue=%23e1dfd7&clientId=u27731e42-c317-4&from=paste&id=u409ef6a2&originHeight=663&originWidth=1304&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u0738f21e-d506-4d0c-866a-5f9bf738747&title=)<br />常见的 Insets 有：
+屏幕上除了开发者 app 绘制的内容还有系统的 Insets（插入物），Insets 区域负责描述屏幕的哪些部分会与系统 UI 相交。如 `Starus bar` 或 `Navigation bar`：
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012233644.png)<br />常见的 Insets 有：
 
 1. STATUS_BAR，用于展示系统时间，电量，wifi 等信息
 2. NAVIGATION_BAR，虚拟导航栏（区别于实体的三大金刚键），形态有三大金刚键导航，手势导航两种。（有些设备形态如 TV 没有导航栏）
@@ -103,7 +105,8 @@ public static void requestApplyInsets(@NonNull View view) {
 
 > 其中 STATUS_BAR 与 NAVIGATION_BAR 又被称为 System bar。
 
-在源码中，Insets 对象拥有 4 个 int 值，用于描述矩形四个边的偏移：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487635669-c61fd6a3-a697-49c6-a953-1eb4e61eb198.png#averageHue=%23fcf9f9&clientId=u27731e42-c317-4&from=paste&height=229&id=u0c1c2c05&originHeight=344&originWidth=378&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=16576&status=done&style=none&taskId=u08e33550-31fc-46a2-8d6a-12017cae66f&title=&width=252)
+在源码中，Insets 对象拥有 4 个 int 值，用于描述矩形四个边的偏移:
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012233645.png)
 
 > 不要把 Insets 的 top ，bottom，left，right 与 Rect 的搞混，前者描述的是偏移，后者是坐标。
 
@@ -338,7 +341,7 @@ public static class RelativePadding {
 
 /**
  * Wrapper around {@link androidx.core.view.OnApplyWindowInsetsListener} which also passes
- * the initial padding set on the view. Used with {@link #doOnApplyWindowInsets(View,ViewUtils.OnApplyWindowInsetsListener)}.
+ * the initial padding set on the view. Used with {@link doOnApplyWindowInsets(View,ViewUtils.OnApplyWindowInsetsListener)}.
  */
 public interface OnApplyWindowInsetsListener {
 
@@ -617,7 +620,7 @@ public WindowInsets dispatchApplyWindowInsets(WindowInsets insets) {
 
 > 在View的`dispatchApplyWindowInsets(WindowInsets)`可以看到，如果通过`setOnApplyWindowInsetsListener(OnApplyWindowInsetsListener listener)`设置了监听，会调用Listener的`onApplyWindowInsets`；否则调用View自己的`onApplyWindowInsets()`方法，自定义View可以实现该方法来实现处理WindowInsets。
 
-来看看`View#onApplyWindowInsets(WindowInsets)`：
+来看看 `View.onApplyWindowInsets(WindowInsets)`：
 
 #### View#onApplyWindowInsets(WindowInsets)
 
@@ -654,7 +657,7 @@ public WindowInsets onApplyWindowInsets(WindowInsets insets) {
 
 接着看`fitSystemWindows()`和`fitSystemWindowsInt()`
 
-#### View#fitSystemWindows(Rect)/fitSystemWindowsInt(Rect)
+#### ViewfitSystemWindows(Rect)/fitSystemWindowsInt(Rect)
 
 先看fitSystemWindows：
 
@@ -684,7 +687,7 @@ protected boolean fitSystemWindows(Rect insets) {
 
 接着看fitSystemWindowsInt：
 
-> View#boolean fitSystemWindowsInt(insets)，一系列条件给View设置padding；fitSystemWindowsInt就是调computeFitSystemWindows和internalSetPadding；computeFitSystemWindows是计算padding，而internalSetPadding就正式设置padding，padding设置好了，子view就会小一些，被约束在padding里面。注意一点fitSystemWindowsInt只有FITS_SYSTEM_WINDOWS这个flag为true才会进去，flag不对直接返回false。
+> View.boolean fitSystemWindowsInt(insets)，一系列条件给View设置padding；fitSystemWindowsInt就是调computeFitSystemWindows和internalSetPadding；computeFitSystemWindows是计算padding，而internalSetPadding就正式设置padding，padding设置好了，子view就会小一些，被约束在padding里面。注意一点fitSystemWindowsInt只有FITS_SYSTEM_WINDOWS这个flag为true才会进去，flag不对直接返回false。
 
 ```java
 private boolean fitSystemWindowsInt(Rect insets) {
@@ -795,7 +798,7 @@ private WindowInsets newDispatchApplyWindowInsets(WindowInsets insets) {
 - AndroidR(Android11/API30)之前版本<br />targetSdkVersion < 30 ，如果某个节点消费了Insets，所有没遍历到的节点都不会收到WindowInsets的分发；即兄弟节点和子节点就不会dispatchApplyWindowInsets了
 - AndroidR及以上版本<br />当 app 运行在 Android 11 以上版本的设备上且 targetSdkVersion >=30，如果某个节点消费了Insets，该节点的所有子节点不会收到WindowInsets 分发，但其兄弟节点可以分发
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487668575-139495a9-3777-45aa-8cc6-9a5192e3c495.png#averageHue=%23fbfaf9&clientId=u27731e42-c317-4&from=paste&height=613&id=u39d92238&originHeight=613&originWidth=1304&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ufe591a82-e1c8-4937-9a48-c7eaf4f04d6&title=&width=1304)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012233646.png)
 
 ## WindowInsets分发原理总结
 
@@ -808,8 +811,8 @@ doTraversal() →
 performTraversals() →
 dispatchApplyInsets() →
 
-ViewGroup#dispatchApplyWindowInsets(WindowInsets) → 
-View#dispatchApplyWindowInsets(WindowInsets) → 
+ViewGroup.dispatchApplyWindowInsets(WindowInsets) → 
+View.dispatchApplyWindowInsets(WindowInsets) → 
 View.mOnApplyWindowInsetsListener.onApplyWindowInsets(View,WindowInsets)或onApplyWindowInsets(WindowInsets) →
 View.fitSystemWindowsInt(Rect) →
 View.computeFitSystemWindows() →
@@ -828,15 +831,15 @@ View.applyInsets(Rect)
 
 # Ref
 
--  [x] WindowInsets 在View下的的分发（一）<br /><https://www.jianshu.com/p/756e94fa2e09>
--  [x] 令人困惑的fitsSystemWindows属性<br /><http://www.jianshu.com/p/5cc3bd23be7b>
--  [ ] 从fitSystemWindows说起<br /><https://www.jianshu.com/p/9614a9ad0111>
--  [x] 随手记Android沉浸式状态栏的踩坑之路<br /><https://juejin.im/post/5a25f6146fb9a0452405ad5b>
--  [x] 带你彻底弄懂状态栏透明的细节 —— 深入分析 fitsSystemWindows<br /><https://juejin.im/entry/59469d3f61ff4b006cf363ca>
--  [x] Why would I want to fitsSystemWindows?<br /><https://medium.com/androiddevelopers/why-would-i-want-to-fitssystemwindows-4e26d9ce1eec>
--  [x] Android Detail：Window 篇—— WindowInsets 与 fitsSystemWindow<br /><https://juejin.cn/post/7038422081528135687>
--  [x] [Digging] Android Translucent Status Bar1/2/3系列
--  [x] [[Digging] Android Translucent Status Bar](https://blog.kyleduo.com/2017/05/02/digging-translucentstatusbar/)
--  [x] [[Digging] Android Translucent Status Bar2](https://blog.kyleduo.com/2017/05/03/digging-translucentstatusbar-2/)
--  [x] [[Digging] Android Translucent Status Bar3](https://blog.kyleduo.com/2017/05/05/digging-translucentstatusbar-3/)
--  [x] [[Digging]android:fitsSystemWindows](https://blog.kyleduo.com/2017/08/14/fitsSystemWindows/)
+- [x] WindowInsets 在View下的的分发（一）<br /><https://www.jianshu.com/p/756e94fa2e09>
+- [x] 令人困惑的fitsSystemWindows属性<br /><http://www.jianshu.com/p/5cc3bd23be7b>
+- [ ] 从fitSystemWindows说起<br /><https://www.jianshu.com/p/9614a9ad0111>
+- [x] 随手记Android沉浸式状态栏的踩坑之路<br /><https://juejin.im/post/5a25f6146fb9a0452405ad5b>
+- [x] 带你彻底弄懂状态栏透明的细节 —— 深入分析 fitsSystemWindows<br /><https://juejin.im/entry/59469d3f61ff4b006cf363ca>
+- [x] Why would I want to fitsSystemWindows?<br /><https://medium.com/androiddevelopers/why-would-i-want-to-fitssystemwindows-4e26d9ce1eec>
+- [x] Android Detail：Window 篇—— WindowInsets 与 fitsSystemWindow<br /><https://juejin.cn/post/7038422081528135687>
+- [x] [Digging] Android Translucent Status Bar1/2/3系列
+- [x] [[Digging] Android Translucent Status Bar](https://blog.kyleduo.com/2017/05/02/digging-translucentstatusbar/)
+- [x] [[Digging] Android Translucent Status Bar2](https://blog.kyleduo.com/2017/05/03/digging-translucentstatusbar-2/)
+- [x] [[Digging] Android Translucent Status Bar3](https://blog.kyleduo.com/2017/05/05/digging-translucentstatusbar-3/)
+- [x] [[Digging]android:fitsSystemWindows](https://blog.kyleduo.com/2017/08/14/fitsSystemWindows/)

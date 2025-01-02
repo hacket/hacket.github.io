@@ -117,7 +117,7 @@ insetsController.setAppearanceLightNavigationBars(false);
 insetsController.setAppearanceLightNavigationBars(true);
 ```
 
-为false的效果：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487410180-7efa8223-a483-41e5-9566-9a6adff8ddd1.png#averageHue=%23f8f6f6&clientId=ud4e0bffb-4428-4&from=paste&height=487&id=uf6503195&originHeight=730&originWidth=491&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=19578&status=done&style=none&taskId=u11917533-c6a1-492f-9bf3-d6febec0315&title=&width=327.3333333333333)<br />![](https://note.youdao.com/yws/res/93310/3C741F60103F4CDDB4559FBDDB811831#id=qwZCY&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+为false的效果：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501011917007.png)
 
 > 可以看到内容都沉浸到了状态栏和导航栏去了，但导航栏没有透明；在Android10(API29)，需要在theme.xml中添加android:enforceNavigationBarContrast=false才能全透明
 
@@ -225,7 +225,7 @@ WindowCompat.getInsetsController(window, window.decorView)?.apply {
 WindowCompat.setDecorFitsSystemWindows(window, false)
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487445004-ed1af17b-cb2d-4a68-a1d1-b564d3286887.png#averageHue=%23c7e5c8&clientId=ud4e0bffb-4428-4&from=paste&height=487&id=uea3ae959&originHeight=730&originWidth=494&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=30509&status=done&style=none&taskId=u3298b4f4-dc89-43ae-bc8b-0d503869cdf&title=&width=329.3333333333333)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501011917008.png)
 
 > 需要处理状态栏和导航栏把内容遮挡住了；添加了`View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION`和`SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN`flag
 
@@ -241,7 +241,7 @@ windowInsetsController?.let { controller ->
 }
 ```
 
-Pixel3XL效果： <br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487466634-7df2f3d1-3bf8-445f-a01b-28e03014c164.png#averageHue=%23c7e4c8&clientId=ud4e0bffb-4428-4&from=paste&height=490&id=uaa6c02bf&originHeight=735&originWidth=490&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=26762&status=done&style=none&taskId=u252a6df1-efe3-4271-88e4-dbb63a7a987&title=&width=326.6666666666667)<br />![](https://note.youdao.com/yws/res/93311/F3569D7A48D348BE9075043EA0713C83#id=jTLXW&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+Pixel3XL效果： <br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501011917009.png)<br />![](undefined)
 
 > 添加了`View.SYSTEM_UI_FLAG_FULLSCREEN`和`View.SYSTEM_UI_FLAG_HIDE_NAVIGATION`flag
 

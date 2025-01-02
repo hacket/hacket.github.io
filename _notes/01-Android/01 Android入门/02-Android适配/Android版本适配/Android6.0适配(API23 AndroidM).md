@@ -1,7 +1,13 @@
 ---
-date created: 2024-04-11 21:51
-date updated: 2024-12-24 00:26
+date created: 星期四, 四月 11日 2024, 9:51:00 晚上
+date updated: 星期四, 一月 2日 2025, 9:03:27 晚上
+title: Android6.0适配(API23 AndroidM)
 dg-publish: true
+image-auto-upload: true
+feed: show
+format: list
+aliases: [Google app links]
+linter-yaml-title-alias: Google app links
 ---
 
 # Google app links
@@ -24,10 +30,11 @@ Android 具有两项省电功能，可通过管理应用程序在设备未连接
 
 它还阻止 `App` 访问网络并 `defers their jobs`, `syncs`, and `standard alarms`。
 
-系统会定期退出 `Doze` 状态一段时间，以便应用程序完成其推迟的活动。在此维护时段期间，系统运行所有待处理的同步(`pending sync`)、作业(`jobs`)和警报(`standard alarm`)，并允许应用程序访问网络。
+系统会定期退出 `Doze` 状态一段时间，以便应用程序完成其推迟的活动。在此维护时段期间，系统运行所有待处理的同步 (`pending sync`)、作业 (`jobs`) 和警报 (`standard alarm`)，并允许应用程序访问网络。
 
 Doze 为应用程序提供了一个定期维护窗口，以使用网络并处理待处理的活动：
-![|700](https://developer.android.com/static/images/training/doze.png)
+
+![|1200](https://developer.android.com/static/images/training/doze.png)
 
 当维护窗口结束时，系统再次进入打瞌睡状态，暂停网络访问并推迟作业、同步和警报。随着时间的推移，系统安排维护时段的频率会降低，从而有助于在设备不充电时长时间不活动的情况下减少电池消耗。
 
@@ -55,11 +62,11 @@ Doze 为应用程序提供了一个定期维护窗口，以使用网络并处理
 - 使用 `setAndAllowWhileIdle()` 和 `setExactAndAllowWhileIdle()` 设置关键警报。
 - [Test your app in Doze](https://developer.android.com/training/monitoring-device-state/doze-standby#testing_doze).
 
-#### Adapt your app to Doze 适配Doze
+#### Adapt your app to Doze 适配 Doze
 
-`Doze` 会对应用程序产生不同的影响，具体取决于应用程序提供的功能和使用的服务。许多应用程序无需修改即可在 `Doze cycles` 中正常运行。在某些情况下，您必须优化应用程序管理网络(`network`)、警报(`alarms`)、作业(`jobs`)和同步的方式(`syncs`)。
+`Doze` 会对应用程序产生不同的影响，具体取决于应用程序提供的功能和使用的服务。许多应用程序无需修改即可在 `Doze cycles` 中正常运行。在某些情况下，您必须优化应用程序管理网络 (`network`)、警报 (`alarms`)、作业 (`jobs`) 和同步的方式 (`syncs`)。
 
-应用程序必须能够在每个维护窗口期间(`maintenance window`)有效地管理活动。
+应用程序必须能够在每个维护窗口期间 (`maintenance window`) 有效地管理活动。
 
 为了帮助安排警报，您可以使用两种 `AlarmManager` 方法： `setAndAllowWhileIdle()` 和 `setExactAndAllowWhileIdle()` 。通过这些方法，您可以设置即使设备处于打瞌睡状态也会触发的警报。
 
@@ -76,12 +83,13 @@ Doze 为应用程序提供了一个定期维护窗口，以使用网络并处理
 - 用户明确启动该应用程序。
 - 该应用程序当前有一个进程位于前台，或者作为活动或前台服务，或者由另一个活动或前台服务使用。
 
-> 注意：仅将`foreground service`用于用户希望系统立即执行或不间断执行的任务。此类情况包括将照片上传到社交媒体，或者即使音乐播放器应用程序不在前台也播放音乐。
-> 不要仅仅为了阻止系统确定您的应用程序处于空闲状态而启动[foreground service](https://developer.android.com/guide/components/services#Foreground)。
+> 注意：仅将 `foreground service` 用于用户希望系统立即执行或不间断执行的任务。此类情况包括将照片上传到社交媒体，或者即使音乐播放器应用程序不在前台也播放音乐。
+> 不要仅仅为了阻止系统确定您的应用程序处于空闲状态而启动 [foreground service](https://developer.android.com/guide/components/services#Foreground)。
 
 - APP 生成了一条通知，用户可以在锁定屏幕或通知托盘中看到该通知。
 
 当用户将设备插入电源时，系统会将应用程序从待机状态释放，让它们自由访问网络并执行任何挂起的作业和同步。
+
 如果设备长时间闲置，系统大约每天允许闲置应用程序访问一次网络。
 
 #### App Standby Buckets
@@ -104,21 +112,20 @@ Doze 为应用程序提供了一个定期维护窗口，以使用网络并处理
 
 [针对低电耗模式和应用待机模式进行优化  |  App quality  |  Android Developers](https://developer.android.com/training/monitoring-device-state/doze-standby#exemption-cases)
 
-# Android运行时动态权限(Runtime Permissions)介绍
+# Android 运行时动态权限 (Runtime Permissions) 介绍
 
-![|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/workflow-overview.svg)
+![|1500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/workflow-overview.svg)
 
-## Android6.0+运行时权限
+## Android6.0+ 运行时权限
 
 <http://git.oschina.net/hacket520/PermissionsDemo>
 
 ### 基本使用
 
 - 1、在 AndroidManifest 文件中添加需要的权限
-
 - 2、检查用户是否有权限
 
-`ContextCompat.checkSelfPermission()`主要用于检测某个权限是否已经被授予，方法返回值为`PackageManager.PERMISSION_DENIED`或者`PackageManager.PERMISSION_GRANTED`。当返回DENIED就需要进行申请授权了。
+`ContextCompat.checkSelfPermission()` 主要用于检测某个权限是否已经被授予，方法返回值为 `PackageManager.PERMISSION_DENIED` 或者 `PackageManager.PERMISSION_GRANTED`。当返回 DENIED 就需要进行申请授权了。
 
 ```java
 if (ContextCompat.checkSelfPermission(thisActivity,
@@ -132,9 +139,12 @@ if (ContextCompat.checkSelfPermission(thisActivity,
 - 3、申请授权
 
 `ActivityCompat.requestPermissions(Activity activity,String[] permissions, int requestCode)` 支持一次性申请多个权限的，系统会通过对话框逐一询问用户是否授权
-参数1：Context
-参数2：是需要申请的权限的字符串数组
-参数3：requestCode，主要用于回调的时候检测
+
+参数 1：Context
+
+参数 2：是需要申请的权限的字符串数组
+
+参数 3：requestCode，主要用于回调的时候检测
 
 ```java
 ActivityCompat.requestPermissions(thisActivity,
@@ -144,7 +154,7 @@ ActivityCompat.requestPermissions(thisActivity,
 
 - 4、处理权限申请回调
 
-在Activity或者Fragment中处理回调
+在 Activity 或者 Fragment 中处理回调
 
 ```java
 @Override
@@ -170,9 +180,11 @@ public void onRequestPermissionsResult(int requestCode,
 }
 ```
 
-参数1：requestCode定位你的申请
-参数2：permissions[] 对应申请权限时`requestPermissions()`的权限数组
-参数3：grantResults[] 你申请2个权限，数组大小就为2，分别记录你两个权限的申请结果；结果只为`PERMISSION_GRANTED`和`PERMISSION_DENIED`
+参数 1：requestCode 定位你的申请
+
+参数 2：`permissions[]` 对应申请权限时 `requestPermissions()` 的权限数组
+
+参数 3：`grantResults[]` 你申请 2 个权限，数组大小就为 2，分别记录你两个权限的申请结果；结果只为 `PERMISSION_GRANTED` 和 `PERMISSION_DENIED`
 
 - 5、shouldShowRequestPermissionRationale()
 
@@ -221,7 +233,7 @@ if (ContextCompat.checkSelfPermission(thisActivity,
 
 ### 权限分类
 
-一类是[Normal Permissions](https://developer.android.com/guide/topics/security/normal-permissions.html?hl=zh-cn "https://developer.android.com/guide/topics/security/normal-permissions.html?hl=zh-cn")，这类权限一般不涉及用户隐私，是不需要用户进行授权的，比如手机震动、访问网络等；另一类是Dangerous Permission，一般是涉及到用户隐私的，需要用户进行授权，比如读取sdcard、访问通讯录等。
+一类是 [Normal Permissions](https://developer.android.com/guide/topics/security/normal-permissions.html?hl=zh-cn "https://developer.android.com/guide/topics/security/normal-permissions.html?hl=zh-cn")，这类权限一般不涉及用户隐私，是不需要用户进行授权的，比如手机震动、访问网络等；另一类是 Dangerous Permission，一般是涉及到用户隐私的，需要用户进行授权，比如读取 sdcard、访问通讯录等。
 
 #### 普通权限
 
@@ -270,10 +282,14 @@ WRITE_SYNC_SETTINGS
 [Dangerous Permissions](https://developer.android.com/guide/topics/security/permissions.html?hl=zh-cn#normal-dangerous "https://developer.android.com/guide/topics/security/permissions.html?hl=zh-cn#normal-dangerous")
 
 在应用安装时有授权列表提示，在应用运行时权限动态获取也需要授权;
+
 危险权限都是一组一组的;
-如果你申请某个危险的权限，假设你的app早已被用户授权了同一组的某个危险权限，那么系统会立即授权，而不需要用户去点击授权。比如你的app对`READ_CONTACTS`已经授权了，当你的app申请`WRITE_CONTACTS`时，系统会直接授权通过。此外，对于申请时弹出的dialog上面的文本说明也是对整个权限组的说明，而不是单个权限（ps:这个dialog是不能进行定制的）。
+
+如果你申请某个危险的权限，假设你的 app 早已被用户授权了同一组的某个危险权限，那么系统会立即授权，而不需要用户去点击授权。比如你的 app 对 `READ_CONTACTS` 已经授权了，当你的 app 申请 `WRITE_CONTACTS` 时，系统会直接授权通过。此外，对于申请时弹出的 dialog 上面的文本说明也是对整个权限组的说明，而不是单个权限（ps: 这个 dialog 是不能进行定制的）。
+
 不过需要注意的是，不要对权限组过多的依赖，尽可能对每个危险权限都进行正常流程的申请，因为在后期的版本中这个权限组可能会产生变化。
-可通过`adb shell pm list permissions -d -g`查看
+
+可通过 `adb shell pm list permissions -d -g` 查看
 
 ```java
 // 联系人
@@ -323,12 +339,13 @@ group:android.permission-group.SMS
 
 #### 特殊权限 (Special Permissions)
 
-不能自动授权，也不能运行时请求授权。只能通过打开Intent来让用户设置。目前只有`WRITE_SETTINGS`和`SYSTEM_ALERT_WINDOW`两个权限。
+不能自动授权，也不能运行时请求授权。只能通过打开 Intent 来让用户设置。目前只有 `WRITE_SETTINGS` 和 `SYSTEM_ALERT_WINDOW` 两个权限。
 
 ##### 修改系统设置
 
 [WRITE_SETTINGS](https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#WRITE_SETTINGS) 修改系统设置
-Android 6.0+如果没有设置 `WRITE_SETTINGS` 权限，报错
+
+Android 6.0+ 如果没有设置 `WRITE_SETTINGS` 权限，报错
 
 ```
 me.hacket.assistant E/AndroidRuntime: FATAL EXCEPTION: main
@@ -346,6 +363,7 @@ java.lang.SecurityException: me.hacket.assistant was not granted  this permissio
 ```
 
 在清单文件中会提示 `Permission is only granted to system app`
+
 解决：
 
 ```java
@@ -449,7 +467,7 @@ void system_alert_window() {
 }
 ```
 
-回调`onActivityResult()`
+回调 `onActivityResult()`
 
 ```java
 @Override
@@ -488,7 +506,7 @@ hook 掉 `process${variant.name.capitalize()}Manifest`，在打包时删除 sdk 
 
 - [x] [权限删除与收口](https://mp.weixin.qq.com/s?__biz=MjM5OTE4ODgzMw==&mid=2247483810&idx=1&sn=a937a392a7eb273014119434a7d2d2f4&chksm=a73e01ac904988bae0883190b44b00b13a737793b463ef842792b5c542ce96234bc693138b82&scene=21#wechat_redirect)
 
-### Tools:node="remove"方式
+### Tools:node="remove" 方式
 
 这个标签指定了 manifest 中冲突属性的合并规则或删除不必要的元素和属性，很明显，对于三方中的权限，我们是要进行删除的
 
@@ -498,16 +516,13 @@ hook 掉 `process${variant.name.capitalize()}Manifest`，在打包时删除 sdk 
     tools:node="remove" /> 
 ```
 
-**注意：** 在使用上述 tools:node="remove"方式移除危险权限时，一定要保证 sdk 无此权限也能正常运行且不影响功能，否则的话，还需在应用中申请此权限。
+**注意：** 在使用上述 tools:node="remove" 方式移除危险权限时，一定要保证 sdk 无此权限也能正常运行且不影响功能，否则的话，还需在应用中申请此权限。
 
 - [x] [tools:node="remove"](https://mp.weixin.qq.com/s?__biz=MjM5OTE4ODgzMw==&mid=2247483818&idx=1&sn=d343689f83cb3eadd89be7d66d18ac0d&chksm=a73e01a4904988b2c254d5244f2ef46182539f2c9ff27a58525b969f692f349d43492a9b3db2&mpshare=1&scene=23&srcid=%23rd)
 
 ## Ref
 
 - [GitHub - googlearchive/android-RuntimePermissions: This sample has been deprecated/archived. Check this repo for related samples:](https://github.com/googlesamples/android-RuntimePermissions)
-
 - [洞见 | CODING - 一站式软件研发管理平台 | CODING DevOps - 一站式软件研发管理平台-腾讯云](https://blog.coding.net/blog/understanding-marshmallow-runtime-permission)
-
 - [Android 6.0 Permission权限与安全机制 - Coder25 - 博客园](http://www.cnblogs.com/284628487a/archive/2016/03/14/5274767.html)
-
 - [jijiaxin89.com/2015/08/30/Android-s-Runtime-Permission/](http://jijiaxin89.com/2015/08/30/Android-s-Runtime-Permission/)

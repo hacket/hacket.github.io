@@ -85,7 +85,7 @@ onTrimMemory()和onLowMemory()
 <!-- 该配置表明Activity在配置改变时不重启，只执行onConfigurationChanged()方法，换种说法就是Activity在屏幕旋转时不重启 -->
 ```
 
-所有的值如下：<br>![](http://note.youdao.com/yws/res/1636/91DD6510D1414402962DC1C74E3877D2#id=cH8xG&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687799744014-fff7f38f-8cee-4f98-bdb3-ddcf41773f3d.png#averageHue=%23414445&clientId=u3558a8b2-dd28-4&from=paste&id=u29c6a94f&originHeight=301&originWidth=196&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u415d42e9-d801-4e33-8321-0d8a9b0048c&title=)
+所有的值如下：<br>![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501010100993.png)![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501010100994.png)
 
 ##### 6、registerActivityLifecycleCallbacks() & unregisterActivityLifecycleCallbacks()
 
@@ -113,7 +113,7 @@ Applicaiton类的应用场景有：
 
 ## Context继承关系
 
-![image.png|500](https://cdn.nlark.com/yuque/0/2023/png/694278/1697464413701-33590255-86b0-452b-b7a1-7f64f0747ed7.png#averageHue=%23fbf9f9&clientId=ud6632039-c2f8-4&from=paste&height=355&id=u50474467&originHeight=1000&originWidth=1228&originalType=binary&ratio=2&rotation=0&showTitle=false&size=168952&status=done&style=none&taskId=u1105665e-2529-467a-8bed-c377013e2b6&title=&width=436)
+![image.png|500](undefined)
 
 - TintContextWrapper是ContextWrapper的直接子类
 

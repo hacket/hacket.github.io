@@ -1,7 +1,10 @@
 ---
 date created: 2024-12-24 00:25
-date updated: 2024-12-24 00:25
+date updated: 2025-01-02 08:29
 dg-publish: true
+feed: show
+format: list
+image-auto-upload: true
 ---
 
 # Android中各种System UI和Window flags
@@ -34,7 +37,7 @@ window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 ```
 
-效果：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688486963261-d6e93056-6d18-493c-9894-4f58a0adfab8.png#averageHue=%23d1d2d2&clientId=u6b9f4673-46ce-4&from=paste&height=486&id=ua2d8b4aa&originHeight=1092&originWidth=1064&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=245041&status=done&style=none&taskId=uf29474d9-6b57-4880-a7ad-c889879af76&title=&width=473.3333740234375)
+效果：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252388.png) <br /><br />
 
 ## Android3.0（API11）
 
@@ -50,7 +53,7 @@ val systemUiVisibility = window.decorView.systemUiVisibility
 window.decorView.systemUiVisibility = systemUiVisibility or View.STATUS_BAR_HIDDEN
 ```
 
-效果：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487023270-db02068e-ef67-4e14-81bd-42445a372b17.png#averageHue=%23d0d1d1&clientId=u6c28d62e-38d9-4&from=paste&height=489&id=ub8c75512&originHeight=733&originWidth=488&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=121316&status=done&style=none&taskId=udebbfeec-9c6b-429e-8d84-e4de6236e1e&title=&width=325.3333333333333)![](https://note.youdao.com/yws/res/4/WEBRESOURCE6963f2c2952b6deee9e0bd75531f6fa4#id=HZXUt&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+效果：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252389.png)![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252390.png)
 
 ### ~~View.STATUS_BAR_VISIBLE~~ 显示状态栏，系统默认
 
@@ -63,7 +66,7 @@ window.decorView.systemUiVisibility = systemUiVisibility or View.STATUS_BAR_HIDD
 
 ### ~~View.SYSTEM_UI_FLAG_LOW_PROFILE~~ 状态栏低亮度及隐藏状态栏不重要的图标
 
-设置该flag让状态栏或导航栏上的图标变暗和让一些不重要的图标消失。状态栏一些icon被隐藏了，并且变得有些半透明，导航栏的三个按钮也都被隐藏了。另只要页面有任何交互，该flag会被清除，样式还原。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487053585-58b8a1c0-ef04-4872-b89a-554896fff81b.png#averageHue=%23fadc70&clientId=u6c28d62e-38d9-4&from=paste&height=489&id=uadcad48c&originHeight=733&originWidth=492&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=75136&status=done&style=none&taskId=u4dae1514-9438-4a92-b798-c501faf697a&title=&width=328)
+设置该flag让状态栏或导航栏上的图标变暗和让一些不重要的图标消失。状态栏一些icon被隐藏了，并且变得有些半透明，导航栏的三个按钮也都被隐藏了。另只要页面有任何交互，该flag会被清除，样式还原。<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252391.png)
 
 > MIUI这个flag似乎无效。
 
@@ -71,7 +74,7 @@ window.decorView.systemUiVisibility = systemUiVisibility or View.STATUS_BAR_HIDD
 
 作用是隐藏系统NavigationBar
 
-但是用户的任何交互，都会导致此Flag被系统清除，进而导航栏自动重新显示，同时View.SYSTEM_UI_FLAG_FULLSCREEN也会被自动清除，因此StatusBar也会同时显示出来。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487102856-6b487792-06f8-4d67-8741-05d62cd79df0.png#averageHue=%23d1d2d2&clientId=u6c28d62e-38d9-4&from=paste&height=491&id=u23b95d6d&originHeight=736&originWidth=497&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=108046&status=done&style=none&taskId=u24583dfc-093c-4ebb-854d-98c6e5701f6&title=&width=331.3333333333333)<br />![](https://note.youdao.com/yws/res/1/WEBRESOURCEa2077b3fce4a350d22d288c610844a51#id=DJcxv&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+但是用户的任何交互，都会导致此Flag被系统清除，进而导航栏自动重新显示，同时View.SYSTEM_UI_FLAG_FULLSCREEN也会被自动清除，因此StatusBar也会同时显示出来。<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252392.png)<br />![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252393.png)
 
 ## Android4.1（API16）
 
@@ -89,7 +92,7 @@ window.decorView.systemUiVisibility = systemUiVisibility or View.STATUS_BAR_HIDD
 window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_FULLSCREEN
 ```
 
-效果：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487121597-1ae96937-73b7-4455-ae1e-7f170b7b3cc1.png#averageHue=%2381b75e&clientId=u6c28d62e-38d9-4&from=paste&height=485&id=u2127cc18&originHeight=727&originWidth=488&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=95973&status=done&style=none&taskId=u983623fd-43a1-4131-8211-123ee70b8a6&title=&width=325.3333333333333)<br />![](https://note.youdao.com/yws/res/2/WEBRESOURCEbbe8f4e5ca42c9bc02bf5266dc380662#id=etbT3&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+效果：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252394.png)<br />![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252395.png)
 
 ### ~~View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN~~ 不隐藏StatusBar，布局到StatusBar，内容会被StatusBar遮挡
 
@@ -126,7 +129,7 @@ window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or Vie
 
 ##### View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 
-同时设置`SYSTEM_UI_FLAG_FULLSCREEN |SYSTEM_UI_FLAG_LAYOUT_STABLE`时，会同时隐藏Actionbar和StatusBar，但StatusBar所占空间不会隐藏，只会变成空白。同时View所在window的显示范围也不会伸展到StatusBar所占空间。若是加上`SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN`，View所在window的显示范围则会伸展到StatusBar所在的空间。同样对NavigationBar如此操作，也会是一样的效果。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487149402-ddaddbbb-8f87-4ed4-89c3-7e74f25724cc.png#averageHue=%23d5d8d2&clientId=u6c28d62e-38d9-4&from=paste&height=488&id=ucd1f7e00&originHeight=732&originWidth=493&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=97283&status=done&style=none&taskId=u9208997b-7e8e-4811-b16f-ea94ac76ea3&title=&width=328.6666666666667)<br />![](https://note.youdao.com/yws/res/1/WEBRESOURCEff15006f4048ad53ea96441fc3a9faf1#id=uvubM&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+同时设置`SYSTEM_UI_FLAG_FULLSCREEN |SYSTEM_UI_FLAG_LAYOUT_STABLE`时，会同时隐藏Actionbar和StatusBar，但StatusBar所占空间不会隐藏，只会变成空白。同时View所在window的显示范围也不会伸展到StatusBar所占空间。若是加上`SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN`，View所在window的显示范围则会伸展到StatusBar所在的空间。同样对NavigationBar如此操作，也会是一样的效果。<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252396.png)<br />![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252397.png)
 
 > 作用显而易见，在设置全屏时，加上这个标志位以后，布局不会占用状态栏的空间
 
@@ -173,8 +176,8 @@ private int getImpliedSystemUiVisibility(WindowManager.LayoutParams params) {
 
 - WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS不同版本和不同ROM表现不一致：
 
-1. Android4.4，透明，有些是渐变的，有些厂商也是透明的<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487164636-2006f4fa-24c1-429e-b801-49aa1d601797.png#averageHue=%23928d7c&clientId=u6c28d62e-38d9-4&from=paste&id=u84fee4ab&originHeight=82&originWidth=844&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ue1c59b13-f750-49e3-8d25-ceae8b597c1&title=)
-2. Android5.0，半透明的，有些厂商也是透明的<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487169615-f8935949-b0c0-45f1-a704-e47f952bd0ef.png#averageHue=%239d9e9e&clientId=u6c28d62e-38d9-4&from=paste&id=u1b5e823d&originHeight=76&originWidth=724&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u6e8cbe10-5a58-4720-9eb5-6064cee0cb8&title=)
+1. Android4.4，透明，有些是渐变的，有些厂商也是透明的<br />![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252398.png)
+2. Android5.0，半透明的，有些厂商也是透明的<br />![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252399.png)
 
 ### ~~WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION~~ 半透明NavigationBar （>=api 19）
 
@@ -227,9 +230,9 @@ window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 ```
 
-SYSTEM_UI_FLAG_LIGHT_STATUS_BAR效果：![](https://note.youdao.com/yws/res/89362/C005017D252C4C63ACF3CCB440BC14C1#id=MhAbb&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487191281-6011df97-8aa6-4ba0-894a-dfa1396c1b62.png#averageHue=%233500ac&clientId=u6c28d62e-38d9-4&from=paste&id=u88c84d4c&originHeight=86&originWidth=964&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u27cf3758-29c2-4399-aa50-e8b3ca33a92&title=)
+SYSTEM_UI_FLAG_LIGHT_STATUS_BAR效果：
 
-> 默认是白色字体，设置该flag后，变成了灰色字体<br />默认效果：<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487202669-06ab8362-3aed-4b85-a4e6-9f15f49c2944.png#averageHue=%23400cb6&clientId=u6c28d62e-38d9-4&from=paste&id=uce525b20&originHeight=78&originWidth=958&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u6004251f-1f50-4ccf-badb-55fde8d5ee7&title=)
+> 默认是白色字体，设置该flag后，变成了灰色字体<br />默认效果：<br />
 
 ### ~~WindowManager.LayoutParams.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR~~ 导航栏深色模式 >=Android8.0/AndroidO(API26)
 
@@ -239,7 +242,8 @@ window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
 ```
 
-SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR效果：<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487215276-34c9f451-a69a-482c-bfdc-690c8acb78d7.png#averageHue=%23040403&clientId=u6c28d62e-38d9-4&from=paste&id=u8e1a5812&originHeight=106&originWidth=858&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ua56b2047-6049-4689-b687-0fd0cee7e76&title=)<br />![](https://note.youdao.com/yws/res/89369/82930546FE204319AEBC3778BA380EA8#id=nTLwW&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)默认效果：<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688487219806-c66068bc-eeba-4da0-84e3-b9c905b80b80.png#averageHue=%231b170f&clientId=u6c28d62e-38d9-4&from=paste&id=u790d37a2&originHeight=114&originWidth=862&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u36212623-1e08-406c-ba5f-38329358119&title=)
+SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR效果：
+默认效果：
 
 > MIUI12似乎这个没啥效果。
 

@@ -3,7 +3,6 @@ date created: 2024-12-31 00:24
 date updated: 2024-12-31 00:37
 dg-publish: true
 feed: show
-date: 12-31-2024
 format: list
 permalink: /github_pages
 title: Github Pages

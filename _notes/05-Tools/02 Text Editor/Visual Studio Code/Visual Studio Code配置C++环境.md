@@ -1,9 +1,12 @@
 ---
-date created: 2024-04-20 15:40
-date updated: 2024-12-23 23:39
+date created: 2022-04-20 15:40
+date updated: 2025-01-02 15:37
 dg-publish: true
 tags:
   - '#include'
+image-auto-upload: true
+feed: show
+format: list
 ---
 
 # VSCode 配置 C++环境（Mac）
@@ -761,7 +764,7 @@ gcc -v
 
 ### Build hello world 和 Run
 
-**状态栏 build，Debug 和 Run **
+**状态栏 build，Debug 和 Run：**
 ![image.png|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian202405020128228.png)
 
 还可以通过 `PROJECT OUTLINE`：
@@ -769,7 +772,7 @@ gcc -v
 
 ### 配置 CMake 的 gitignore
 
-```git
+```shell
 # Exclude build directory  
 build/  
   

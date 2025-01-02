@@ -3,7 +3,7 @@ date created: 2024-12-27 23:49
 date updated: 2024-12-27 23:49
 dg-publish: true
 tags:
-  - '#!/usr/bin/env'
+  - "#!/usr/bin/env"
 ---
 
 # Think python电子书

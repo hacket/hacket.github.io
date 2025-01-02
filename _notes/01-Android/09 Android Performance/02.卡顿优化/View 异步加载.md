@@ -1,16 +1,29 @@
 ---
 date created: 2024-03-13 21:07
-date updated: 2024-12-24 00:38
+date updated: 2024-12-31 21:42
 dg-publish: true
 ---
 
-## View 布局异步加载：`AysncLayoutInflater`
+# AndroidX's AsyncLayoutInflater
+
+## 介绍
 
 Android 在 View 的使用中，过多的布局文件 inflate 影响性能，尤其在一些滚动列表、样式种类很丰富的场景下，inflate 次数相对较多，整体 inflate 耗时就会增加，导致滚动过程卡顿。
 
 所以，需要 View 的异步 inflate，甚至 View 的全局缓存，通过这些方式，去减少 UI 线程 inflate 的耗时及次数，以便减少卡顿，提升性能。
 
-### View 的异步 Inflate+ 全局缓存：加速你的页面
+## AndroidX's 限制
+
+- 单一的线程
+- 如果超过 10 个 items，主线程会 delay
+- 不支持设置一个 `LayoutInflater.Factory` 和 `LayoutInflater.Factory2`
+- 没有方式取消正在进行的 inflate 操作
+
+## 异步加载，协程
+
+[OkLayoutInflater/oklayoutinflator/src/main/java/tech/okcredit/layout\_inflator/OkLayoutInflater.kt at master · okcredit/OkLayoutInflater · GitHub](https://github.com/okcredit/OkLayoutInflater/blob/master/oklayoutinflator/src/main/java/tech/okcredit/layout_inflator/OkLayoutInflater.kt)
+
+# View 的异步 Inflate+ 全局缓存 View：加速你的页面
 
 - 方案：
 

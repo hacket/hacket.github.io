@@ -1,9 +1,12 @@
 ---
 date created: 2024-12-27 23:47
-date updated: 2024-12-27 23:47
+date updated: 2025-01-02 23:26
 dg-publish: true
 tags:
   - '#!/usr/bin/env'
+image-auto-upload: true
+feed: show
+format: list
 ---
 
 Python 3版本中，字符串是以`Unicode`编码的，也就是说，Python的字符串支持多语言。

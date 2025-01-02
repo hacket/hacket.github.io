@@ -665,7 +665,7 @@ startService(serviceIntent);
 
 ## Service生命周期
 
-![|700](https://cdn.nlark.com/yuque/0/2023/png/694278/1687798815897-4db143d0-de34-41df-9c0a-70043329357f.png#averageHue=%23898063&clientId=ue767ef2a-b311-4&from=paste&id=u340fa4da&originHeight=507&originWidth=389&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ubd61d25f-a01e-472c-8957-3537c90b0e1&title=)
+![|700](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501010102424.png)
 
 > 其中左图显示了使用 startService() 所创建的服务的生命周期，右图显示了使用 bindService()所创建的服务的生命周期。
 

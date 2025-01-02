@@ -1,6 +1,6 @@
 ---
 date created: 2024-04-01 09:38
-date updated: 2024-12-23 23:41
+date updated: 2024-12-31 13:50
 dg-publish: true
 ---
 
@@ -97,8 +97,17 @@ dg-publish: true
 ## 终端
 
 - HomeBrew (见`iTerm2+oh my zsh`章节)
+
 - iTerm2/Wrap? + oh my zsh (见`iTerm2+oh my zsh`章节)，Tabby
+
 - OpenInTerminal Finder打开Terminal，用于替代`gotoshell`
+
+- `gotoshell` 不可用设置
+  - 添加**完全磁盘访问权限**
+  - 检查 **辅助功能 (Accessibility)** 权限
+  - 设置打开的终端为 **iTerm2**
+
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20241231134836.png)
 
 ## 抓包
 
@@ -117,7 +126,7 @@ dg-publish: true
 
 2. Open the OpenInTerminal app. Go to `System Preferences -> Extensions -> Finder Extensions`, check the permission button as below.
 
-![image.png|600](https://cdn.nlark.com/yuque/0/2023/png/694278/1683550056925-2496e126-99c5-413f-b4fc-404e17e935c8.png#averageHue=%23dad9d9&clientId=u74ea1eda-71d6-4&from=paste&height=365&id=u22765904&originHeight=1056&originWidth=1422&originalType=binary&ratio=2&rotation=0&showTitle=false&size=339970&status=done&style=none&taskId=u26c7b928-4448-4af2-8ad8-011b729e7bb&title=&width=491)
+![image.png|900](https://cdn.nlark.com/yuque/0/2023/png/694278/1683550056925-2496e126-99c5-413f-b4fc-404e17e935c8.png#averageHue=%23dad9d9&clientId=u74ea1eda-71d6-4&from=paste&height=365&id=u22765904&originHeight=1056&originWidth=1422&originalType=binary&ratio=2&rotation=0&showTitle=false&size=339970&status=done&style=none&taskId=u26c7b928-4448-4af2-8ad8-011b729e7bb&title=&width=491)
 
 # 小工具
 
@@ -136,6 +145,6 @@ dg-publish: true
 需要开启Accessibility权限：
 `Open System Settings > Privacy & Security > Accessibility`
 
-![image.png|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240229161601.png)
+![image.png|900](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240229161601.png)
 
 可以看到是PicGo占用了

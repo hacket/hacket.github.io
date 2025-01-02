@@ -1,9 +1,15 @@
 ---
-date created: 2024-05-03 22:23
-tags:
-  - '#include'
-date updated: 2024-12-27 23:51
+image-auto-upload: true
+feed: show
+format: list
+date created: 星期一, 十二月 30日 2024, 10:02:59 上午
+tags: ['#include']
+date updated: 星期四, 一月 2日 2025, 4:16:43 下午
 dg-publish: true
+title: STL 容器
+date modified: 星期四, 一月 2日 2025, 4:00:33 下午
+aliases: [C++容器]
+linter-yaml-title-alias: C++容器
 ---
 
 # C++容器
