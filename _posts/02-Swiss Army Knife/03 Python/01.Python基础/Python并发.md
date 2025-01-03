@@ -1,13 +1,15 @@
 ---
 date created: Friday, December 27th 2024, 11:47:00 pm
-date updated: Friday, January 3rd 2025, 12:35:25 am
+date updated: Saturday, January 4th 2025, 12:25:32 am
 title: Python并发
 dg-publish: true
+layout: post
+categories:
+  - Python
 image-auto-upload: true
 feed: show
 format: list
-aliases:
-  - 进程
+aliases: [进程]
 linter-yaml-title-alias: 进程
 category: python
 ---

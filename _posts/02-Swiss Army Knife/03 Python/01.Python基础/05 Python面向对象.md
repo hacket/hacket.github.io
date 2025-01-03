@@ -1,14 +1,23 @@
 ---
-date created: 2024-12-27 23:47
-date updated: 2024-12-27 23:47
+date created: Friday, December 27th 2024, 11:47:00 pm
+date updated: Saturday, January 4th 2025, 12:25:17 am
+title: 05 Python面向对象
 dg-publish: true
+layout: post
+categories:
+  - Python
+image-auto-upload: true
+feed: show
+format: list
+aliases: [Python class 基础]
+linter-yaml-title-alias: Python class 基础
 ---
 
-# Python class基础
+# Python class 基础
 
-## 定义Python class
+## 定义 Python class
 
-Python中可以使用class关键字定义类
+Python 中可以使用 class 关键字定义类
 
 ```python
 class Student(object):
@@ -51,7 +60,7 @@ class Programer9(object):
 
 ### 访问可见性问题
 
-在Python中，属性和方法的访问权限只有两种，也就是公开的和私有的，如果希望属性是私有的，在给属性命名时可以用两个下划线`__`作为开头。
+在 Python 中，属性和方法的访问权限只有两种，也就是公开的和私有的，如果希望属性是私有的，在给属性命名时可以用两个下划线 `__` 作为开头。
 
 ```python
 class Test:
@@ -76,7 +85,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Python并没有从语法上严格保证私有属性或方法的私密性，它只是给私有的属性和方法换了一个名字来妨碍对它们的访问，事实上如果你知道更换名字的规则仍然可以访问到它们：
+Python 并没有从语法上严格保证私有属性或方法的私密性，它只是给私有的属性和方法换了一个名字来妨碍对它们的访问，事实上如果你知道更换名字的规则仍然可以访问到它们：
 
 ```python
 class Test:
@@ -99,10 +108,10 @@ if __name__ == "__main__":
     main()
 ```
 
-在实际开发中，我们并不建议将属性设置为私有的，因为这会导致子类无法访问。<br>所以大多数Python程序员会遵循一种命名惯例就是让属性名以单下划线开头来表示属性是受保护的，本类之外的代码在访问这样的属性时应该要保持慎重，这种做法并不是语法上的规则，单下划线开头的属性和方法外界仍然是可以访问的，所以更多的时候它是一种暗示或隐喻
+在实际开发中，我们并不建议将属性设置为私有的，因为这会导致子类无法访问。<br>所以大多数 Python 程序员会遵循一种命名惯例就是让属性名以单下划线开头来表示属性是受保护的，本类之外的代码在访问这样的属性时应该要保持慎重，这种做法并不是语法上的规则，单下划线开头的属性和方法外界仍然是可以访问的，所以更多的时候它是一种暗示或隐喻
 
-- 单下划线`_`，约定的受保护的，外部也可以访问
-- 双下划线`__`，强制私有的
+- 单下划线 `_`，约定的受保护的，外部也可以访问
+- 双下划线 `__`，强制私有的
 
 示例：定义一个类描述平面上的点并提供移动点和计算到另一个点距离的方法。
 
@@ -168,9 +177,9 @@ if __name__ == '__main__':
 
 ### setter/getter
 
-#### @property装饰器
+#### @property 装饰器
 
-之前的建议是将属性命名以单下划线`_`开头，通过这种方式来暗示属性是受保护的，不建议外界直接访问，那么如果想访问属性可以通过属性的getter（访问器）和setter（修改器）方法进行对应的操作。如果要做到这点，就可以考虑使用`@property`包装器来包装getter和setter方法，使得对属性的访问既安全又方便
+之前的建议是将属性命名以单下划线 `_` 开头，通过这种方式来暗示属性是受保护的，不建议外界直接访问，那么如果想访问属性可以通过属性的 getter（访问器）和 setter（修改器）方法进行对应的操作。如果要做到这点，就可以考虑使用 `@property` 包装器来包装 getter 和 setter 方法，使得对属性的访问既安全又方便
 
 ```python
 class Person(object):
@@ -214,11 +223,11 @@ if __name__ == '__main__':
     main()
 ```
 
-## Python类的方法
+## Python 类的方法
 
 ### 构造 和 析构方法
 
--构造函数
+- 构造函数
 
 ```python
 def __init__(self,[...):
@@ -247,7 +256,7 @@ class Test:
 
 ### 静态方法
 
-静态方法：通过`@staticmethod` 修饰的方法，不属于类的对象
+静态方法：通过 `@staticmethod` 修饰的方法，不属于类的对象
 
 ```python
 from math import sqrt
@@ -290,7 +299,8 @@ if __name__ == '__main__':
 
 ### 类方法
 
-Python还可以在类中定义类方法，类方法的第一个参数约定名为 `cls` ，它代表的是当前类相关的信息的对象（类本身也是一个对象，有的地方也称之为类的 **元数据对象** ），通过这个参数我们可以获取和类相关的信息并且可以创建出类的对象
+Python 还可以在类中定义类方法，类方法的第一个参数约定名为 `cls` ，它代表的是当前类相关的信息的对象（类本身也是一个对象，有的地方也称之为类的 **元数据对象** ），通过这个参数我们可以获取和类相关的信息并且可以创建出类的对象
+
 `@classmethod` 修饰的方法
 
 ```python
@@ -366,7 +376,7 @@ if __name__ == '__main__':
 <class '__main__.Animal'>
 ```
 
-- type()函数返回对应的Class类型
+- type() 函数返回对应的 Class 类型
 
 ```
 >>> type(123)==type(456)
@@ -381,11 +391,11 @@ True
 False
 ```
 
-- 基本类型可以用`int`和`str`，判断对象类型，可以使用`types` 模块中定义的常量
+- 基本类型可以用 `int` 和 `str`，判断对象类型，可以使用 `types` 模块中定义的常量
   - types.FunctionType 函数类型
   - types.BuiltinFunctionType 内置函数类型
-  - types.LambdaType lambda类型
-  - types.GeneratorType Generator类型
+  - types.LambdaType lambda 类型
+  - types.GeneratorType Generator 类型
 
 ```
 >>> import types
@@ -404,7 +414,7 @@ True
 
 ### isinstance() 类型判断（包括继承关系）
 
-对于class的继承关系来说，使用`type()` 就很不方便。我们要判断class的类型，可以使用`isinstance(obj, class)`  函数。
+对于 class 的继承关系来说，使用 `type()` 就很不方便。我们要判断 class 的类型，可以使用 `isinstance(obj, class)` 函数。
 
 ```
 object -> Animal -> Dog -> Husky
@@ -423,7 +433,7 @@ True
 False
 ```
 
-能用type()判断的基本类型也可以用isinstance()判断：
+能用 type() 判断的基本类型也可以用 isinstance() 判断：
 
 ```
 >>> isinstance('a', str)
@@ -434,7 +444,7 @@ True
 True
 ```
 
-并且还可以判断一个变量是否是某些类型中的一种，比如下面的代码就可以判断是否是list或者tuple：
+并且还可以判断一个变量是否是某些类型中的一种，比如下面的代码就可以判断是否是 list 或者 tuple：
 
 ```
 >>> isinstance([1, 2, 3], (list, tuple))
@@ -443,18 +453,18 @@ True
 True
 ```
 
-> 总是优先使用isinstance()判断类型，可以将指定类型及其子类“一网打尽”。
+> 总是优先使用 isinstance() 判断类型，可以将指定类型及其子类 " 一网打尽 "。
 
 ### dir()
 
-获得一个对象的所有属性和方法，可以使用`dir()` 函数，它返回一个包含字符串的list
+获得一个对象的所有属性和方法，可以使用 `dir()` 函数，它返回一个包含字符串的 list
 
 ```
 >>> dir('ABC')
 ['__add__', '__class__',..., '__subclasshook__', 'capitalize', 'casefold',..., 'zfill']
 ```
 
-仅仅把属性和方法列出来是不够的，配合`getattr()` 、`setattr()` 以及`hasattr()` ，我们可以直接操作一个对象的状态：
+仅仅把属性和方法列出来是不够的，配合 `getattr()` 、`setattr()` 以及 `hasattr()` ，我们可以直接操作一个对象的状态：
 
 ```
 >>> class MyObject(object):
@@ -480,7 +490,7 @@ True
 19
 ```
 
-如果试图获取不存在的属性，会抛出AttributeError的错误：
+如果试图获取不存在的属性，会抛出 AttributeError 的错误：
 
 ```>>> getattr(obj, 'z') # 获取属性'z'
 Traceback (most recent call last):
@@ -488,7 +498,7 @@ Traceback (most recent call last):
 AttributeError: 'MyObject' object has no attribute 'z'
 ```
 
-可以传入一个default参数，如果属性不存在，就返回默认值：
+可以传入一个 default 参数，如果属性不存在，就返回默认值：
 
 ```
 >>> getattr(obj, 'z', 404) # 获取属性'z'，如果不存在，返回默认值404
@@ -511,7 +521,7 @@ True
 
 ## **slots**
 
-Python是一门动态语言。通常，动态语言允许我们在程序运行时给对象绑定新的属性或方法，当然也可以对已经绑定的属性和方法进行解绑定。但是如果我们需要限定自定义类型的对象只能绑定某些属性，可以通过在类中定义`__slots__`变量来进行限定。需要注意的是__slots__的限定只对当前类的对象生效，对子类并不起任何作用。
+Python 是一门动态语言。通常，动态语言允许我们在程序运行时给对象绑定新的属性或方法，当然也可以对已经绑定的属性和方法进行解绑定。但是如果我们需要限定自定义类型的对象只能绑定某些属性，可以通过在类中定义 `__slots__` 变量来进行限定。需要注意的是 **slots** 的限定只对当前类的对象生效，对子类并不起任何作用。
 
 ```python
 class Person(object):
@@ -550,11 +560,11 @@ def main():
     # person._is_gay = True
 ```
 
-## Python类继承
+## Python 类继承
 
 ### 抽象类
 
-包含了`@abstractmethod` 修饰的方法 的类就是抽象类
+包含了 `@abstractmethod` 修饰的方法 的类就是抽象类
 
 ### 继承
 
@@ -608,7 +618,7 @@ if __name__ == '__main__':
 
 #### 多继承
 
-Python支持多继承，用逗号`,` 隔开
+Python 支持多继承，用逗号 `,` 隔开
 
 ```python
 class Bat(Mammal, Flyable):
@@ -617,24 +627,27 @@ class Bat(Mammal, Flyable):
 
 ### MixIn
 
-MixIn的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系。
-Python自带的很多库也使用了MixIn。举个例子，Python自带了`TCPServer` 和`UDPServer` 这两类网络服务，而要同时服务多个用户就必须使用多进程或多线程模型，这两种模型由`ForkingMixIn` 和`ThreadingMixIn`提供。通过组合，我们就可以创造出合适的服务来。
+MixIn 的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个 MixIn 的功能，而不是设计多层次的复杂的继承关系。
+
+Python 自带的很多库也使用了 MixIn。举个例子，Python 自带了 `TCPServer` 和 `UDPServer` 这两类网络服务，而要同时服务多个用户就必须使用多进程或多线程模型，这两种模型由 `ForkingMixIn` 和 `ThreadingMixIn` 提供。通过组合，我们就可以创造出合适的服务来。
+
 这样一来，我们不需要复杂而庞大的继承链，只要选择组合不同的类的功能，就可以快速构造出所需的子类。
-比如，编写一个多进程模式的TCP服务，定义如下：
+
+比如，编写一个多进程模式的 TCP 服务，定义如下：
 
 ```python
 class MyTCPServer(TCPServer, ForkingMixIn):
     pass
 ```
 
-编写一个多线程模式的UDP服务，定义如下：
+编写一个多线程模式的 UDP 服务，定义如下：
 
 ```python
 class MyUDPServer(UDPServer, ThreadingMixIn):
     pass
 ```
 
-如果你打算搞一个更先进的协程模型，可以编写一个`CoroutineMixIn`：
+如果你打算搞一个更先进的协程模型，可以编写一个 `CoroutineMixIn`：
 
 ```python
 class MyTCPServer(TCPServer, CoroutineMixIn):
@@ -643,7 +656,7 @@ class MyTCPServer(TCPServer, CoroutineMixIn):
 
 ## 枚举类
 
-枚举类型，每个常量都是class的一个唯一实例。Python提供了Enum类来实现这个功能：
+枚举类型，每个常量都是 class 的一个唯一实例。Python 提供了 Enum 类来实现这个功能：
 
 ```python
 from enum import Enum
@@ -651,16 +664,16 @@ from enum import Enum
 Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
 ```
 
-可以直接使用`Month.Jan`来引用一个常量，或者枚举它的所有成员：
+可以直接使用 `Month.Jan` 来引用一个常量，或者枚举它的所有成员：
 
 ```python
 for name, member in Month.__members__.items():
     print(name, '=>', member, ',', member.value)
 ```
 
-`value`属性则是自动赋给成员的`int`常量，默认从`1`开始计数。
+`value` 属性则是自动赋给成员的 `int` 常量，默认从 `1` 开始计数。
 
-如果需要更精确地控制枚举类型，可以从`Enum`派生出自定义类：
+如果需要更精确地控制枚举类型，可以从 `Enum` 派生出自定义类：
 
 ```python
 from enum import Enum, unique
@@ -677,7 +690,8 @@ class Weekday(Enum):
 ```
 
 `@unique` 装饰器可以帮助我们检查保证没有重复值。
-访问这些枚举类型可以有若干种方法：既可以用成员名称引用枚举常量，又可以直接根据value的值获得枚举常量。
+
+访问这些枚举类型可以有若干种方法：既可以用成员名称引用枚举常量，又可以直接根据 value 的值获得枚举常量。
 
 ```python
 >>> day1 = Weekday.Mon

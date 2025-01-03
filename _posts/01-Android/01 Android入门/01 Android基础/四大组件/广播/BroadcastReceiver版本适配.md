@@ -1,7 +1,15 @@
 ---
-date created: 2024-08-13 01:19
-date updated: 2024-12-24 00:23
+date created: Tuesday, August 13th 2024, 1:19:00 am
+date updated: Saturday, January 4th 2025, 12:25:41 am
+title: BroadcastReceiver版本适配
 dg-publish: true
+image-auto-upload: true
+feed: show
+format: list
+layout: post
+categories: [Android]
+aliases: [Android 7.0]
+linter-yaml-title-alias: Android 7.0
 ---
 
 # Android 7.0
@@ -28,7 +36,7 @@ dg-publish: true
 
 - [x] [Restrictions on receiving network activity broadcasts](https://developer.android.com/topic/performance/background-optimization#connectivity-action)
 
-面向 Android 7.0（API 级别 24）的应用程序不会收到[CONNECTIVITY_ACTION](https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION)广播如果他们 注册以在其清单中接收它们，以及依赖于此的进程 广播将不会开始。
+面向 Android 7.0（API 级别 24）的应用程序不会收到 [CONNECTIVITY_ACTION](https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION) 广播如果他们 注册以在其清单中接收它们，以及依赖于此的进程 广播将不会开始。
 
 这可能会给想要的应用程序带来问题 侦听网络变化或执行批量网络活动 设备连接到不按流量计费的网络。
 
@@ -36,7 +44,7 @@ dg-publish: true
 
 #### 动态注册广播
 
-注册于[Context.registerReceiver()](https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver,%20android.content.IntentFilter))在应用程序运行时继续接收这些广播。
+注册于 [Context.registerReceiver()](https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver,%20android.content.IntentFilter)) 在应用程序运行时继续接收这些广播。
 
 #### 在 unmetered connections 安排 jobs（使用 JobScheduler 或 WorkManager）
 
@@ -76,11 +84,10 @@ JobScheduler 的新替代方案是 WorkManager。
 
 #### Trigger jobs on content URI changes
 
-为了在内容 URI 更改时触发作业，Android 7.0（API 级别 24）扩展了 `JobInfo` API有以下方法：
+为了在内容 URI 更改时触发作业，Android 7.0（API 级别 24）扩展了 `JobInfo` API 有以下方法：
 
 - `JobInfo.TriggerContentUri()` 封装在内容 URI 更改时触发作业所需的参数。
 - `JobInfo.Builder.addTriggerContentUri()`
--
 
 以下示例代码安排一个作业在系统报告内容 URI 发生更改时触发， `MEDIA_URI` :
 
@@ -114,7 +121,7 @@ Android 7.0（API 级别 24）还扩展了 `JobParameters` 允许您的应用程
 
 ### background processes adb 调试
 
-- [ ] [Further optimize your app ](https://developer.android.com/topic/performance/background-optimization#further-optimization)
+- [ ] [Further optimize your app](https://developer.android.com/topic/performance/background-optimization#further-optimization)
 
 - 要模拟隐式广播和后台服务不可用的情况，请输入以下命令：
 
@@ -128,7 +135,7 @@ adb shell cmd appops set <package_name> RUN_IN_BACKGROUND ignore
 adb shell cmd appops set <package_name> RUN_IN_BACKGROUND allow
 ```
 
-- 您可以模拟用户将您的应用程序置于“`restricted`”状态以进行后台电池使用。此设置会阻止您的应用程序在后台运行。为此，请在终端窗口中运行以下命令：
+- 您可以模拟用户将您的应用程序置于 "`restricted`" 状态以进行后台电池使用。此设置会阻止您的应用程序在后台运行。为此，请在终端窗口中运行以下命令：
 
 ```shell
 adb shell cmd appops set <PACKAGE_NAME> RUN_ANY_IN_BACKGROUND deny
@@ -150,7 +157,7 @@ adb shell cmd appops set <PACKAGE_NAME> RUN_ANY_IN_BACKGROUND deny
 
 - 应用可以继续在它们的清单中注册 `explicit` 显示广播
 - 应用可以在运行时使用 `context.registerReceiver()` 注册任意广播（不管是隐式还是显式广播）
-- 需要签名权限([signature permission](https://developer.android.com/guide/topics/manifest/permission-element#plevel))的广播不受此限制所限，因为这些广播只会发送到使用相同证书签名的应用，而不是发送到设备上的所有应用
+- 需要签名权限 ([signature permission](https://developer.android.com/guide/topics/manifest/permission-element#plevel)) 的广播不受此限制所限，因为这些广播只会发送到使用相同证书签名的应用，而不是发送到设备上的所有应用
 
 在许多情况下，之前注册隐式广播的应用可以通过使用 JobScheduler 作业获得类似的功能。
 
@@ -167,7 +174,7 @@ intent.setPackage("receiver_package");
 sendBroadcast(intent);
 ```
 
-如果你是系统开发人员，还可以通过添加一个flag突破这个限制
+如果你是系统开发人员，还可以通过添加一个 flag 突破这个限制
 
 ```java
 Intent intent = new Intent("some_action");
@@ -176,7 +183,7 @@ intent.addFlags(Intent.FLAG_RECEIVER_INCLUDE_BACKGROUND);
 sendBroadcast(intent);
 ```
 
-`Intent.FLAG_RECEIVER_INCLUDE_BACKGROUND`对第三方应用不开放，然而有意思的是，第三方应用可以直接把这个flag替换为对应的值，也可以突破这个限制
+`Intent.FLAG_RECEIVER_INCLUDE_BACKGROUND` 对第三方应用不开放，然而有意思的是，第三方应用可以直接把这个 flag 替换为对应的值，也可以突破这个限制
 
 ```java
 Intent intent = new Intent("some_action");

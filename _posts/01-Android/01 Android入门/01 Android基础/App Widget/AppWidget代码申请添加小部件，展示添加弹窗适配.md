@@ -1,7 +1,15 @@
 ---
-date created: 2024-12-13 21:04
-date updated: 2024-12-24 00:23
+date created: Friday, December 13th 2024, 9:04:00 pm
+date updated: Saturday, January 4th 2025, 12:29:30 am
+title: AppWidget代码申请添加小部件，展示添加弹窗适配
 dg-publish: true
+image-auto-upload: true
+feed: show
+format: list
+layout: post
+categories: [Android]
+aliases: [官方]
+linter-yaml-title-alias: 官方
 ---
 
 # 官方
@@ -62,7 +70,7 @@ private fun Int.toImmutableCompatFlag(): Int {
 
 ### 小米 6
 
-- 小米6  Android8.0 不支持
+- 小米 6 Android8.0 不支持
 - 添加 `home screen shortcut` 权限也不行
 
 ### 小米 14
@@ -119,6 +127,7 @@ private fun addAppWidget() {
 ```
 
 `Home screen shortcuts` 权限情况：
+
 ![|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20241213211854.png)
 
 报错：
@@ -135,15 +144,17 @@ private fun addAppWidget() {
 ### 其他小米设备
 
 `RedMi Note 9 Pro` `Miui13` `Android12`
+
 ![|400](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20241213214455.png)
-小米15
+
+小米 15
 
 ### 小结
 
 - 需要申请特殊权限：`Home screen shortcuts` 。
 - 添加时没有展示确认弹窗，直接添加成功。
 - 拉起 widget 商店 ：[小部件技术规范与系统能力说明 | 小米澎湃OS开发者平台](https://dev.mi.com/xiaomihyperos/documentation/detail?pId=1584#_16)
-- 在 MIUI 13以下的机型上，需要申请 `INSTALL_SHORTCUT(com.android.launcher.permission.INSTALL_SHORTCUT)` 才可以添加。待确认
+- 在 MIUI 13 以下的机型上，需要申请 `INSTALL_SHORTCUT(com.android.launcher.permission.INSTALL_SHORTCUT)` 才可以添加。待确认
 
 [android - App widget dialog from Activity not showing in redmi phones - Stack Overflow](https://stackoverflow.com/questions/57781688/app-widget-dialog-from-activity-not-showing-in-redmi-phones)
 
@@ -155,7 +166,7 @@ Vivo 默认的 Launcher 无法添加。
 
 # 华为
 
-华为默认的 Launcher无法添加。
+华为默认的 Launcher 无法添加。
 
 参考 [Widget pinning not working with Android Huawei and Vivo devices - Stack Overflow](https://stackoverflow.com/questions/72492999/widget-pinning-not-working-with-android-huawei-and-vivo-devices), 好像没有解决方案。
 

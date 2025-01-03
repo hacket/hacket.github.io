@@ -1,7 +1,15 @@
 ---
-date created: 2024-04-12 10:21
-date updated: 2024-12-24 00:23
+date created: Friday, April 12th 2024, 10:21:00 am
+date updated: Saturday, January 4th 2025, 12:25:38 am
+title: BroadcastReceiver
 dg-publish: true
+image-auto-upload: true
+feed: show
+format: list
+layout: post
+categories: [Android]
+aliases: [BroadcastReceiver 基础]
+linter-yaml-title-alias: BroadcastReceiver 基础
 ---
 
 # BroadcastReceiver 基础
@@ -10,17 +18,17 @@ dg-publish: true
 
 广播接收器是 Android 中的组件之一，它使应用程序能够侦听并响应来自其他应用程序或系统本身的广播消息。将它们视为等待特定事件发生的侦听器。
 
-应用程序可以使用广播接收器响应系统范围的事件，例如`电池电量变化`、`网络连接`和`传入的 SMS 消息`。
+应用程序可以使用广播接收器响应系统范围的事件，例如 `电池电量变化`、`网络连接` 和 `传入的 SMS 消息`。
 
-广播消息只不过是一个 `Intent` 。此 `Intent` 的 `action` 字符串标识发生的事件（例如， `android.intent.action.AIRPLANE_MODE` 表示 `Airplane mode` 开启了）。Intent 还可以包括捆绑到其额外字段中的附加信息。例如，`the airplane mode intent` 包括指示 `Airplane Mode`是否打开的额外布尔值。
+广播消息只不过是一个 `Intent` 。此 `Intent` 的 `action` 字符串标识发生的事件（例如， `android.intent.action.AIRPLANE_MODE` 表示 `Airplane mode` 开启了）。Intent 还可以包括捆绑到其额外字段中的附加信息。例如，`the airplane mode intent` 包括指示 `Airplane Mode` 是否打开的额外布尔值。
 
 ## 广播分类
 
 ### 有序广播
 
-使用`sendOrderedBroadcast(Intent, String)`方法发送出去的广播被广播接收者按照先后顺序接收，先接收的广播接收者可以对广播进行截断或修改。
+使用 `sendOrderedBroadcast(Intent, String)` 方法发送出去的广播被广播接收者按照先后顺序接收，先接收的广播接收者可以对广播进行截断或修改。
 
-它一次向一个接收器发送广播。假设我们有多个接收者正在监听我们的自定义操作，当我们使用此方法发送广播时，一次只有一个接收者会获得`onReceive()`回调，而其他接收者只有在前一个函数完全执行时才会获得。接收器运行的顺序可以通过匹配意图过滤器`android:priority`属性来控制；具有相同优先级的接收器将以任意顺序运行。
+它一次向一个接收器发送广播。假设我们有多个接收者正在监听我们的自定义操作，当我们使用此方法发送广播时，一次只有一个接收者会获得 `onReceive()` 回调，而其他接收者只有在前一个函数完全执行时才会获得。接收器运行的顺序可以通过匹配意图过滤器 `android:priority` 属性来控制；具有相同优先级的接收器将以任意顺序运行。
 
 ```kotlin
 // Sender App
@@ -48,7 +56,7 @@ sendBroadcast(intent);
 
 ### 系统广播
 
-Android中内置了多个系统广播：只要涉及到手机的基本操作（如开机、网络状态变化、拍照等等），都会发出相应的广播。每个广播都有特定的`Intent-Filter`（包括具体的action）。当使用系统广播时，只需要在注册广播接收者时定义相关的action即可，并不需要手动发送广播，当系统有相关操作时会自动进行系统广播。
+Android 中内置了多个系统广播：只要涉及到手机的基本操作（如开机、网络状态变化、拍照等等），都会发出相应的广播。每个广播都有特定的 `Intent-Filter`（包括具体的 action）。当使用系统广播时，只需要在注册广播接收者时定义相关的 action 即可，并不需要手动发送广播，当系统有相关操作时会自动进行系统广播。
 
 ### 粘性广播 (`sendStickBroadcast`)
 
@@ -103,11 +111,11 @@ sendBroadcast(intent);
 
 #### Manifest-declared receivers (Static Broadcast Receiver) 静态广播接收器
 
-如果我们在清单文件中声明广播接收器，则在发送广播时，如果应用程序尚未运行（应用程序`onCreate()`被触发），系统将启动我们的应用程序。
+如果我们在清单文件中声明广播接收器，则在发送广播时，如果应用程序尚未运行（应用程序 `onCreate()` 被触发），系统将启动我们的应用程序。
 
 ##### 示例
 
-我们有一个应用程序应该知道设备何时收到短信，以实现这一点，创建一个扩展 android `BroadcastReceiver`类并重写`onReceive()`方法的 SmsReceiver 类
+我们有一个应用程序应该知道设备何时收到短信，以实现这一点，创建一个扩展 android `BroadcastReceiver` 类并重写 `onReceive()` 方法的 SmsReceiver 类
 
 ```kotlin
 //Receiver App
@@ -139,7 +147,7 @@ class SmsReceiver: BroadcastReceiver() {
 </application>
 ```
 
-> 使 receiver 能够从外部 app 接受事件，将`android:exported`为 `true` ，如果想在本地接收，则将其设置为 `false` 。
+> 使 receiver 能够从外部 app 接受事件，将 `android:exported` 为 `true` ，如果想在本地接收，则将其设置为 `false` 。
 
 ##### 背后原理
 
@@ -147,7 +155,7 @@ class SmsReceiver: BroadcastReceiver() {
 
 ##### Android 8.0 静态广播限制
 
-从 Android 8.0（API 级别 26）开始，我们无法使用清单来声明大多数隐式广播（不专门针对我们的应用程序的广播）的接收器。检查可以使用清单声明的接收器的广播[列表](https://developer.android.com/develop/background-work/background-tasks/broadcasts/broadcast-exceptions)。然而，我们总是可以使用上下文注册的接收器。
+从 Android 8.0（API 级别 26）开始，我们无法使用清单来声明大多数隐式广播（不专门针对我们的应用程序的广播）的接收器。检查可以使用清单声明的接收器的广播 [列表](https://developer.android.com/develop/background-work/background-tasks/broadcasts/broadcast-exceptions)。然而，我们总是可以使用上下文注册的接收器。
 
 - [Implicit broadcast exceptions](https://developer.android.com/develop/background-work/background-tasks/broadcasts/broadcast-exceptions)
 
@@ -157,7 +165,7 @@ class SmsReceiver: BroadcastReceiver() {
 
 如果我们向 application 上下文注册，只要应用程序正在运行，我们就会收到广播。
 
-要实现`context-registered`的广播，请从清单文件中删除接收器，然后将其注册到 `activity` 中：
+要实现 `context-registered` 的广播，请从清单文件中删除接收器，然后将其注册到 `activity` 中：
 
 ```kotlin
 // Receiver App
@@ -183,7 +191,7 @@ override fun onDestroy() {
 
 ### Sending broadcasts 发送广播
 
-任何应用程序都可以使用`sendBroadcast(Intent)`发送广播。
+任何应用程序都可以使用 `sendBroadcast(Intent)` 发送广播。
 
 ```kotlin
 //Sender App
@@ -193,9 +201,9 @@ intent.putExtra("data", "Some custom data")
 sendBroadcast(intent)
 ```
 
-这样，所有正在侦听`TEST_CUSTOM_ACTION`意图的应用程序都将异步接收广播
+这样，所有正在侦听 `TEST_CUSTOM_ACTION` 意图的应用程序都将异步接收广播
 
-我们还可以通过在意图上调用`setPackage(String)`来限制对特定应用程序的广播。通过这种方式，广播将仅发送到具有提到的包名称的单个应用程序。
+我们还可以通过在意图上调用 `setPackage(String)` 来限制对特定应用程序的广播。通过这种方式，广播将仅发送到具有提到的包名称的单个应用程序。
 
 ```kotlin
 //Sender App
@@ -250,7 +258,7 @@ java.lang.SecurityException: com.example.receiverapp: One of RECEIVER_EXPORTED o
 
 权限允许我们将广播限制到拥有某些权限的应用程序集。
 
-假设我们想向具有internet 权限的应用程序发送广播，我们可以指定一个权限参数。
+假设我们想向具有 internet 权限的应用程序发送广播，我们可以指定一个权限参数。
 
 ```kotlin
 //Sender App
@@ -260,6 +268,7 @@ sendBroadcast(intent, Manifest.permission.INTERNET
 ```
 
 只有在清单中使用标签请求许可的接收者（如果存在危险，则随后被授予许可）才能接收广播。
+
 要接收广播，请在清单文件中声明权限
 
 ```xml
@@ -303,8 +312,9 @@ registerReceiver(customReceiver,
 
 ### 限制接收者
 
-假如现在要发送一个广播，我们并不希望所有人都能接收这个广播，我们可以考虑在使用`Context.sendBroadcast()`或`Context.sendOrderedBroadcast()`发送的时候附带一个权限参数。我们可以使用系统的权限，也可以重新定义一个权限。
-假如现在要发送一个带有自定义权限的广播，首先得在AndroidManifest.xml定义这个权限
+假如现在要发送一个广播，我们并不希望所有人都能接收这个广播，我们可以考虑在使用 `Context.sendBroadcast()` 或 `Context.sendOrderedBroadcast()` 发送的时候附带一个权限参数。我们可以使用系统的权限，也可以重新定义一个权限。
+
+假如现在要发送一个带有自定义权限的广播，首先得在 AndroidManifest.xml 定义这个权限
 
 ```xml
 <permission android:name="me.hacket.sender.receiver_permission"/>
@@ -319,7 +329,7 @@ sendBroadcast(intent, "me.hacket.sender.receiver_permission");
 
 `sendBroadcast()` 的第二个参数就是自定义的权限。当然，如果你希望清单注册的广播接收器能接收到这个广播，还得转成隐式来发送广播。
 
-为了接收这个广播，接收的应用必须在`AndroidManifest.xml`中申请使用这个权限
+为了接收这个广播，接收的应用必须在 `AndroidManifest.xml` 中申请使用这个权限
 
 ```xml
 <uses-permission android:name="me.hacket.sender.receiver_permission" />
@@ -337,7 +347,7 @@ sendBroadcast(intent, "me.hacket.sender.receiver_permission");
 
 然后在注册的时候使用这个权限。我们知道广播接收器的注册有两个方式，一个是动态注册，一个是静态注册。
 
-如果是静态注册，在`AndroidManifest.xml`中的代码如下
+如果是静态注册，在 `AndroidManifest.xml` 中的代码如下
 
 ```xml
 <receiver android:name=".MyReceiver" android:permission="me.hacket.receiver.sender_permission">
@@ -347,14 +357,14 @@ sendBroadcast(intent, "me.hacket.sender.receiver_permission");
 </receiver>
 ```
 
-如果是动态注册，例如在Activity中注册，代码如下
+如果是动态注册，例如在 Activity 中注册，代码如下
 
 ```java
 IntentFilter filter = new IntentFilter("com.bxll.reciever.action");
 registerReceiver(receiver, filter, "me.hacket.reciever.sender_permission", null);
 ```
 
-那么广播的发送者只要在`AndroidManifest.xml`中申请了这个权限，就可以发送广播给这个接收者
+那么广播的发送者只要在 `AndroidManifest.xml` 中申请了这个权限，就可以发送广播给这个接收者
 
 ```xml
 <uses-permission android:name="me.hacket.receiver.sender_permission" />
@@ -362,14 +372,15 @@ registerReceiver(receiver, filter, "me.hacket.reciever.sender_permission", null)
 
 ### 小结
 
-无论是在发送广播，还是在注册广播接收器时添加了权限，只需要在另一方的AndroidManifest.xml中申请这个权限即可，并不需要做额外处理。
+无论是在发送广播，还是在注册广播接收器时添加了权限，只需要在另一方的 AndroidManifest.xml 中申请这个权限即可，并不需要做额外处理。
 
 ## 广播接收器对宿主进程状态的影响
 
-当一个广播接收器的`onReceive()`在执行时候，系统认为这个广播接收器的宿主进程处理前台，并且会保持这个进程继续运行，除非在系统内存极度紧张的状态下才会杀死这个进程。
-然而，当广播接收器的`onReceive()`方法执行完毕后，并且宿主只有这个一个广播接收器在运行，那么系统认为这个宿主进程处理低优先级状态，并且很可能杀死这个进程来释放资源。
+当一个广播接收器的 `onReceive()` 在执行时候，系统认为这个广播接收器的宿主进程处理前台，并且会保持这个进程继续运行，除非在系统内存极度紧张的状态下才会杀死这个进程。
 
-所以，我们不应该在`onReceive()`创建一个后台线程用于处理任务(广播接收器在主线程中执行)，因为宿主进程可能被杀死，后台线程会被终止。如果我们遇到了一定要在后台线程处理任务的情况，可以使用`JobScheduler`来计划将来要执行的任务，或者调用`goSync()`表明你需要更多时间在后台处理任务，这样系统就会知道进程需要继续执行任务，从而在正常的情况下不会杀死进程。
+然而，当广播接收器的 `onReceive()` 方法执行完毕后，并且宿主只有这个一个广播接收器在运行，那么系统认为这个宿主进程处理低优先级状态，并且很可能杀死这个进程来释放资源。
+
+所以，我们不应该在 `onReceive()` 创建一个后台线程用于处理任务 (广播接收器在主线程中执行)，因为宿主进程可能被杀死，后台线程会被终止。如果我们遇到了一定要在后台线程处理任务的情况，可以使用 `JobScheduler` 来计划将来要执行的任务，或者调用 `goSync()` 表明你需要更多时间在后台处理任务，这样系统就会知道进程需要继续执行任务，从而在正常的情况下不会杀死进程。
 
 ```java
 public class MyBroadcastReceiver extends BroadcastReceiver {
@@ -406,13 +417,13 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
 ### goSync()
 
-在`onReceive()`中调用`goSync()`方法通知系统进程需要更多时间处理任务，`goSync()`会返回一个`PendingResult`对象，当任务执行完毕，还需要调用`PendingResult`的`finish()`通知系统进程的后台任务执行完毕，此时系统会根据情况决定是否杀死进程来释放资源。
+在 `onReceive()` 中调用 `goSync()` 方法通知系统进程需要更多时间处理任务，`goSync()` 会返回一个 `PendingResult` 对象，当任务执行完毕，还需要调用 `PendingResult` 的 `finish()` 通知系统进程的后台任务执行完毕，此时系统会根据情况决定是否杀死进程来释放资源。
 
 **注意：调用 goSync() 之后，也不要在任务执行里面做耗时操作，一样会触发 Broadcast 的 ANR**
 
-`PendingResult.finish()`的作用是完成当前广播，然后进程才能处理下个广播。因此，即使在 `goAsync()` 后，创建异步线程执行任务，仍然需要在大约10s的时间内调用`PendingResult.finish()`，否则系统会认为ANR。
+`PendingResult.finish()` 的作用是完成当前广播，然后进程才能处理下个广播。因此，即使在 `goAsync()` 后，创建异步线程执行任务，仍然需要在大约 10s 的时间内调用 `PendingResult.finish()`，否则系统会认为 ANR。
 
-`goAsync()`的作用只是保证 Reciever 处于一段时间的 active 状态，保证进程不会被杀死。并不能简单理解为调用 goAsync() 之后，就能后来处理长时间的任务。
+`goAsync()` 的作用只是保证 Receiver 处于一段时间的 active 状态，保证进程不会被杀死。并不能简单理解为调用 goAsync() 之后，就能后来处理长时间的任务。
 
 要在 `Reciever` 中处理长时间任务，还是得用 `Service` `或JobScheduler` 或 `JobIntentService`，或者 `WorkManager`。
 

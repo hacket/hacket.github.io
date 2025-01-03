@@ -1,7 +1,15 @@
 ---
-date created: 2024-08-13 01:01
-date updated: 2024-12-24 00:23
+date created: Tuesday, August 13th 2024, 1:01:00 am
+date updated: Saturday, January 4th 2025, 12:25:45 am
+title: LocalBroadcastManager
 dg-publish: true
+image-auto-upload: true
+feed: show
+format: list
+layout: post
+categories: [Android]
+aliases: [LocalBroadcastManager]
+linter-yaml-title-alias: LocalBroadcastManager
 ---
 
 # LocalBroadcastManager

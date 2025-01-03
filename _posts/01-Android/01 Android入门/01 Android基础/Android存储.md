@@ -1,21 +1,27 @@
 ---
-date created: 2024-12-24 00:24
-date updated: 2024-12-24 00:24
+date created: Tuesday, December 24th 2024, 12:24:00 am
+date updated: Saturday, January 4th 2025, 12:29:35 am
+title: Android存储
 dg-publish: true
-tags:
-  - '#commit()'
-  - '#135**<br'
+image-auto-upload: true
+feed: show
+format: list
+layout: post
+categories: [Android]
+tags: ['#135**<br', '#commit()', 135]
+aliases: [Android 各种 API 文件路径]
+linter-yaml-title-alias: Android 各种 API 文件路径
 ---
 
-# Android各种API文件路径
+# Android 各种 API 文件路径
 
-## Context相关的
+## Context 相关的
 
 ### 1、内部存储
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687800029839-76fc6221-e497-4511-9828-7af09ce7ec9b.png#averageHue=%23fbf9f7&clientId=u8b86f896-fffe-4&from=paste&height=139&id=u923dead2&originHeight=209&originWidth=306&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=21683&status=done&style=none&taskId=ua6fe074a-b9dd-4b44-97d5-f294464c569&title=&width=204)
 
-- [getFilesDir()](http://developer.android.com/reference/android/content/Context.html#getFilesDir())<br />**内部存储**；获取`/data/data/<package name>/files`目录。
+- [getFilesDir()](http://developer.android.com/reference/android/content/Context.html#getFilesDir())<br />**内部存储**；获取 `/data/data/<package name>/files` 目录。
 
 ```java
 File filesDir = this.getFilesDir();
@@ -23,7 +29,7 @@ File filesDir = this.getFilesDir();
 
 如：`/data/data/me.hacket.test.code/files`
 
-- [getCacheDir()](http://developer.android.com/reference/android/content/Context.html#getCacheDir())<br />**内部存储**；获取`/data/data/<package name>/cache`目录；机身内存不足时，文件会被删除，不会提示。
+- [getCacheDir()](http://developer.android.com/reference/android/content/Context.html#getCacheDir())<br />**内部存储**；获取 `/data/data/<package name>/cache` 目录；机身内存不足时，文件会被删除，不会提示。
 
 ```java
 File cacheDir = this.getCacheDir();
@@ -33,7 +39,7 @@ File cacheDir = this.getCacheDir();
 
 ---
 
-- openOrCreateDatabase(String name, int mode, CursorFactory factory)<br />打开或者创建(如果不存在)一个数据库name，创建的数据库保存在`/data/data/<package name>/databases`目录
+- openOrCreateDatabase(String name, int mode, CursorFactory factory)<br />打开或者创建 (如果不存在) 一个数据库 name，创建的数据库保存在 `/data/data/<package name>/databases` 目录
 
 ```java
 SQLiteDatabase dbHacket = this.openOrCreateDatabase("db_hacket.db", MODE_PRIVATE, null);
@@ -41,7 +47,7 @@ SQLiteDatabase dbHacket = this.openOrCreateDatabase("db_hacket.db", MODE_PRIVATE
 
 如:`/data/data/me.hacket.test.code/databases/db_hacket.db`
 
-- getDatabasePath(String name)<br />打开由`openOrCreateDatabase()`创建的数据库name
+- getDatabasePath(String name)<br />打开由 `openOrCreateDatabase()` 创建的数据库 name
 
 ```java
 File dbPath = this.getDatabasePath("db_hacket.db");
@@ -51,13 +57,13 @@ File dbPath = this.getDatabasePath("db_hacket.db");
 
 ---
 
-- openFileOutput(String name, int mode)<br />第一参数用于指定文件名称，不能包含路径分隔符"/" ，如果文件不存在，Android会自动创建它。创建的文件保存在`/data/data/<package name>/files`目录
-- openFileOutput(String name, int mode)<br />打开存放在`/data/data/<package name>/files`目录应用私有的文件
-- getFileStreamPath(String name)<br />返回由`openFileOutput(String name, int mode)`创建的文件，返回以`name`为文件名的文件对象，`name`为空，则等同于`getExternalFilesDir("")`
+- openFileOutput(String name, int mode)<br />第一参数用于指定文件名称，不能包含路径分隔符 "/" ，如果文件不存在，Android 会自动创建它。创建的文件保存在 `/data/data/<package name>/files` 目录
+- openFileOutput(String name, int mode)<br />打开存放在 `/data/data/<package name>/files` 目录应用私有的文件
+- getFileStreamPath(String name)<br />返回由 `openFileOutput(String name, int mode)` 创建的文件，返回以 `name` 为文件名的文件对象，`name` 为空，则等同于 `getExternalFilesDir("")`
 
 ### 2、外部存储
 
-- getExternalCacheDir()<br />**外部存储**；获取`/sdcard/Android/data/<package name>/cache`目录；其实就是`getExternalCacheDirs()[0]`获取主外存设备。
+- getExternalCacheDir()<br />**外部存储**；获取 `/sdcard/Android/data/<package name>/cache` 目录；其实就是 `getExternalCacheDirs()[0]` 获取主外存设备。
 
 ```java
 File externalCacheDir = this.getExternalCacheDir();
@@ -65,7 +71,7 @@ File externalCacheDir = this.getExternalCacheDir();
 
 如：`/storage/emulated/0/Android/data/me.hacket.test.code/cache`
 
-- getExternalFilesDir(String type)<br />**外部存储**；获取`/sdcard/Android/data/<package name>/files`目录，外部存储没有实时监控，当空间不足时，文件不会实时被删除，可能返回空对象。<br />_type_系统指定了几种类型:
+- getExternalFilesDir(String type)<br />**外部存储**；获取 `/sdcard/Android/data/<package name>/files` 目录，外部存储没有实时监控，当空间不足时，文件不会实时被删除，可能返回空对象。<br />_type_ 系统指定了几种类型:
 
 ```
 String directoryMusic = Environment.DIRECTORY_MUSIC; // Music
@@ -82,14 +88,14 @@ File getExternalFilesDirMusic = this.getExternalFilesDir("music");
 // /storage/emulated/0/Android/data/me.hacket.test.code/files/music
 ```
 
-- getDir(String name, int mode)<br />目录的命名规则为 app_ + name, 通过mode可控制此目录为app私有还是其他app可读写。<br />示例：
+- getDir(String name, int mode)<br />目录的命名规则为 app_ + name, 通过 mode 可控制此目录为 app 私有还是其他 app 可读写。<br />示例：
 
 ```java
 File dirPath = this.getDir("hacket", MODE_PRIVATE);
 // /data/data/me.hacket.test.code/app_hacket
 ```
 
-- getExternalMediaDirs()<br />获取`/sdcard/Android/media/<package name>`目录，需要api21(android5.0+)<br />示例：
+- getExternalMediaDirs()<br />获取 `/sdcard/Android/media/<package name>` 目录，需要 api21(android5.0+)<br />示例：
 
 ```java
 File[] externalMediaDirs = this.getExternalMediaDirs();
@@ -102,15 +108,15 @@ File[] externalMediaDirs = this.getExternalMediaDirs();
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="20" />
 ```
 
-**Note1: **从Android 4.4起`getExternalFilesDir(String type)`和`getExternalCacheDir()`这两个方法不需要读写权限，是针对于本应用来说，如果要访问其他应用的相关目录，还是需要声明读写权限。Android 4.4之前的版本要访问的话还是要声明读写权限的，如果没有在manifest中写权限，上面两个get方法都会返回null。
+**Note1: **从 Android 4.4 起 `getExternalFilesDir(String type)` 和 `getExternalCacheDir()` 这两个方法不需要读写权限，是针对于本应用来说，如果要访问其他应用的相关目录，还是需要声明读写权限。Android 4.4 之前的版本要访问的话还是要声明读写权限的，如果没有在 manifest 中写权限，上面两个 get 方法都会返回 null。
 
-**Note2: **`/data/data/<package name>/(内部存储，安全的，其他应用无法读取本应用的数据)`和`/sdcard/Android/data/<package name>/(外部存储，其他应用程序也可访问)`这些目录都是属于应用的，当应用被卸载的时候，里面的内容都会被移除，但是不要依赖于系统的操作。
+**Note2: **`/data/data/<package name>/(内部存储，安全的，其他应用无法读取本应用的数据)` 和 `/sdcard/Android/data/<package name>/(外部存储，其他应用程序也可访问)` 这些目录都是属于应用的，当应用被卸载的时候，里面的内容都会被移除，但是不要依赖于系统的操作。
 
-**Note3: **在外部存储中，`/sdcard/Android/data/<package name>/files`中的媒体文件，不会被当做媒体扫描出来，加到媒体库中。
+**Note3: **在外部存储中，`/sdcard/Android/data/<package name>/files` 中的媒体文件，不会被当做媒体扫描出来，加到媒体库中。
 
 ---
 
-## Environment相关的
+## Environment 相关的
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687800058604-25fcee88-44f9-49af-b77e-2971c1aa11d3.png#averageHue=%23fbf9f7&clientId=u8b86f896-fffe-4&from=paste&height=333&id=ufe14bb3a&originHeight=500&originWidth=471&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=58617&status=done&style=none&taskId=u93cdd597-2919-4733-a5ac-66545ce5f19&title=&width=314)
 
@@ -132,7 +138,7 @@ File[] externalMediaDirs = this.getExternalMediaDirs();
 
 ##### Environment.getRootDirectory()
 
-Android的根目录<br />/system
+Android 的根目录<br />/system
 
 ```java
 getDir("what",0):
@@ -153,27 +159,27 @@ getDir("what",0):
 
 ## 与存储相关权限
 
-- 从Android 1.0开始，写操作受权限WRITE_EXTERNAL_STORAGE保护。
-- 从Android 4.1开始，读操作受权限READ_EXTERNAL_STORAGE保护。
-- 从Android 4.4开始，应用可以管理在它外部存储上的特定包名目录，而不用获取WRITE_EXTERNAL_STORAGE权限。
+- 从 Android 1.0 开始，写操作受权限 WRITE_EXTERNAL_STORAGE 保护。
+- 从 Android 4.1 开始，读操作受权限 READ_EXTERNAL_STORAGE 保护。
+- 从 Android 4.4 开始，应用可以管理在它外部存储上的特定包名目录，而不用获取 WRITE_EXTERNAL_STORAGE 权限。
 
-> 比如，一个包名为com.example.foo的应用，可以自由访问外存上的Android/data/com.example.foo/目录。
+> 比如，一个包名为 com.example.foo 的应用，可以自由访问外存上的 Android/data/com.example.foo/目录。
 
-- Android6.0运行时权限
-- Android10.0分区存储
-- Android11强制分区存储
+- Android6.0 运行时权限
+- Android10.0 分区存储
+- Android11 强制分区存储
 
 ---
 
 参考：<br />Storage<br /><https://source.android.com/devices/storage/>
 
-Android存储使用参考<br /><http://www.liaohuqiu.net/cn/posts/storage-in-android/>
+Android 存储使用参考<br /><http://www.liaohuqiu.net/cn/posts/storage-in-android/>
 
 # SharedPreferences
 
-## SharedPreferences使用
+## SharedPreferences 使用
 
-SharedPreferences是轻量级持久化工具，把键值对写成xml文件保存在`data/data/packagename/shared_prefs`有的手机是`data/user/0/packagename/shared_prefs`路径下，注意SharedPreferences这个类并**不支持跨进程**使用。
+SharedPreferences 是轻量级持久化工具，把键值对写成 xml 文件保存在 `data/data/packagename/shared_prefs` 有的手机是 `data/user/0/packagename/shared_prefs` 路径下，注意 SharedPreferences 这个类并**不支持跨进程**使用。
 
 - 获取实例
 
@@ -192,7 +198,7 @@ editor.putInt("int",1)
 editor.commit(); // editoer.apply();
 ```
 
-> commit和apply区别：commit有返回值，同步；apply异步
+> commit 和 apply 区别：commit 有返回值，同步；apply 异步
 
 - 获取数据
 
@@ -202,16 +208,16 @@ sharedPreferences.getString("int",null);
 
 - 清除数据
 
-> 清除数据很简单，我们只需要调用它的clean()方法就行了，记住，一定要commit()，这样才是彻底清除。
+> 清除数据很简单，我们只需要调用它的 clean() 方法就行了，记住，一定要 commit()，这样才是彻底清除。
 
 ```java
 editor.clear();
 editor.commit();
 ```
 
-## SharedPreferences源码分析
+## SharedPreferences 源码分析
 
-### 获取SharedPreferences实例SharedPreferencesImpl
+### 获取 SharedPreferences 实例 SharedPreferencesImpl
 
 我们通过调用 Context.getSharedPreferences 获取一个 SharedPreferences 实例的时候，真正的实现在 ContextImpl：
 
@@ -309,15 +315,15 @@ private ArrayMap<File, SharedPreferencesImpl> getSharedPreferencesCacheLocked() 
 }
 ```
 
-实例就是`SharedPreferencesImpl`。
+实例就是 `SharedPreferencesImpl`。
 
-有趣的是 getSharedPreferencesCacheLocked 里面那个packageName。我们知道，一个应用的包名并不会改变；在访问内存中数据时，不同进程也不会互相干扰。这样看来，用 packageName 做 key 的这个 sSharedPrefsCache 是否有点多余？<br />通过查看 git 提交记录 8e3ddab 可以看到这样一句说明：
+有趣的是 getSharedPreferencesCacheLocked 里面那个 packageName。我们知道，一个应用的包名并不会改变；在访问内存中数据时，不同进程也不会互相干扰。这样看来，用 packageName 做 key 的这个 sSharedPrefsCache 是否有点多余？<br />通过查看 git 提交记录 8e3ddab 可以看到这样一句说明：
 
 > Otherwise multiple applications using the same process can end up leaking SharedPreferences instances between the apps
 
-其实 Android 有一个相当不常用的特性——多个应用可以共用同一个进程。在这种情况下，这里用 package name 就能够把各个应用的 SP 区分开。<br />这里的实现还隐含了 SP 的一个特性：一旦数据加载到内存，除非我们删除整个SP，内存中的数据在整个进程的生命周期中都存在。正常情况下，SP 中的数据量是非常小的，这个并不会导致什么问题。
+其实 Android 有一个相当不常用的特性——多个应用可以共用同一个进程。在这种情况下，这里用 package name 就能够把各个应用的 SP 区分开。<br />这里的实现还隐含了 SP 的一个特性：一旦数据加载到内存，除非我们删除整个 SP，内存中的数据在整个进程的生命周期中都存在。正常情况下，SP 中的数据量是非常小的，这个并不会导致什么问题。
 
-#### SharedPreferencesImpl初始化
+#### SharedPreferencesImpl 初始化
 
 ```java
 // base/core/java/android/app/SharedPreferencesImpl.java
@@ -345,7 +351,7 @@ private void startLoadFromDisk() {
 
 可以看到，SP 一创建就开始在后台加载数据了。利用这个特性，对于比较大的 SP 并且预期很快就要用到，可以提前获取 SP 实例，以触发他的初始化。这样一来，在随后我们真正需要读取里面的数据时，他很可能就已经加载完成，从而避免了第一次读取时的卡顿。
 
-### 获取Editor实例
+### 获取 Editor 实例
 
 ```java
 // SharedPreferencesImpl
@@ -365,7 +371,7 @@ public Editor edit() {
 }
 ```
 
-Editor的实现类是EditorImpl
+Editor 的实现类是 EditorImpl
 
 ### commit/apply
 
@@ -391,7 +397,7 @@ public boolean commit() {
 }
 ```
 
-> commit操作，首先它会构建MemoryCommitResult对象，把编辑的结果同步到内存中，然后将结果写入到磁盘文件中。在写文件的过程中，会利用CountDownLatch阻塞等待，直到写文件成功后才会notify，成功写入文件后会将备份文件删除，同一个SP实例，下次再提交数据时，会将原文件重命名备份文件名。如果写入失败，会将原文件删除。由此可见，数据commit都会重新写入整个文件数据。(备份文件作用是用来给下次恢复数据使用，可以见SP构造函数实例。
+> commit 操作，首先它会构建 MemoryCommitResult 对象，把编辑的结果同步到内存中，然后将结果写入到磁盘文件中。在写文件的过程中，会利用 CountDownLatch 阻塞等待，直到写文件成功后才会 notify，成功写入文件后会将备份文件删除，同一个 SP 实例，下次再提交数据时，会将原文件重命名备份文件名。如果写入失败，会将原文件删除。由此可见，数据 commit 都会重新写入整个文件数据。(备份文件作用是用来给下次恢复数据使用，可以见 SP 构造函数实例。
 
 #### apply
 
@@ -437,7 +443,7 @@ public void apply() {
 }
 ```
 
-commit和apply都调用了，只是commit传null，而apply传了postWriteRunnable
+commit 和 apply 都调用了，只是 commit 传 null，而 apply 传了 postWriteRunnable
 
 ```java
 // SharedPreferencesImpl#enqueueDiskWrite
@@ -478,8 +484,8 @@ private void enqueueDiskWrite(final MemoryCommitResult mcr,
 }
 ```
 
-1. 如果是commit，那就直接调用`writeToDiskRunnable#run`方法，直接写文件了
-2. 如果是apply，将其提交到`QueueWork#queue()`
+1. 如果是 commit，那就直接调用 `writeToDiskRunnable#run` 方法，直接写文件了
+2. 如果是 apply，将其提交到 `QueueWork#queue()`
 
 ```
 // QueueWork
@@ -542,7 +548,7 @@ private static void processPendingWork() {
 }
 ```
 
-apply的通过QueueWork将所有的work(Runnable)以List保存起来，通过Handler分发给子线程处理，处理逻辑在processPendingWork()中
+apply 的通过 QueueWork 将所有的 work(Runnable) 以 List 保存起来，通过 Handler 分发给子线程处理，处理逻辑在 processPendingWork() 中
 
 ### waitToFinish
 
@@ -576,40 +582,40 @@ public static void waitToFinish() {
 }
 ```
 
-看这段源码的注释就知道，框层架确保在切换状态之前完成使用apply（）方法 正在执行磁盘写入的动作会在`Activiy的 onPause()`、`BroadcastReceiver的onReceive()以`及`Service的onStartCommand()`方法之前调用waitToFinish方法，从这一点也可以看出时会阻塞线程的。
+看这段源码的注释就知道，框层架确保在切换状态之前完成使用 apply（）方法 正在执行磁盘写入的动作会在 `Activiy的 onPause()`、`BroadcastReceiver的onReceive()以` 及 `Service的onStartCommand()` 方法之前调用 waitToFinish 方法，从这一点也可以看出时会阻塞线程的。
 
-## SharedPreferences注意点
+## SharedPreferences 注意点
 
-### SP小结
+### SP 小结
 
-1. 不要存放大的key和value，会引起界面卡、频繁GC、占用内存等等
+1. 不要存放大的 key 和 value，会引起界面卡、频繁 GC、占用内存等等
 2. 毫不相关的配置项就不要丢在一起了，文件越大读取越慢；
-3. 读取频繁的key和不易变动的key尽量不要放在一起，影响速度。（如果整个文件很小，那么忽略吧，为了这点性能添加维护成本得不偿失）
-4. 不要乱edit和apply，尽量批量修改一次提交
-5. 尽量不要存放JSON和HTML，这种场景请直接使用json
+3. 读取频繁的 key 和不易变动的 key 尽量不要放在一起，影响速度。（如果整个文件很小，那么忽略吧，为了这点性能添加维护成本得不偿失）
+4. 不要乱 edit 和 apply，尽量批量修改一次提交
+5. 尽量不要存放 JSON 和 HTML，这种场景请直接使用 json
 6. 不用来跨进程通信
-7. 用apply替代commit
+7. 用 apply 替代 commit
 
-#### commit和apply区别
+#### commit 和 apply 区别
 
-1. apply方式提交的时候，会有一个消息延迟`100ms`发送，避免频繁的磁盘写入；而commit提交时，是直接利用Handler发送消息的
-2. 推荐使用apply，每次写数据都设计重新将数据写入文件，apply具有100ms的延迟避免频繁写入
-3. 这两个方法其实都是阻塞线程的，提交数据时都涉及调用CountDownLatch的await，文件写入成功后才会调用downLatch方法，所以这是阻塞线程的。
-4. 在Activity#onPause，BroadcastReceiver#onReceive()和Service#onStartCommand会调用`QueueWork#waitToFinish`同步的检测apply的数据是否写入完成，可能导致ANR，
+1. apply 方式提交的时候，会有一个消息延迟 `100ms` 发送，避免频繁的磁盘写入；而 commit 提交时，是直接利用 Handler 发送消息的
+2. 推荐使用 apply，每次写数据都设计重新将数据写入文件，apply 具有 100ms 的延迟避免频繁写入
+3. 这两个方法其实都是阻塞线程的，提交数据时都涉及调用 CountDownLatch 的 await，文件写入成功后才会调用 downLatch 方法，所以这是阻塞线程的。
+4. 在 Activity#onPause，BroadcastReceiver#onReceive() 和 Service#onStartCommand 会调用 `QueueWork#waitToFinish` 同步的检测 apply 的数据是否写入完成，可能导致 ANR，
 
-#### 不用用sp存储超大的value
+#### 不用用 sp 存储超大的 value
 
-SharedPreference（下文简称sp）是一种轻量级的存储方式，是它的设计所决定的：sp在创建的时候会把整个文件全部加载进内存，如果你的sp文件比较大，那么会带来两个严重问题：
+SharedPreference（下文简称 sp）是一种轻量级的存储方式，是它的设计所决定的：sp 在创建的时候会把整个文件全部加载进内存，如果你的 sp 文件比较大，那么会带来两个严重问题：
 
-1. 第一次从sp中获取值的时候，有可能阻塞主线程，使界面卡顿、掉帧。
-2. 解析sp的时候会产生大量的临时对象，导致频繁GC，引起界面卡顿。
-3. 这些key和value会永远存在于内存之中，占用大量内存。
+1. 第一次从 sp 中获取值的时候，有可能阻塞主线程，使界面卡顿、掉帧。
+2. 解析 sp 的时候会产生大量的临时对象，导致频繁 GC，引起界面卡顿。
+3. 这些 key 和 value 会永远存在于内存之中，占用大量内存。
 
-#### 存储JSON等特殊符号很多的value
+#### 存储 JSON 等特殊符号很多的 value
 
-JSON或者HTML格式存放在sp里面的时候，需要转义，这样会带来很多&这种**特殊符号**，sp在解析碰到这个特殊符号的时候会进行特殊的处理，引发额外的字符串拼接以及函数调用开销。而JSON本来就是可以用来做配置文件的，你干嘛又把它放在sp里面呢？多此一举。
+JSON 或者 HTML 格式存放在 sp 里面的时候，需要转义，这样会带来很多&这种**特殊符号**，sp 在解析碰到这个特殊符号的时候会进行特殊的处理，引发额外的字符串拼接以及函数调用开销。而 JSON 本来就是可以用来做配置文件的，你干嘛又把它放在 sp 里面呢？多此一举。
 
-#### 不要多次edit多次apply，多次edit一次apply
+#### 不要多次 edit 多次 apply，多次 edit 一次 apply
 
 ```java
 SharedPreferences sp = getSharedPreferences("test", MODE_PRIVATE);
@@ -619,7 +625,7 @@ sp.edit().putString("test3", "sss").apply();
 sp.edit().putString("test4", "sss").apply();
 ```
 
-apply()源码：
+apply() 源码：
 
 ```java
 public void apply() {
@@ -649,10 +655,10 @@ public void apply() {
 
 注意两点，
 
-- 第一，把一个带有await的runnable添加进了QueueWork类的一个队列；
-- 第二，把这个写入任务通过enqueueDiskWrite丢给了HandlerThread串行执行。
+- 第一，把一个带有 await 的 runnable 添加进了 QueueWork 类的一个队列；
+- 第二，把这个写入任务通过 enqueueDiskWrite 丢给了 HandlerThread 串行执行。
 
-到这里一切都OK，在子线程里面写入不会卡UI。但是，你去ActivityThread类的handleStopActivity里看一看：
+到这里一切都 OK，在子线程里面写入不会卡 UI。但是，你去 ActivityThread 类的 handleStopActivity 里看一看：
 
 ```java
 private void handleStopActivity(IBinder token, boolean show, int configChanges, int seq) {
@@ -674,24 +680,24 @@ public static void waitToFinish() {
 }
 ```
 
-还记得这个toFinish的Runnable是啥吗？就是上面那个awaitCommit它里面就一句话，等待写入线程！！如果在Activity Stop的时候，已经写入完毕了，那么万事大吉，不会有任何等待，这个函数会立马返回。但是，如果你使用了太多次的apply，那么意味着写入队列会有很多写入任务，而那里就只有一个线程在写。当App规模很大的时候，这种情况简直就太常见了！
+还记得这个 toFinish 的 Runnable 是啥吗？就是上面那个 awaitCommit 它里面就一句话，等待写入线程！！如果在 Activity Stop 的时候，已经写入完毕了，那么万事大吉，不会有任何等待，这个函数会立马返回。但是，如果你使用了太多次的 apply，那么意味着写入队列会有很多写入任务，而那里就只有一个线程在写。当 App 规模很大的时候，这种情况简直就太常见了！
 
 #### 不要用来跨进程，是否是进程安全的，为什么？
 
-1. SharedPreferences是线程安全的，这个毋庸置疑，你看方法内大量的synchronized就是用来保障数据正确性的。
-2. `MODE_MULTI_PROCESS`在某些Android版本上不可靠，并且未来也不会提供任何支持，要是用跨进程数据传输需要使用类似ContentProvider的东西
+1. SharedPreferences 是线程安全的，这个毋庸置疑，你看方法内大量的 synchronized 就是用来保障数据正确性的。
+2. `MODE_MULTI_PROCESS` 在某些 Android 版本上不可靠，并且未来也不会提供任何支持，要是用跨进程数据传输需要使用类似 ContentProvider 的东西
 
-#### SP.apply导致的ANR(apply 调用次数过多容易引起 ANR)
+#### SP.apply 导致的 ANR(apply 调用次数过多容易引起 ANR)
 
-在四大组件的生命周期在app进程跑完时会执行`QueuedWork.waitToFinish();`这个方法的左右是等待QueuedWork中所有的awaitCommit等待锁释放，如果anr允许时间内没有全部释放完，则会一直阻塞到产生anr。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687800219906-6e4c95b4-79d5-4ede-b7d8-77da5240f4ba.png#averageHue=%23e2e5e2&clientId=u8b86f896-fffe-4&from=paste&height=481&id=u97bdb761&originHeight=721&originWidth=1305&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=775419&status=done&style=none&taskId=u9a443f02-ed6f-4935-9430-a60d6f23693&title=&width=870)
+在四大组件的生命周期在 app 进程跑完时会执行 `QueuedWork.waitToFinish();` 这个方法的左右是等待 QueuedWork 中所有的 awaitCommit 等待锁释放，如果 anr 允许时间内没有全部释放完，则会一直阻塞到产生 anr。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687800219906-6e4c95b4-79d5-4ede-b7d8-77da5240f4ba.png#averageHue=%23e2e5e2&clientId=u8b86f896-fffe-4&from=paste&height=481&id=u97bdb761&originHeight=721&originWidth=1305&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=775419&status=done&style=none&taskId=u9a443f02-ed6f-4935-9430-a60d6f23693&title=&width=870)
 
 - [x] 剖析 SharedPreference apply 引起的 ANR 问题<br /><https://mp.weixin.qq.com/s/IFgXvPdiEYDs5cDriApkxQ>
 
-## SharedPreferences与多进程
+## SharedPreferences 与多进程
 
-- [ ] **SharedPreferences在多进程中的使用及注意事项**<br /><http://zmywly8866.github.io/2015/09/09/sharedpreferences-in-multiprocess.html>
-- [ ] **Android SharePreference多进程访问问题 #135**<br /><https://github.com/android-cn/android-discuss/issues/135>
-- [ ] **SharedPreference在使用过程中有什么注意点**<br />[https://github.com/ZhaoKaiQiang/AndroidDifficultAnalysis/blob/master/09.SharedPreference在使用过程中有什么注意点？.md](https://github.com/ZhaoKaiQiang/AndroidDifficultAnalysis/blob/master/09.SharedPreference%E5%9C%A8%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%9C%89%E4%BB%80%E4%B9%88%E6%B3%A8%E6%84%8F%E7%82%B9%EF%BC%9F.md)
+- [ ] **SharedPreferences 在多进程中的使用及注意事项**<br /><http://zmywly8866.github.io/2015/09/09/sharedpreferences-in-multiprocess.html>
+- [ ] **Android SharePreference 多进程访问问题 #135**<br /><https://github.com/android-cn/android-discuss/issues/135>
+- [ ] **SharedPreference 在使用过程中有什么注意点**<br />[https://github.com/ZhaoKaiQiang/AndroidDifficultAnalysis/blob/master/09.SharedPreference在使用过程中有什么注意点？.md](https://github.com/ZhaoKaiQiang/AndroidDifficultAnalysis/blob/master/09.SharedPreference%E5%9C%A8%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%9C%89%E4%BB%80%E4%B9%88%E6%B3%A8%E6%84%8F%E7%82%B9%EF%BC%9F.md)
 - [ ] <https://github.com/grandcentrix/tray>
 
-# 数据库Sqlite
+# 数据库 Sqlite
