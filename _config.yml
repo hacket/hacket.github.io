@@ -20,11 +20,11 @@ author: hacket
 ###############################################
 
 navbar-links:
+  大圣的数字花园: "https://garden.hacket.me"
   Resources:
     - Github: "https://github.com/hacket/"
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
-  大圣的数字花园: "https://garden.hacket.me"
   About Me: "aboutme"
 
 ################
@@ -54,7 +54,7 @@ social-network-links:
   email: "shengfanzeng@gmail.com"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
   facebook: hacketzeng
-  github: daattali
+  github: hacket
   twitter: hacket
 #  patreon: DeanAttali
 #  youtube: "@daattali"
