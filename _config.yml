@@ -20,11 +20,12 @@ author: hacket
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
   Resources:
+    - Github: "https://hacket.me/"
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://garden.hacket.me"
+  大圣数字花园: "https://garden.hacket.me"
+  About Me: "aboutme"
 
 ################
 # --- Logo --- #
