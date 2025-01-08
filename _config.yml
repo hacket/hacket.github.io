@@ -170,9 +170,9 @@ collections:
   tabs:
     output: true
     sort_by: order
-  articles: # 不使用 _posts 文件夹：
-    output: true # 输出到网站
-    permalink: /articles/:path/ # 自定义链接格式（可选）
+  articles:
+    output: true
+    permalink: /articles/:path/
 
 defaults:
   - scope:
