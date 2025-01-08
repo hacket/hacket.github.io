@@ -1,14 +1,29 @@
 ---
-date created: 2024-03-10 23:01
-date updated: 2024-12-26 00:18
+date created: Sunday, March 10th 2024, 11:01:00 pm
+date updated: Wednesday, January 8th 2025, 12:43:23 am
+title: Gradle Task进阶
+author: hacket
+toc: true
+description: 
 dg-publish: true
+dg-enable-search: true
+dg-show-local-graph: true
+dg-show-toc: true
+dg-show-file-tree: true
+dg-content-classes: 
+image-auto-upload: true
+feed: show
+format: list
+categories: 
+aliases: [Task 的输入和输出]
+linter-yaml-title-alias: Task 的输入和输出
 ---
 
 # Task 的输入和输出
 
 ## Task outcomes (Task 产出)
 
-**Task Outcome** Task 结果标识有5种，从名字上能大概看出它们的含义：
+**Task Outcome** Task 结果标识有 5 种，从名字上能大概看出它们的含义：
 ![image.png|700](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240324220721.png)
 
 ### **(no label) or EXECUTED**
@@ -34,8 +49,8 @@ dg-publish: true
 
 - **SKIPPED** 跳过（Task 没有执行 actions）
   - Task 被显示的 excluded 从 cli  See [Excluding tasks from execution](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:excluding_tasks_from_the_command_line).
-    - `$ gradle dist --exclude-task helloTask`
-  - Task 的 `onlyIf` 返回的 false  See [Using a predicate](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:using_a_predicate).
+	- `$ gradle dist --exclude-task helloTask`
+  - Task 的 `onlyIf` 返回的 false See [Using a predicate](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:using_a_predicate).
 
 ```kotlin
 tasks.register('customTask') {  
@@ -61,7 +76,8 @@ tasks.register('customTask') {
 ![Example task inputs and outputs|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/taskInputsOutputs.png)
 
 输入的一个重要特征是，它会影响一个或多个输出，如上图，根据源文件的内容和您要运行代码的 Java 运行时的最低版本，会生成不同的字节码。
-**编写Task时，需要告诉Gradle哪些Task属性是输入，哪些是输出。** 如果Task属性影响输出，请务必将其注册为输入，否则当它不是时，Task将被视为最新状态。相反，如果属性不影响输出，请不要将属性注册为输入，否则Task可能会在不需要时执行。还要注意可能为完全相同的输入生成不同输出的非确定性Task，这些Task不应配置为增量构建，因为UP-TO-DATE检查将不起作用。
+
+**编写 Task 时，需要告诉 Gradle 哪些 Task 属性是输入，哪些是输出。** 如果 Task 属性影响输出，请务必将其注册为输入，否则当它不是时，Task 将被视为最新状态。相反，如果属性不影响输出，请不要将属性注册为输入，否则 Task 可能会在不需要时执行。还要注意可能为完全相同的输入生成不同输出的非确定性 Task，这些 Task 不应配置为增量构建，因为 UP-TO-DATE 检查将不起作用。
 
 # Gradle Task Incremental 增量更新
 
@@ -69,13 +85,13 @@ tasks.register('customTask') {
 
 ## Task 增量更新概述
 
-`增量构建`是当Task的输入和输出没有变化时，跳过action的执行，当Task输入或输出发生变化时，在action中只对发生变化的输入或输出进行处理，这样就可以避免一个没有变化的Task被反复构建，当Task发生变化时也只处理变化部分，这样可以提高Gradle的构建效率，缩短构建时间。
+`增量构建` 是当 Task 的输入和输出没有变化时，跳过 action 的执行，当 Task 输入或输出发生变化时，在 action 中只对发生变化的输入或输出进行处理，这样就可以避免一个没有变化的 Task 被反复构建，当 Task 发生变化时也只处理变化部分，这样可以提高 Gradle 的构建效率，缩短构建时间。
 
 任何构建工具的一个重要部分是能够避免做已经完成的工作。编译源文件后，除非发生影响输出的某些变化，例如修改源文件或删除输出文件，否则无需重新编译它们。编译可能需要大量时间，因此在不需要时跳过步骤可以节省大量时间。
 
 Gradle 提供这种开箱即用的增量构建的功能，当你在编译时，Task 在控制台输出中标记为 `UP-TO-DATE`，这意味着增量构建正在工作。
 
-## Task 增量构建的两种形式：
+## Task 增量构建的两种形式
 
 1. Task 完全可以复用，输入和输出都没有任何变化，即 `UP-TO-DATE`，默认支持
 2. **第二种，有部分变化，只需要针对变化的部分进行操作；**
@@ -83,6 +99,7 @@ Gradle 提供这种开箱即用的增量构建的功能，当你在编译时，T
 ### 完全复用
 
 示例 ：_**编写一个复制文件的 Task**_，不支持增量编译的
+
 在编写 Task 的时候，我们需要使用注解来声明输入和输出。`@InputXXX` 表示输入，`@OutputXXX` 表示输出。
 
 ```kotlin
@@ -151,12 +168,15 @@ tasks.register<CopyTask>("myCopyTask") {
 ```
 
 第 1 次执行的日志：
+
 ![image.png|700](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240311135132.png)
 
 第 2 次执行的日志：
+
 ![image.png|700](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240311135322.png)
 
-Task的执行结果已经由`executed`变为`up-to-date`了，说明我们的增量构建已经生效了。
+Task 的执行结果已经由 `executed` 变为 `up-to-date` 了，说明我们的增量构建已经生效了。
+
 虽然说此时增量构建已经生效了，但完成度还不够，还需要有颗粒度更细的处理。
 
 ### 部分增量构建
@@ -164,6 +184,7 @@ Task的执行结果已经由`executed`变为`up-to-date`了，说明我们的增
 _**场景：基于上面的场景，在 from 文件夹下增加一个 text2.txt 文件，并支持增量构建。**_
 
 在 `text1.txt` 复制后，再执行 task，两个 text 又复制了一遍
+
 ![image.png|700](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240311192746.png)
 
 > 增加一个 `txt2.txt` 文件再次执行上面的命令时，会发现 `text1.txt` 文件被再次复制了一遍。
@@ -231,11 +252,11 @@ _**ChangeType**_ 的几种类型：
 
 Task 并不是每次执行都是增量构建，我们可以通过 `InputChanges` 的 `isIncremental` 方法判断本次构建是否是增量构建，不过有以下几种情况会全量构建：
 
-- 该Task是第一次执行；
-- 该Task只有输入没有输出；
+- 该 Task 是第一次执行；
+- 该 Task 只有输入没有输出；
 - 该 Task 的 `upToDateWhen` 条件返回了 false；
-- 自上次构建以来，该Task的某个输出文件已更改；
-- 自上次构建以来，该Task的某个属性输入发生了变化，例如一些基本类型的属性；
+- 自上次构建以来，该 Task 的某个输出文件已更改；
+- 自上次构建以来，该 Task 的某个属性输入发生了变化，例如一些基本类型的属性；
 - 自上次构建以来，该 Task 的某个非增量文件输入发生了变化，非增量文件输入是指没有使用 `@Incremental` 或 `@SkipWhenEmpty` 注解的文件输入.
 
 当 Task 处于全量构建时，即 `InputChanges` 的 isIncremental 方法返回 false 时，通过 InputChanges 的 `getFileChanges` 方法能获取到所有的输入文件，并且每个文件的 ChangeType 都为 ADDED，当 Task 处于增量构建时，即 InputChanges 的 isIncremental 方法返回 true 时，通过 InputChanges 的 getFileChanges 方法能获取到只发生变化的输入文件。
@@ -246,7 +267,7 @@ Task 并不是每次执行都是增量构建，我们可以通过 `InputChanges`
 
 | **注解**             | **类型**                           | **含义**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| @Input             | 任何Serializable类型或依赖性解析结果类型       | 一个简单的输入值或依赖关系解析结果                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| @Input             | 任何 Serializable 类型或依赖性解析结果类型       | 一个简单的输入值或依赖关系解析结果                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | @InputFile         | `File`                           | 单个输入文件（不是目录）                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | @InputDirectory    | `File`                           | 单个输入目录（不是文件）                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | @InputFiles        | `Iterable`                       | 可迭代的输入文件和目录                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -254,23 +275,23 @@ Task 并不是每次执行都是增量构建，我们可以通过 `InputChanges`
 | @OutputDirectory   | `File`                           | 单个输出目录（不是文件）                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | @OutputFiles       | `Map<String, File>` 或 `Iterable` | 输出文件的可迭代或映射。使用文件树会关闭任务的缓存。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | @OutputDirectories | `Map<String, File>` 或 `Iterable` | 输出目录的可迭代。使用文件树会关闭任务的缓存。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| @Nested            | 任何自定义类型                          | 自定义类型，可能无法实现Serializable，但至少有一个字段或属性标记了此表中的注释之一。它甚至可能是另一个@Nested。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| @Nested            | 任何自定义类型                          | 自定义类型，可能无法实现 Serializable，但至少有一个字段或属性标记了此表中的注释之一。它甚至可能是另一个@Nested。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | @Internal          | 任何类型                             | 表示该属性在内部使用，但既不是输入也不是输出。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| @SkipWhenEmpty     | `File`或`Iterable`                | 与@InputFiles或@InputDirectory一起使用，告诉Gradle在相应的文件或目录为空时跳过任务，以及使用此注释声明的所有其他输入文件。由于声明此注释为空的所有输入文件而跳过的任务将导致明显的“无源”结果。例如，NO-SOURCE将在控制台输出中发出。暗示@Incremental。                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| @SkipWhenEmpty     | `File` 或 `Iterable`                | 与@InputFiles 或@InputDirectory 一起使用，告诉 Gradle 在相应的文件或目录为空时跳过任务，以及使用此注释声明的所有其他输入文件。由于声明此注释为空的所有输入文件而跳过的任务将导致明显的 " 无源 " 结果。例如，NO-SOURCE 将在控制台输出中发出。暗示@Incremental。                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | @Incremental       | 任何类型                             | 与@InputFiles 或@InputDirectory 一起使用，指示 Gradle 跟踪对带注释的文件属性的更改，因此可以通过 ` @InputChanges.getFileChanges()  ` 查询更改。增量任务需要。                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| @Optional          | 任何类型                             | 与可选API文档中列出的任何属性类型注释一起使用。此注释禁用对相应属性的验证检查。有关更多详细信息[，](https://link.juejin.cn?target=https%3A%2F%2Fdocs.gradle.org%2Fcurrent%2Fuserguide%2Fincremental_build.html%23sec%3Atask_input_output_validation "https://docs.gradle.org/current/userguide/incremental_build.html#sec:task_input_output_validation")请参阅[验证部分](https://link.juejin.cn?target=https%3A%2F%2Fdocs.gradle.org%2Fcurrent%2Fuserguide%2Fincremental_build.html%23sec%3Atask_input_output_validation "https://docs.gradle.org/current/userguide/incremental_build.html#sec:task_input_output_validation")。 |
+| @Optional          | 任何类型                             | 与可选 API 文档中列出的任何属性类型注释一起使用。此注释禁用对相应属性的验证检查。有关更多详细信息 [，](https://link.juejin.cn?target=https%3A%2F%2Fdocs.gradle.org%2Fcurrent%2Fuserguide%2Fincremental_build.html%23sec%3Atask_input_output_validation "https://docs.gradle.org/current/userguide/incremental_build.html#sec:task_input_output_validation") 请参阅 [验证部分](https://link.juejin.cn?target=https%3A%2F%2Fdocs.gradle.org%2Fcurrent%2Fuserguide%2Fincremental_build.html%23sec%3Atask_input_output_validation "https://docs.gradle.org/current/userguide/incremental_build.html#sec:task_input_output_validation")。 |
 
 ### 增量构建原理
 
 在首次执行 Task 之前，Gradle 会获取输入的指纹，此指纹包含输入文件的路径和每个文件内容的散列。然后执行 Task，如果 Task 成功完成，Gradle 会获取输出的指纹，此指纹包含一组输出文件和每个文件内容的散列，Gradle 会在下次执行 Task 时保留两个指纹。
 
-后续每次在执行Task之前，Gradle都会对输入和输出进行新的指纹识别，如果新指纹与之前的指纹相同，Gradle假设输出是最新的，并跳过Task，如果它们不一样，Gradle会执行Task。Gradle会在下次执行Task时保留两个指纹。
+后续每次在执行 Task 之前，Gradle 都会对输入和输出进行新的指纹识别，如果新指纹与之前的指纹相同，Gradle 假设输出是最新的，并跳过 Task，如果它们不一样，Gradle 会执行 Task。Gradle 会在下次执行 Task 时保留两个指纹。
 
-如果文件的统计信息（即lastModified和size）没有改变，Gradle将重复使用上次运行的文件指纹，即当文件的统计信息没有变化时，Gradle不会检测到更改。
+如果文件的统计信息（即 lastModified 和 size）没有改变，Gradle 将重复使用上次运行的文件指纹，即当文件的统计信息没有变化时，Gradle 不会检测到更改。
 
-Gradle还将Task的代码视为任务输入的一部分，当Task、Action或其依赖项在执行之间发生变化时，Gradle认为该Task是过时的。
+Gradle 还将 Task 的代码视为任务输入的一部分，当 Task、Action 或其依赖项在执行之间发生变化时，Gradle 认为该 Task 是过时的。
 
-Gradle了解文件属性（例如持有Java类路径的属性）是否对顺序敏感，当比较此类属性的指纹时，即使文件顺序发生变化，也会导致Task过时。
+Gradle 了解文件属性（例如持有 Java 类路径的属性）是否对顺序敏感，当比较此类属性的指纹时，即使文件顺序发生变化，也会导致 Task 过时。
 
 请注意，如果 Task 指定了输出目录，则自上次执行以来添加到该目录的任何文件都会被忽略，并且不会导致 Task 过时，如此不相关的 Task 可能会共享一个输出目录，而不会相互干扰，如果出于某种原因这不是你想要的行为，请考虑使用 `TaskOutputs.upToDateWhen(groovy.lang.Closure)`。
 
@@ -284,9 +305,9 @@ Task 的输入还用于计算启用时用于加载 Task 输出的构建缓存密
 
 `PgyUploadApkTask` 功能：
 
-- 输入为 build 成功后的apk
+- 输入为 build 成功后的 apk
 - 输出为 `build/output.txt`，存储 apk 上传成功后 apk 文件的 `md5` 值
-- 调用 pgyer upload `http v2` 接口上传apk
+- 调用 pgyer upload `http v2` 接口上传 apk
 - 上传 apk 成功后，获取该文件的 `md5`
 
 ```kotlin
@@ -394,16 +415,17 @@ Gradle 提供了 2 种 lazy 属性
 - Provider：代表一个可读不可写的属性
   - 该属性只可读
   - `Provider.get()` 返回当前属性值
-  - 一个 Provider 能从另外一个 Provider 创建，通过 [`Provider.map(Transformer)`](Provider.map(Transformer).)方法
-  - 其他类型可以继承Provider
+  - 一个 Provider 能从另外一个 Provider 创建，通过 [`Provider.map(Transformer)`](Provider.map(Transformer).) 方法
+  - 其他类型可以继承 Provider
 - Property：代表一个可读可写的属性
   - 属性可读可写
-  - Property 继承Provider
+  - Property 继承 Provider
   - [Property.set(T)](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html#set-T-) 方法为属性指定一个值
   - [Property.set(Provider)](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html#set-org.gradle.api.provider.Provider-) 方法为属性指定一个 Provider；在属性值配置前，允许将 Provider 和 Property 连接到一起
   - 可用工厂方法 [ObjectFactory.property(Class)](https://docs.gradle.org/current/javadoc/org/gradle/api/model/ObjectFactory.html#property-java.lang.Class-) 创建一个 Property
 
 示例：
+
 Property 和 Provider 的属性，不会在 Configuration 阶段执行，在 execute 需要时才执行
 
 ```kotlin
@@ -499,7 +521,7 @@ messages.apply {
 
 处理文件和目录的 Property：
 
-- RegularFileProperty 单个File
+- RegularFileProperty 单个 File
 - DirectoryProperty 目录
 
 ```kotlin
@@ -642,7 +664,7 @@ tasks.register<Consumer>("consumer") {
 
 Gradle 提供了 2 种方式：
 
--  [ListProperty](https://docs.gradle.org/nightly/javadoc/org/gradle/api/provider/ListProperty.html)
+- [ListProperty](https://docs.gradle.org/nightly/javadoc/org/gradle/api/provider/ListProperty.html)
 - [SetProperty](https://docs.gradle.org/nightly/javadoc/org/gradle/api/provider/SetProperty.html)
 
 示例：
@@ -712,7 +734,7 @@ layout.buildDirectory = layout.projectDirectory.dir("output")
 
 ## 处理 map 的 lazy property
 
-Gradle 提供了 [MapProperty](https://docs.gradle.org/nightly/javadoc/org/gradle/api/provider/MapProperty.html)
+Gradle 提供了 `MapProperty`
 
 ```kotlin
 // Map Configuration for Task Properties  
@@ -777,10 +799,10 @@ tasks.register("show") {
 
 ## Provider 使用指南
 
-- 需要配置的属性，暴露 Property 的 getter；不需要配置的属性，暴露 Provider 的getter
-- 避免在代码中简单调用 `obj.getProperty().get()` 和 `obj.getProperty().set(T)` 新增 getter 和setter
+- 需要配置的属性，暴露 Property 的 getter；不需要配置的属性，暴露 Provider 的 getter
+- 避免在代码中简单调用 `obj.getProperty().get()` 和 `obj.getProperty().set(T)` 新增 getter 和 setter
 - 升级你的插件用 Providers，遵照以下指南：
-  - 如果是新的属性，暴露一个 Property 或 Provider 的getter
+  - 如果是新的属性，暴露一个 Property 或 Provider 的 getter
   - 如果还在开发中，更改为 Property 或 Provider 的 getter
   - 如果已经是稳定的了，添加新的 Property 或 Provider 的 getter 属性，deprecate 旧的；将旧的 getter/setter 连接到新的属性
 
@@ -793,9 +815,7 @@ tasks.register("show") {
 Factories
 
 - [Provider.map(Transformer)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/provider/Provider.html#map-org.gradle.api.Transformer-).
-
 - [Provider.flatMap(Transformer)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/provider/Provider.html#flatMap-org.gradle.api.Transformer-).
-
 - [DirectoryProperty.file(String)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/file/DirectoryProperty.html#file-java.lang.String-)
 
 ### `Provider<Directory>`
@@ -807,9 +827,7 @@ Directory on disk
 Factories
 
 - [Provider.map(Transformer)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/provider/Provider.html#map-org.gradle.api.Transformer-).
-
 - [Provider.flatMap(Transformer)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/provider/Provider.html#flatMap-org.gradle.api.Transformer-).
-
 - [DirectoryProperty.dir(String)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/file/DirectoryProperty.html#dir-java.lang.String-)
 
 ### FileCollection
@@ -821,9 +839,7 @@ Unstructured collection of files
 Factories
 
 - [Project.files(Object 数组)](https://docs.gradle.org/nightly/dsl/org.gradle.api.Project.html#org.gradle.api.Project:files(java.lang.Object[]))
-
 - [ProjectLayout.files(Object...)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/file/ProjectLayout.html#files-java.lang.Object...-)
-
 - [DirectoryProperty.files(Object...)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/file/DirectoryProperty.html#files-java.lang.Object...-)
 
 #### FileTree
@@ -835,7 +851,6 @@ Hierarchy of files
 Factories
 
 - [Project.fileTree(Object)](https://docs.gradle.org/nightly/dsl/org.gradle.api.Project.html#org.gradle.api.Project:fileTree(java.lang.Object)) will produce a [ConfigurableFileTree](https://docs.gradle.org/nightly/javadoc/org/gradle/api/file/ConfigurableFileTree.html), or you can use [Project.zipTree(Object)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/Project.html#zipTree-java.lang.Object-) and [Project.tarTree(Object)](https://docs.gradle.org/nightly/javadoc/org/gradle/api/Project.html#tarTree-java.lang.Object-)
-
 - [DirectoryProperty.getAsFileTree()](https://docs.gradle.org/nightly/javadoc/org/gradle/api/file/DirectoryProperty.html#getAsFileTree--)
 
 ## Property Files API
