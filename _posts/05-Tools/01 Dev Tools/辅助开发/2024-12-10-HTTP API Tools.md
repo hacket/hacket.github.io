@@ -1,6 +1,6 @@
 ---
 date created: Tuesday, December 10th 2024, 11:46:00 pm
-date updated: Friday, January 17th 2025, 12:27:51 am
+date updated: Friday, January 17th 2025, 12:34:58 am
 title: HTTP API Tools
 author: hacket
 toc: true
@@ -82,9 +82,7 @@ URL、Params、Authorization、Headers 和 Body 都可以使用环境变量
 
 语法：
 
-```
-{{变量名}}
-```
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501170034229.png)
 
 ### 变量分类
 
@@ -163,13 +161,7 @@ pm.collectionVariables.set("tokencollect", "token collect value")
 
 - api 接口替换
 
-用
-
-```shell
-{{变量}}
-```
-
-来替换，这里我们是替换 host<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702277484619-0769849c-841e-4366-81b7-b2231b5d6da5.png#averageHue=%23f6f6f5&clientId=u24c581cf-c91c-4&from=paste&height=95&id=u817dac0d&originHeight=190&originWidth=620&originalType=binary&ratio=2&rotation=0&showTitle=false&size=22207&status=done&style=none&taskId=ub12cde30-062c-4e23-baf1-feb9c7a8456&title=&width=310)
+用![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501170034229.png)来替换，这里我们是替换 host<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702277484619-0769849c-841e-4366-81b7-b2231b5d6da5.png#averageHue=%23f6f6f5&clientId=u24c581cf-c91c-4&from=paste&height=95&id=u817dac0d&originHeight=190&originWidth=620&originalType=binary&ratio=2&rotation=0&showTitle=false&size=22207&status=done&style=none&taskId=ub12cde30-062c-4e23-baf1-feb9c7a8456&title=&width=310)
 
 #### 导入环境配置
 
