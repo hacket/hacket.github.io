@@ -1,18 +1,32 @@
 ---
-date created: 2024-12-10 23:46
-date updated: 2024-12-23 23:21
+date created: Tuesday, December 10th 2024, 11:46:00 pm
+date updated: Friday, January 17th 2025, 12:27:51 am
+title: HTTP API Tools
+author: hacket
+toc: true
+description: 
 dg-publish: true
+dg-enable-search: true
+dg-show-local-graph: true
+dg-show-toc: true
+dg-show-file-tree: true
+image-auto-upload: true
+feed: show
+format: list
+categories: 
+aliases: [API 接口管理工具]
+linter-yaml-title-alias: API 接口管理工具
 ---
 
-# API接口管理工具
+# API 接口管理工具
 
 - YApi
 
-YApi 是一个可本地部署的、打通前后端及QA的、可视化的接口管理平台 [https://yapi.ymfe.org](https://yapi.ymfe.org/)<br><https://yapi.ymfe.org/><br><https://github.com/YMFE/yapi>
+YApi 是一个可本地部署的、打通前后端及 QA 的、可视化的接口管理平台 [https://yapi.ymfe.org](https://yapi.ymfe.org/)<br><https://yapi.ymfe.org/><br><https://github.com/YMFE/yapi>
 
 - 小幺鸡
 
-开源的api管理工具<br><http://www.xiaoyaoji.cn/>
+开源的 api 管理工具<br><http://www.xiaoyaoji.cn/>
 
 - Apifox
 - swagger
@@ -50,23 +64,27 @@ pm.test("请求成功！", function () {
 });
 ```
 
-## 导入curl生成请求接口
+## 导入 curl 生成请求接口
 
-从charles等抓包工具中请求地址复制为CURL粘贴至postman可直接生成接口请求<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1693128981770-e8049211-22cf-4e93-be18-2bd1a77372cf.png#averageHue=%23b2b1b1&clientId=u3da8516b-bb71-4&from=paste&height=726&id=u37ecfbd3&originHeight=1452&originWidth=2194&originalType=binary&ratio=2&rotation=0&showTitle=false&size=248212&status=done&style=none&taskId=u4d439da0-2971-4c99-997e-7a09bedcc18&title=&width=1097)
+从 charles 等抓包工具中请求地址复制为 CURL 粘贴至 postman 可直接生成接口请求<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1693128981770-e8049211-22cf-4e93-be18-2bd1a77372cf.png#averageHue=%23b2b1b1&clientId=u3da8516b-bb71-4&from=paste&height=726&id=u37ecfbd3&originHeight=1452&originWidth=2194&originalType=binary&ratio=2&rotation=0&showTitle=false&size=248212&status=done&style=none&taskId=u4d439da0-2971-4c99-997e-7a09bedcc18&title=&width=1097)
 
 ## 变量
 
 ### 变量介绍
 
-在测试过程中，经常要切换测试环境，本地环境、开发环境、测试环境、灰度环境等。<br>不同的环境一般就是 URI 不一样而已，也就是 IP、端口号会变；接口的路径和值基本是不变的。<br>Postman 允许用户在发送和接收时[使用变量](https://link.segmentfault.com/?enc=sFhtt9Cx5FfhoEyCljWUFg%3D%3D.oxVHEJkBIvZwdEtjnC8%2FxvaO%2FPZcAQg4%2FKV8JIT1VMRzzBWutAI7DjE6s9YvBeRH%2FY4J%2B2%2Bx7TSj8eVQ9udPOA%3D%3D)，以提高工作效率和可读性（不过只能保存字符串类型的值，所以复杂数据类型需要借助于 `JSON.stringify()` 和 `JSON.parse()` 来管理）。<br>Postman 支持在不同的作用域和上下文中使用变量，遵循就近原则，即如果在 Global 和 Environment 中都有变量 name，则会取 Environment 中的 name。<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702281798217-14950a2d-7716-4389-a0ed-283ed1e6ba8d.png#averageHue=%23f5f5f5&clientId=u24c581cf-c91c-4&from=paste&height=192&id=u1435d152&originHeight=384&originWidth=400&originalType=binary&ratio=2&rotation=0&showTitle=false&size=24642&status=done&style=none&taskId=u1b0648d3-bedc-4ba7-87fc-34a4702ff39&title=&width=200)
+在测试过程中，经常要切换测试环境，本地环境、开发环境、测试环境、灰度环境等。<br>不同的环境一般就是 URI 不一样而已，也就是 IP、端口号会变；接口的路径和值基本是不变的。<br>Postman 允许用户在发送和接收时 [使用变量](https://link.segmentfault.com/?enc=sFhtt9Cx5FfhoEyCljWUFg%3D%3D.oxVHEJkBIvZwdEtjnC8%2FxvaO%2FPZcAQg4%2FKV8JIT1VMRzzBWutAI7DjE6s9YvBeRH%2FY4J%2B2%2Bx7TSj8eVQ9udPOA%3D%3D)，以提高工作效率和可读性（不过只能保存字符串类型的值，所以复杂数据类型需要借助于 `JSON.stringify()` 和 `JSON.parse()` 来管理）。<br>Postman 支持在不同的作用域和上下文中使用变量，遵循就近原则，即如果在 Global 和 Environment 中都有变量 name，则会取 Environment 中的 name。<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702281798217-14950a2d-7716-4389-a0ed-283ed1e6ba8d.png#averageHue=%23f5f5f5&clientId=u24c581cf-c91c-4&from=paste&height=192&id=u1435d152&originHeight=384&originWidth=400&originalType=binary&ratio=2&rotation=0&showTitle=false&size=24642&status=done&style=none&taskId=u1b0648d3-bedc-4ba7-87fc-34a4702ff39&title=&width=200)
 
 ### 变量应用
 
-URL、Params、Authorization、Headers和Body 都可以使用环境变量
+URL、Params、Authorization、Headers 和 Body 都可以使用环境变量
 
 ### 变量引用
 
-语法：`{{变量名}}`
+语法：
+
+```
+{{变量名}}
+```
 
 ### 变量分类
 
@@ -101,7 +119,9 @@ pm.variables.get("variable_key");
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702287393971-6ab41d0d-a92d-47a1-9c61-efbb8aa6d2c1.png#averageHue=%23f8f0ee&clientId=u24c581cf-c91c-4&from=paste&height=300&id=u0aa37ed0&originHeight=599&originWidth=553&originalType=binary&ratio=2&rotation=0&showTitle=false&size=192317&status=done&style=none&taskId=ude76260f-e06e-4479-9a57-f0e92eb91df&title=&width=276.5)
 
-#### GUI![](https://segmentfault.com/img/remote/1460000039825326#id=W39ER&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+#### GUI
+
+![](https://segmentfault.com/img/remote/1460000039825326#id=W39ER&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 - 全局变量
 
@@ -117,7 +137,11 @@ pm.variables.get("variable_key");
 
 #### 代码设置 Tests
 
-定义全局变量：`pm.globals.set("变量名",变量值)`<br>定义环境变量：`pm.environment.set("变量名",变量值)`<br>定义集合变量：`pm.collectionVariables.set("变量名",变量值)`
+定义全局变量：`pm.globals.set("变量名",变量值)`
+
+<br>定义环境变量：`pm.environment.set("变量名",变量值)`<br>
+
+定义集合变量：`pm.collectionVariables.set("变量名",变量值)`
 
 ```shell
 pm.globals.set("token1", "token1 value")
@@ -127,7 +151,7 @@ pm.environment.set("tokenxx", "tokenxx value")
 pm.collectionVariables.set("tokencollect", "token collect value")
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702281315731-836041c4-25e5-4603-b5f7-c6b5052a729c.png#averageHue=%23fcfcfb&clientId=u24c581cf-c91c-4&from=paste&height=392&id=afolq&originHeight=784&originWidth=1306&originalType=binary&ratio=2&rotation=0&showTitle=false&size=100522&status=done&style=none&taskId=u64b51544-66c4-44da-b533-016ed06d4a3&title=&width=653)<br>引用：`{{变量名}}`
+![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702281315731-836041c4-25e5-4603-b5f7-c6b5052a729c.png#averageHue=%23fcfcfb&clientId=u24c581cf-c91c-4&from=paste&height=392&id=afolq&originHeight=784&originWidth=1306&originalType=binary&ratio=2&rotation=0&showTitle=false&size=100522&status=done&style=none&taskId=u64b51544-66c4-44da-b533-016ed06d4a3&title=&width=653)
 
 ### 环境变量
 
@@ -137,17 +161,23 @@ pm.collectionVariables.set("tokencollect", "token collect value")
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702277455574-4670daac-c03b-4922-b470-3ee698cec2e3.png#averageHue=%23fbfaf9&clientId=u24c581cf-c91c-4&from=paste&height=497&id=u9a29d11c&originHeight=994&originWidth=3582&originalType=binary&ratio=2&rotation=0&showTitle=false&size=241174&status=done&style=none&taskId=u8bf3489d-533f-4867-abc9-c244037bbd8&title=&width=1791)
 
-- api接口替换
+- api 接口替换
 
-用`{{变量}}`来替换，这里我们是替换host<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702277484619-0769849c-841e-4366-81b7-b2231b5d6da5.png#averageHue=%23f6f6f5&clientId=u24c581cf-c91c-4&from=paste&height=95&id=u817dac0d&originHeight=190&originWidth=620&originalType=binary&ratio=2&rotation=0&showTitle=false&size=22207&status=done&style=none&taskId=ub12cde30-062c-4e23-baf1-feb9c7a8456&title=&width=310)
+用
+
+```shell
+{{变量}}
+```
+
+来替换，这里我们是替换 host<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702277484619-0769849c-841e-4366-81b7-b2231b5d6da5.png#averageHue=%23f6f6f5&clientId=u24c581cf-c91c-4&from=paste&height=95&id=u817dac0d&originHeight=190&originWidth=620&originalType=binary&ratio=2&rotation=0&showTitle=false&size=22207&status=done&style=none&taskId=ub12cde30-062c-4e23-baf1-feb9c7a8456&title=&width=310)
 
 #### 导入环境配置
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702278772220-06d1c089-84b2-456e-b4fb-c577525bc1a4.png#averageHue=%23f6f5f5&clientId=u24c581cf-c91c-4&from=paste&height=482&id=ua0594586&originHeight=1296&originWidth=740&originalType=binary&ratio=2&rotation=0&showTitle=false&size=96580&status=done&style=none&taskId=udf692473-aa04-4b7e-b119-ecafa49cc3a&title=&width=275)<br>下载的配置，是一个json串的文件，里面的内容是和网页版的配置相对应的，都是key-value
+![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1702278772220-06d1c089-84b2-456e-b4fb-c577525bc1a4.png#averageHue=%23f6f5f5&clientId=u24c581cf-c91c-4&from=paste&height=482&id=ua0594586&originHeight=1296&originWidth=740&originalType=binary&ratio=2&rotation=0&showTitle=false&size=96580&status=done&style=none&taskId=udf692473-aa04-4b7e-b119-ecafa49cc3a&title=&width=275)<br>下载的配置，是一个 json 串的文件，里面的内容是和网页版的配置相对应的，都是 key-value
 
 ### 全局变量
 
-一般啥时候用全局变量，比如token保持登录态就要用全局变量。
+一般啥时候用全局变量，比如 token 保持登录态就要用全局变量。
 
 - 添加全局变量
 
