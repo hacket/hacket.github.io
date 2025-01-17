@@ -22,17 +22,17 @@ script_includes:
     {% endif %}
 
     <div class="post-meta text-muted">
-      <!-- published date -->
+      <!-- published date created -->
       <span>
         {{ site.data.locales[lang].post.posted }}
-        {% include datetime.html date=page.date tooltip=true lang=lang %}
+        {% include datetime.html date=page.date created tooltip=true lang=lang %}
       </span>
 
       <!-- lastmod date -->
-      {% if page.last_modified_at and page.last_modified_at != page.date %}
+      {% if page.last_modified_at and page.date updated != page.date created%}
         <span>
           {{ site.data.locales[lang].post.updated }}
-          {% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}
+          {% include datetime.html date=page.date updated tooltip=true lang=lang %}
         </span>
       {% endif %}
 
