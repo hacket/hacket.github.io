@@ -7,16 +7,16 @@
 # -------------------------------------
 
 cotes:
-  name: Cotes Chung
-  twitter: cotes2020
-  url: https://github.com/cotes2020/
+  name: hacket
+  twitter: hacket
+  url: https://github.com/hacket/
 
 sille_bille:
   name: Dinesh Prasanth Moluguwan Krishnamoorthy
-  twitter: dinesh_MKD
-  url: https://github.com/SilleBille/
+  twitter: hacket
+  url: https://hacket.com/hacket/
 
-nihil:
-  name: Nichts Hsu
-  twitter: Still_Nihil
-  url: https://nihil.cc/
+hacket:
+  name: Hacket Zeng
+  twitter: hacket
+  url: https://hacket.me/
