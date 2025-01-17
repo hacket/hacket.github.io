@@ -1,23 +1,33 @@
 ---
-date created: 2024-09-14 00:45
-tags:
-  - '#SONATYPE_HOST=S01'
-  - '#------'
-  - '#!/bin/bash'
-  - '#需要发布到localMaven的时候才设置为true，开发false'
-date updated: 2024-12-26 00:18
+date created: Saturday, September 14th 2024, 12:45:00 am
+date updated: Friday, January 17th 2025, 11:06:15 pm
+title: Gradle 和 Maven
+author: hacket
+toc: true
+description: 
 dg-publish: true
+dg-enable-search: true
+dg-show-local-graph: true
+dg-show-toc: true
+dg-show-file-tree: true
+image-auto-upload: true
+feed: show
+format: list
+categories: 
+tags: [Gradle]
+aliases: [Gradle 插件之 maven-publish]
+linter-yaml-title-alias: Gradle 插件之 maven-publish
 ---
 
-# Gradle插件之maven-publish
+# Gradle 插件之 maven-publish
 
-## maven-publish介绍
+## maven-publish 介绍
 
-maven-publish官方文档：[publishing_maven.html](https://docs.gradle.org/current/userguide/publishing_maven.html)<br>`maven`插件已经过时，官方推荐使用`maven-publish`插件来实现将我们的代码发布到 Apache Maven仓库的功能。
+maven-publish 官方文档：[publishing_maven.html](https://docs.gradle.org/current/userguide/publishing_maven.html)<br>`maven` 插件已经过时，官方推荐使用 `maven-publish` 插件来实现将我们的代码发布到 Apache Maven 仓库的功能。
 
-### maven-publish插件引入
+### maven-publish 插件引入
 
-- groovy脚本引入
+- groovy 脚本引入
 
 ```groovy
 // build.gradle
@@ -26,7 +36,7 @@ plugins {
 }
 ```
 
-- kts脚本引入
+- kts 脚本引入
 
 ```kotlin
 // build.gradle.kts
@@ -39,28 +49,30 @@ plugins {
 
 #### Tasks
 
-所有以下任务都归在名为publishing类型为`PublishingExtension`的扩展下。
+所有以下任务都归在名为 publishing 类型为 `PublishingExtension` 的扩展下。
 
-1. generatePomFileFor`PubName`Publication <br> 为名为`PubName`的发布创建一个POM文件，填充已知元数据，如项目名称、项目版本和依赖项。生成的POM文件默认放在 `build/publications/$pubName/pom-default.xml`.
-2. publish`PubName`PublicationTo`RepoName`Repository <br> 将名为`PubName`的发布发布到名为`RepoName`的存储库中。如果您有一个没有显式名称的存储库定义，那么RepoName将是Maven。
+1. generatePomFileFor`PubName`Publication <br> 为名为 `PubName` 的发布创建一个 POM 文件，填充已知元数据，如项目名称、项目版本和依赖项。生成的 POM 文件默认放在 `build/publications/$pubName/pom-default.xml`.
+2. publish`PubName`PublicationTo`RepoName`Repository <br> 将名为 `PubName` 的发布发布到名为 `RepoName` 的存储库中。如果您有一个没有显式名称的存储库定义，那么 RepoName 将是 Maven。
 3. publish`PubName`PublicationToMavenLocal
 
-将`PubName`发布复制到mavenLocal缓存—通常是`$USER_HOME/.m2/repository`——连同发布的POM文件和其他元数据一起。
-4.  publish
+将 `PubName` 发布复制到 mavenLocal 缓存—通常是 `$USER_HOME/.m2/repository`——连同发布的 POM 文件和其他元数据一起。
 
-依赖：所有publishPubNamePublicationToRepoNameRepository任务。将所有已定义的发布发布到所有已定义存储库的聚合任务。它不包括将发布复制到mavenLocal
-5.  publishToMavenLocal
+4. publish
 
-依赖：所有publishPubNamePublicationToMavenLocal任务。将所有已定义的发布复制mavenLocal存，包括它们的元数据(POM文件等)。
+依赖：所有 publishPubNamePublicationToRepoNameRepository 任务。将所有已定义的发布发布到所有已定义存储库的聚合任务。它不包括将发布复制到 mavenLocal
+
+5. publishToMavenLocal
+
+依赖：所有 publishPubNamePublicationToMavenLocal 任务。将所有已定义的发布复制 mavenLocal 存，包括它们的元数据 (POM 文件等)。
 
 #### Publications
 
 Maven 发布中的配置主要有四种：
 
-1. A component <br>通过`MavenPublication.from(org.gradle.api.component.SoftwareComponent)`配置
-2. Custom artifacts <br>通过`MavenPublication.artifact(java.lang.Object)`方法配置。查看MavenArtifact 获取所有可配置选项。
-3. Standard metadata <br>标准元数据，例如artifactId, groupId and version.
-4. Other contents of the POM file <br>通过 MavenPublication.pom(org.gradle.api.Action)配置
+1. A component <br>通过 `MavenPublication.from(org.gradle.api.component.SoftwareComponent)` 配置
+2. Custom artifacts <br>通过 `MavenPublication.artifact(java.lang.Object)` 方法配置。查看 MavenArtifact 获取所有可配置选项。
+3. Standard metadata <br>标准元数据，例如 artifactId, groupId and version.
+4. Other contents of the POM file <br>通过 MavenPublication.pom(org.gradle.api.Action) 配置
 
 groovy:
 
@@ -119,9 +131,9 @@ publishing {
 
 #### POM
 
-pom文件定于了一个maven项目的maven配置，一般pom文件的放在项目或者模块的根目录下<br>maven：pom文件详解<br><https://blog.csdn.net/weixin_38569499/article/details/91456988>
+pom 文件定于了一个 maven 项目的 maven 配置，一般 pom 文件的放在项目或者模块的根目录下<br>maven：pom 文件详解<br><https://blog.csdn.net/weixin_38569499/article/details/91456988>
 
-### maven-plugin插件pom文件生成
+### maven-plugin 插件 pom 文件生成
 
 #### Android Library
 
@@ -241,7 +253,7 @@ project.afterEvaluate {
 }
 ```
 
-#### Java项目
+#### Java 项目
 
 ```java
 publications {
@@ -254,13 +266,13 @@ publications {
 }
 ```
 
-components.java，会自动生成pom.xml
+components.java，会自动生成 pom.xml
 
 ## 案例
 
-### 简洁版（不支持输出source）
+### 简洁版（不支持输出 source）
 
-1. groovy版本
+1. groovy 版本
 
 ```groovy
 // build.gradle
@@ -283,7 +295,7 @@ publishing {
 } 
 ```
 
-2. kts版本
+2. kts 版本
 
 ```groovy
 // build.gradle.kts
@@ -372,7 +384,7 @@ publishing {
 }
 ```
 
-案例2：
+案例 2：
 
 ```
  打包源码
@@ -411,16 +423,16 @@ afterEvaluate {
 }
 ```
 
-### 发布三方aar到maven repo
+### 发布三方 aar 到 maven repo
 
-当module作为sdk同时又依赖aar时，此时接入sdk会报错，提示引用不到aar中的类
+当 module 作为 sdk 同时又依赖 aar 时，此时接入 sdk 会报错，提示引用不到 aar 中的类
 
-解决1：直接把aar给到业务测，业务测直接依赖<br>解决2：将三方aar也发布到maven仓库，当作远端依赖来依赖
+解决 1：直接把 aar 给到业务测，业务测直接依赖<br>解决 2：将三方 aar 也发布到 maven 仓库，当作远端依赖来依赖
 
-1. 去除要发布的moduleA的本地aar依赖（如api fileTree(dir: "libs", include: ["_.jar", "_.aar"])），不然执行gradle task publishShanYanSdkPublicationToMavenRepository会编译出错
-2. 定义maven-publish的配置
-3. 通过gradle task publishShanYanSdkPublicationToMavenRepository就其发布到本地repo
-4. 和remote方式一样依赖这个aar
+1. 去除要发布的 moduleA 的本地 aar 依赖（如 api fileTree(dir: "libs", include: ["_.jar", "_.aar"])），不然执行 gradle task publishShanYanSdkPublicationToMavenRepository 会编译出错
+2. 定义 maven-publish 的配置
+3. 通过 gradle task publishShanYanSdkPublicationToMavenRepository 就其发布到本地 repo
+4. 和 remote 方式一样依赖这个 aar
 
 ```groovy
 apply plugin: 'maven-publish'
@@ -455,7 +467,7 @@ publishing {
 }
 ```
 
-## AGP3.6.0+更简便方式获取components
+## AGP3.6.0+ 更简便方式获取 components
 
 Android Gradle 插件 3.6.0 及更高版本（说的是这里 `classpath 'com.android.tools.build:gradle:3.6.0'`）支持 Maven Publish Gradle 插件，可让您将构建工件发布到 Apache Maven 代码库。Android Gradle 插件会为应用或库模块中的每个构建变体工件创建一个组件，您可以使用它来自定义要发布到 Maven 代码库的发布内容。<br>Android 插件所创建的组件取决于模块是否使用应用或库插件，如下表所述。
 
@@ -465,8 +477,8 @@ Android Gradle 插件 3.6.0 及更高版本（说的是这里 `classpath 'com.an
 | com.android.application | APK 和可用的 ProGuard 或 R8 映射文件的 ZIP | components.variant_apk |
 | com.android.application | Android App Bundle (AAB)         | components.variant_aab |
 
-1. library，release就是`components.release`，debug就是`components.debug`
-2. application，release就是`components.release_apk`，debug就是`components.debug_apk`
+1. library，release 就是 `components.release`，debug 就是 `components.debug`
+2. application，release 就是 `components.release_apk`，debug 就是 `components.debug_apk`
 
 ```java
 apply plugin: "maven-publish"
@@ -487,7 +499,7 @@ afterEvaluate {
 }
 ```
 
-### 获取module中已有的components
+### 获取 module 中已有的 components
 
 ```groovy
 task printComponents(group: 'tools', description: project.name) {
@@ -497,11 +509,11 @@ task printComponents(group: 'tools', description: project.name) {
 }
 ```
 
-执行`gradlew printComponents`<br>输出：Components: [all, debug, release]
+执行 `gradlew printComponents`<br>输出：Components: [all, debug, release]
 
-### 多productFlavor情况
+### 多 productFlavor 情况
 
-## 自定义maven-publish插件
+## 自定义 maven-publish 插件
 
 使用：
 
@@ -582,7 +594,7 @@ class PublishMavenPlugin implements Plugin<Project> {
 }
 ```
 
-具体代码见大圣助手`maven_publish_qb`module
+具体代码见大圣助手 `maven_publish_qb`module
 
 ## 遇到的问题
 
@@ -594,9 +606,9 @@ An exception occurred applying plugin request [id: 'appinit-auto-register']
 > Could not find implementation class 'me.hacket.appinit.autoregister.AppInitAutoRegisterPlugin' for plugin 'appinit-auto-register' specified in jar:file:/C:/Users/hacket/.gradle/caches/jars-9/a6583eb47811da0aaaa4984b4cc74a47/appinit-1.0.0.jar!/META-INF/gradle-plugins/appinit-auto-register.properties.
 ```
 
-**现象：** 生成的jar中没有classes<br>![](https://note.youdao.com/yws/res/103922/WEBRESOURCEbba0f95028fd7fe131e4ec8478bcb200#id=oc9Ui&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691503935722-e4fc7315-059a-4598-b814-298bece4e387.png#averageHue=%23f1f1f1&clientId=ub26d7ec9-355f-4&from=paste&height=89&id=u56cd4a91&originHeight=177&originWidth=918&originalType=binary&ratio=2&rotation=0&showTitle=false&size=46036&status=done&style=none&taskId=u9c04cf19-a876-4aca-ac7f-0ba010ed9f5&title=&width=459)<br>**原因：**<br>在java的sourcesets写了groovy代码，导致没有classes生成，具体看build/classes有没有生成文件<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691503970285-c27a54ef-2296-4da0-a8e3-af6f792325a5.png#averageHue=%2381af91&clientId=ub26d7ec9-355f-4&from=paste&height=374&id=ub43fce17&originHeight=748&originWidth=651&originalType=binary&ratio=2&rotation=0&showTitle=false&size=44804&status=done&style=none&taskId=ue3410a22-74ca-47db-8bab-572d2763c42&title=&width=325.5)<br>**解决：**<br>将groovy代码移动到groovy的sourcesets目录下
+**现象：** 生成的 jar 中没有 classes<br>![](https://note.youdao.com/yws/res/103922/WEBRESOURCEbba0f95028fd7fe131e4ec8478bcb200#id=oc9Ui&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691503935722-e4fc7315-059a-4598-b814-298bece4e387.png#averageHue=%23f1f1f1&clientId=ub26d7ec9-355f-4&from=paste&height=89&id=u56cd4a91&originHeight=177&originWidth=918&originalType=binary&ratio=2&rotation=0&showTitle=false&size=46036&status=done&style=none&taskId=u9c04cf19-a876-4aca-ac7f-0ba010ed9f5&title=&width=459)<br>**原因：**<br>在 java 的 sourcesets 写了 groovy 代码，导致没有 classes 生成，具体看 build/classes 有没有生成文件<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691503970285-c27a54ef-2296-4da0-a8e3-af6f792325a5.png#averageHue=%2381af91&clientId=ub26d7ec9-355f-4&from=paste&height=374&id=ub43fce17&originHeight=748&originWidth=651&originalType=binary&ratio=2&rotation=0&showTitle=false&size=44804&status=done&style=none&taskId=ue3410a22-74ca-47db-8bab-572d2763c42&title=&width=325.5)<br>**解决：**<br>将 groovy 代码移动到 groovy 的 sourcesets 目录下
 
-### 2、找不到AppExtension
+### 2、找不到 AppExtension
 
 ```
 An exception occurred applying plugin request [id: 'appinit-auto-register']
@@ -604,7 +616,7 @@ An exception occurred applying plugin request [id: 'appinit-auto-register']
    > No such property: AppExtension for class: me.hacket.appinit.autoregister.AppInitAutoRegisterPlugin
 ```
 
-**原因：**<br>复制过来的代码，没有自动导包AppExtension
+**原因：**<br>复制过来的代码，没有自动导包 AppExtension
 
 ### 3、Could not get unknown property 'release' for SoftwareComponentInternal
 
@@ -613,7 +625,7 @@ A problem occurred evaluating project ':Modularization2'.
 > Could not get unknown property 'release' for SoftwareComponentInternal set of type org.gradle.api.internal.component.DefaultSoftwareComponentContainer.
 ```
 
-解决：需要将插件配置写在`afterEvaluate`里面：
+解决：需要将插件配置写在 `afterEvaluate` 里面：
 
 ```groovy
 afterEvaluate {
@@ -635,35 +647,35 @@ afterEvaluate {
 }
 ```
 
-## gradle-maven-publish-plugin：三方maven-publish增强插件
+## gradle-maven-publish-plugin：三方 maven-publish 增强插件
 
 <https://github.com/vanniktech/gradle-maven-publish-plugin>
 
 # MavenCentral 发布流程
 
-## 准备maven仓库
+## 准备 maven 仓库
 
-### 注册maven账号
+### 注册 maven 账号
 
 <https://issues.sonatype.org/secure/Dashboard.jspa>
 
-### 创建Project
+### 创建 Project
 
-如AppInit<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504138829-c84faaf8-12e6-48d8-a502-483e1dff824f.png#averageHue=%23fefefe&clientId=ub26d7ec9-355f-4&from=paste&height=614&id=u2ee65cf4&originHeight=1228&originWidth=1190&originalType=binary&ratio=2&rotation=0&showTitle=false&size=135667&status=done&style=none&taskId=u8cd095ef-08fd-4819-a894-e4781e136b6&title=&width=595)<br>过几分钟在`Projects`→`Community Support - Open Source Project Repository Hosting`下，选择Switch filter，Reported by me<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504157034-c1493021-4e0f-4c15-b1dd-94c53b4d3a9d.png#averageHue=%23fefdfd&clientId=ub26d7ec9-355f-4&from=paste&height=360&id=u2da88247&originHeight=719&originWidth=1262&originalType=binary&ratio=2&rotation=0&showTitle=false&size=140549&status=done&style=none&taskId=u5e445c6d-78e6-4561-a34c-8058685fb45&title=&width=631)<br>[OSSRH-86107 AppInit](https://issues.sonatype.org/projects/OSSRH/issues/OSSRH-86107?filter=reportedbyme)
+如 AppInit<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504138829-c84faaf8-12e6-48d8-a502-483e1dff824f.png#averageHue=%23fefefe&clientId=ub26d7ec9-355f-4&from=paste&height=614&id=u2ee65cf4&originHeight=1228&originWidth=1190&originalType=binary&ratio=2&rotation=0&showTitle=false&size=135667&status=done&style=none&taskId=u8cd095ef-08fd-4819-a894-e4781e136b6&title=&width=595)<br>过几分钟在 `Projects`→`Community Support - Open Source Project Repository Hosting` 下，选择 Switch filter，Reported by me<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504157034-c1493021-4e0f-4c15-b1dd-94c53b4d3a9d.png#averageHue=%23fefdfd&clientId=ub26d7ec9-355f-4&from=paste&height=360&id=u2da88247&originHeight=719&originWidth=1262&originalType=binary&ratio=2&rotation=0&showTitle=false&size=140549&status=done&style=none&taskId=u5e445c6d-78e6-4561-a34c-8058685fb45&title=&width=631)<br>[OSSRH-86107 AppInit](https://issues.sonatype.org/projects/OSSRH/issues/OSSRH-86107?filter=reportedbyme)
 
-- 证明自己的域名或者在github创建公开的仓库[OSSRH-86107](https://github.com/hacket/OSSRH-86107)
-- 将状态更改为OPEN
-- 过一会状态改为RESOLVED就可以用了
+- 证明自己的域名或者在 github 创建公开的仓库 [OSSRH-86107](https://github.com/hacket/OSSRH-86107)
+- 将状态更改为 OPEN
+- 过一会状态改为 RESOLVED 就可以用了
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504174497-da5e05fc-ed99-4f79-a89f-ef7d5c311d27.png#averageHue=%23e8ecf2&clientId=ub26d7ec9-355f-4&from=paste&height=362&id=ub84ad930&originHeight=724&originWidth=1051&originalType=binary&ratio=2&rotation=0&showTitle=false&size=165800&status=done&style=none&taskId=u16e30762-520b-4ce4-bba5-15fe68b84f1&title=&width=525.5)
 
-### 登录maven
+### 登录 maven
 
-maven登录地址：<https://s01.oss.sonatype.org/><br>账号密码：hacket/*#Zfs
+maven 登录地址：<https://s01.oss.sonatype.org/><br>账号密码：hacket/*#Zfs
 
-## 配置GPG
+## 配置 GPG
 
-具体见`Git ssh key和deploy-keys（GPG）.md`
+具体见 `Git ssh key和deploy-keys（GPG）.md`
 
 核心信息：
 
@@ -674,7 +686,7 @@ uid   hacket <shengfanzeng@gmail.com>
 sub   rsa3072 2022-11-13 [E] [expires: 2024-11-12]
 ```
 
-配置上传maven：
+配置上传 maven：
 
 ```
 # maven账号密码
@@ -687,7 +699,7 @@ signing.password=zfs1314520
 signing.secretKeyRingFile=/Users/hacket/.gnupg/secring.gpg
 ```
 
-## maven上传插件 gradle-maven-publish-plugin
+## maven 上传插件 gradle-maven-publish-plugin
 
 <https://github.com/vanniktech/gradle-maven-publish-plugin><br>docs: <https://vanniktech.github.io/gradle-maven-publish-plugin/central/><br>参考用法见：<https://github.com/cashapp/turbine>
 
@@ -713,9 +725,9 @@ plugins {
 }
 ```
 
-### Secrets（配置Maven账号密码和GPG key和密码）
+### Secrets（配置 Maven 账号密码和 GPG key 和密码）
 
-在`~/.gradle/gradle.properties`<br>将secret.gpg复制到~/.gradle/gradle.properties目录下去
+在 `~/.gradle/gradle.properties`<br>将 secret.gpg 复制到~/.gradle/gradle.properties 目录下去
 
 ```
 # GPG
@@ -731,7 +743,7 @@ ossrhUsername=hacket
 ossrhPassword=*#Zfs1314520
 ```
 
-### 配置group,version和artifactId(默认project.name)
+### 配置 group,version 和 artifactId(默认 project.name)
 
 ```
 SONATYPE_HOST=DEFAULT
@@ -758,7 +770,7 @@ POM_DEVELOPER_NAME=hacket
 POM_DEVELOPER_URL=https://github.com/hacket/
 ```
 
-在每个单独的module配置group和version
+在每个单独的 module 配置 group 和 version
 
 ```
 group = 'io.github.hacket'
@@ -771,30 +783,30 @@ version = '1.0.0'
 ./gradlew publishAllPublicationsToMavenCentral
 ```
 
-或publish task
+或 publish task
 
-### 发布library
+### 发布 library
 
 <https://s01.oss.sonatype.org/>![](https://note.youdao.com/yws/res/104064/WEBRESOURCEe21abe78bb3c0b75b7f96c738e9aa84e#id=EmsAf&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-1. 在左侧面板Staging Repositories
-2. 选中要发布的Repository
-3. 点击Release，会弹窗进行二次Confirm
+1. 在左侧面板 Staging Repositories
+2. 选中要发布的 Repository
+3. 点击 Release，会弹窗进行二次 Confirm
 4. 确认无误后，发布
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504249020-b61696a0-9038-45f3-a59f-14274183e911.png#averageHue=%23d3d2d1&clientId=ub26d7ec9-355f-4&from=paste&height=404&id=u182f16e8&originHeight=807&originWidth=1531&originalType=binary&ratio=2&rotation=0&showTitle=false&size=185104&status=done&style=none&taskId=u5589d01d-b71f-4b44-a247-82ebe117924&title=&width=765.5)
 
 ### 搜索
 
-搜索你刚刚发布的library<br><https://s01.oss.sonatype.org/#welcome>
+搜索你刚刚发布的 library<br><https://s01.oss.sonatype.org/#welcome>
 
 ### 遇到的问题
 
 #### Cannot get stagingProfiles for account
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504645419-42f983f5-fd7b-426d-9e17-9f66519011af.png#averageHue=%23332d2d&clientId=ub26d7ec9-355f-4&from=paste&height=106&id=uca19bed4&originHeight=212&originWidth=1147&originalType=binary&ratio=2&rotation=0&showTitle=false&size=38273&status=done&style=none&taskId=ucb372ae3-d46f-4add-a358-61d76c8fc3a&title=&width=573.5)<br>原因：大概率是账号hacket的密码不对
+![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504645419-42f983f5-fd7b-426d-9e17-9f66519011af.png#averageHue=%23332d2d&clientId=ub26d7ec9-355f-4&from=paste&height=106&id=uca19bed4&originHeight=212&originWidth=1147&originalType=binary&ratio=2&rotation=0&showTitle=false&size=38273&status=done&style=none&taskId=ucb372ae3-d46f-4add-a358-61d76c8fc3a&title=&width=573.5)<br>原因：大概率是账号 hacket 的密码不对
 
-#### secret.gpg找不到
+#### secret.gpg 找不到
 
 报错：
 
@@ -804,7 +816,7 @@ Execution failed for task ':appInit-api:signMavenPublication'.
    > Unable to retrieve secret key from key ring file 'F:\Workspace\AppInit\appInit-api\C:Usershacket.gradlesecret.gpg' as it does not exist
 ```
 
-解决：windows系统下secretKeyRingFile用/而不是\
+解决：windows 系统下 secretKeyRingFile 用/而不是\
 
 ```
 # GPG
@@ -813,7 +825,7 @@ signing.password=zfs1314520
 signing.secretKeyRingFile=C:/Users/hacket/.gradle/secret.gpg
 ```
 
-#### plugins引入找不到插件
+#### plugins 引入找不到插件
 
 ```groovy
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -829,7 +841,7 @@ plugins {
 org.gradle.api.plugins.UnknownPluginException: Plugin [id: 'appinit-auto-register', version: '1.0.0', apply: false] was not found in any of the following sources:
 ```
 
-解决：在根build.gradle中
+解决：在根 build.gradle 中
 
 ```groovy
 buildscript {
@@ -845,31 +857,31 @@ buildscript {
 
 # GitHub Packages
 
-## 什么是GitHub Packages？
+## 什么是 GitHub Packages？
 
-GitHub Package Registry是一个包托管服务，类似npm、gem、docker之类的，允许开发者在上面托管包和代码，当然可以是私有的或公开的，并将它们用作项目中的依赖<br>GitHub Packages不支持像jcenter、jitpack那样的匿名下载
+GitHub Package Registry 是一个包托管服务，类似 npm、gem、docker 之类的，允许开发者在上面托管包和代码，当然可以是私有的或公开的，并将它们用作项目中的依赖<br>GitHub Packages 不支持像 jcenter、jitpack 那样的匿名下载
 
 ## 步骤
 
-### 添加项目的token
+### 添加项目的 token
 
-个人账号`Settings`→ `Developer settings`→`Personal access tokens`→后续操作：
+个人账号 `Settings`→ `Developer settings`→`Personal access tokens`→后续操作：
 
-1. Note：填写Token名字
+1. Note：填写 Token 名字
 2. Expiration：选择有效期
 3. Select scopes：`repo/write:packages/delete:packages`
 4. Generate token
 
-### 将user和token配置到gradle.properties
+### 将 user 和 token 配置到 gradle.properties
 
-```properties
+```shell
 #------ Github name&ntoken ------
 gpr.user=hacket
 gpr.key=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
 #------ Github name&token ------
 ```
 
-### 添加maven-publish脚本
+### 添加 maven-publish 脚本
 
 ```groovy
 apply plugin: 'maven-publish'
@@ -919,8 +931,8 @@ done
 ## Ref
 
 - [ ] Working with the Gradle registry<br><https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry>
-- [x] 把Android Module的aar包发布到GitHub Packages<br>[https://apqx.me/post/original/2020/12/04/把Android-Module的aar包发布到GitHub-Packages上.html](https://apqx.me/post/original/2020/12/04/%E6%8A%8AAndroid-Module%E7%9A%84aar%E5%8C%85%E5%8F%91%E5%B8%83%E5%88%B0GitHub-Packages%E4%B8%8A.html)
-- [x] gradle发布jar到GitHub Packages<br><https://juejin.cn/post/7007289428158709797>
+- [x] 把 Android Module 的 aar 包发布到 GitHub Packages<br>[https://apqx.me/post/original/2020/12/04/把Android-Module的aar包发布到GitHub-Packages上.html](https://apqx.me/post/original/2020/12/04/%E6%8A%8AAndroid-Module%E7%9A%84aar%E5%8C%85%E5%8F%91%E5%B8%83%E5%88%B0GitHub-Packages%E4%B8%8A.html)
+- [x] gradle 发布 jar 到 GitHub Packages<br><https://juejin.cn/post/7007289428158709797>
 
 # GitLab Packages
 
@@ -930,7 +942,7 @@ done
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1700813875347-09d59415-96af-487d-b8f1-b1b5e783bc9d.png#averageHue=%23f7f6f8&clientId=uc2f9aecd-f07b-4&from=paste&height=290&id=uec9a2e81&originHeight=580&originWidth=2560&originalType=binary&ratio=2&rotation=0&showTitle=false&size=124573&status=done&style=none&taskId=u7280094d-cbc5-48c7-a874-eb993cd7c83&title=&width=1280)
 
-2. maven-publish脚本
+2. maven-publish 脚本
 
 ```groovy
 apply plugin: 'maven-publish'
@@ -1059,7 +1071,7 @@ project.afterEvaluate {
 ```
 
 3. gradlew publish
-4. 查看gitlab packags
+4. 查看 gitlab packages
 
 <https://gitlab.com/hacket/debugtools/-/packages><br><https://github.com/hacket?tab=packages&repo_name=Maven>
 
@@ -1067,39 +1079,39 @@ project.afterEvaluate {
 
 - [x] [Creating a Private Maven Repository for Android Libraries on GitLab](https://proandroiddev.com/creating-a-private-maven-repository-for-android-libraries-on-gitlab-91137c402777)
 
-# Nexus搭建私有仓库
+# Nexus 搭建私有仓库
 
-## 安装Nexus
+## 安装 Nexus
 
 1. 下载免费版<br><https://www.sonatype.com/nexus-repository-oss>
-2. 解压<br>用`tar zxvf nexus-3.13.0-01-mac.tgz`解压
-3. 启动<br>找到`nexus-xxx/bin`目录
+2. 解压<br>用 `tar zxvf nexus-3.13.0-01-mac.tgz` 解压
+3. 启动<br>找到 `nexus-xxx/bin` 目录
 
-用`nexus start`启动
+用 `nexus start` 启动
 
 4. 浏览器打开<br>`http://127.0.0.1:8081/`
 
-## 配置Nexus
+## 配置 Nexus
 
-用默认账号登录admin/admin123<br>然后新增一个用户<br><http://127.0.0.1:8081/repository/AndroidCoreLib/>
+用默认账号登录 admin/admin123<br>然后新增一个用户<br><http://127.0.0.1:8081/repository/AndroidCoreLib/>
 
 ## 遇到的问题
 
-如果用的mac自带解压工具，可能启动不了，会出现启动报错，用`nexus run`查看报错原因：
+如果用的 mac 自带解压工具，可能启动不了，会出现启动报错，用 `nexus run` 查看报错原因：
 
 ```
 Could not resolve mvn:org.apache.felix/org.apache.felix.framework/5.6.2
 ```
 
-解决，由于解压方式不对，要用tar命令：
+解决，由于解压方式不对，要用 tar 命令：
 
 ```
 tar zxvf nexus-3.13.0-01-mac.tgz
 ```
 
-# 发布到localMaven
+# 发布到 localMaven
 
-- 定义`maven_local_publish.gradle`
+- 定义 `maven_local_publish.gradle`
 
 ```groovy
 apply plugin: 'maven'
@@ -1115,7 +1127,7 @@ uploadArchives {
 }
 ```
 
-- gradle.properties定义相关信息
+- gradle.properties 定义相关信息
 
 ```
 #需要发布到localMaven的时候才设置为true，开发false
@@ -1125,7 +1137,7 @@ POM_VERSION_NAME=0.5.0
 POM_REPOSITORY_REPO=/Users/zengfansheng/maven/chatroom
 ```
 
-- 本地localMaven引入
+- 本地 localMaven 引入
 
 ```groovy
 buildscript {

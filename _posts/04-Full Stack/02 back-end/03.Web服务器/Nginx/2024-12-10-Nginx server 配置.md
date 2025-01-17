@@ -1,46 +1,22 @@
 ---
-date created: 2024-12-10 00:02
-date updated: 2024-12-26 00:15
-tags:
-  - '#运行用户'
-  - '#user'
-  - '#启动进程,通常设置成和cpu的数量相等'
-  - '#全局错误日志'
-  - '#PID文件，记录当前启动的nginx的进程ID'
-  - '#工作模式及连接数上限'
-  - '#单个后台worker'
-  - '#设定http服务器，利用它的反向代理功能提供负载均衡支持'
-  - '#设定mime类型(邮件支持类型),类型由mime.types文件定义'
-  - '#设定日志'
-  - '#sendfile'
-  - '#必须设为'
-  - '#tcp_nopush'
-  - '#连接超时时间'
-  - '#gzip压缩开关'
-  - '#gzip'
-  - '#设定实际的服务器列表'
-  - '#HTTP服务器'
-  - '#监听80端口，80端口是知名端口号，用于HTTP协议'
-  - '#定义使用www.xx.com访问'
-  - '#首页'
-  - '#指向webapp的目录'
-  - '#编码格式'
-  - '#代理配置参数'
-  - '#反向代理的路径（和upstream绑定），location'
-  - '#静态文件，nginx自己处理'
-  - '#过期30天，静态文件不怎么更新，过期可以设大一点，如果频繁更新，则可以设置得小一点。'
-  - '#设定查看Nginx状态的地址'
-  - '#禁止访问'
-  - '#错误处理页面（可选择性配置）'
-  - '#error_page'
-  - '#location'
-  - '#}'
-  - '#监听443端口。443为知名端口号，主要用于HTTPS协议'
-  - '#ssl证书文件位置(常见证书文件格式为：crt/pem)'
-  - '#ssl证书key位置'
-  - '#ssl配置参数（选择性配置）'
-  - '#数字签名，此处使用MD5'
+date created: Tuesday, December 10th 2024, 12:02:00 am
+date updated: Friday, January 17th 2025, 11:07:32 pm
+title: Nginx server 配置
+author: hacket
+toc: true
+description: 
 dg-publish: true
+dg-enable-search: true
+dg-show-local-graph: true
+dg-show-toc: true
+dg-show-file-tree: true
+image-auto-upload: true
+feed: show
+format: list
+categories: 
+tags: [nginx]
+aliases: [Nginx 反向代理]
+linter-yaml-title-alias: Nginx 反向代理
 ---
 
 # Nginx 反向代理
@@ -49,13 +25,13 @@ dg-publish: true
 
 ### 正向代理
 
-- 正向代理代理的是客户端，需要在客户端配置，我们访问的还是`真实的服务器地址`
+- 正向代理代理的是客户端，需要在客户端配置，我们访问的还是 `真实的服务器地址`
 
 ![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202412100011476.png)
 
 ### 反向代理
 
-- 反向代理代理的是`服务器端`，客户端不需要任何配置，`客户端只需要将请求发送给反向代理服务器即可`，代理服务器将请求分发给真实的服务器，获取数据后将数据转发给你。隐藏了真实服务器，有点像网关。
+- 反向代理代理的是 `服务器端`，客户端不需要任何配置，`客户端只需要将请求发送给反向代理服务器即可`，代理服务器将请求分发给真实的服务器，获取数据后将数据转发给你。隐藏了真实服务器，有点像网关。
 
 ![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202412100012393.png)
 
@@ -63,16 +39,18 @@ dg-publish: true
 
 `最根本的区别是代理的对象不同`
 
-- 正向代理代理的是`客户端`，需要为每一个客户端都做一个代理服务器，`客户端访问的路径是目标服务器`
-- 反向代理代理的是`真实服务器`，客户端不需要做任何的配置，`访问的路径是代理服务器`，由代理服务器将请求转发到真实服务器
+- 正向代理代理的是 `客户端`，需要为每一个客户端都做一个代理服务器，`客户端访问的路径是目标服务器`
+- 反向代理代理的是 `真实服务器`，客户端不需要做任何的配置，`访问的路径是代理服务器`，由代理服务器将请求转发到真实服务器
 
 ## 配置
 
 ### 应用一
 
-实现效果访问 <http://192.168.80.102:80(Nginx> 首页), 最终代理到 <http://192.168.80.102:8080(Tomcat> 首页)
+实现效果访问 <http://192.168.80.102:80>(Nginx> 首页), 最终代理到 <http://192.168.80.102:8080>(Tomcat> 首页)
+
 首先启动一台 Tomcat 服务器 (已经安装了 Tomcat)
-进入 Tomcat 的`安装目录下的bin目录下`，使用`./startup.sh`命令，启动 Tomcat
+
+进入 Tomcat 的 `安装目录下的bin目录下`，使用 `./startup.sh` 命令，启动 Tomcat
 
 > 在 Nginx 的配置文件中进行配置
 
@@ -96,7 +74,7 @@ server {
 
 上面三个配置的含义就是 ，当访问 Linux 的 <http://192.168.80.102:80> 这个地址时，由于配置 Nginx 监听的是 80 端口，所以会进入这个 server 块进行处理，然后看你的访问路径，根据 `location` 块配置的不同路径进入对应的处理，由于配置了 `/` 请求，所以进入 / 的 location 处理，然后配置了 `proxy_pass`，所以进行代理到指定的路径。
 
-经过测试，当输入`http://192.168.80.102:80`时，Nginx给我们代理到了Tomcat，所以显示了Tomcat的页面，即配置成功
+经过测试，当输入 `http://192.168.80.102:80` 时，Nginx 给我们代理到了 Tomcat，所以显示了 Tomcat 的页面，即配置成功
 
 ### 应用二
 
@@ -134,7 +112,7 @@ server {
 }
 ```
 
-### HTTP反向代理完整配置
+### HTTP 反向代理完整配置
 
 ```shell
 #运行用户
@@ -241,7 +219,7 @@ http {
 		#error_page   500 502 503 504  /50x.html;
         #location = /50x.html {
         #    root   html;
-        #}
+        # }
     }
 }
 ```

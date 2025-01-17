@@ -1,6 +1,6 @@
 ---
 date created: Tuesday, December 31st 2024, 12:24:00 am
-date updated: Friday, January 17th 2025, 8:47:07 am
+date updated: Friday, January 17th 2025, 9:04:27 am
 title: Github Pages和JekyII
 author: hacket
 toc: true
@@ -416,3 +416,7 @@ plugins:
 - 将带双大括号的，用代码块包裹。
 - 或者用截图
 - 获取将 2 个大括号分开，如加个空格
+
+## tag 包含 `#!!`
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501170904425.png)
