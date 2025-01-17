@@ -1,6 +1,6 @@
 ---
-date created: Saturday, February 1st 2025, 8:55:48 am
-date updated: Thursday, January 16th 2025, 12:03:06 am
+date created: Saturday, February 1st 2023, 8:55:48 am
+date updated: Friday, January 17th 2025, 8:34:28 am
 title: obsidian-excalidraw-plugin
 author: hacket
 toc: true

@@ -1,6 +1,6 @@
 ---
-date created: Saturday, February 1st 2025, 3:39:19 am
-date updated: Friday, January 17th 2025, 7:58:58 am
+date created: Saturday, February 1st 2023, 3:39:19 am
+date updated: Friday, January 17th 2025, 8:34:12 am
 title: Obsidian插件之linter
 author: hacket
 toc: true

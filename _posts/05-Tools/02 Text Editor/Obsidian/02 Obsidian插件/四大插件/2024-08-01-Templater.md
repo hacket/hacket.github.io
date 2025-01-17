@@ -1,6 +1,6 @@
 ---
 date created: Thursday, August 1st 2024, 12:06:00 pm
-date updated: Friday, January 17th 2025, 8:07:45 am
+date updated: Friday, January 17th 2025, 8:35:13 am
 title: Templater
 author: hacket
 toc: true
@@ -46,8 +46,4 @@ Template 中文翻译为 " 模板，范本 "。那插件 Templater 顾名思义�
 
 将当前目录下所有笔记生成一个目录
 
-```shell
-- `{{tp.date.now()}}`：插入当前日期和时间。
-- `{{tp.date.weekyear()}}`：获取当前年份所属的周年度。
-- 自定义格式：`{{tp.date.now("YYYY-MM-DD")}}`。
-```
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501170834050.png)
