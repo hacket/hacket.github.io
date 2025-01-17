@@ -16,9 +16,9 @@ export function categoryCollapse() {
     // collapse sub-categories
     elem.addEventListener('hide.bs.collapse', () => {
       if (parent) {
-        parent.querySelector('.far.fa-folder-open').className =
-          'far fa-folder fa-fw';
-        parent.querySelector('.fas.fa-angle-down').classList.add('rotate');
+        parent.querySelector('.iconfont.icon-FolderOpen-1').className =
+          'iconfont icon-folder';
+        parent.querySelector('.ifrot').classList.add('rotate');
         parent.classList.remove('hide-border-bottom');
       }
     });
@@ -26,9 +26,9 @@ export function categoryCollapse() {
     // expand sub-categories
     elem.addEventListener('show.bs.collapse', () => {
       if (parent) {
-        parent.querySelector('.far.fa-folder').className =
-          'far fa-folder-open fa-fw';
-        parent.querySelector('.fas.fa-angle-down').classList.remove('rotate');
+        parent.querySelector('.iconfont.icon-folder').className =
+          'iconfont icon-FolderOpen-1';
+        parent.querySelector('.ifrot').classList.remove('rotate');
         parent.classList.add('hide-border-bottom');
       }
     });

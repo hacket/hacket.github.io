@@ -23,7 +23,7 @@
               customInstanceList="{{ share.instances | jsonify | xml_escape }}"
             {%- endif %}
           >
-            <i class="fa-fw {{ share.icon }}"></i>
+            <i class="iconfont {{ share.icon }}"></i>
           </share-to-mastodon>
         </button>
 
@@ -33,7 +33,7 @@
       {% assign link = share.link | replace: 'TITLE', title | replace: 'URL', url %}
 
       <a href="{{ link }}" target="_blank" rel="noopener" {{ tooltip }}>
-        <i class="fa-fw {{ share.icon }}"></i>
+        <i class="iconfont {{ share.icon }}"></i>
       </a>
     {% endfor %}
 
@@ -46,7 +46,7 @@
       title="{{ site.data.locales[include.lang].post.button.share_link.title }}"
       data-title-succeed="{{ site.data.locales[include.lang].post.button.share_link.succeed }}"
     >
-      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+      <i class="iconfont icon-link pe-none fs-6"></i>
     </button>
   </span>
 </div>

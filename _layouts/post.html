@@ -85,7 +85,7 @@ script_includes:
           {% if site.pageviews.provider and site.analytics[site.pageviews.provider].id %}
             <span>
               <em id="pageviews">
-                <i class="fas fa-spinner fa-spin small"></i>
+                <i class="iconfont icon-spinner fa-spin small"></i>
               </em>
               {{ site.data.locales[lang].post.pageview_measure }}
             </span>
@@ -102,20 +102,20 @@ script_includes:
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
       <span class="label text-truncate">{{ page.title }}</span>
       <button type="button" class="toc-trigger btn me-1">
-        <i class="fa-solid fa-list-ul fa-fw"></i>
+        <i class="icon-bars"></i>
       </button>
     </div>
 
     <button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm">
       <span class="label ps-2 pe-1">{{- site.data.locales[lang].panel.toc -}}</span>
-      <i class="fa-solid fa-angle-right fa-fw"></i>
+      <i class="icon-angle-right"></i>
     </button>
 
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
         <div class="label text-truncate py-2 ms-4">{{- page.title -}}</div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
-          <i class="fas fa-close"></i>
+          <i class="icon-Close"></i>
         </button>
       </div>
       <div id="toc-popup-content" class="px-4 py-3 pb-4"></div>
@@ -129,19 +129,25 @@ script_includes:
   <div class="post-tail-wrapper text-muted">
     <!-- categories -->
     {% if page.categories.size > 0 %}
-      <div class="post-meta mb-3">
-        <i class="far fa-folder-open fa-fw me-1"></i>
-        {% for category in page.categories %}
-          <a href="{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/">{{ category }}</a>
-          {%- unless forloop.last -%},{%- endunless -%}
-        {% endfor %}
-      </div>
+    <div class="post-meta mb-3">
+      <i class="iconfont icon-FolderOpen-1 me-1"></i>
+      {% assign _category_name = "" %}
+      {% for category in page.categories %}
+        {% if _category_name == "" %}
+          {% capture _category_name %}{{ category }}{% endcapture %}
+        {% else %}
+          {% capture _category_name %}{{ _category_name }}-{{ category }}{% endcapture %}
+        {% endif %}
+        <a href='{{ site.baseurl }}/categories/{{ _category_name | slugify | url_encode }}/'>{{ category }}</a>
+        {%- unless forloop.last -%}, {%- endunless -%}
+      {% endfor %}
+    </div>
     {% endif %}
 
     <!-- tags -->
     {% if page.tags.size > 0 %}
       <div class="post-tags">
-        <i class="fa fa-tags fa-fw me-1"></i>
+        <i class="iconfont icon-tag me-1"></i>
         {% for tag in page.tags %}
           <a
             href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"

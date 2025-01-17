@@ -11,7 +11,7 @@ function refreshTheme(event) {
     const mermaidList = document.getElementsByClassName(MERMAID);
 
     [...mermaidList].forEach((elem) => {
-      const svgCode = elem.previousSibling.children.item(0).textContent;
+      const svgCode = elem.previousSibling.children.item(0).innerHTML;
       elem.textContent = svgCode;
       elem.removeAttribute('data-processed');
     });

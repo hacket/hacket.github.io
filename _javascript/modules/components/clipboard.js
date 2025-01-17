@@ -7,10 +7,10 @@
 
 import Tooltip from 'bootstrap/js/src/tooltip';
 
-const clipboardSelector = '.code-header>button';
+const clipboardSelector = '.code-header>button.button-copy';
 
-const ICON_DEFAULT = 'far fa-clipboard';
-const ICON_SUCCESS = 'fas fa-check';
+const ICON_DEFAULT = 'iconfont icon-copy';
+const ICON_SUCCESS = 'iconfont icon-check';
 
 const ATTR_TIMEOUT = 'timeout';
 const ATTR_TITLE_SUCCEED = 'data-title-succeed';

@@ -23,15 +23,15 @@
 
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}
-              <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
+              <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title | flatify }}</span>
             {% else %}
-              <span>{{ page.title }}</span>
+              <span>{{ page.title | flatify }}</span>
             {% endif %}
 
           {% elsif page.layout == 'category' or page.layout == 'tag' %}
             <span>
               <a href="{{ item | append: '/' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs[item] | default: page.title -}}
+                {{- site.data.locales[include.lang].tabs[item] | default: page.title | flatify -}}
               </a>
             </span>
           {% endif %}
@@ -41,7 +41,7 @@
     <!-- endof #breadcrumb -->
 
     <button type="button" id="sidebar-trigger" class="btn btn-link">
-      <i class="fas fa-bars fa-fw"></i>
+      <i class="iconfont icon-bars"></i>
     </button>
 
     <div id="topbar-title">
@@ -56,11 +56,11 @@
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
-      <i class="fas fa-search fa-fw"></i>
+      <i class="iconfont icon-search"></i>
     </button>
 
     <search id="search" class="align-items-center ms-3 ms-lg-0">
-      <i class="fas fa-search fa-fw"></i>
+      <i class="iconfont icon-search"></i>
       <input
         class="form-control"
         id="search-input"

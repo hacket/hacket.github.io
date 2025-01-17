@@ -11,6 +11,7 @@ layout:
 tabs:
   # format: <filename_without_extension>: <value>
   home: Home
+  subdomain: Subdomain
   categories: Categories
   tags: Tags
   archives: Archives
@@ -25,6 +26,7 @@ search:
 panel:
   lastmod: Recently Updated
   trending_tags: Trending Tags
+  external_links: External Links
   toc: Contents
 
 copyright:
@@ -43,7 +45,11 @@ copyright:
 meta: Using the :THEME theme for :PLATFORM.
 
 not_found:
-  statement: Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
+  title: "404: Page not found"
+  statment: You seem to have come to a wasteland where there is no knowledge
+  head_back: Head back Home
+  or: or
+  previous_page: previous page
 
 notification:
   update_found: A new version of content is available.
@@ -67,6 +73,10 @@ post:
     previous: Older
     copy_code:
       succeed: Copied!
+    run:
+      output: Code output
+      wait: Wait for running...
+      error_prompt: "Failed to run code, message:"
     share_link:
       title: Copy link
       succeed: Link copied successfully!

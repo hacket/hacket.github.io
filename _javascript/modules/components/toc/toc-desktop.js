@@ -15,6 +15,8 @@ export class TocDesktop {
   }
 
   static init() {
-    tocbot.init(this.options);
+    if (document.getElementById('toc-wrapper')) {
+      tocbot.init(this.options);
+    }
   }
 }

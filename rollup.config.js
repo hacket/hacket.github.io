@@ -11,10 +11,10 @@ const DIST = 'assets/js/dist';
 const banner = `/*!
  * ${pkg.name} v${pkg.version} | © ${pkg.since} ${pkg.author} | ${pkg.license} Licensed | ${pkg.homepage}
  */`;
-const frontmatter = `---\npermalink: /:basename\n---\n`;
-const isProd = process.env.BUILD === 'production';
 
-let hasWatched = false;
+const frontmatter = `---\npermalink: /:basename\n---\n`;
+
+const isProd = process.env.BUILD === 'production';
 
 function cleanup() {
   fs.rmSync(DIST, { recursive: true, force: true });
@@ -39,11 +39,6 @@ function build(
   { src = SRC_DEFAULT, jekyll = false, outputName = null } = {}
 ) {
   const input = `${src}/${filename}.js`;
-  const shouldWatch = hasWatched ? false : true;
-
-  if (!hasWatched) {
-    hasWatched = true;
-  }
 
   return {
     input,
@@ -54,7 +49,9 @@ function build(
       banner,
       sourcemap: !isProd && !jekyll
     },
-    ...(shouldWatch && { watch: { include: `${SRC_DEFAULT}/**/*.js` } }),
+    watch: {
+      include: input
+    },
     plugins: [
       babel({
         babelHelpers: 'bundled',

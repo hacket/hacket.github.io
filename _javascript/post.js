@@ -6,7 +6,12 @@ import {
   initLocaleDatetime,
   initClipboard,
   initToc,
-  loadMermaid
+  loadMermaid,
+  highlightLines,
+  runCpp,
+  runJavascript,
+  runPython,
+  runRust
 } from './modules/components';
 
 loadImg();
@@ -18,3 +23,8 @@ initClipboard();
 initTopbar();
 loadMermaid();
 basic();
+highlightLines();
+runCpp();
+runJavascript();
+runPython();
+runRust();

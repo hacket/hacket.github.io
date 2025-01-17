@@ -1,0 +1,226 @@
+/*
+ * The syntax light mode code snippet colors.
+ */
+
+@mixin light-syntax {
+  /* --- custom light colors --- */
+  --language-border-color: #ececec;
+  --highlight-bg-color: #f6f8fa;
+  --highlighter-rouge-color: #3f596f;
+  --highlight-lineno-color: #9e9e9e;
+  --inline-code-bg: rgba(25, 25, 28, 0.05);
+  --code-color: #3a3a3a;
+  --code-header-text-color: #a3a3a3;
+  --code-header-muted-color: #e5e5e5;
+  --code-header-icon-color: #c9c8c8;
+  --clipboard-checked-color: #43c743;
+
+  [class^='prompt-'] {
+    --inline-code-bg: #fbfafa;
+  }
+
+  .highlighter-rouge .gp {
+    color: #757575;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* --- Syntax highlight theme from `rougify style github` --- */
+
+  .highlighter-rouge table td {
+    padding: 5px;
+  }
+
+  .highlighter-rouge table pre {
+    margin: 0;
+  }
+
+  .highlighter,
+  .highlighter-rouge .w {
+    color: #24292f;
+    background-color: #f6f8fa;
+  }
+
+  .highlighter-rouge .k,
+  .highlighter-rouge .kd,
+  .highlighter-rouge .kn,
+  .highlighter-rouge .kp,
+  .highlighter-rouge .kr,
+  .highlighter-rouge .kt,
+  .highlighter-rouge .kv {
+    color: #cf222e;
+  }
+
+  .highlighter-rouge .gr {
+    color: #f6f8fa;
+  }
+
+  .highlighter-rouge .gd {
+    color: #82071e;
+    background-color: #ffebe9;
+  }
+
+  .highlighter-rouge .nb {
+    color: #953800;
+  }
+
+  .highlighter-rouge .nc {
+    color: #953800;
+  }
+
+  .highlighter-rouge .no {
+    color: #953800;
+  }
+
+  .highlighter-rouge .nn {
+    color: #953800;
+  }
+
+  .highlighter-rouge .sr {
+    color: #116329;
+  }
+
+  .highlighter-rouge .na {
+    color: #116329;
+  }
+
+  .highlighter-rouge .nt {
+    color: #116329;
+  }
+
+  .highlighter-rouge .gi {
+    color: #116329;
+    background-color: #dafbe1;
+  }
+
+  .highlighter-rouge .kc {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .l,
+  .highlighter-rouge .ld,
+  .highlighter-rouge .m,
+  .highlighter-rouge .mb,
+  .highlighter-rouge .mf,
+  .highlighter-rouge .mh,
+  .highlighter-rouge .mi,
+  .highlighter-rouge .il,
+  .highlighter-rouge .mo,
+  .highlighter-rouge .mx {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .sb {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .bp {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .ne {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .nl {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .py {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .nv,
+  .highlighter-rouge .vc,
+  .highlighter-rouge .vg,
+  .highlighter-rouge .vi,
+  .highlighter-rouge .vm {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .o,
+  .highlighter-rouge .ow {
+    color: #0550ae;
+  }
+
+  .highlighter-rouge .gh {
+    color: #0550ae;
+    font-weight: bold;
+  }
+
+  .highlighter-rouge .gu {
+    color: #0550ae;
+    font-weight: bold;
+  }
+
+  .highlighter-rouge .s,
+  .highlighter-rouge .sa,
+  .highlighter-rouge .sc,
+  .highlighter-rouge .dl,
+  .highlighter-rouge .sd,
+  .highlighter-rouge .s2,
+  .highlighter-rouge .se,
+  .highlighter-rouge .sh,
+  .highlighter-rouge .sx,
+  .highlighter-rouge .s1,
+  .highlighter-rouge .ss {
+    color: #0a3069;
+  }
+
+  .highlighter-rouge .nd {
+    color: #8250df;
+  }
+
+  .highlighter-rouge .nf,
+  .highlighter-rouge .fm {
+    color: #8250df;
+  }
+
+  .highlighter-rouge .err {
+    color: #f6f8fa;
+    background-color: #82071e;
+  }
+
+  .highlighter-rouge .c,
+  .highlighter-rouge .ch,
+  .highlighter-rouge .cd,
+  .highlighter-rouge .cm,
+  .highlighter-rouge .cp,
+  .highlighter-rouge .cpf,
+  .highlighter-rouge .c1,
+  .highlighter-rouge .cs {
+    color: #0b6623;
+  }
+
+  .highlighter-rouge .gl {
+    color: #68717a;
+  }
+
+  .highlighter-rouge .gt {
+    color: #68717a;
+  }
+
+  .highlighter-rouge .ni {
+    color: #24292f;
+  }
+
+  .highlighter-rouge .si {
+    color: #24292f;
+  }
+
+  .highlighter-rouge .ge {
+    color: #24292f;
+    font-style: italic;
+  }
+
+  .highlighter-rouge .gs {
+    color: #24292f;
+    font-weight: bold;
+  }
+
+  .highlighter-rouge .hll {
+    background-color: #ffffbe;
+  }
+} /* light-syntax */

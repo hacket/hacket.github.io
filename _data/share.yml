@@ -1,31 +1,40 @@
-#  Sharing options at the bottom of the post.
-#  Icons from <https://fontawesome.com/>
+#  帖子底部的分享选项。
 
 platforms:
   - type: Twitter
-    icon: "fa-brands fa-square-x-twitter"
+    icon: "icon-twitter"
     link: "https://twitter.com/intent/tweet?text=TITLE&url=URL"
 
+  - type: Line
+    icon: "icon-13"
+    link: "https://lineit.line.me/share/ui?url=URL&text=TITLE"
+
   - type: Facebook
-    icon: "fab fa-facebook-square"
+    icon: "icon-facebook"
     link: "https://www.facebook.com/sharer/sharer.php?title=TITLE&u=URL"
 
   - type: Telegram
-    icon: "fab fa-telegram"
+    icon: "icon-telegram"
     link: "https://t.me/share/url?url=URL&text=TITLE"
 
-  # Uncomment below if you need to.
-  #
+  - type: QQ
+    icon: "icon-QQ"
+    link: "https://connect.qq.com/widget/shareqq/index.html?url=URL&title=TITLE"
+
+  - type: QQ 空间
+    icon: "icon-qzone"
+    link: "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=URL&title=TITLE"
+
+  - type: 微博
+    icon: "icon-weibo"
+    link: "https://service.weibo.com/share/share.php?title=TITLE&url=URL"
+
   # - type: Linkedin
-  #   icon: "fab fa-linkedin"
+  #   icon: "icon-linkedin"
   #   link: "https://www.linkedin.com/sharing/share-offsite/?url=URL"
   #
-  # - type: Weibo
-  #   icon: "fab fa-weibo"
-  #   link: "https://service.weibo.com/share/share.php?title=TITLE&url=URL"
-  #
   # - type: Mastodon
-  #   icon: "fa-brands fa-mastodon"
+  #   icon: "icon-mastodon"
   #   # See: https://github.com/justinribeiro/share-to-mastodon#properties
   #   instances:
   #     - label: mastodon.social
@@ -38,13 +47,13 @@ platforms:
   #       link: "https://photog.social/"
   #
   # - type: Bluesky
-  #   icon: "fa-brands fa-bluesky"
+  #   icon: "iconfont icon-bluesky"
   #   link: "https://bsky.app/intent/compose?text=TITLE%20URL"
   #
   # - type: Reddit
-  #   icon: "fa-brands fa-square-reddit"
+  #   icon: "iconfont icon-bluesky"
   #   link: "https://www.reddit.com/submit?url=URL&title=TITLE"
   #
   # - type: Threads
-  #   icon: "fa-brands fa-square-threads"
+  #   icon: "iconfont icon-bluesky"
   #   link: "https://www.threads.net/intent/post?text=TITLE%20URL"

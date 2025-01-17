@@ -25,7 +25,7 @@ layout: compress
 
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
-            {% if layout.refactor or layout.layout == 'default' %}
+            {% if layout.refactor or layout.layout == 'default' and page.permalink != '/404.html' %}
               {% include refactor-content.html content=content lang=lang %}
             {% else %}
               {{ content }}
@@ -33,14 +33,21 @@ layout: compress
           </main>
 
           <!-- panel -->
-          <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+          <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 mb-5 text-muted">
             <div class="access">
-              {% include_cached update-list.html lang=lang %}
-              {% include_cached trending-tags.html lang=lang %}
+              {% if page.layout != "post" or site.panel.post.lastmod %}
+                {% include_cached update-list.html lang=lang  %}
+              {% endif %}
+              {% if page.layout != "post" or site.panel.post.trending_tags %}
+                {% include_cached trending-tags.html lang=lang %}
+              {% endif %}
+              {% if page.layout != "post" or site.panel.post.external_links %}
+                {% include_cached external-links.html lang=lang %}
+              {% endif %}
             </div>
 
             {% for _include in layout.panel_includes %}
-              {% assign _include_path = _include | append: '.html' %}
+              {% assign _include_path = _include | flatify | append: '.html' %}
               {% include {{ _include_path }} lang=lang %}
             {% endfor %}
           </aside>
@@ -50,7 +57,7 @@ layout: compress
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
             {% for _include in layout.tail_includes %}
-              {% assign _include_path = _include | append: '.html' %}
+              {% assign _include_path = _include | flatify | append: '.html' %}
               {% include {{ _include_path }} lang=lang %}
             {% endfor %}
 
@@ -63,7 +70,7 @@ layout: compress
 
       <aside aria-label="Scroll to Top">
         <button id="back-to-top" type="button" class="btn btn-lg btn-box-shadow">
-          <i class="fas fa-angle-up"></i>
+          <i class="iconfont icon-angle-up"></i>
         </button>
       </aside>
     </div>
@@ -72,6 +79,10 @@ layout: compress
 
     {% if site.pwa.enabled %}
       {% include_cached notification.html lang=lang %}
+    {% endif %}
+
+    {% if site.backgroud_animation %}
+      {% include animated-background.html %}
     {% endif %}
 
     <!-- Embedded scripts -->

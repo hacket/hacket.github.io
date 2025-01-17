@@ -92,8 +92,7 @@ init_files() {
   npm i && npm run build
 
   # track the CSS/JS output
-  _sedi "/^_sass\/vendors/d" .gitignore
-  _sedi "/^assets\/js\/dist/d" .gitignore
+  _sedi "/.*\/dist$/d" .gitignore
 }
 
 commit() {

@@ -8,3 +8,8 @@ export { loadMermaid } from './components/mermaid';
 export { modeWatcher } from './components/mode-toggle';
 export { back2top } from './components/back-to-top';
 export { loadTooptip } from './components/tooltip-loader';
+export { highlightLines } from './components/highlight-lines';
+export { runCpp } from './components/run-cpp';
+export { runJavascript } from './components/run-javascript';
+export { runPython } from './components/run-python';
+export { runRust } from './components/run-rust';
