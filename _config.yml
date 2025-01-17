@@ -76,7 +76,7 @@ analytics:
 
 # 页面浏览量设置
 pageviews:
-  provider: # 目前仅支持 'goatcounter'
+  provider: goatcounter # 目前仅支持 'goatcounter'
 
 # 设置首选配色方案
 #
@@ -131,7 +131,7 @@ panel:
 
 comments:
   # 帖子评论区全局开关，例如，'disqus'。保持为空表示禁用。
-  provider: # [disqus | utterances | giscus]
+  provider: disqus # [disqus | utterances | giscus]
   # provider 选项可以是如下：
   # disqus 评论系统 > https://disqus.com/
   disqus:
