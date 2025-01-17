@@ -1,6 +1,6 @@
 ---
 date created: Thursday, August 1st 2024, 12:06:00 pm
-date updated: Thursday, January 16th 2025, 12:03:13 am
+date updated: Friday, January 17th 2025, 8:07:45 am
 title: Templater
 author: hacket
 toc: true
@@ -46,6 +46,8 @@ Template 中文翻译为 " 模板，范本 "。那插件 Templater 顾名思义�
 
 将当前目录下所有笔记生成一个目录
 
+```shell
 - `{{tp.date.now()}}`：插入当前日期和时间。
 - `{{tp.date.weekyear()}}`：获取当前年份所属的周年度。
 - 自定义格式：`{{tp.date.now("YYYY-MM-DD")}}`。
+```

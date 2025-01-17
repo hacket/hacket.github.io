@@ -1,6 +1,6 @@
 ---
 date created: Saturday, February 1st 2025, 3:39:19 am
-date updated: Thursday, January 16th 2025, 12:03:18 am
+date updated: Friday, January 17th 2025, 7:58:58 am
 title: Obsidian插件之linter
 author: hacket
 toc: true
@@ -14,7 +14,6 @@ categories:
 feed: show
 format: list
 image-auto-upload: true
-date modified: 星期四, 一月 2日 2025, 4:00:09 下午
 aliases: [Linter]
 linter-yaml-title-alias: Linter
 ---

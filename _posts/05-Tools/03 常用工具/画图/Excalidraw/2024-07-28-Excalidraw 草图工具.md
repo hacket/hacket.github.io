@@ -1,7 +1,21 @@
 ---
-date created: 2024-07-28 18:04
-date updated: 2024-12-27 23:56
+date created: Sunday, July 28th 2024, 6:04:00 pm
+date updated: Friday, January 17th 2025, 7:59:37 am
+title: Excalidraw 草图工具
+author: hacket
+toc: true
+description: 
 dg-publish: true
+dg-enable-search: true
+dg-show-local-graph: true
+dg-show-toc: true
+dg-show-file-tree: true
+image-auto-upload: true
+feed: show
+format: list
+categories: 
+aliases: [Excalidraw]
+linter-yaml-title-alias: Excalidraw
 ---
 
 # Excalidraw
@@ -18,7 +32,7 @@ Excalidraw 本是开源的在线协作手写软件，来自匈牙利的 Zsolt Vi
 
 - 对于在画板中已经创建的元素，需要通过鼠标框选才能选择多个。选择之后右击，菜单栏中有**Group Selection**, 能够组合成一个合并单元进行操作。
 
-![  ](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian202407281814958.png)
+![ ](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian202407281814958.png)
 
 - 顶部工具功能区，按数字就能选中对应的图形
 - 左边是画板样式，用来调背景，线条的样式等
@@ -54,7 +68,7 @@ Excalidraw 本是开源的在线协作手写软件，来自匈牙利的 Zsolt Vi
 1. 实时嵌入：你可以修改绘图，其嵌入的地方都会同步更新。修改起来也非常方便，只要点一下嵌入的图就能进入绘图界面。
 2. 自定义大小：在默认设置中，你可以自定义嵌入图的默认大小，当然也可以用类似 `![[test.excalidraw|200]]` 这样的语法进行调节
 3. 自定义嵌入样式：绘图想要白色背景，嵌入想要黑色背景，透明背景？想要边框？想要无边框？想要不同的字体？没问题，设置里可以添加 CSS 样式文件！
-4. Excalidraw局部嵌入Obsidian： Excalidraw 生成链接局部嵌入图形到 Obsidian 中
+4. Excalidraw 局部嵌入 Obsidian： Excalidraw 生成链接局部嵌入图形到 Obsidian 中
 
 ### 脚本引擎 Excalidraw Scripts
 
