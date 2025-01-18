@@ -1,13 +1,3 @@
-# hidden files
-!.git*
-!.editorconfig
-!.nojekyll
-!.husky
-!.commitlintrc.json
-!.versionrc.json
-!.stylelintrc.json
-!.gems/
-
 # Bundler cache
 .bundle
 vendor
@@ -31,3 +21,7 @@ package-lock.json
 !.vscode/settings.json
 !.vscode/extensions.json
 !.vscode/tasks.json
+
+# Misc
+_sass/vendors
+assets/js/dist

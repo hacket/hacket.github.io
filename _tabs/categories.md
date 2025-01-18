@@ -1,6 +1,5 @@
 ---
 layout: categories
-title: 分类
-icon: icon-stream
-order: 2
+icon: fas fa-stream
+order: 1
 ---
