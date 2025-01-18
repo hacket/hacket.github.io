@@ -1,3 +1,0 @@
-[submodule "assets/lib"]
-	path = assets/lib
-	url = https://github.com/NichtsHsu/chirpy-static-assets.git
