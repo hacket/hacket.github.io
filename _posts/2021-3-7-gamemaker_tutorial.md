@@ -12,3 +12,5 @@ image: /assets/img/gm8_tutorials/gamemaker-icon.jpg
 该教程从 2017 年一直写到 2019 年才完成大部分内容，并且之后也一直有在增加新的内容，涵盖从完全新手入门到精通 GameMaker 8.0 的一切内容，如果对 GameMaker 8.0 有兴趣，或者觉得 GameMaker:Studio 2 太难了想先学个简单的当做跳板，欢迎前来查阅或提出意见：
 
 [Github 版本](https://gm8.nihil.cc/)
+
+
