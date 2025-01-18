@@ -43,3 +43,4 @@
 * (2022-12-12) 添加了动画背景效果和鼠标点击效果，考虑到不是所有人都喜欢特效，默认情况下这两都是禁用的。如需开启，请在 `_config.yml` 中配置 `backgroud_animation` 和 `mouse_click_effect` 为 `true`。
 
 通常，每周会至少 merge 一次 [`upstream/master`](https://github.com/cotes2020/jekyll-theme-chirpy) 以追踪新的功能。
+
