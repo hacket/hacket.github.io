@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="{{ site.data.origin[type].waline.css | relative_url }}" />
+<script type="module">
+  import { init } from "{{ site.data.origin[type].waline.js | relative_url }}";
+
+  let walineThread = document.createElement('div');
+  walineThread.id = 'waline';
+
+  const footer = document.querySelector('footer');
+  footer.insertAdjacentElement("beforebegin", walineThread);
+
+  const locale = {
+    placeholder: '{{ site.comments.waline.placeholder }}',
+  };
+  init({
+    el: '#waline',
+    serverURL: '{{ site.comments.waline.server }}',
+    emoji: [
+      "{{ site.data.origin[type].waline.emojis | relative_url }}/qq",
+      '{{ site.data.origin[type].waline.emojis | relative_url }}/tieba',
+      '{{ site.data.origin[type].waline.emojis | relative_url }}/tw-emoji',
+      '{{ site.data.origin[type].waline.emojis | relative_url }}/bilibili',
+    ],
+    dark: "__waline__css__",
+    locale,
+  });
+  let head = document.getElementsByTagName("head")[0];
+  let css = head.lastChild;
+  let cssContent = css.textContent.replace("__waline__css__", "");
+  let cssContentPerferredDark = "@media (prefers-color-scheme: dark){html:not([data-mode])" + cssContent + "}";
+  let cssContentSelectedDark = "html[data-mode=dark]" + cssContent;
+  css.textContent = cssContentPerferredDark;
+  let style = document.createElement('style');
+  style.textContent = cssContentSelectedDark;
+  head.appendChild(style);
+</script>

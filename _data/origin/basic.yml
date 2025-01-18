@@ -1,0 +1,63 @@
+# fonts
+
+webfonts: /assets/lib/fonts/main.css
+
+# Libraries
+
+toc:
+  css: /assets/lib/tocbot/tocbot.min.css
+  js: /assets/lib/tocbot/tocbot.min.js
+
+fontawesome:
+  css: /assets/lib/fontawesome-free/css/all.min.css
+
+search:
+  js: /assets/lib/simple-jekyll-search/simple-jekyll-search.min.js
+
+mermaid:
+  js: /assets/lib/mermaid/mermaid.min.js
+
+dayjs:
+  js:
+    common: /assets/lib/dayjs/dayjs.min.js
+    locale: /assets/lib/dayjs/locale/en.js
+    relativeTime: /assets/lib/dayjs/plugin/relativeTime.js
+    localizedFormat: /assets/lib/dayjs/plugin/localizedFormat.js
+
+glightbox:
+  css: /assets/lib/glightbox/glightbox.min.css
+  js: /assets/lib/glightbox/glightbox.min.js
+
+lazy-polyfill:
+  css: /assets/lib/loading-attribute-polyfill/loading-attribute-polyfill.min.css
+  js: /assets/lib/loading-attribute-polyfill/loading-attribute-polyfill.umd.min.js
+
+clipboard:
+  js: /assets/lib/clipboard/clipboard.min.js
+
+mathjax:
+  js: /assets/lib/mathjax/tex-chtml.js
+
+firacode:
+  css: /assets/lib/firacode/distr/fira_code.css
+
+socket-io-client:
+  js: /assets/lib/socket.io-client/dist/socket.io.min.js
+
+waline:
+  js: /assets/lib/client/dist/waline.js
+  css: /assets/lib/client/dist/waline.css
+  emojis: /assets/lib/emojis
+
+# 自定义 Iconfont 的图标链接。 › https://www.iconfont.cn/
+# 需要添加自己的 Iconfont 图标，请在 Iconfont 中新建项目，
+# 加入图标到项目，选择 Font Class，查看在线链接，并将其拷贝到下面。
+#
+# 注意：请不要与项目原本使用的图标重名，请全局搜索以确保该名称没被使用。
+# 一个比较好的办法是修改 Iconfont 项目的 FontClass/Symbol 前缀为其他值。
+iconfont:
+  css:
+    # 此 css 包含以 'icon-' 为前缀的图标，为模板的核心图标，请勿删除。
+    - /assets/lib/iconfont/font_2440352_5nfkefwgc3q/iconfont.css
+    # 添加你的 Iconfont 图标链接
+    # - 

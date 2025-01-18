@@ -1,0 +1,40 @@
+#  联系方式选项
+
+- type: github
+  icon: "iconfont icon-github"
+
+- type: twitter
+  icon: "iconfont icon-twitter"
+
+- type: email
+  icon: "iconfont icon-mail"
+  noblank: true # 在当前页面打开链接
+
+- type: rss
+  icon: "iconfont icon-rss"
+  noblank: true
+
+# 取消注释并完善下列链接以启用更多联系方式
+# - type: mastodon
+#   icon: "iconfont icon-mastodon"
+#   url:  "" # 填入你的 Mastodon 账号页面, rel="me" 将会被用于验证
+#
+# - type: linkedin
+#   icon: "iconfont icon-linkedin"
+#   url:  "" # 填入你的 Linkedin 主页
+#
+# - type: stack-overflow
+#   icon: "iconfont icon-stack-overflow"
+#   url:  "" # 填入你的 stackoverflow 主页
+#
+# - type: bluesky
+#   icon: "iconfont icon-bluesky"
+#   url: "" # 填入你的 Bluesky 主页链接
+#
+# - type: reddit
+#   icon: "iconfont icon-reddit"
+#   url: "" # 填入你的 Reddit 主页链接
+#
+# - type: threads
+#   icon: "iconfont icon-threads-fill"
+#   url: "" # 填入你的 Threads 主页链接

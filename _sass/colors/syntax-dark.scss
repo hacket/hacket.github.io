@@ -1,0 +1,172 @@
+/*
+ * The syntax dark mode styles.
+ */
+
+@mixin dark-syntax {
+  --language-border-color: #2d2d2d;
+  --highlight-bg-color: #151515;
+  --highlighter-rouge-color: #c9def1;
+  --highlight-lineno-color: #808080;
+  --inline-code-bg: rgba(255, 255, 255, 0.05);
+  --code-color: #b0b0b0;
+  --code-header-text-color: #6a6a6a;
+  --code-header-muted-color: #353535;
+  --code-header-icon-color: #565656;
+  --clipboard-checked-color: #2bcc2b;
+  --filepath-text-color: #cacaca;
+
+  .highlighter-rouge .gp {
+    color: #757575;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* --- Syntax highlight theme from `rougify style base16.dark` --- */
+
+  .highlighter-rouge table td {
+    padding: 5px;
+  }
+
+  .highlighter-rouge table pre {
+    margin: 0;
+  }
+
+  .highlighter,
+  .highlighter-rouge .w {
+    color: #d0d0d0;
+    background-color: #151515;
+  }
+
+  .highlighter-rouge .err {
+    color: #151515;
+    background-color: #ac4142;
+  }
+
+  .highlighter-rouge .c,
+  .highlighter-rouge .ch,
+  .highlighter-rouge .cd,
+  .highlighter-rouge .cm,
+  .highlighter-rouge .cpf,
+  .highlighter-rouge .c1,
+  .highlighter-rouge .cs {
+    color: #3bb143;
+  }
+
+  .highlighter-rouge .cp {
+    color: #f4bf75;
+  }
+
+  .highlighter-rouge .nt {
+    color: #f4bf75;
+  }
+
+  .highlighter-rouge .o,
+  .highlighter-rouge .ow {
+    color: #d0d0d0;
+  }
+
+  .highlighter-rouge .p,
+  .highlighter-rouge .pi {
+    color: #d0d0d0;
+  }
+
+  .highlighter-rouge .gi {
+    color: #90a959;
+  }
+
+  .highlighter-rouge .gd {
+    color: #f08a8b;
+    background-color: #320000;
+  }
+
+  .highlighter-rouge .gh {
+    color: #6a9fb5;
+    background-color: #151515;
+    font-weight: bold;
+  }
+
+  .highlighter-rouge .k,
+  .highlighter-rouge .kn,
+  .highlighter-rouge .kp,
+  .highlighter-rouge .kr,
+  .highlighter-rouge .kv {
+    color: #aa759f;
+  }
+
+  .highlighter-rouge .kc {
+    color: #d28445;
+  }
+
+  .highlighter-rouge .kt {
+    color: #d28445;
+  }
+
+  .highlighter-rouge .kd {
+    color: #d28445;
+  }
+
+  .highlighter-rouge .s,
+  .highlighter-rouge .sb,
+  .highlighter-rouge .sc,
+  .highlighter-rouge .dl,
+  .highlighter-rouge .sd,
+  .highlighter-rouge .s2,
+  .highlighter-rouge .sh,
+  .highlighter-rouge .sx,
+  .highlighter-rouge .s1 {
+    color: #90a959;
+  }
+
+  .highlighter-rouge .sa {
+    color: #aa759f;
+  }
+
+  .highlighter-rouge .sr {
+    color: #75b5aa;
+  }
+
+  .highlighter-rouge .si {
+    color: #b76d45;
+  }
+
+  .highlighter-rouge .se {
+    color: #b76d45;
+  }
+
+  .highlighter-rouge .nn {
+    color: #f4bf75;
+  }
+
+  .highlighter-rouge .nc {
+    color: #f4bf75;
+  }
+
+  .highlighter-rouge .no {
+    color: #f4bf75;
+  }
+
+  .highlighter-rouge .na {
+    color: #6a9fb5;
+  }
+
+  .highlighter-rouge .m,
+  .highlighter-rouge .mb,
+  .highlighter-rouge .mf,
+  .highlighter-rouge .mh,
+  .highlighter-rouge .mi,
+  .highlighter-rouge .il,
+  .highlighter-rouge .mo,
+  .highlighter-rouge .mx {
+    color: #90a959;
+  }
+
+  .highlighter-rouge .ss {
+    color: #90a959;
+  }
+
+  .highlighter-rouge .hll {
+    background-color: #61611b;
+  }
+}

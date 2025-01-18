@@ -1,0 +1,78 @@
+# Resource Hints
+resource_hints:
+  - url: https://fonts.googleapis.com
+    links:
+      - rel: preconnect
+      - rel: dns-prefetch
+  - url: https://fonts.gstatic.com
+    links:
+      - rel: preconnect
+        opts: [crossorigin]
+      - rel: dns-prefetch
+  - url: https://cdn.jsdelivr.net
+    links:
+      - rel: preconnect
+      - rel: dns-prefetch
+
+# Web Fonts
+webfonts: https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap
+
+# Libraries
+
+toc:
+  css: https://cdn.jsdelivr.net/npm/tocbot@4.29.0/dist/tocbot.min.css
+  js: https://cdn.jsdelivr.net/npm/tocbot@4.29.0/dist/tocbot.min.js
+
+fontawesome:
+  css: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css
+
+search:
+  js: https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js
+
+mermaid:
+  js: https://cdn.jsdelivr.net/npm/mermaid@11.0.2/dist/mermaid.min.js
+
+dayjs:
+  js:
+    common: https://cdn.jsdelivr.net/npm/dayjs@1.11.13/dayjs.min.js
+    locale: https://cdn.jsdelivr.net/npm/dayjs@1.11.13/locale/:LOCALE.js
+    relativeTime: https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/relativeTime.js
+    localizedFormat: https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/localizedFormat.js
+
+glightbox:
+  css: https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css
+  js: https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js
+
+lazy-polyfill:
+  css: https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css
+  js: https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js
+
+clipboard:
+  js: https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js
+
+mathjax:
+  js: https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js
+
+firacode:
+  css: https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css
+
+socket-io-client:
+  js: https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.min.js
+
+waline:
+  js: https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js
+  css: https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.css
+  emojis: https://cdn.jsdelivr.net/npm/@waline/emojis@1.2.0
+
+# 自定义 Iconfont 的图标链接。 › https://www.iconfont.cn/
+# 需要添加自己的 Iconfont 图标，请在 Iconfont 中新建项目，
+# 加入图标到项目，选择 Font Class，查看在线链接，并将其拷贝到下面。
+#
+# 注意：请不要与项目原本使用的图标重名，请全局搜索以确保该名称没被使用。
+# 一个比较好的办法是修改 Iconfont 项目的 FontClass/Symbol 前缀为其他值。
+iconfont:
+  css:
+    # 此 css 包含以 'icon-' 为前缀的图标，为模板的核心图标，请勿删除。
+    - https://at.alicdn.com/t/c/font_2440352_o7nixqud1l.css
+    # 添加你的 Iconfont 图标链接
+    # - 
