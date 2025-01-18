@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="400" height="300" viewBox="0 0 400 300">
+<style type="text/css">
+	.st0{fill:#808080;stroke:#000;}
+	.st1{fill:#B3B3B3;stroke:#000;stroke-width:2;}
+	.st2{fill:#FCEE21;stroke:#000;stroke-width:3;}
+	.st3{font-family:Liberation Sans,Arial;}
+	.st4{font-size:48px;}
+	.st5{font-size:60px;}
+</style>
+<g id="usb">
+	<g>
+		<path id="infill" class="st0" d="M312.7,91.1c7.6,0,13.8,6.2,13.8,13.8v23.5c0,2.9-1,5.8-2.7,8.1l-9.8,12.9
+			c-4.1,5.4-6.3,11.9-6.3,18.6v28.1c0,7-5.7,12.7-12.7,12.7h-193c-7,0-12.7-5.7-12.7-12.7v-28.1c0-6.7-2.2-13.3-6.3-18.6l-9.8-12.9
+			c-1.8-2.3-2.7-5.2-2.7-8.1v-23.5c0-7.6,6.2-13.8,13.8-13.8H312.7"/>
+		<path id="frame" class="st1" d="M308.3,93.3c7.3,0,13.3,6,13.3,13.3v22.6c0,2.8-0.9,5.6-2.6,7.8l-9.4,12.4c-3.9,5.2-6,11.4-6,17.9
+			v27.1c0,6.8-5.5,12.3-12.3,12.3H105.8c-6.8,0-12.3-5.5-12.3-12.3v-27.1c0-6.5-2.1-12.8-6-17.9L78.1,137c-1.7-2.3-2.6-5-2.6-7.8
+			v-22.6c0-7.3,5.9-13.3,13.3-13.3H308.3 M308.3,77.3H88.8c-16.2,0-29.3,13.1-29.3,29.3v26.7c0,3.6,1.2,7.2,3.4,10.1l11.9,15.7
+			c1.8,2.4,2.8,5.3,2.8,8.3v27.1c0,15.6,12.7,28.3,28.3,28.3h185.5c15.6,0,28.3-12.7,28.3-28.3v-27.1c0-3,1-5.9,2.8-8.3l11.9-15.7
+			c2.2-2.9,3.4-6.5,3.4-10.1v-26.7C337.6,90.4,324.5,77.3,308.3,77.3L308.3,77.3z"/>
+		<g id="pins">
+			<path id="centre" d="M260.2,191.4H137.4c-4,0-7.7-1.8-10.2-4.9l-12.6-15.9c-1.2-1.5-1.9-3.4-1.9-5.4v-19.6
+				c0-6.7,5.4-12.1,12.1-12.1h147.4c6.7,0,12.1,5.4,12.1,12.1v22.1c0,2.2-0.8,4.2-2.2,5.8l-12.3,13.6
+				C267.3,189.8,263.8,191.4,260.2,191.4z"/>
+			<rect id="pin1" x="133" y="122.2" class="st2" width="15" height="13"/>
+			<rect id="pin2" x="162.4" y="122.2" class="st2" width="15" height="13"/>
+			<rect id="pin3" x="191.7" y="122.2" class="st2" width="15" height="13"/>
+			<rect id="pin4" x="221.1" y="122.2" class="st2" width="15" height="13"/>
+			<rect id="pin5" x="250.5" y="122.2" class="st2" width="15" height="13"/>
+		</g>
+	</g>
+<g id="text">
+		<text transform="matrix(1 0 0 1 127 52)" class="st3 st4">1</text>
+		<text transform="matrix(1 0 0 1 157 52)" class="st3 st4">2</text>
+		<text transform="matrix(1 0 0 1 187 52)" class="st3 st4">3</text>
+		<text transform="matrix(1 0 0 1 215 52)" class="st3 st4">4</text>
+		<text transform="matrix(1 0 0 1 245 52)" class="st3 st4">5</text>
+		<text transform="matrix(1 0 0 1 115 278)" class="st3 st5">Mini-B</text>
+</g>
+	</g>
+</svg>

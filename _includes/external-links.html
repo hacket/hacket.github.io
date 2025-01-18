@@ -1,0 +1,27 @@
+{% if site.data.external_links.size > 0 %}
+<div id="access-links">
+  <div class="panel-heading">{{- site.data.locales[lang].panel.external_links | default: 'External Links' -}}</div>
+  <ul class="post-content pl-0 pb-1 ml-1 mt-2">
+
+    {% for external_link in site.data.external_links %}
+    <li><a href="{{ external_link.link }}">
+        {% if external_link.automatic_name %}
+        {% if external_link.use_iconfont %}
+        <i class="iconfont {{ external_link.icon }}"></i>
+        {% else %}
+        <img src="{{ external_link.icon }}" alt="{{ external_link.name }}" />
+        {% endif %}
+        {% else %}
+        {% if external_link.use_iconfont %}
+        <i class="iconfont {{ external_link.icon }}"></i>
+        &nbsp;{{- external_link.name -}}
+        {% else %}
+        <img src="{{ external_link.icon }}" />
+        &nbsp;{{- external_link.name -}}
+        {% endif %}
+        {% endif %}
+      </a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

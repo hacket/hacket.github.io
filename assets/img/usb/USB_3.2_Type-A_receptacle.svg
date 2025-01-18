@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="450" height="400" version="1.1" viewBox="0 0 450 400" xmlns="http://www.w3.org/2000/svg">
+ <style type="text/css">.st0{fill:#E6E6E6;stroke:#000000;stroke-width:8;}
+	.st1{font-family:Liberation Sans,sans-serif;}
+	.st2{font-size:60px;}
+	.st3{font-size:48px;}
+	.st4{fill:#B3B3B3;stroke:#000000;stroke-width:2;}
+	.st5{fill:#FCEE21;stroke:#000000;stroke-width:2;}
+ </style>
+ <path class="st0" d="m392.3 186h-334.5c-6.3 0-11.3-5.1-11.3-11.3v-89.4c0-6.3 5.1-11.3 11.3-11.3h334.4c6.3 0 11.3 5.1 11.3 11.3v89.3c0.1 6.3-5 11.4-11.2 11.4z" style="fill:#e6e6e6;stroke-width:8;stroke:#000"/>
+ <path class="st4" d="m380 141h-310c-2.8 0-5-2.1-5-4.8v-40.4c0-2.7 2.2-4.8 5-4.8h310c2.8 0 5 2.1 5 4.8v40.5c0 2.6-2.2 4.7-5 4.7z" style="fill:#37abed;stroke-width:2;stroke:#000"/>
+
+ <rect class="st5" x="85.8" y="135.3" width="35" height="13.5"/>
+ <rect class="st5" x="172.8" y="135.3" width="35" height="13.5"/>
+ <rect class="st5" x="242.1" y="135.3" width="35" height="13.5"/>
+ <rect class="st5" x="329.2" y="135.3" width="35" height="13.5"/>
+ <rect class="st5" x="75.8" y="109.9" width="15.4" height="13.5"/>
+ <rect class="st5" x="146.4" y="109.9" width="15.4" height="13.5"/>
+ <rect class="st5" x="217.0" y="109.9" width="15.4" height="13.5"/>
+ <rect class="st5" x="287.6" y="109.9" width="15.4" height="13.5"/>
+ <rect class="st5" x="358.2" y="109.9" width="15.4" height="13.5"/>
+
+ <text class="st1 st2" x="122.02148" y="298.2464">Type-A</text>
+ <text class="st1 st2" x="43.227539" y="367.5813">SuperSpeed</text>
+
+ <text class="st1 st3" x="89.951897" y="231.73941">1</text>
+ <text class="st1 st3" x="176.91051" y="231.7392">2</text>
+ <text class="st1 st3" x="246.2885" y="231.7388">3</text>
+ <text class="st1 st3" x="333.35239" y="231.7388">4</text>
+ <text class="st1 st3" x="352.21689" y="60.893707">5</text>
+ <text class="st1 st3" x="281.09247" y="60.893707">6</text>
+ <text class="st1 st3" x="209.96808" y="60.893707">7</text>
+ <text class="st1 st3" x="138.84366" y="60.893707">8</text>
+ <text class="st1 st3" x="67.719254" y="60.893707">9</text>
+</svg>

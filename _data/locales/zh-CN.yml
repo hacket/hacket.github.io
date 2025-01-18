@@ -1,0 +1,93 @@
+# 站点布局文字
+
+# ----- 通用标签 -----
+
+layout:
+  post: 文章
+  category: 分类
+  tag: 标签
+
+# 侧边栏标签页
+tabs:
+  # 格式: <无尾缀文件名>: <值>
+  home: 首页
+  subdomain: 子域
+  categories: 分类
+  tags: 标签
+  archives: 归档
+  about: 关于
+
+# 搜索栏和搜索结果显示的文字
+search:
+  hint: 搜索
+  cancel: 取消
+  no_results: 搜索结果为空
+
+panel:
+  lastmod: 最近更新
+  trending_tags: 热门标签
+  external_links: 外部链接
+  toc: 文章内容
+
+copyright:
+  # 显示在文章底部
+  license:
+    template: 本文由作者按照 :LICENSE_NAME 进行授权
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # 显示在页脚
+  brief: 保留部分权利。
+  verbose: >-
+    除非另有说明，本网站上的博客文章均由作者按照知识共享署名 4.0 国际 (CC BY 4.0) 许可协议进行授权。
+
+meta: 本站采用 :PLATFORM 主题 :THEME
+
+not_found:
+  title: "404: 页面无法访问"
+  statment: 你似乎来到了没有知识存在的荒原
+  head_back: 去往首页
+  or: 或者
+  previous_page: 返回上页
+
+notification:
+  update_found: 发现新版本的内容。
+  update: 更新
+
+# ----- 帖子相关标签 -----
+
+post:
+  written_by: 作者
+  posted: 发表于
+  updated: 更新于
+  words: 字
+  pageview_measure: 次浏览
+  read_time:
+    unit: 分钟
+    prompt: 阅读
+  relate_posts: 相关文章
+  share: 分享
+  button:
+    next: 下一篇
+    previous: 上一篇
+    copy_code:
+      succeed: 已复制！
+    run:
+      output: 运行结果
+      wait: 等待运行结果。。。
+      error_prompt: "运行失败，错误："
+    share_link:
+      title: 分享链接
+      succeed: 链接已复制！
+
+# 日期格式
+# 参见: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
+df:
+  post:
+    strftime: "%Y/%m/%d"
+    dayjs: "YYYY/MM/DD"
+
+# 分类页面
+categories:
+  category_measure: 个分类
+  post_measure: 篇文章

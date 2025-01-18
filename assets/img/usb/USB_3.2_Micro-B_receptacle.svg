@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="700" height="300" version="1.1" viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+ <style type="text/css">
+	.st0{fill:#E6E6E6;stroke:#000000;stroke-width:2;stroke-linejoin:round;}
+	.st1{fill:#B3B3B3;stroke:#000000;stroke-width:2;stroke-linejoin:round;}
+	.st2{fill:none;stroke:#000000;stroke-width:8;stroke-linejoin:round;}
+	.st3{fill:#FFFF00;stroke:#000000;stroke-linejoin:round;}
+	.st4{fill:#FFFFFF;stroke:#000000;stroke-linejoin:round;}
+	.st5{font-family:Liberation Sans,sans-serif;}
+	.st6{font-size:48px;}
+	.st7{font-size:60px;}
+ </style>
+ <path class="st0" d="m66.313 141.39c-2.553-2.951-4.0848-7.0566-4.0848-11.547v-44.393c0-3.4642 2.2466-6.2868 5.0039-6.2868h565.28c6.842 0 12.357 6.9283 12.357 15.525v66.332c0 8.5962-5.5145 15.525-12.357 15.525h-190.9c-6.842 0-12.695-6.9349-12.357-15.525v-39.118h-26.01v8.0685c0 4.3623-1.4297 8.5962-4.0848 11.547l-34.717 30.921c-2.2466 2.566-5.2081 4.1057-8.3738 4.1057h-248.61c-3.0636 0-6.0251-1.4113-8.3738-4.1057z"/>
+ <path class="st2" d="m66.313 141.39c-2.553-2.951-4.0848-7.0566-4.0848-11.547v-44.393c0-3.4642 2.2466-6.2868 5.0039-6.2868h565.28c6.842 0 12.357 6.9283 12.357 15.525v66.332c0 8.5962-5.5145 15.525-12.357 15.525h-190.9c-6.842 0-12.695-6.9349-12.357-15.525v-39.118h-26.01v8.0685c0 4.3623-1.4297 8.5962-4.0848 11.547l-34.717 30.921c-2.2466 2.566-5.2081 4.1057-8.3738 4.1057h-248.61c-3.0636 0-6.0251-1.4113-8.3738-4.1057z"/>
+ <rect class="st1" transform="scale(-1,1)" x="-627.38" y="95.6" width="165.17" height="33"/>
+ <rect class="st1" transform="scale(-1,1)" x="-311.3" y="95.8" width="168" height="33"/>
+ <rect class="st3" transform="scale(-1,1)" x="-230.8" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-261.4" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-292" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-200.2" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-169.6" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-549.3" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-579.9" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-610.5" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-518.7" y="114.3" width="7" height="25"/>
+ <rect class="st3" transform="scale(-1,1)" x="-488.1" y="114.3" width="7" height="25"/>
+ <text class="st5 st6" x="149.51804" y="64.151077">1</text>
+ <text class="st5 st6" x="180.51804" y="64.151077">2</text>
+ <text class="st5 st6" x="210.51804" y="64.151077">3</text>
+ <text class="st5 st6" x="241.51804" y="64.151077">4</text>
+ <text class="st5 st6" x="272.51804" y="64.151077">5</text>
+ <text class="st5 st6" x="468.07681" y="64.151077">6</text>
+ <text class="st5 st6" x="499.23438" y="64.151077">7</text>
+ <text class="st5 st6" x="530.67316" y="64.151077">8</text>
+ <text class="st5 st6" x="562.07678" y="64.151077">9</text>
+ <text class="st5 st6" x="593.07678" y="64.151077">10</text>
+ <text class="st5 st7" x="77.121" y="259.99">Micro-B SuperSpeed</text>
+</svg>

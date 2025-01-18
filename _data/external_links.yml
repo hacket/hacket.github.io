@@ -1,0 +1,25 @@
+-
+  icon: /assets/img/996-icu/link-996.icu-red.svg
+  # 是否使用 Iconfont 的图标字体
+  use_iconfont: false
+  name: 996.icu
+  # 为 true 时当且仅当图片无法加载时，使用名字替代。为 false 时始终显示名字。
+  automatic_name: true
+  link: https://996.icu
+-
+  icon: icon-nihil-github
+  use_iconfont: true
+  name: 此博客的 Github 仓库
+  link: https://github.com/NichtsHsu/nichtshsu.github.io
+-
+  icon: icon-nihil-blog
+  use_iconfont: true
+  name: Olimi 的个人博客
+  link: https://olimi.icu/
+# 在下面添加更多外部链接
+# -
+#   icon: 
+#   use_iconfont:
+#   name:
+#   automatic_name:
+#   link: 

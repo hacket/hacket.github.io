@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="450" height="300" viewBox="0 0 450 300">
+<style type="text/css">
+	.st0{fill:#666;}
+	.st1{fill:#ccc;stroke:#000;stroke-width:2;}
+	.st2{fill:#999;stroke:#000;stroke-width:2;}
+	.st3{fill:#FCEE21;stroke:#000;stroke-width:2;}
+	.st4{font-family:Liberation Sans,Arial;}
+	.st5{font-size:48px;}
+	.st6{font-size:60px;}
+</style>
+<g id="usb">
+	<path class="st0" d="M91,73.2c-3.1,0-5.7,2.5-5.7,5.7v77.2c0,1.8,0.5,3.4,1.5,4.9l24.5,35.5c1.6,2.3,4.3,3.7,7.1,3.7h215.2
+		c2.8,0,5.5-1.4,7.1-3.7l24.5-35.5c1-1.4,1.5-3.1,1.5-4.9V78.8c0-3.1-2.5-5.7-5.7-5.7H91z"/>
+	<path class="st1" d="M328.6,213.2h-205c-8,0-15.4-3.9-19.9-10.5l-23.3-33.8c-2.8-4.1-4.3-8.8-4.3-13.7V81.6
+		c0-11.8,9.6-21.4,21.4-21.4h257.2c11.8,0,21.4,9.6,21.4,21.4v73.6c0,4.9-1.5,9.7-4.3,13.7l-23.3,33.8
+		C344,209.3,336.5,213.2,328.6,213.2z M97.5,76.2c-3,0-5.4,2.4-5.4,5.4v73.6c0,1.7,0.5,3.3,1.4,4.7l23.3,33.8
+		c1.5,2.2,4.1,3.6,6.8,3.6h205c2.7,0,5.2-1.3,6.8-3.6l23.3-33.8c0.9-1.4,1.4-3,1.4-4.7V81.6c0-3-2.4-5.4-5.4-5.4H97.5z"/>
+	<path class="st2" d="M136.1,130v24.1c0,2.3,0.8,4.5,2.3,6.3l12.8,15.5c1.9,2.3,4.7,3.6,7.6,3.6h134.7c3,0,5.8-1.3,7.6-3.6
+		l12.8-15.5c1.5-1.8,2.3-4,2.3-6.3V130c0-5.2-4.3-9.5-9.5-9.5h-161C140.3,120.5,136.1,124.7,136.1,130z"/>
+	<g>
+		<rect x="154.5" y="104.5" class="st3" width="16" height="16"/>
+		<rect x="186.3" y="104.5" class="st3" width="16" height="16"/>
+		<rect x="218.1" y="104.5" class="st3" width="16" height="16"/>
+		<rect x="249.9" y="104.5" class="st3" width="16" height="16"/>
+		<rect x="281.7" y="104.5" class="st3" width="16" height="16"/>
+	</g>
+	<text transform="matrix(1 0 0 1 149 42)" class="st4 st5">1</text>
+	<text transform="matrix(1 0 0 1 181 42)" class="st4 st5">2</text>
+	<text transform="matrix(1 0 0 1 212 42)" class="st4 st5">3</text>
+	<text transform="matrix(1 0 0 1 245 42)" class="st4 st5">4</text>
+	<text transform="matrix(1 0 0 1 276 42)" class="st4 st5">5</text>
+	<text transform="matrix(1 0 0 1 120 272.8244)" class="st4 st6">Mini-AB</text>	
+</g>
+<g id="text">
+</g>
+</svg>
