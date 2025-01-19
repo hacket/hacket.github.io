@@ -1,8 +1,11 @@
 ---
 date_created: Monday, April 1st 2024, 1:27:34 am
-date_updated: Sunday, January 19th 2025, 10:04:52 am
+date_updated: Sunday, January 19th 2025, 2:14:26 pm
 title: Parcelable及与Serializable分析
 author: hacket
+categories:
+  - Android
+category: 
 toc: true
 description: 
 dg-publish: true
@@ -11,8 +14,6 @@ dg-show-local-graph: true
 dg-show-toc: true
 dg-show-file-tree: true
 tags: []
-categories:
-  - Android
 feed: show
 format: list
 image-auto-upload: true

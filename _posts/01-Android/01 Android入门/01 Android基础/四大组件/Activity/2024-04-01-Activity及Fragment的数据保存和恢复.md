@@ -1,8 +1,11 @@
 ---
 date_created: Monday, April 1st 2024, 1:27:34 am
-date_updated: Sunday, January 19th 2025, 10:19:53 am
+date_updated: Sunday, January 19th 2025, 2:13:45 pm
 title: Activity及Fragment的数据保存和恢复
 author: hacket
+categories:
+  - Android
+category: 
 toc: true
 description: 
 dg-publish: true
@@ -15,8 +18,6 @@ tags: [activity]
 image-auto-upload: true
 feed: show
 format: list
-categories:
-  - Android
 aliases: [Activity 及 Fragment 的数据保存和恢复]
 linter-yaml-title-alias: Activity 及 Fragment 的数据保存和恢复
 ---

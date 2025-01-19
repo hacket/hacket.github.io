@@ -1,8 +1,11 @@
 ---
 date_created: Monday, April 1st 2024, 1:27:34 am
-date_updated: Sunday, January 19th 2025, 10:20:10 am
+date_updated: Sunday, January 19th 2025, 2:13:43 pm
 title: BroadcastReceiver
 author: hacket
+categories:
+  - Android
+category: 
 toc: true
 description: 
 dg-publish: true
@@ -15,8 +18,6 @@ tags: [broadcastreceiver]
 image-auto-upload: true
 feed: show
 format: list
-categories:
-  - Android
 aliases: [BroadcastReceiver 基础]
 linter-yaml-title-alias: BroadcastReceiver 基础
 ---

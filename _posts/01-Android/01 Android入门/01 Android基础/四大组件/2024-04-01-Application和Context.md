@@ -1,8 +1,11 @@
 ---
 date_created: Monday, April 1st 2024, 1:27:34 am
-date_updated: Sunday, January 19th 2025, 10:21:01 am
+date_updated: Sunday, January 19th 2025, 2:13:47 pm
 title: Application和Context
 author: hacket
+categories:
+  - Android
+category: 
 toc: true
 description: 
 dg-publish: true
@@ -14,8 +17,6 @@ tags: []
 image-auto-upload: true
 feed: show
 format: list
-categories:
-  - Android
 aliases: [Application 的方法详解]
 linter-yaml-title-alias: Application 的方法详解
 ---

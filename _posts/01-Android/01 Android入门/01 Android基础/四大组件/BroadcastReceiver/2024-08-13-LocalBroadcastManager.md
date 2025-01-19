@@ -1,8 +1,11 @@
 ---
 date_created: Tuesday, August 13th 2024, 1:01:13 am
-date_updated: Sunday, January 19th 2025, 10:20:31 am
+date_updated: Sunday, January 19th 2025, 2:13:44 pm
 title: LocalBroadcastManager
 author: hacket
+categories:
+  - Android
+category: 
 toc: true
 description: 
 dg-publish: true
@@ -15,8 +18,6 @@ tags: [broadcastreceiver]
 image-auto-upload: true
 feed: show
 format: list
-categories:
-  - Android
 aliases: [LocalBroadcastManager]
 linter-yaml-title-alias: LocalBroadcastManager
 ---
