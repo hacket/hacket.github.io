@@ -1,8 +1,11 @@
 ---
-date created: Wednesday, January 1st 2025, 9:55:00 am
-date updated: Thursday, January 16th 2025, 12:03:08 am
+date_created: Wednesday, January 1st 2025, 9:55:21 am
+date_updated: Sunday, January 19th 2025, 2:05:32 pm
 title: Easy Typing
 author: hacket
+categories:
+  - Tools
+category: Obsidian
 toc: true
 description: 
 dg-publish: true
@@ -10,7 +13,9 @@ dg-enable-search: true
 dg-show-local-graph: true
 dg-show-toc: true
 dg-show-file-tree: true
-categories: 
+tags: [obsidian]
+date created: Wednesday, January 1st 2025, 9:55:00 am
+date updated: Thursday, January 16th 2025, 12:03:08 am
 feed: show
 format: list
 image-auto-upload: true

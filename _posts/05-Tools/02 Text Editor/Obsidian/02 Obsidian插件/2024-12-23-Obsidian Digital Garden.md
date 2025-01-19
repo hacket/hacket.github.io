@@ -1,8 +1,11 @@
 ---
 date_created: Monday, December 23rd 2024, 12:48:39 am
-date_updated: Sunday, January 19th 2025, 9:54:05 am
+date_updated: Sunday, January 19th 2025, 2:05:07 pm
 title: Obsidian Digital Garden
 author: hacket
+categories:
+  - Tools
+category: Obsidian
 toc: true
 description: 
 dg-publish: true
@@ -10,10 +13,9 @@ dg-enable-search: true
 dg-show-local-graph: true
 dg-show-toc: true
 dg-show-file-tree: true
-tags: []
+tags: [obsidian]
 date created: Monday, December 23rd 2024, 12:48:00 am
 date updated: Saturday, January 18th 2025, 12:36:49 am
-categories: 
 image-auto-upload: true
 feed: show
 format: list
