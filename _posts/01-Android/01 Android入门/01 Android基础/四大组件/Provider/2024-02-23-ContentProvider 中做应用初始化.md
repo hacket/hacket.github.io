@@ -1,12 +1,12 @@
 ---
 date_created: Friday, February 23rd 2024, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 12:24:24 am
+date_updated: Monday, January 20th 2025, 12:36:05 am
 title: ContentProvider 中做应用初始化
 author: hacket
 categories:
   - Android
 category: Android基础
-tags: []
+tags: [四大组件]
 toc: true
 description: 
 dg-publish: true
