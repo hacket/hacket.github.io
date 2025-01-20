@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:31:56 pm
+date_updated: Tuesday, January 21st 2025, 12:16:59 am
 title: windowSoftInputMode
 author: hacket
 categories:
@@ -49,7 +49,7 @@ Activity 的主窗口与包含屏幕软键盘的窗口的交互方式，该属�
 （10）adjustNothing 软键盘弹出时，主窗口Activity不会做出任何响应。
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881480187-8cb19d0c-0852-4a5b-9d94-4702374c206f.png#averageHue=%23faf9f4&clientId=uef9d00b3-90cc-4&from=paste&id=u0f9803bf&originHeight=944&originWidth=1234&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u3b3a762b-728c-4e23-8e53-73e903b3984&title=)<br />![](http://note.youdao.com/yws/res/15238/556F9C0E6383479189F8CF0C71C8F59A#id=Dq2qQ&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004250.png)<br />![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004251.png)
 
 ### 控制软键盘显示还是隐藏 stateXXX
 
@@ -180,19 +180,23 @@ Activity 的屏幕大小并不会调整来保证软键盘的空间，而是采�
 
 #### 1、adjustNothing
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881522642-ebf0261e-6b83-4811-8c10-356f29444067.png#averageHue=%23eae8e6&clientId=uef9d00b3-90cc-4&from=paste&height=496&id=uf87f4d6c&originHeight=744&originWidth=498&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=82699&status=done&style=none&taskId=u7af6b395-ea90-4dd1-8a24-f3e6d09ccbc&title=&width=332)<br />从上图发现，当点击 EditText12 时，弹出软键盘将主窗口下半部分给遮盖，并且主窗口没有做出任何反应。
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004252.png)
+
+从上图发现，当点击 EditText12 时，弹出软键盘将主窗口下半部分给遮盖，并且主窗口没有做出任何反应。
 
 #### 2、adjustPan
 
-当设置其属性为 adjustPan 时，当软键盘弹出时，主窗口布局会上移至直到显示 EditText12。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881533788-148387f7-a026-431c-8400-14575623d53d.png#averageHue=%23eae8e6&clientId=uef9d00b3-90cc-4&from=paste&height=491&id=u5c63c19b&originHeight=737&originWidth=497&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=79962&status=done&style=none&taskId=u402e2223-fa25-4934-a42d-c984203d65c&title=&width=331.3333333333333)
+当设置其属性为 adjustPan 时，当软键盘弹出时，主窗口布局会上移至直到显示 EditText12。<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004253.png)
 
 #### 3、adjustResize
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881541577-19a962dc-1846-4a13-82bb-40b365fa9385.png#averageHue=%23eae8e6&clientId=uef9d00b3-90cc-4&from=paste&height=496&id=u9390e2a8&originHeight=744&originWidth=498&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=82689&status=done&style=none&taskId=ubeaf3cb9-5848-4897-9456-cac38f182ab&title=&width=332)![](http://note.youdao.com/yws/res/15162/3592AE1ABD944FDFB75F2093844CB1A1#id=skdJv&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)<br />设置其属性为 `adjustResize` 时，发现软键盘弹出的状态与 `adjustNoting` 表现一致，当设置 adjustResize 时，布局会为了软键盘弹出而重新绘制给软键盘留出空间，而由于控件无法滑动，所以表现的形式与 adjustNoting 一致。
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004254.png)![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004255.png)<br />设置其属性为 `adjustResize` 时，发现软键盘弹出的状态与 `adjustNoting` 表现一致，当设置 adjustResize 时，布局会为了软键盘弹出而重新绘制给软键盘留出空间，而由于控件无法滑动，所以表现的形式与 adjustNoting 一致。
 
 #### 4、adjustUnspecified
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881562537-d66265c3-2d42-43ec-8173-b36ebf5845bc.png#averageHue=%23eae8e6&clientId=uef9d00b3-90cc-4&from=paste&height=496&id=u6225785f&originHeight=744&originWidth=502&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=80066&status=done&style=none&taskId=u47aa010f-0a4f-42f1-b1c3-9dd8d5346ff&title=&width=334.6666666666667)<br />当设置其属性为默认属性 `adjustUnspecified` 时，发现当点击 EditText12 时，主窗口上移来保持 EditText12 在软键盘之上，这时 adjustUnspecified 的表现形式与 adjustPan 相同，所以在无滑动的控件上，默认的指定形式为 adjustPan。
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004256.png)<br />
+
+当设置其属性为默认属性 `adjustUnspecified` 时，发现当点击 EditText12 时，主窗口上移来保持 EditText12 在软键盘之上，这时 adjustUnspecified 的表现形式与 adjustPan 相同，所以在无滑动的控件上，默认的指定形式为 adjustPan。
 
 ### 二、滚动布局 xml
 
@@ -234,25 +238,30 @@ Activity 的屏幕大小并不会调整来保证软键盘的空间，而是采�
 
 #### 1、adjustNothing
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881588190-ac536b91-10b7-464e-b3b8-edc2c5619a80.png#averageHue=%23eae8e6&clientId=uef9d00b3-90cc-4&from=paste&height=490&id=udc7fe62b&originHeight=735&originWidth=495&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=80003&status=done&style=none&taskId=u76125e70-952d-42bf-a77c-4eb161dae8c&title=&width=330)<br />![](http://note.youdao.com/yws/res/15196/0E4AA25927A8423EAA8B95F941732B98#id=dXQx6&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004257.png)
+
+<br />
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004258.png)
 
 adjustNothing 弹出软键盘将主窗口下半部分给遮盖，并且主窗口没有做出任何反应，和不加 ScrollView 是一样的情况。
 
 #### 2、adjustPan
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881599901-21f0db7b-c43c-4fc2-a4a7-0c60f34d82a7.png#averageHue=%2374845b&clientId=uef9d00b3-90cc-4&from=paste&height=484&id=u1e6f0915&originHeight=726&originWidth=491&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=101587&status=done&style=none&taskId=u35b3b62d-a25d-4fd4-ad09-915185581da&title=&width=327.3333333333333)<br />![](http://note.youdao.com/yws/res/61506/84C3926D46FD40F38D28E9C630EEB42E#id=jcN1E&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004259.png)<br />
+
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004260.png)
 
 可以发现，在滑动空间下，设置属性 adjustPan 时，依旧会将主窗口上移，来使 EditText13 显示在软键盘之上，可以通过观察 Toolbar 得知
 
 #### 3、adjustResize
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881607787-8adc0f95-114e-45c6-b02b-134a9cce444e.png#averageHue=%23eae8e6&clientId=uef9d00b3-90cc-4&from=paste&height=491&id=ub5725cfa&originHeight=737&originWidth=497&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=77623&status=done&style=none&taskId=u2f89aab5-7dea-46c0-a3d0-9198bed2edf&title=&width=331.3333333333333)<br />![](http://note.youdao.com/yws/res/15198/FA43246702C146949C757A5ACB555FFC#id=RunMm&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210004261.png)
 
 我们可以发现，当设置其属性为 adjustResize 时，当软键盘弹出时，ScrollView 会重新绘制，然后滚动 EditText13 位置，使其显示在软键盘之上。
 
 #### 4、adjustUnspecified
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881618877-062b32db-aaa8-4845-a671-61eb1c7ab2b7.png#averageHue=%23eae8e6&clientId=uef9d00b3-90cc-4&from=paste&height=494&id=u98655a77&originHeight=741&originWidth=493&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=77609&status=done&style=none&taskId=uc57bfdfa-e202-4bec-9524-2a6aa2ba471&title=&width=328.6666666666667)<br />![](http://note.youdao.com/yws/res/15198/FA43246702C146949C757A5ACB555FFC#id=eSX7E&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210011114.png)
 
 当设置其属性为默认属性 adjustUnspecified 时，可以发现在添加了 ScrollView 控件时，布局的窗口并不会上移（这个观察 Toolbar 就可以发现），而通过重绘 ScrollView，让其滚动到最低端，并且给软键盘流出控件，而这个表现即和 adjustResize 完全一致。
 
@@ -271,13 +280,17 @@ adjustNothing 弹出软键盘将主窗口下半部分给遮盖，并且主窗口
 
 ## adjustPan
 
-Activity 窗口 (DecorView) 大小不变。当获取到焦点的 EditText 位于屏幕下方，软键盘弹出会遮挡到 EditText 时，整个 DecorView 会往上移动，至于上移多少并不确定。<br />一般是上移至使 EditText 刚好不被软键盘遮挡住为止。这个属性用的比较多，常常配合 ScrollView 来使用。<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881667546-db5fdbbc-96de-4a0f-8a4e-0104a077df60.png#averageHue=%23faf9f9&clientId=uef9d00b3-90cc-4&from=paste&id=u3a5959ec&originHeight=498&originWidth=521&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u7f68672c-33b9-4f8d-911f-75a2a0380fe&title=)
+Activity 窗口 (DecorView) 大小不变。当获取到焦点的 EditText 位于屏幕下方，软键盘弹出会遮挡到 EditText 时，整个 DecorView 会往上移动，至于上移多少并不确定。<br />一般是上移至使 EditText 刚好不被软键盘遮挡住为止。这个属性用的比较多，常常配合 ScrollView 来使用。
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210012782.png)
 
 ## adjustResize
 
 这种模式会自动调整大小。通过 hierarchy View 观察，decorView 大小本身并不会改变，但是我们的内容区 `contentView (id = android.R.content)` 会相应的缩小，为键盘的显示挪出空间。contentView 的下面为空白区域，软键盘就是覆盖在这个区域。
 
-**注意：** adjustResize 只是调整 contentView 的大小，所以还是有可能覆盖掉 EditText。<br />adjustResize 最有用的是，这种模式可以轻松的获取到软键盘的高度，软键盘弹出后 contentView 高度变化的差值即为软键盘高度。<br />另外：这种模式可能会有个问题，当键盘消失时屏幕会出现一闪感觉有点难受。原因是键盘弹出时，键盘位置显示的是 windowBackground ，如果 windowBackground 为黑色而 Activity 背景为白色，当键盘消失时就会有闪动。解决办法是在 Activity 主题上添加一个 android：windowBackground 属性修改 windows 背景。<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881677962-e5fe1626-6491-4d5a-b94c-d39afbbbb779.png#averageHue=%23fefdfa&clientId=uef9d00b3-90cc-4&from=paste&id=ud930221b&originHeight=397&originWidth=599&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u8066ac7d-26b5-4793-9b06-3f94cc75635&title=)
+**注意：** adjustResize 只是调整 contentView 的大小，所以还是有可能覆盖掉 EditText。<br />adjustResize 最有用的是，这种模式可以轻松的获取到软键盘的高度，软键盘弹出后 contentView 高度变化的差值即为软键盘高度。<br />另外：这种模式可能会有个问题，当键盘消失时屏幕会出现一闪感觉有点难受。原因是键盘弹出时，键盘位置显示的是 windowBackground ，如果 windowBackground 为黑色而 Activity 背景为白色，当键盘消失时就会有闪动。解决办法是在 Activity 主题上添加一个 android：windowBackground 属性修改 windows 背景。
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210012935.png)
 
 ### 有滚动控件的 adjustResize
 
@@ -410,11 +423,7 @@ Activity 窗口 (DecorView) 大小不变。当获取到焦点的 EditText 位于
 </LinearLayout>
 ```
 
-效果：<br /><https://note.youdao.com/src/B97DAAF31F3740268D61D40BB82EF6D5>
-
-![](https://note.youdao.com/src/B97DAAF31F3740268D61D40BB82EF6D5#id=nS6YV&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=400)
-
----
+效果：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -562,13 +571,9 @@ Activity 窗口 (DecorView) 大小不变。当获取到焦点的 EditText 位于
 
 效果 - 未弹出键盘图：
 
-![](https://note.youdao.com/src/B7199307C7F74D7FB3A576FC3C2477C1#id=m2e8P&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=400)
-
 效果 - 弹出键盘：
 
-![](https://note.youdao.com/src/AA24067D3C1B48789FFFA72B61913866#id=u3gHi&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=400)
-
-> 可以看到，有滚动控件的会压缩
+ 可以看到，有滚动控件的会压缩
 
 ### 没有滚动控件的 adjustResize
 
@@ -713,4 +718,4 @@ Activity 窗口 (DecorView) 大小不变。当获取到焦点的 EditText 位于
 </LinearLayout>
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687881775799-d85c8978-dea2-494c-8336-658220bf149f.png#averageHue=%23e1a3a3&clientId=uef9d00b3-90cc-4&from=paste&height=823&id=uf4cc57e1&originHeight=1234&originWidth=619&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=189082&status=done&style=none&taskId=ub06dcc71-2381-42ad-84a7-befdc44983c&title=&width=412.6666666666667)<br />![](https://note.youdao.com/yws/res/20919/285D4D1781254B2797CCAE170D1DCA3A#id=C2CSR&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=400)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501210016986.png)

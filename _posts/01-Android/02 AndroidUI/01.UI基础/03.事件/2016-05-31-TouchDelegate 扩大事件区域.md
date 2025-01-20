@@ -1,11 +1,10 @@
 ---
 date_created: Friday, May 31st 2016, 12:48:09 am
-date_updated: Monday, January 20th 2025, 11:23:08 pm
+date_updated: Monday, January 20th 2025, 11:53:50 pm
 title: TouchDelegate 扩大事件区域
 author: hacket
 categories:
   - AndroidUI
-  - UI杂项
 category: 事件
 tags: [事件]
 toc: true
