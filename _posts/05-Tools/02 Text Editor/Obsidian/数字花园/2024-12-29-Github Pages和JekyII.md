@@ -1,6 +1,6 @@
 ---
 date_created: Sunday, December 29th 2024, 11:27:11 pm
-date_updated: Monday, January 20th 2025, 12:46:29 am
+date_updated: Monday, January 20th 2025, 5:40:38 pm
 title: Github Pages和JekyII
 author: hacket
 categories:
@@ -55,19 +55,6 @@ dg-path: /github_jekyii
 
 # Jekyll 主题
 
-## minimal-mistakes
-
-#### 介绍
-
-**Minimal Mistakes** 是 Jekyll 上最受欢迎的主题之一，非常适合博客和文档站点。它本身设计简洁而高效，支持高度自定义，且自带强大的多级目录支持。
-
-- **多级目录支持**：支持在导航中自动生成多级目录，适用于文档型站点。可以通过在 `navigation` 设置中设置目录层级。
-- **Obsidian 兼容性**：虽然并非专门为 Obsidian 设计，但由于它的高度可配置性，完全可以作为 Obsidian 笔记的网页呈现工具来使用。你可以用它来展示 Markdown 文件，或者利用 Jekyll 配置来支持层次结构。
-- 布局样式
-![](https://github.com/mmistakes/minimal-mistakes/raw/master/screenshot-layouts.png)
-- Ref
-- [GitHub - mmistakes/minimal-mistakes](https://github.com/mmistakes/minimal-mistakes)
-
 ## chirpy 主题
 
 ### chirpy 使用
@@ -86,6 +73,8 @@ dg-path: /github_jekyii
 - 在 Github 创建一个 `<username>.github.io` 名的 Git 仓库
 - `Settings`→`Pages`→`Build and deployment`→选择 `Github Actions`
 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501192034558.png)
+
+#### `_config.xml` 配置
 
 #### Naming and Path
 
@@ -281,7 +270,22 @@ mermaid: true
 
 [主题使用文档 · AirboZH/halo-theme-chirpy Wiki · GitHub](https://github.com/AirboZH/halo-theme-chirpy/wiki/%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3)
 
-## just-the-docs
+## 其他 jekyII 主题
+
+### minimal-mistakes
+
+#### 介绍
+
+**Minimal Mistakes** 是 Jekyll 上最受欢迎的主题之一，非常适合博客和文档站点。它本身设计简洁而高效，支持高度自定义，且自带强大的多级目录支持。
+
+- **多级目录支持**：支持在导航中自动生成多级目录，适用于文档型站点。可以通过在 `navigation` 设置中设置目录层级。
+- **Obsidian 兼容性**：虽然并非专门为 Obsidian 设计，但由于它的高度可配置性，完全可以作为 Obsidian 笔记的网页呈现工具来使用。你可以用它来展示 Markdown 文件，或者利用 Jekyll 配置来支持层次结构。
+- 布局样式
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/screenshot-layouts.png)
+- Ref
+- [GitHub - mmistakes/minimal-mistakes](https://github.com/mmistakes/minimal-mistakes)
+
+### just-the-docs
 
 #### 介绍
 
@@ -296,7 +300,7 @@ mermaid: true
 
 [GitHub - just-the-docs/just-the-docs: A modern, high customizable, responsive Jekyll theme for documentation with built-in search.](https://github.com/just-the-docs/just-the-docs)
 
-## beautiful-jekyII
+### beautiful-jekyII
 
 效果：
 
@@ -610,6 +614,29 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+```
+
+## Obsidian markdown 笔记转成 `jekyII` 笔记格式
+
+- 添加 `Front Matter`，这个通过 Linter 插件实现就可以了，不用 py 脚本实现
+- 调整文件路径和命名，Jekyll 对文件路径和命名有特定要求：
+	- 文件通常放在 `_posts` 目录下。如果文件不在 `_posts` 目录中，Jekyll 不会将其视为博客文章。
+	- 文件名格式为 `YYYY-MM-DD-标题.md`，例如 `2023-10-01-my-note.md`。
+- 转换 `Obsidian 双链`：
+
+```shell
+[[目标文件]]
+# 转换为标准 Markdown 链接：
+[目标文件](目标文件.md)
+```
+
+- 转换 `Obsidian 图片路径`：
+
+```shell
+![[图片.png]]
+# 转换为 Jekyll 图片路径：
+![图片](/assets/images/图片.png)
+## 确保图片文件放在 Jekyll 的 `assets/images` 目录中。
 ```
 
 # 遇到的问题

@@ -1,11 +1,12 @@
 ---
 date_created: Thursday, January 2nd 2025, 10:45:50 pm
-date_updated: Sunday, January 19th 2025, 2:04:44 pm
+date_updated: Monday, January 20th 2025, 8:30:10 am
 title: Obsidian插件之linter
 author: hacket
 categories:
   - Tools
 category: Obsidian
+tags: [obsidian]
 toc: true
 description: 
 dg-publish: true
@@ -13,7 +14,6 @@ dg-enable-search: true
 dg-show-local-graph: true
 dg-show-toc: true
 dg-show-file-tree: true
-tags: [obsidian]
 feed: show
 format: list
 image-auto-upload: true
@@ -131,6 +131,10 @@ Linter 可以在笔记中自动检查和修复格式问题。你可以在编辑�
 - **自动修复**：点击菜单中的 **Fix Issues**（修复问题）按钮，Linter 将尝试自动修复文件中的格式问题。
 - **检查文件**：Linter 会在后台检查文件，通常会显示一个图标，提示文件中有格式问题。
 - **手动修复**：如果你只想修复某些特定的问题，可以选择性地手动修复。
+
+### lint folder
+
+右击文件夹，`lint folder`，会对该文件夹所有笔记格式化，要注意使用
 
 ## YAML 格式化
 

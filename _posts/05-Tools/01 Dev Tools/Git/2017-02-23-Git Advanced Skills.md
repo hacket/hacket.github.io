@@ -1,12 +1,8 @@
 ---
-date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 12:58:10 am
+date created: Monday, December 23rd 2024, 11:24:00 pm
+date updated: 星期一, 一月 20日 2025, 4:47:13 下午
 title: Git Advanced Skills
 author: hacket
-categories:
-  - Tools
-category: Git
-tags: [git]
 toc: true
 description: 
 dg-publish: true
@@ -15,8 +11,12 @@ dg-show-local-graph: true
 dg-show-toc: true
 dg-show-file-tree: true
 dg-content-classes: 
-date created: Monday, December 23rd 2024, 11:24:00 pm
-date updated: 星期二, 一月 14日 2025, 1:54:47 下午
+date_created: Friday, February 23rd 2017, 10:10:45 pm
+date_updated: Monday, January 20th 2025, 12:58:10 am
+categories:
+  - Tools
+category: Git
+tags: [git]
 image-auto-upload: true
 feed: show
 format: list

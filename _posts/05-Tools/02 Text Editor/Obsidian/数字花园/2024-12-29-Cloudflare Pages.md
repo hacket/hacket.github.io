@@ -1,7 +1,7 @@
 ---
 date_created: Sunday, December 29th 2024, 11:27:11 pm
-date_updated: Monday, January 20th 2025, 12:46:13 am
-title: Cloudflare Pages
+date_updated: Monday, January 20th 2025, 5:50:02 pm
+title: Cloudflare pages
 author: hacket
 categories:
   - Tools

@@ -1,13 +1,12 @@
 ---
 date_created: Monday, April 1st 2013, 1:27:34 am
-date_updated: Monday, January 20th 2025, 1:12:59 am
+date_updated: Monday, January 20th 2025, 8:19:21 am
 title: Application和Context
 author: hacket
 categories:
   - Android
 category: 四大组件
-tags:
-  - 四大组件
+tags: [四大组件]
 toc: true
 description: 
 dg-publish: true
@@ -18,8 +17,7 @@ dg-show-file-tree: true
 image-auto-upload: true
 feed: show
 format: list
-aliases:
-  - Application 的方法详解
+aliases: [Application 的方法详解]
 linter-yaml-title-alias: Application 的方法详解
 ---
 
