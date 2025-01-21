@@ -1,12 +1,12 @@
 ---
 date_created: Friday, April 12th 2021, 10:41:00 pm
-date_updated: Monday, January 20th 2025, 1:16:40 am
+date_updated: Wednesday, January 22nd 2025, 12:40:47 am
 title: Android11适配(API30 AndroidR)
 author: hacket
 categories:
   - Android
 category: Android适配
-tags: [系统版本适配, Android适配, query接口查找出来对应文件的Uri]
+tags: [系统版本适配, Android适配]
 toc: true
 description: 
 dg-publish: true
@@ -1156,7 +1156,7 @@ public static @NonNull Set<String> getExternalVolumeNames(@NonNull Context conte
 
 ##### 修改文件
 
-如果需要修改多媒体文件，需要通过 ContentResolver #query接口查找出来对应文件的Uri 。如果不是自己 App 新建的文件需要申请 `WRITE_EXTERNAL_STORAGE` 权限或者 catch RecoverableSecurityException，弹框给用户选择。<br>![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1687785957551-015a44e1-179e-4096-aa7a-b2adad6d42e0.png) <br>通过下列接口，获取需要修改文件的 FD 或者 OutputStream：
+如果需要修改多媒体文件，需要通过 ContentResolver.query 接口查找出来对应文件的 Uri 。如果不是自己 App 新建的文件需要申请 `WRITE_EXTERNAL_STORAGE` 权限或者 catch RecoverableSecurityException，弹框给用户选择。<br>![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1687785957551-015a44e1-179e-4096-aa7a-b2adad6d42e0.png) <br>通过下列接口，获取需要修改文件的 FD 或者 OutputStream：
 
 1. `Context#getContentResolver().openOutputStream(contentUri)`<br>获取对应文件的 OutputStream。
 2. `Context#getContentResolver().openFile` 或者 `Context#getContentResolver().openFileDescriptor`<br>通过 openFile 或者 openFileDescriptor 打开文件，需要选择 Mode 为 "w"，表示写权限。这些接口返回一个 ParcelFileDescriptor。
