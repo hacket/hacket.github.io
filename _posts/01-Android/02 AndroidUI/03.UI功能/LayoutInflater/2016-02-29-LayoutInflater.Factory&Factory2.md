@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:46:02 pm
+date_updated: Wednesday, January 22nd 2025, 5:45:44 pm
 title: LayoutInflater.Factory&Factory2
 author: hacket
 categories:
@@ -140,7 +140,7 @@ public View onCreateView(String name, Context context, AttributeSet attrs) {
 
 最后都调用了：
 
-```
+```java
 @Override
 public View createView(View parent, final String name, @NonNull Context context,
         @NonNull AttributeSet attrs) {
@@ -183,18 +183,28 @@ public View createView(View parent, final String name, @NonNull Context context,
 }
 ```
 
+#### `AppCompatActivity` 的 Factory2 总结
+
+- 首先 `AppCompatActivity` 将自己的生命周期委托给 `AppCompatDelegate`
+- `AppCompatDelegate` 的实现类 `AppCompatDelegateImpl` 实现 `LayoutInfaler.Factory2` 接口
+- 给当前 context 的 `LayoutInfalter` 设定 Factory2 工厂
+- `LayoutInfalter.infalte` 方法调用 `Factory2.onCreateView`
+- `Factory2.onCreateView` 间接调用 `AppCompatViewInflater.createView`
+- `AppCompatViewInflater` 对象来自 `AppCompatTheme` 的 viewInflaterClass 属性
+- `AppCompatViewInflater.createView` 方法会通过 name 对控件进行创建
+
 ## LayoutInflater.Factory/Factory2 应用
 
 1. 使用自定义 View 替换系统中的 View
 2. 高效的引入外部字体的完成 app 中统一所有字体的
-3. 动态换肤<br /><https://blog.csdn.net/lmj623565791/article/details/51503977>
-4. 无需编写 shape、selector，直接在 xml 设置值<br />[无需自定义View，彻底解放shape，selector吧](https://juejin.im/post/5b9682ebe51d450e543e3495)
+3. 动态换肤 <https://blog.csdn.net/lmj623565791/article/details/51503977>
+4. 无需编写 shape、selector，直接在 xml 设置值 [无需自定义View，彻底解放shape，selector吧](https://juejin.im/post/5b9682ebe51d450e543e3495)
 5. View 拦截操作
 6. View inflate 耗时统计
 
 ### view inflate 耗时（只能统计 view 创建的时间，不能统计解析 xml 的时间）
 
-1. 继承自 AppCompatActivity
+1. 继承自 `AppCompatActivity`
 
 ```java
 //MainActivity extends AppCompatActivity
@@ -259,6 +269,174 @@ ViewPump
 
 - [ ] LayoutInflater Factory 小结<br /><https://juejin.im/post/5bcd6f1551882577e71c8c88>
 
-# AppCompatViewInflater
+## `AppCompatViewInflater`
 
 可用于减少反射创建 View
+
+### 默认 AppCompatViewInflater
+
+```java
+// AppCompatDelegateImpl androidx.appcompat v1.6.1
+class AppCompatDelegateImpl extends AppCompatDelegate
+        implements MenuBuilder.Callback, LayoutInflater.Factory2 {
+	@Override  
+	public View createView(View parent, final String name, @NonNull Context context,  
+	        @NonNull AttributeSet attrs) {  
+	    if (mAppCompatViewInflater == null) {  
+	        TypedArray a = mContext.obtainStyledAttributes(R.styleable.AppCompatTheme);  
+	        String viewInflaterClassName =  
+	                a.getString(R.styleable.AppCompatTheme_viewInflaterClass);  
+	        if (viewInflaterClassName == null) {  
+	            // Set to null (the default in all AppCompat themes). Create the base inflater  
+	            // (no reflection)            mAppCompatViewInflater = new AppCompatViewInflater();  
+	        } else {  
+	            try {  
+	                Class<?> viewInflaterClass =  
+	                        mContext.getClassLoader().loadClass(viewInflaterClassName);  
+	                mAppCompatViewInflater =  
+	                        (AppCompatViewInflater) viewInflaterClass.getDeclaredConstructor()  
+	                                .newInstance();  
+	            } catch (Throwable t) {  
+	                Log.i(TAG, "Failed to instantiate custom view inflater "  
+	                        + viewInflaterClassName + ". Falling back to default.", t);  
+	                mAppCompatViewInflater = new AppCompatViewInflater();  
+	            }  
+	        }  
+	    }
+	}
+}
+```
+
+- `AppCompatDelegateImpl` 继承自 `AppCompatDelegate` 并实现了 LayoutInflater.Factory2 接口
+- onCreateView 方法首先会获取 `R.styleable.AppCompatTheme` 并从中获取 `R.styleable.AppCompatTheme_viewInflaterClass`，并通过获取到的 viewInflaterClass 来进行对 `mAppCompatViewInflater` 的赋值操作，如果 viewInflaterClass 不为空或者等于 `AppCompatViewInflater` 的类名那么直接进行对 `AppCompatViewInflater` 的创建否则通过反射进行创建，发生异常的情况下也会直接进行对 `AppCompatViewInflater` 的创建。
+
+### AppCompatViewInflater 创建 view
+
+```java
+public class AppCompatViewInflater {
+	private static final String[] sClassPrefixList = {  
+        "android.widget.",  
+        "android.view.",  
+        "android.webkit."  
+	};
+	@Nullable  
+	public final View createView(@Nullable View parent, @NonNull final String name,  
+        @NonNull Context context,  
+        @NonNull AttributeSet attrs, boolean inheritContext,  
+        boolean readAndroidTheme, boolean readAppTheme, boolean wrapContext) {
+        View view = null;  
+  
+		// We need to 'inject' our tint aware Views in place of the standard framework versions  
+		switch (name) {  
+		    case "TextView":  
+		        view = createTextView(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "ImageView":  
+		        view = createImageView(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "Button":  
+		        view = createButton(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "EditText":  
+		        view = createEditText(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;   
+			 case "Spinner":  
+		        view = createSpinner(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "ImageButton":  
+		        view = createImageButton(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "CheckBox":  
+		        view = createCheckBox(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "RadioButton":  
+		        view = createRadioButton(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "CheckedTextView":  
+		        view = createCheckedTextView(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "AutoCompleteTextView":  
+		        view = createAutoCompleteTextView(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "MultiAutoCompleteTextView":  
+		        view = createMultiAutoCompleteTextView(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "RatingBar":  
+		        view = createRatingBar(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "SeekBar":  
+		        view = createSeekBar(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			case "ToggleButton":  
+		        view = createToggleButton(context, attrs);  
+		        verifyNotNull(view, name);  
+		        break;    
+			default:        
+		        view = createView(context, name, attrs);  
+		}  
+		  
+		if (view == null && originalContext != context) {  
+		    // If the original context does not equal our themed context, then we need to manually  
+		    // inflate it using the name so that android:theme takes effect.    view = createViewFromTag(context, name, attrs);  
+		}
+	}
+}
+```
+
+在 `AppCompatViewInflater.createView` 方法中对 `atgName` 为 ：
+
+- TextView
+- ImageView
+- Button
+- EditText
+- Spinner
+- ImageButton
+- CheckBox
+- RadioButton
+- CheckedTextView
+- AutoCompleteTextView
+- MultiAutoCompleteTextView
+- RatingBar
+- SeekBar
+- ToggleButton
+这 14 种控件进行创建替换，并且还提供了一个 `createView(Context context, String name, AttributeSet attrs)` 方法支持开发者自定义扩展。
+
+### 自定义 AppCompatViewInflater
+
+- 自定义主题，复写 viewInflaterClass 属性
+
+```xml
+<style name="FactoryTheme" parent="Theme.AppCompat.Light.DarkActionBar"> 
+	<item name="viewInflaterClass">com.xxx.CustomViewInflater</item> 
+</style>
+```
+
+- 继承类 `AppCompatViewInflater`，实现自定义逻辑
+
+```kotlin
+class CustomViewInflater : AppCompatViewInflater() {
+  override fun createTextView(context: Context, attrs: AttributeSet) =
+    RedTextView(context, attrs)
+}
+```
+
+- 作用
+将自定义的 View 的默认反射创建，改成 new
+
+### 注意
+
+- 只对上面 14 种 View，不带路径的
+- 如果带了全路径的，不会转换，如 `android.widget.TextView`
