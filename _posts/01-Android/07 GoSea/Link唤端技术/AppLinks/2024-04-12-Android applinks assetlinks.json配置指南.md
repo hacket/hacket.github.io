@@ -1,11 +1,12 @@
 ---
 date_created: Invalid date
-date_updated: Wednesday, January 22nd 2025, 12:46:12 am
+date_updated: Wednesday, January 22nd 2025, 1:35:25 am
 title: Android applinks assetlinks.json配置指南
 author: hacket
-categories: 
-category: 
-tags: []
+categories:
+  - Android进阶
+category: 出海
+tags: [出海, Link]
 toc: true
 description: 
 dg-publish: false
