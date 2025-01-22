@@ -1,12 +1,12 @@
 ---
 date_created: Tuesday, September 10th 2018, 1:17:18 am
-date_updated: Tuesday, January 21st 2025, 11:43:02 pm
+date_updated: Thursday, January 23rd 2025, 1:24:08 am
 title: ProcessLifecycleOwner
 author: hacket
 categories:
   - Android
 category: Jetpack
-tags: [Jetpack, Lifecyle, setProcessListener, setProcessListener监听]
+tags: [Jetpack, Lifecyle]
 toc: true
 description: 
 dg-publish: true
@@ -175,7 +175,7 @@ class LifecycleDispatcher {
 ```
 
 - Init 方法通过 registerActivityLifecycleCallbacks 注册了 DispatcherActivityCallback
-- 在每个 `Activity#onCreate` 时，`ReportFragment.injectIfNeededIn(activity)`，这里 inject 的目的是统计每个 Activity start/resume。通过 ReportFragment #setProcessListener
+- 在每个 `Activity#onCreate` 时，`ReportFragment.injectIfNeededIn(activity)`，这里 inject 的目的是统计每个 Activity start/resume。通过 `ReportFragment.setProcessListener`
 
 ```java
 // ReportFragment
@@ -270,7 +270,7 @@ ActivityInitializationListener mInitializationListener =
 ```
 
 - API 大于等于 29，用的 onActivityCreated
-- API 小于 29，用的 ReportFragment #setProcessListener监听
+- API 小于 29，用的 `ReportFragment.setProcessListener` 监听
 
 现在看是怎么回调的。
 
