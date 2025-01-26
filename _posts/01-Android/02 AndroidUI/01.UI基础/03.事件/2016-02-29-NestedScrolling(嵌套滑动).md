@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:21:51 pm
+date_updated: Monday, January 27th 2025, 1:18:21 am
 title: NestedScrolling(嵌套滑动)
 author: hacket
 categories:
@@ -53,7 +53,7 @@ linter-yaml-title-alias: 嵌套滑动 (NestedScrolling 机制)
 </NestedTraditionLayout>
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688194584993-997265d4-61e3-49f4-aa23-a952cfd838eb.png#averageHue=%235394df&clientId=ufeb6a1d2-1bec-4&from=paste&height=480&id=u8bb8bcb7&originHeight=960&originWidth=646&originalType=binary&ratio=2&rotation=0&showTitle=false&size=284971&status=done&style=none&taskId=ue064f258-2077-4fa8-b7e5-f6d8a8100ef&title=&width=323)![](http://note.youdao.com/yws/res/62450/31F2D5FE64354F959A9648DACD9BB653#id=Ug1KG&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
+![plqw0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270117699.png)
 
 - 实现的效果：
 
@@ -368,7 +368,7 @@ NestedScrollingChild2 与 NestedScrollingParent2 接口，只是在原有的方�
 
 ## 嵌套滑动调用逻辑
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688194634575-6d873f5b-a4d1-416e-9d32-ab6b8e13e60b.png#averageHue=%23f3f3f3&clientId=ufeb6a1d2-1bec-4&from=paste&height=285&id=uc42bc123&originHeight=569&originWidth=732&originalType=binary&ratio=2&rotation=0&showTitle=false&size=82832&status=done&style=none&taskId=uddf15899-e17a-4f4b-baca-fec59736775&title=&width=366)
+![e89pb](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270117701.png)
 
 - 步骤 1<br />如果父控件不拦截事件，子控件收到滑动事件后，先询问父控件是否支持嵌套滑动 (`child.startNestedScroll`)，支持就交给父控件处理 (`child.dispatchNestedPreScroll`)
 - 步骤 2<br />如果父控件支持嵌套滑动 (`parent.onStartNestedScroll/onNestedScrollAccepted`)，那么父控件进行预先滑动 (`parent.onNestedPreScroll`)；然后将处理剩余的距离交给子控件处理

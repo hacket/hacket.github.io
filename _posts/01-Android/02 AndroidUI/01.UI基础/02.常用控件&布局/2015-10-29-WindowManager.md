@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, October 29th 2015, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:18:02 pm
+date_updated: Monday, January 27th 2025, 1:08:30 am
 title: WindowManager
 author: hacket
 categories:
@@ -46,7 +46,11 @@ Unable to add window android.view.ViewRootImpl$W@b6c20ff -- permission denied fo
 
 ### Android6.0 及以上
 
-Android6.0 及以上还是报错，Android6.0 及以上需要特殊处理，需要调研 `Settings.canDrawOverlays()` 判断。`canDrawOverlays` 方法就是用来判断一个 App 是否能够在其它 App 之上显示视图。正常来讲一个 App 是不能在其它 App 之上显示视图的，除非在 AndroidManifest.xml 文件中声明了 `SYSTEM_ALERT_WINDOW权限`；6.0 之后添加了动态权限申请机制，因此如果是在 6.0 之后的版本上还需要用户主动的允许权限申请。而为了让系统弹出提示用户允许权限申请操作的界面，需要程序员在代码中发送 `ACTION_MANAGE_OVERLAY_PERMISSION`。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688192203494-f4f22e80-321f-40b1-9e12-db39a299b70c.png#averageHue=%23e0e0df&clientId=ud865badb-6274-4&from=paste&height=332&id=u9ee30029&originHeight=1218&originWidth=814&originalType=binary&ratio=2&rotation=0&showTitle=false&size=132072&status=done&style=none&taskId=uf7dd81e8-de1f-46d1-859b-e5baf0b6a6a&title=&width=222)<br />or<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688192209194-1a883978-27b8-4f47-84c4-7cbca40b9881.png#averageHue=%23e3e3e3&clientId=ud865badb-6274-4&from=paste&height=400&id=ud94adb81&originHeight=533&originWidth=300&originalType=binary&ratio=2&rotation=0&showTitle=false&size=33790&status=done&style=none&taskId=u966fec07-8643-4d4d-a406-635f0708a63&title=&width=225)<br />具体代码：
+Android6.0 及以上还是报错，Android6.0 及以上需要特殊处理，需要调研 `Settings.canDrawOverlays()` 判断。`canDrawOverlays` 方法就是用来判断一个 App 是否能够在其它 App 之上显示视图。正常来讲一个 App 是不能在其它 App 之上显示视图的，除非在 AndroidManifest.xml 文件中声明了 `SYSTEM_ALERT_WINDOW权限`；6.0 之后添加了动态权限申请机制，因此如果是在 6.0 之后的版本上还需要用户主动的允许权限申请。而为了让系统弹出提示用户允许权限申请操作的界面，需要程序员在代码中发送 `ACTION_MANAGE_OVERLAY_PERMISSION`。<br />![4mvi0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270108798.png)<br />or
+
+<br />![y02j5](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270108799.png)<br />
+
+具体代码：
 
 ```java
 if (Build.VERSION.SDK_INT >= 23) {

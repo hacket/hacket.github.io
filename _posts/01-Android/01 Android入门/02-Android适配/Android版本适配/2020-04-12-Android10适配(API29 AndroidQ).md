@@ -1,6 +1,6 @@
 ---
 date_created: Friday, April 12th 2020, 10:41:00 pm
-date_updated: Monday, January 20th 2025, 1:15:42 am
+date_updated: Sunday, January 26th 2025, 12:21:35 am
 title: Android10适配(API29 AndroidQ)
 author: hacket
 categories:
@@ -36,11 +36,9 @@ linter-yaml-title-alias: Android 10
 在 AndroidQ 或例如 Vivo、小米等第三方厂商 ROM 中，都对后台启动 Activity 做了限制，AndroidQ 中并没有设计有权限申请来进行设置，而 Vivo、小米则是在 App 权限设置中加入了后台启动 Activity 的权限。
 
 - vivo
-
 ![image.png|900](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240412100613.png)
 
 - MIUI 10
-
 ![image.png|900](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240412100631.png)
 
 > 默认该项权限都是关闭的，并且因为没有 Api 可以调用申请。当 App 第一次在后台情况下跳转 Activity 时，系统会进行拦截，并弹出一条通知告诉用户，后续则不会重复提醒，而原生 AndroidQ 则是不提醒，直接拦截。
@@ -145,7 +143,7 @@ TelephonyManager.getSimSerialNumber();
 
 如果您的 App 希望在 Android 10 以下的设备中仍然获取设备 IMEI 等信息，可按以下方式进行适配：
 
-```
+```xml
 <uses-permission android:name="android.permission.READ_PHONE_STATE"
     android:maxSdkVersion="28"/>
 ```
@@ -161,7 +159,7 @@ TelephonyManager.getSimSerialNumber();
 1. ANDROID_ID 生成规则：签名 + 设备信息 + 设备用户
 2. ANDROID_ID 重置规则：设备恢复出厂设置时，ANDROID_ID 将被重置
 
-```
+```java
 String androidId = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
 ```
 
@@ -395,4 +393,4 @@ Dark Theme 能带来哪些好处呢？
 
 ## Ref
 
-- [ ] Android 10 分区存储介绍及百度 APP 适配实践<br><https://juejin.cn/post/6844904063432130568>
+- [x] Android 10 分区存储介绍及百度 APP 适配实践<br><https://juejin.cn/post/6844904063432130568>

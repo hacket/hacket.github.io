@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, October 29th 2015, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:17:15 pm
+date_updated: Monday, January 27th 2025, 1:07:33 am
 title: ScrollView
 author: hacket
 categories:
@@ -29,7 +29,7 @@ linter-yaml-title-alias: ScrollView fillViewport 属性
 
 ## 不设置 viewport
 
-当子布局高度小于 ScrollView 的高度时，定义子布局 match_parent 或者 fill_parent 不起作用，因此设置 layout_gravity 也不起作用<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688177169669-3696e417-d684-4eac-b63f-10e044cb77a7.png#averageHue=%23c18b62&clientId=u97605105-8b0f-4&from=paste&height=672&id=ucf41a3f8&originHeight=2340&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=101304&status=done&style=none&taskId=ua97b50cd-93f1-40da-afa2-6445e6ae6b9&title=&width=310)<br />在 scrollview 里添加属性 `android:fillViewport=”true”` 就可以了，使得子布局高度和 scrollview 一样，而当子布局高度超过 scrollview 的高度时，这个属性就没有意义了<br />效果：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688177185007-88d7f4d7-e558-4a82-83a4-47b745f5b410.png#averageHue=%23fe6f00&clientId=u97605105-8b0f-4&from=paste&height=665&id=u16ab83f9&originHeight=2340&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=100596&status=done&style=none&taskId=u308c87a8-06e0-4545-a834-97d24659c51&title=&width=307)<br />代码：
+当子布局高度小于 ScrollView 的高度时，定义子布局 match_parent 或者 fill_parent 不起作用，因此设置 layout_gravity 也不起作用<br />![v8g1e](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270107277.png)<br />在 scrollview 里添加属性 `android:fillViewport=”true”` 就可以了，使得子布局高度和 scrollview 一样，而当子布局高度超过 scrollview 的高度时，这个属性就没有意义了<br />效果：<br />![hd590](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270107279.png)<br />代码：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

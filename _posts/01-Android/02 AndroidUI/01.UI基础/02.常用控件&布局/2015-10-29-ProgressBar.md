@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, October 29th 2015, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:17:04 pm
+date_updated: Sunday, January 26th 2025, 11:11:03 pm
 title: ProgressBar
 author: hacket
 categories:
@@ -40,7 +40,7 @@ linter-yaml-title-alias: ProgressBar 基础
 
 ProgressBar 效果图如下图所示：
 
-![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202410202328267.png)
+![gd2xx](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310225.png)
 
 **示例：**
 
@@ -86,7 +86,7 @@ ProgressBar 效果图如下图所示：
 
 效果：
 
-![|400](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202410202311345.png)
+![pveqc](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310229.png)
 
 ### `android:indeterminate`
 
@@ -94,7 +94,7 @@ ProgressBar 效果图如下图所示：
 
 在对进度条 SeekBar 或者 ProgressBar 设置进度的时候，有些时候我们并不知具体进度值是多少，但是也需要有动态进度的提醒。如下图：
 
-![|250](https://img-blog.csdn.net/20170225163950052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSmFzb244NDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![ccgf9](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310230.gif)
 
 - 实现如上效果，设置 `indeterminate` 属性为 true 即可，那么进度条将采用 " 模糊模式 "
 
@@ -183,7 +183,7 @@ ProgressBar 效果图如下图所示：
 
 一个样式文件，分别操控了 `background`/`secondaryProgress`/`progress`，这样我们很容易推测出
 
-![|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202410202314391.png)
+![jgggj](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310231.png)
 
 再看看 `@drawable/progress_indeterminate_horizontal`
 
@@ -326,11 +326,11 @@ mPbLoading.setIndeterminateDrawable(mLoadingDrawable);
 
 背景（需要. 9?）：
 
-![image.png|100](https://cdn.nlark.com/yuque/0/2023/png/694278/1688191268238-56c823f2-9b7f-4155-9fb6-36f29eb41fe3.png#averageHue=%233b3b3b&clientId=u884ac92c-6f79-4&from=paste&height=32&id=u8cdf29ce&originHeight=19&originWidth=26&originalType=binary&ratio=2&rotation=0&showTitle=false&size=3418&status=done&style=stroke&taskId=u27c39455-a355-4f81-8b9a-daa4aa64571&title=&width=44)
+![7g8v5](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310232.png)
 
 二级进度（需要.9?）：
 
-![image.png|100](https://cdn.nlark.com/yuque/0/2023/png/694278/1688191273696-a74f8574-66cf-4344-b32c-1392d76a2256.png#averageHue=%2387bf2c&clientId=u884ac92c-6f79-4&from=paste&height=33&id=u3bb1b5b5&originHeight=19&originWidth=26&originalType=binary&ratio=2&rotation=0&showTitle=false&size=3705&status=done&style=stroke&taskId=u83e5fb00-7a94-42af-8e24-359161b59a4&title=&width=45)
+![87q57](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310233.png)
 
 应用样式：
 
@@ -341,7 +341,7 @@ mPbLoading.setIndeterminateDrawable(mLoadingDrawable);
     android:layout_height="wrap_content"/>
 ```
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1688191281853-5c461fcc-ff47-4e4a-b965-ad0ffb6fbf72.png#averageHue=%238cb153&clientId=u884ac92c-6f79-4&from=paste&height=41&id=uebfaede2&originHeight=40&originWidth=243&originalType=binary&ratio=2&rotation=0&showTitle=false&size=4477&status=done&style=stroke&taskId=u645be8bc-6fe3-4c5e-a8a9-304a7a3de3f&title=&width=246.5)
+![cnh99](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310234.png)
 
 ### 案例：.9 图
 
@@ -394,11 +394,11 @@ mPbLoading.setIndeterminateDrawable(mLoadingDrawable);
 
 - 点 9 图 `icon_progress_drawable`：
 
-![image.png|200](https://cdn.nlark.com/yuque/0/2023/png/694278/1696764308475-e92c86bf-c1f9-409c-a213-a8e11621d11b.png#averageHue=%235f5f5f&clientId=ue32e8d44-6116-4&from=paste&height=13&id=u41d205b0&originHeight=26&originWidth=92&originalType=binary&ratio=2&rotation=0&showTitle=false&size=4610&status=done&style=none&taskId=u14733ef1-26b4-426d-bae2-de7a8c007f4&title=&width=46)
+![n6fbe](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310235.png)
 
 - 效果
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1696764647713-d3d88e5d-2b89-4e5c-88ae-8a42c4bf4efc.png#averageHue=%23daa653&clientId=u3c2a421f-b80e-4&from=paste&height=38&id=u4c223f40&originHeight=76&originWidth=742&originalType=binary&ratio=2&rotation=0&showTitle=false&size=32512&status=done&style=none&taskId=u05f36639-2ac3-4011-94d7-484b2dff10c&title=&width=371)
+![kz5w0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310236.png)
 
 ### 案例 2: `.9` 图
 
@@ -470,21 +470,21 @@ mPbLoading.setIndeterminateDrawable(mLoadingDrawable);
 
 - `progress_cover.9.png`
 
-![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202410210054603.png)
+![5sa9q](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310237.png)
 
 - 效果：
 
-![|600](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202410210055019.png)
+![mxl3o](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310238.png)
 
 ### ProgressBar 中间进度条的进度两端是圆角
 
 ProgressBar 自定义的时候可能会遇到一个问题，希望进度条中的进度的两端都是圆角的（或者进度的末端是圆角的）
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1688191345002-337316d6-ca19-498e-9a61-35ac7e040e01.png#averageHue=%236fc1c2&clientId=u884ac92c-6f79-4&from=paste&height=30&id=u7ad76511&originHeight=42&originWidth=389&originalType=binary&ratio=2&rotation=0&showTitle=false&size=6396&status=done&style=stroke&taskId=u0ce59c59-c344-497b-9901-f004fd8d449&title=&width=274.5)
+![0jpfl](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310239.png)
 
 但是根据自定义的 shape 或者是 layer-list 却总是很难做到，几乎都是被 clip 成了直角的样子；
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1688191392875-3c37644c-e110-4aa3-b10f-737f49eb96bc.png#averageHue=%2368979a&clientId=u884ac92c-6f79-4&from=paste&height=34&id=uf38ca6b5&originHeight=47&originWidth=377&originalType=binary&ratio=2&rotation=0&showTitle=false&size=5967&status=done&style=stroke&taskId=ufab49ced-41d5-497b-9e2c-0ea53e6ca29&title=&width=276.5)
+![65vqv](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310240.png)
 
 为什么是直角的？原因就是被 clip 给切了，所以我们不能够用 clip，而要使用 scale 这个标签。而上面链接给出的解答是定义一个.9 的图片就能满足要求，由于我们这里是纯色的一个进度，所以没有必要通过再制作一个.9 的图片，而只需要通过同样的方法引用我们定义的一个 shape 就可以了
 
@@ -588,7 +588,7 @@ Android 开发中 Progress 需要两边都是圆角怎么办？ <https://segment
 </layer-list>
 ```
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1688191423772-493f6e84-8a50-4ddf-9275-21a703a0c552.png#averageHue=%23fefefe&clientId=u884ac92c-6f79-4&from=paste&height=91&id=u39e242fa&originHeight=126&originWidth=524&originalType=binary&ratio=2&rotation=0&showTitle=false&size=9928&status=done&style=stroke&taskId=u010a7c02-54ef-4646-975f-01abfd8a80b&title=&width=378)
+![va05u](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310241.png)
 
 ### 带背景的进度
 
@@ -626,7 +626,7 @@ Android 开发中 Progress 需要两边都是圆角怎么办？ <https://segment
 </shape>
 ```
 
-![|200](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202410210013951.png)
+![l0lse](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310242.png)
 
 - 进度条的样式设置，`values/styles.xml/StyleProgressBarMini`
 
@@ -692,7 +692,7 @@ Android 开发中 Progress 需要两边都是圆角怎么办？ <https://segment
 
 - 效果（进度条右边不是圆弧 而是**直角**的）
 
-![|400](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202410210015536.png)
+![02wu6](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310243.png)
 
 - 当前进度条圆角：不能用 `clip`，用 `scale`
 
@@ -742,7 +742,7 @@ Android 开发中 Progress 需要两边都是圆角怎么办？ <https://segment
 </layer-list>
 ```
 
-![|400](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202410210028225.png)
+![yezg4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310244.png)
 
 ## 渐变进度条
 
@@ -827,8 +827,6 @@ public class MyCircleProgress extends View {
 }
 ```
 
-![](https://img-blog.csdnimg.cn/20210223152900627.gif?ynotemdtimestamp=1688191493854#height=521&id=E0Dq4&originHeight=690&originWidth=388&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=293)
-
 ## 水平三级 ProgressBar
 
 在 res 下创建 drawable 文件夹，新建文件 `drawable/progressbar_color.xml`
@@ -887,4 +885,4 @@ public class MyCircleProgress extends View {
     android:progressDrawable="@drawable/progressbar_color"/>
 ```
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1688191946529-8276c33a-346f-45e1-a7c2-2cff9cd2e3ec.png#averageHue=%23aeaaa9&clientId=u884ac92c-6f79-4&from=paste&height=110&id=u61665b17&originHeight=219&originWidth=571&originalType=binary&ratio=2&rotation=0&showTitle=false&size=22306&status=done&style=none&taskId=uc7a7f0de-5bfe-44d6-80e5-ad361e32190&title=&width=285.5)
+![05nb4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501262310245.png)

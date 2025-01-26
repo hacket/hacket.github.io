@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2017, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:09:05 pm
+date_updated: Sunday, January 26th 2025, 10:27:00 am
 title: Android屏幕刷新机制及VSync
 author: hacket
 categories:
@@ -61,7 +61,7 @@ VSync(垂直同步) 是 `Vertical Synchronization` 的简写，它利用 VBI 时
 3. SF EventThread: 该线程用于 SurfaceFlinger 接收 vsync 信号用于渲染
 4. App EventThread: 该线程用于接收 vsync 信号并且上报给 App 进程，App 开始画图
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141268396-bb7c7d2e-11df-4ea2-a312-4fb7276961f2.png#averageHue=%23d3decc&clientId=u61790920-d3fa-4&from=paste&id=ud8db1ee0&originHeight=239&originWidth=582&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u892957f3-af2d-4706-ba88-c54acb9addc&title=)<br />
+![l1yrk](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025369.png)<br />
 
 > HW vsync, 真实由硬件产生的 vsync 信号；
 >
@@ -77,15 +77,17 @@ Vsync 信号的产生有两种来源，一种是硬件，一种是软件模拟�
 
 HWComposer HAL 通过 callback 函数，把 VSYNC 信号传给 DispSyncThread，DispSyncThread 传给 EventThread
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141303446-271ab223-9465-4a5d-9025-90d36aecf3d5.png#averageHue=%23f6f7f1&clientId=u61790920-d3fa-4&from=paste&id=ua0adf9ed&originHeight=1080&originWidth=1920&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=202980&status=done&style=none&taskId=ua10f7348-80d5-41c3-b961-7a16df61add&title=)
+![iyl6h](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025370.png)
 
 #### vsync-offset 引入原因
 
 上面提到 hw vsync 信号在目前的 Android 系统中有两个 receiver，App + SurfaceFlinger。
 
-hw(hardware) sync 会转化为 sw(software) sync 分别分发给 app 和 sf，分别称为 vsync-app 和 vsync-sf。<br />app 和 sf 接收 vsync 会有一个 offset，引入这个机制的原因是提升 " 跟手性 "，也就是降低输入响应延。<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141316866-aafb1d57-8a0a-4247-8c69-79ad28ac4ddf.png#averageHue=%23e8e8e8&clientId=u61790920-d3fa-4&from=paste&id=u7c530772&originHeight=41&originWidth=321&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u337bca01-f7b3-4139-9e48-9c764ef5955&title=)
+hw(hardware) sync 会转化为 sw(software) sync 分别分发给 app 和 sf，分别称为 vsync-app 和 vsync-sf。<br />app 和 sf 接收 vsync 会有一个 offset，引入这个机制的原因是提升 " 跟手性 "，也就是降低输入响应延。<br />![fh3w7](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025371.png)
 
-<br />如果 app 和 sf 同时接收 hw sync，从上面可以看到需要经过 vsync * 2 的时间画面才能显示到屏幕，如果合理的规划 app 和 sf 接收 vsync 的时机，想像一下，如果 vsync-sf 比 vsync-app 延迟一定时间，如果这个时间安排合理达到如下效果就能降低延迟：<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141323890-3b6162fd-29d3-429e-bb28-7f31aa5d8bba.png#averageHue=%23f7f7f7&clientId=u61790920-d3fa-4&from=paste&id=u0cefea57&originHeight=272&originWidth=251&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ucade00a3-f449-4269-bd33-bbaf3676853&title=)
+<br />如果 app 和 sf 同时接收 hw sync，从上面可以看到需要经过 vsync * 2 的时间画面才能显示到屏幕，如果合理的规划 app 和 sf 接收 vsync 的时机，想像一下，如果 vsync-sf 比 vsync-app 延迟一定时间，如果这个时间安排合理达到如下效果就能降低延迟：<br />
+
+![svxsw](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025372.png)
 
 #### Vsync 接收
 
@@ -109,7 +111,7 @@ App 的注册和回调都是通过 `Choreographer`，它主要负责 inpSt 、an
 
 #### 4.1 之前 Double Buffer Drawing without VSync （未根据 vsync 来写到 buffer）
 
-4.1 之前 Android 绘制图形的一个 case，使用了双缓冲<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141334174-59277a68-5e63-463f-a48f-50abfae77d5f.png#averageHue=%23f8f6ef&clientId=u61790920-d3fa-4&from=paste&id=u8e51f1c8&originHeight=1274&originWidth=2278&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u82343ae6-3df7-41e9-a827-6e1aac720d0&title=)
+4.1 之前 Android 绘制图形的一个 case，使用了双缓冲<br />![6xalb](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025373.png)
 
 > 说明：Display 理解为屏幕，以固定的频率 16.6ms 发出 VSync 信号，Display 黄色的这一行里有一些数字：0, 1, 2, 3, 4 理解成一帧；CPU 蓝色代表 App 绘制当前 View 树的时间，CPU 里的数字和 Display 的数字对应的，如 0 帧，CPU 计算的是第一帧的数据，也就是说，在当前帧内，CPU 是在计算下一帧的屏幕画面数据，当屏幕刷新信号到的时候，屏幕就去将 CPU 计算的屏幕画面数据显示出来；同时 CPU 也接收到屏幕刷新信号，所以也开始去计算下一帧的屏幕画面数据；
 
@@ -129,13 +131,12 @@ App 的注册和回调都是通过 `Choreographer`，它主要负责 inpSt 、an
 
 为了优化显示性能，Android 4.1 版本对 Android Display 系统进行了重构，实现了 `Project Butter`，引入了三个核心元素，即 `VSYNC`、`Triple Buffer` 和 `Choreographer`。
 
-为了优化显示性能，Google 在 Android 4.1 系统中对 Android Display 系统进行了重构，实现了 `Project Butter`（黄油工程）：系统在收到 VSync pulse 后，将马上开始下一帧的渲染。即一旦收到 VSync 通知（16ms 触发一次），CPU 和 GPU 才立刻开始计算然后把数据写入 buffer。在 Android4.1 之前，CPU 和 GPU 的写 buffer 时机是比较随意的。<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141351481-57b0174b-23ba-4a12-898c-f1d2306f7a9f.png#averageHue=%23f5f2e8&clientId=u61790920-d3fa-4&from=paste&id=u31003f36&originHeight=626&originWidth=1343&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ud18495cf-f5b9-48fe-b57c-1f236839c07&title=)<br />CPU/GPU 根据 VSYNC 信号同步处理数据，可以让 CPU/GPU 有完整的 16ms 时间来处理数据，减少了 jank。假如 CPU/GPU 的 FPS(FramesPer Second) 高于这个值，那么这个方案是完美的，显示效果将很好。
+为了优化显示性能，Google 在 Android 4.1 系统中对 Android Display 系统进行了重构，实现了 `Project Butter`（黄油工程）：系统在收到 VSync pulse 后，将马上开始下一帧的渲染。即一旦收到 VSync 通知（16ms 触发一次），CPU 和 GPU 才立刻开始计算然后把数据写入 buffer。在 Android4.1 之前，CPU 和 GPU 的写 buffer 时机是比较随意的。<br />![vbjnt](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025374.png)<br />CPU/GPU 根据 VSYNC 信号同步处理数据，可以让 CPU/GPU 有完整的 16ms 时间来处理数据，减少了 jank。假如 CPU/GPU 的 FPS(FramesPer Second) 高于这个值，那么这个方案是完美的，显示效果将很好。
 
 > VSync 同步使得 CPU/GPU 充分利用了 16.6ms 时间，减少 jank。
 
 - 问题又来了，如果界面比较复杂，CPU/GPU 的处理时间较长 超过了 16.6ms 呢？如下图：
-
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141358326-b018d387-56f9-48d4-b419-f75d1f0a31c6.png#averageHue=%23f7f5ec&clientId=u61790920-d3fa-4&from=paste&id=u13ea93b6&originHeight=1278&originWidth=2284&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ue71537f3-2c31-4ea1-820f-3d41fd14a06&title=)
+![3ttjq](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025375.png)
 
 ```
 1 在第二个时间段内，但却因 GPU 还在处理 B 帧，缓存没能交换，导致 A 帧被重复显示。
@@ -147,7 +148,7 @@ App 的注册和回调都是通过 `Choreographer`，它主要负责 inpSt 、an
 
 #### 三级缓存 Triple Buffer
 
-三缓存就是在双缓冲机制基础上增加了一个 `Graphic Buffer` 缓冲区，这样可以最大限度的利用空闲时间，带来的坏处是多使用的一个 Graphic Buffer 所占用的内存。<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141376064-5f9b913b-90d4-4f47-bc5c-e94f0fae94ea.png#averageHue=%23f6f3ec&clientId=u61790920-d3fa-4&from=paste&id=uf733066a&originHeight=1274&originWidth=2278&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u37eba1a0-5e09-4ed6-a030-44c15b66a41&title=)
+三缓存就是在双缓冲机制基础上增加了一个 `Graphic Buffer` 缓冲区，这样可以最大限度的利用空闲时间，带来的坏处是多使用的一个 Graphic Buffer 所占用的内存。<br />![20s93](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025376.png)
 
 1. 第一个 Jank，是不可避免的。但是在第二个 16ms 时间段，CPU/GPU 使用 第三个 Buffer 完成 C 帧的计算，虽然还是会多显示一次 A 帧，但后续显示就比较顺畅了，有效避免 Jank 的进一步加剧。
 2. 注意在第 3 段中，A 帧的计算已完成，但是在第 4 个 vsync 来的时候才显示，如果是双缓冲，那在第三个 VSync 就可以显示了。
@@ -168,7 +169,7 @@ App 的注册和回调都是通过 `Choreographer`，它主要负责 inpSt 、an
 
 > 屏幕的刷新包括三个步骤：CPU 计算屏幕数据、GPU 进一步处理和缓存、最后 display 再将缓存中（buffer）的屏幕数据显示出来。
 
-CPU 计算屏幕数据： View 树的绘制过程，也就是 Activity 对应的视图树从根布局 DecorView 开始层层遍历每个 View，分别执行测量、布局、绘制三个操作的过程。<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688141384378-eae610e7-f277-4d41-aed9-efcc615a2079.png#averageHue=%23f9f5e9&clientId=u61790920-d3fa-4&from=paste&id=uee266164&originHeight=382&originWidth=1197&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ub5eef38d-a1b1-4464-96f0-c976771cdf7&title=)
+CPU 计算屏幕数据： View 树的绘制过程，也就是 Activity 对应的视图树从根布局 DecorView 开始层层遍历每个 View，分别执行测量、布局、绘制三个操作的过程。<br />![eqscf](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261025377.png)
 
 - 第 0VSync，CPU/GPU 计算第 1 帧的数据存到 Back/Frame Buffer，Display 展示第 0 帧数据
 - 第 1VSync，CPU/GPU 计算第 2 帧的数据存到 Back/Frame Buffer，Display 从 Frame Buffer 取出第 1 帧数据展示
@@ -183,4 +184,4 @@ CPU 计算屏幕数据： View 树的绘制过程，也就是 Activity 对应的
 
 > 天猫精灵技术 <https://mp.weixin.qq.com/s/0OOSmrzSkjG3cSOFxWYWuQ>
 
-- [ ] SurfaceFlinger(2/3) 处理 Vsync 信号 <https://zhuanlan.zhihu.com/p/123968421>
+- [x] SurfaceFlinger(2/3) 处理 Vsync 信号 <https://zhuanlan.zhihu.com/p/123968421>

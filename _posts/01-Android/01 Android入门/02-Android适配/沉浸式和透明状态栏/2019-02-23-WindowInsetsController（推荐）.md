@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2019, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 1:14:35 am
+date_updated: Sunday, January 26th 2025, 12:13:57 am
 title: WindowInsetsController（推荐）
 author: hacket
 categories:
@@ -258,7 +258,9 @@ windowInsetsController?.let { controller ->
 }
 ```
 
-Pixel3XL 效果： <br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501011917009.png)
+Pixel3XL 效果： <br />
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501011917009.png)
 
 > 添加了 `View.SYSTEM_UI_FLAG_FULLSCREEN` 和 `View.SYSTEM_UI_FLAG_HIDE_NAVIGATION`flag
 

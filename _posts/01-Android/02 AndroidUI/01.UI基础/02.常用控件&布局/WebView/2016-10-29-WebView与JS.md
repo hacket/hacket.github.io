@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, October 29th 2016, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:13:31 pm
+date_updated: Sunday, January 26th 2025, 7:39:42 pm
 title: WebView与JS
 author: hacket
 categories:
@@ -155,7 +155,7 @@ btn_has_param_has_return.setOnClickListener {
 
 #### 对比
 
-两种方法混合使用，即 Android 4.4 以下使用方法 1，Android 4.4 以上方法 2：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688181584032-927b78aa-4b29-45a8-824f-41c076d37767.png#averageHue=%23f6f6f6&clientId=uc6cb6bbb-57e5-4&from=paste&height=259&id=uf8c2b5e3&originHeight=518&originWidth=1560&originalType=binary&ratio=2&rotation=0&showTitle=false&size=83478&status=done&style=none&taskId=u25a71296-9a3a-4bd6-8d54-ae89edd8ba6&title=&width=780)
+两种方法混合使用，即 Android 4.4 以下使用方法 1，Android 4.4 以上方法 2：<br />![o80sf](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261939023.png)
 
 ```java
 // Android版本变量
@@ -360,7 +360,7 @@ function returnResult(result){
 
 #### 通过 WebChromeClient 的 onJsAlert()、onJsConfirm()、onJsPrompt() 方法回调拦截 JS 对话框 alert()、confirm()、prompt() 消息
 
-在 JS 中，有三个常用的对话框方法：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688182336771-4e74220c-5e59-41a2-8bb6-887dc4dc558c.png#averageHue=%23f5f5f5&clientId=u59e3cb1e-bfa7-4&from=paste&height=293&id=u61f34019&originHeight=586&originWidth=1580&originalType=binary&ratio=2&rotation=0&showTitle=false&size=111892&status=done&style=none&taskId=ua8a953c0-11d7-40f6-bed5-51fa5bf78a9&title=&width=790)
+在 JS 中，有三个常用的对话框方法：<br />![16yrh](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261939024.png)
 
 - html
 
@@ -465,7 +465,7 @@ class js调用Java代码_onJsPrompt : AppCompatActivity() {
 
 #### 三种方式对比
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688182359901-1b0028c4-352a-4315-a82b-23bd6b3082b7.png#averageHue=%23f4f4f4&clientId=u59e3cb1e-bfa7-4&from=paste&height=223&id=ueb2d5346&originHeight=704&originWidth=1842&originalType=binary&ratio=2&rotation=0&showTitle=false&size=182207&status=done&style=none&taskId=ufc4b155e-9944-4956-b05c-60bf7c0471d&title=&width=583)
+![5hga2](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261939025.png)
 
 ## JSBridge
 
@@ -518,7 +518,7 @@ jsbridge://Logger:callbackAddress/log?{"msg":"native log"}
 
 ## Android 通过 WebView 与 JS 的交互方式总结
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688181201626-5cb67d0a-0053-4e88-9e37-20d27abe9aa3.png#averageHue=%23f5f5f5&clientId=uc6cb6bbb-57e5-4&from=paste&height=347&id=u1fe3cc9a&originHeight=694&originWidth=1952&originalType=binary&ratio=2&rotation=0&showTitle=false&size=237621&status=done&style=none&taskId=u1ebdc666-2cec-4ae2-8664-56c238bff31&title=&width=976)
+![s83vl](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261939026.png)
 
 ## Android 和 H5 交互有大图
 

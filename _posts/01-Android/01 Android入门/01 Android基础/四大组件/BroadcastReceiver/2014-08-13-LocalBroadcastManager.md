@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, August 13th 2014, 1:01:13 am
-date_updated: Monday, January 20th 2025, 1:12:42 am
+date_updated: Sunday, January 26th 2025, 12:09:12 am
 title: LocalBroadcastManager
 author: hacket
 categories:
@@ -34,7 +34,7 @@ BroadcastReceiver 存在安全性问题
 上面两个问题其实都可以通过 `LocalBroadcastManager` 来解决，Android v 4 兼容包提供 `android.support.v4.content.LocalBroadcastManager` 工具类，帮助大家在自己的进程内进行局部广播发送与注册，使用它比直接通过 `sendBroadcast(Intent)` 发送系统全局广播有以下几点好处:
 
 - 因广播数据在本应用范围内传播，不用担心隐私数据泄露问题
-- 不能跨进程
+- **不能跨进程**
 - 不用担心别的应用伪造广播，造成安全隐患
 - 相比系统内发送全局广播，它更高效
 

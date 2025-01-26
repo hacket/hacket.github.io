@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, October 29th 2015, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:15:48 pm
+date_updated: Sunday, January 26th 2025, 7:45:23 pm
 title: ImageView
 author: hacket
 categories:
@@ -98,7 +98,7 @@ linter-yaml-title-alias: 常用属性
 </LinearLayout>
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1698844245502-36efb82f-7f3d-4ca9-971e-1d9968b25277.png#averageHue=%23c7bd8c&clientId=u00f3fd36-98db-4&from=paste&height=649&id=u3d88efbc&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=1538219&status=done&style=none&taskId=uc5e7d322-e2ef-4376-b557-d36cc839eb9&title=&width=292)
+![ekw89](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261945820.png)
 
 # ShapeableImageView (API21)
 
@@ -164,4 +164,4 @@ linter-yaml-title-alias: 常用属性
 />
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688183246982-7561d230-2bdf-4dd5-8a09-fa1ba08e7af7.png#averageHue=%23dbcec4&clientId=udabf1f09-c389-4&from=paste&height=624&id=ub9b4160e&originHeight=2340&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=403149&status=done&style=none&taskId=u7b05dddb-d46a-4199-8e6c-c936b4ae8f7&title=&width=288)
+![jv0r0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501261945822.png)

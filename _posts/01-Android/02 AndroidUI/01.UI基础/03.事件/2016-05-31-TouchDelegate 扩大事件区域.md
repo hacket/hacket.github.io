@@ -1,6 +1,6 @@
 ---
 date_created: Friday, May 31st 2016, 12:48:09 am
-date_updated: Monday, January 20th 2025, 11:53:50 pm
+date_updated: Monday, January 27th 2025, 1:19:01 am
 title: TouchDelegate 扩大事件区域
 author: hacket
 categories:
@@ -430,7 +430,7 @@ public boolean onTouchEvent(@NonNull MotionEvent event) {
 
 ## 封装
 
-### 去掉 `getScaledTouchSlop`，只在
+### 去掉 `getScaledTouchSlop`，只在？
 
 ### Ref
 

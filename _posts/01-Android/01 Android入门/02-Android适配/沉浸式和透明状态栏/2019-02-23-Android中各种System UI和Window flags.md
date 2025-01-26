@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2019, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 1:14:29 am
+date_updated: Sunday, January 26th 2025, 12:13:19 am
 title: Android中各种System UI和Window flags
 author: hacket
 categories:
@@ -68,7 +68,9 @@ val systemUiVisibility = window.decorView.systemUiVisibility
 window.decorView.systemUiVisibility = systemUiVisibility or View.STATUS_BAR_HIDDEN
 ```
 
-效果：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252389.png)![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252390.png)
+效果：<br />
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252389.png)![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252390.png)
 
 ### ~~View.STATUS_BAR_VISIBLE~~ 显示状态栏，系统默认
 
@@ -107,7 +109,11 @@ window.decorView.systemUiVisibility = systemUiVisibility or View.STATUS_BAR_HIDD
 window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_FULLSCREEN
 ```
 
-效果：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252394.png)<br />![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252395.png)
+效果：<br />
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252394.png)<br />
+
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501012252395.png)
 
 ### ~~View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN~~ 不隐藏 StatusBar，布局到 StatusBar，内容会被 StatusBar 遮挡
 

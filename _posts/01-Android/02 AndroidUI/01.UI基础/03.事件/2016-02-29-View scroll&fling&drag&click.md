@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:23:28 pm
+date_updated: Monday, January 27th 2025, 1:29:56 am
 title: View scroll&fling&drag&click
 author: hacket
 categories:
@@ -195,16 +195,20 @@ public void scrollTo(int x, int y) {
 
 说明：图中**黄色矩形区域**表示的是一个可滑动的 View 控件，**绿色虚线矩形**为滑动控件中的滑动内容。注意这里的坐标是相反的。
 
-调用 scrollTo(100,0) 表示将 View 中的内容移动到距离内容初始显示位置的 x=100，y=0 的地方，效果如下图：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688194905584-7e75035a-54b7-4d97-a9a3-c5d347cb2f5a.png#averageHue=%23e0e0a9&clientId=ub23181de-af73-4&from=paste&height=139&id=u5ae301d3&originHeight=278&originWidth=599&originalType=binary&ratio=2&rotation=0&showTitle=false&size=16740&status=done&style=none&taskId=ud5ae53ee-98a6-4a24-815f-3e6a7ecf885&title=&width=299.5)<br />![](https://note.youdao.com/yws/res/63847/BD03F3D30F05439F9B432612F3883B61#id=Jx4oZ&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />调用 scrollTo(0,100) 效果如下图：<br />![](https://note.youdao.com/yws/res/63849/7FC73D846D954985A07F13EF258C0A91#id=CQQWo&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688194900036-823ca952-efce-4c85-a4de-879f0abe5d46.png#averageHue=%23dfdfaa&clientId=ub23181de-af73-4&from=paste&height=155&id=u4058f98e&originHeight=310&originWidth=521&originalType=binary&ratio=2&rotation=0&showTitle=false&size=17735&status=done&style=none&taskId=ubad775b5-9809-406f-a131-84e1e29edf3&title=&width=260.5)<br />调用 scrollTo(100,100) 效果如下图：<br />![](https://note.youdao.com/yws/res/63853/03B14937272041E68B99849604E4D7E2#id=uZkUb&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688194893560-d673de3f-a1bf-4846-9418-aef5d8e269f4.png#averageHue=%23e5e5b2&clientId=ub23181de-af73-4&from=paste&height=178&id=u25456d41&originHeight=355&originWidth=554&originalType=binary&ratio=2&rotation=0&showTitle=false&size=19700&status=done&style=none&taskId=uec6fe43f-f2fa-4018-8f69-50f70dfe44e&title=&width=277)
+调用 scrollTo(100,0) 表示将 View 中的内容移动到距离内容初始显示位置的 x=100，y=0 的地方，效果如下图：<br />
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270119353.png)
+<br />调用 scrollTo(0,100) 效果如下图：<br />
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270128212.png)
 
-### Ref
+调用 scrollTo(100,100) 效果如下图：<br />
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270119354.png)
+
+- Ref
 
 - [x] Android scrollTo() scrollBy() Scroller 讲解及应用<br /><https://blog.csdn.net/wangjinyu501/article/details/32339379>
 
 ## scroll 总结
-
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688195080904-b27a5805-eac1-4137-ac93-63a49e2ab22e.png#averageHue=%239ddb66&clientId=ub23181de-af73-4&from=paste&height=220&id=SuNQ1&originHeight=440&originWidth=1200&originalType=binary&ratio=2&rotation=0&showTitle=false&size=249463&status=done&style=none&taskId=u609d5f3b-30ac-439e-9549-94f5f8da3c2&title=&width=600)
-
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270119355.png)
 > scrollBy 有误，点击事件区域随着 scrollBy 后变
 
 ### setTranslationX/Y
@@ -420,7 +424,7 @@ View 的 scrollTo()、scrollBy() 是瞬间完成的，当我们的手指在屏�
 
 ### startScroll
 
-```
+```java
 public void startScroll(int startX, int startY, int dx, int dy, int duration)
 ```
 
@@ -1038,7 +1042,7 @@ ViewDragHelper 提供的功能：
 
 参数 1：forParent 当前的 ViewGroup<br />参数 2：sensitivity 主要用于设置 touchSlop，可见传入越大，mTouchSlop 的值就会越小
 
-```
+```java
 helper.mTouchSlop = (int) (helper.mTouchSlop * (1 / sensitivity));
 ```
 
@@ -1339,7 +1343,7 @@ public int getViewVerticalDragRange(View child) {
 
 ### 方法的大致的回调顺序
 
-```
+```java
 shouldInterceptTouchEvent：
     
     DOWN:
@@ -2084,7 +2088,7 @@ class WechatVoiceDragLayout @JvmOverloads constructor(
 
 在时间范围内只响应一次点击，通过将上次单击时间保存到 Activity Window 中的 decorView 里，实现一个 Activity 中所有的 View 共用一个上次单击时间
 
-![](https://note.youdao.com/yws/res/85367/168D8D776A36491892CEC9BBACAACD02#id=TxzVU&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](undefined)
 
 - 参数 isShareSingleClick 的默认值为 true，表示该控件和同一个 Activity 中其他控件共用一个上次单击时间，也可以手动改成 false，表示该控件自己独享一个上次单击时间
 

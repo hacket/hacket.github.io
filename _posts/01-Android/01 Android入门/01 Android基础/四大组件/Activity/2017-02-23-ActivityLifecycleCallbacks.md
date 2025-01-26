@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 1:12:31 am
+date_updated: Sunday, January 26th 2025, 12:08:22 am
 title: ActivityLifecycleCallbacks
 author: hacket
 categories:
@@ -35,7 +35,7 @@ API 14 之后，在 Application 类中，提供了一个应用生命周期回调
 
 Activity 的生命周期图：
 
-![image.png|600](https://cdn.nlark.com/yuque/0/2024/png/694278/1707289071544-6e13f4d4-8169-4cb6-ac99-c719ce118a2f.png#averageHue=%232e2b29&clientId=u26cf5ea0-d17e-4&from=paste&height=483&id=u398e4f24&originHeight=663&originWidth=513&originalType=binary&ratio=2&rotation=0&showTitle=false&size=79379&status=done&style=none&taskId=u7abfa970-2e1a-4b57-af61-140a624e339&title=&width=374)
+![ly6ky](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501260008023.png)
 
 **API29 之前：**
 
