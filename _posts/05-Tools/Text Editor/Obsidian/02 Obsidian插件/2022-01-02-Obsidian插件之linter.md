@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, January 2nd 2022, 10:45:50 pm
-date_updated: Monday, January 27th 2025, 12:42:56 am
+date_updated: Sunday, February 2nd 2025, 1:23:39 am
 title: Obsidian插件之linter
 author: hacket
 categories:
@@ -30,7 +30,7 @@ linter-yaml-title-alias: Linter
 
 ### Front matter 的格式
 
-```
+```yaml
 ---
 key: value
 key: [one, two, three]
@@ -52,7 +52,7 @@ key:
 
 当前的 Obsidian 包含三个原生的 key：`tags`、`aliases` 和 `cssclass`。除此之外，我们还可以人为添加 key，比如 `time`、`progress` 和 `简介`。
 
-```
+```yaml
 ---
 aliases:
 - YAML front matter

@@ -1,6 +1,6 @@
 ---
 date_created: Sunday, December 29th 2022, 11:27:11 pm
-date_updated: Saturday, January 25th 2025, 11:59:47 pm
+date_updated: Sunday, February 2nd 2025, 12:38:09 am
 title: Github Pages和JekyII
 author: hacket
 categories:
@@ -25,16 +25,16 @@ linter-yaml-title-alias: Jekyll 和 Github Pages
 
 # Jekyll 和 Github Pages
 
-## JekyII 和 Github Pages 搭建博客
+## Jekyll 和 Github Pages 搭建博客
 
 - 注册 Github 账户
-- 选择一款 JekyII 主题
+- 选择一款 Jekyll 主题
 - 找到该主题的 Github 仓库，fork 项目，并重命名为：`用户名.github.io`
 - 开启 Github Pages
 - 修改 `_config.yml` 配置文件
 - 将要发布的 md 文章放到 `_post` 目录，格式为：`日期_xxx.md`，如：`2020-02-26-Github Actions.md`
 
-### JekyII 主题选择
+### Jekyll 主题选择
 
 如果你不想将文件放在 `_posts` 目录中，也不希望按照日期格式命名文件，以下主题是非常合适的选择：
 
@@ -46,9 +46,9 @@ linter-yaml-title-alias: Jekyll 和 Github Pages
 
 这些主题都允许你自由组织文件，并且不强制要求使用日期格式命名文件。你可以根据自己的需求选择合适的主题，灵活管理站点内容。
 
-## Obsidian 和 JekyII
+## Obsidian 和 Jekyll
 
-### 将 Obsidian 转换为 JekyII 笔记
+### 将 Obsidian 转换为 Jekyll 笔记
 
 - <https://gist.github.com/cs-qyzhang/9ae9f68f91e6c853ce6911f07eddf168>
 
@@ -269,7 +269,7 @@ mermaid: true
 
 [主题使用文档 · AirboZH/halo-theme-chirpy Wiki · GitHub](https://github.com/AirboZH/halo-theme-chirpy/wiki/%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3)
 
-## 其他 jekyII 主题
+## 其他 Jekyll 主题
 
 ### minimal-mistakes
 
@@ -299,7 +299,7 @@ mermaid: true
 
 [GitHub - just-the-docs/just-the-docs: A modern, high customizable, responsive Jekyll theme for documentation with built-in search.](https://github.com/just-the-docs/just-the-docs)
 
-### beautiful-jekyII
+### beautiful-Jekyll
 
 效果：
 
@@ -615,7 +615,7 @@ plugins:
 # 2fc73a3a967e97599c9763d05e564189
 ```
 
-## Obsidian markdown 笔记转成 `jekyII` 笔记格式
+## Obsidian markdown 笔记转成 `Jekyll` 笔记格式
 
 - 添加 `Front Matter`，这个通过 Linter 插件实现就可以了，不用 py 脚本实现
 - 调整文件路径和命名，Jekyll 对文件路径和命名有特定要求：
@@ -668,7 +668,7 @@ plugins:
 
 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501170904425.png)
 
-## Github Pages + JekyII 显示默认 index.html
+## Github Pages + Jekyll 显示默认 index.html
 
 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501180919464.png)
 
