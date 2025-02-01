@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, October 29th 2016, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:33:55 pm
+date_updated: Monday, January 27th 2025, 10:47:41 pm
 title: tint和backgroundTint
 author: hacket
 categories:
@@ -105,7 +105,7 @@ backgroundTint: 作用于 background 属性
 </LinearLayout>
 ```
 
-效果：<br />![](http://note.youdao.com/yws/res/44747/1C9E3F8ABFB74D74A7CD08ADF4689147#id=NXaQw&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688145665076-91415bed-2068-4350-8921-e668e2a22576.png#averageHue=%236d9849&clientId=ueb5ea3fb-fc20-4&from=paste&id=u45d2534b&originHeight=248&originWidth=910&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u9be04ff6-273c-48dc-acd5-47d538bd13e&title=)
+效果：<br />![sz2of](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/sz2of.png)
 
 #### selector
 

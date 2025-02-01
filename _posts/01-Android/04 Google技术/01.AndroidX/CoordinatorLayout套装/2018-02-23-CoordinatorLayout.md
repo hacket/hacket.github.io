@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:22:55 pm
+date_updated: Wednesday, January 29th 2025, 7:11:32 pm
 title: CoordinatorLayout
 author: hacket
 categories:
@@ -34,21 +34,27 @@ CoordinatorLayout(协调者布局) 是在 Google IO/15 大会发布的，遵循 
 - 处理子控件的测量与布局
 - 处理子控件的事件拦截与响应
 
-而上述四个功能，都依托于 CoordainatorLayout 中提供的一个叫做 `Behavior` 的 " 插件 "。Behavior 内部也提供了相应方法来对应这四个不同的功能：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691223599759-056c5662-7d4a-4a3b-87c8-4ad79a5dee8c.png#averageHue=%2382db8c&clientId=u3edcbdc0-889c-4&from=paste&height=382&id=ua428a3bf&originHeight=763&originWidth=699&originalType=binary&ratio=2&rotation=0&showTitle=false&size=188723&status=done&style=none&taskId=u59f43dd8-e0b7-42c8-bc2a-f6221ff2aec&title=&width=349.5)
+而上述四个功能，都依托于 CoordainatorLayout 中提供的一个叫做 `Behavior` 的 " 插件 "。Behavior 内部也提供了相应方法来对应这四个不同的功能：<br />
+
+![njhfl](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/njhfl.png)
 
 ### 子控件依赖下的交设计
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691223613310-7aeb376f-5f64-43a8-afe1-837e682d2541.png#averageHue=%2320a1a1&clientId=u3edcbdc0-889c-4&from=paste&height=468&id=uec3025ac&originHeight=936&originWidth=818&originalType=binary&ratio=2&rotation=0&showTitle=false&size=293822&status=done&style=none&taskId=u5d5b44d1-547b-4fc9-870c-4246d22ab54&title=&width=409)<br />![](http://note.youdao.com/yws/res/63068/77ED1F183EE6412F934E236976472523#id=qPIVg&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />当 CoordainatorLayout 中子控件（childView1) 的位置、大小等发生改变的时候，那么在 CoordainatorLayout 内部会通知所有依赖 childView1 的控件，并调用对应声明的 Behavior，告知其依赖的 childView1 发生改变。那么如何判断依赖，接受到通知后如何处理。这些都交由 Behavior 来处理。
+![zb93p](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zb93p.png)<br />
+
+当 CoordainatorLayout 中子控件（childView1) 的位置、大小等发生改变的时候，那么在 CoordainatorLayout 内部会通知所有依赖 childView1 的控件，并调用对应声明的 Behavior，告知其依赖的 childView1 发生改变。那么如何判断依赖，接受到通知后如何处理。这些都交由 Behavior 来处理。
 
 ### 子控件的嵌套滑动的设计
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691223627144-743bfec1-884d-4c7d-854f-2ba31c5e5a96.png#averageHue=%23f1f2f0&clientId=u3edcbdc0-889c-4&from=paste&height=424&id=uc633e17f&originHeight=848&originWidth=917&originalType=binary&ratio=2&rotation=0&showTitle=false&size=119050&status=done&style=none&taskId=u9cdef092-1e21-48f1-b5ac-1cd7754ce0e&title=&width=458.5)<br />CoordinatorLayout 实现了 NestedScrollingParent2 接口。那么当事件（scroll 或 fling) 产生后，内部实现了 NestedScrollingChild 接口的子控件会将事件分发给 CoordinatorLayout，CoordinatorLayout 又会将事件传递给所有的 Behavior。接着在 Behavior 中实现子控件的嵌套滑动。那么再结合上文提到的 Behavior 中嵌套滑动的相关方法，我们可以得到如下流程：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691223640361-f757b22b-852a-4f0d-843a-24e7f869a5fc.png#averageHue=%23afd688&clientId=u3edcbdc0-889c-4&from=paste&height=440&id=u37ad80b3&originHeight=879&originWidth=1240&originalType=binary&ratio=2&rotation=0&showTitle=false&size=201528&status=done&style=none&taskId=ufbc75af6-1a97-42ac-a3c8-33278ceb623&title=&width=620)
+![q1b8p](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/q1b8p.png)<br />
+
+CoordinatorLayout 实现了 NestedScrollingParent2 接口。那么当事件（scroll 或 fling) 产生后，内部实现了 NestedScrollingChild 接口的子控件会将事件分发给 CoordinatorLayout，CoordinatorLayout 又会将事件传递给所有的 Behavior。接着在 Behavior 中实现子控件的嵌套滑动。那么再结合上文提到的 Behavior 中嵌套滑动的相关方法，我们可以得到如下流程：<br />![5cr6n](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/5cr6n.png)
 
 > 相对于 NestedScrolling 机制（参与角色只有子控件和父控件），CoordainatorLayout 中的交互角色更为丰富，在 CoordainatorLayout 下的子控件可以与多个兄弟控件进行交互。
 
-### 子控件的测量、布局、事件的设计![](http://note.youdao.com/yws/res/63082/912666D0C63B4F62876124A8E9BE469F#id=xk3M8&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+### 子控件的测量、布局、事件的设计
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691223706686-c5cd576e-8627-4bfa-b1c8-fd790f0b5e3e.png#averageHue=%23c4cdc5&clientId=u3edcbdc0-889c-4&from=paste&height=453&id=u6393c2ca&originHeight=905&originWidth=935&originalType=binary&ratio=2&rotation=0&showTitle=false&size=140829&status=done&style=none&taskId=uc3cefcfa-a7c1-4b4c-bf12-05a0732a45e&title=&width=467.5)<br />因为 CoordainatorLayout 主要负责的是子控件之间的交互，内部控件的测量与布局，就简单的类似 FrameLayout 处理方式就好了。在特殊的情况下，如子控件需要处理宽高和布局的时候，那么交由 Behavior 内部的 onMeasureChild 与 onLayoutChild 方法来进行处理。同理对于事件的拦截与处理，如果子控件需要拦截并消耗事件，那么交由给 Behavior 内部的 onInterceptTouchEvent 与 onTouchEvent 方法进行处理
+![vt6dg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/vt6dg.png)<br />因为 CoordainatorLayout 主要负责的是子控件之间的交互，内部控件的测量与布局，就简单的类似 FrameLayout 处理方式就好了。在特殊的情况下，如子控件需要处理宽高和布局的时候，那么交由 Behavior 内部的 onMeasureChild 与 onLayoutChild 方法来进行处理。同理对于事件的拦截与处理，如果子控件需要拦截并消耗事件，那么交由给 Behavior 内部的 onInterceptTouchEvent 与 onTouchEvent 方法进行处理
 
 ## Behavior
 
@@ -224,7 +230,7 @@ final void onChildViewsChanged(@DispatchChangeEvent final int type) {
 
 ### Behavior 实现嵌套滑动的原理与过程
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691223727549-669048d1-e95f-4d6a-b2d2-10746129227f.png#averageHue=%23fafafa&clientId=u3edcbdc0-889c-4&from=paste&height=640&id=u551fb261&originHeight=1280&originWidth=880&originalType=binary&ratio=2&rotation=0&showTitle=false&size=129487&status=done&style=none&taskId=u806c0696-8f9c-46e0-a6dc-562b0d39b08&title=&width=440)
+![47cyd](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/47cyd.png)
 
 #### CoordinatorLayout 的事件传递过程
 
@@ -557,7 +563,9 @@ public void onLayoutChild(@NonNull View child, int layoutDirection) {
 
 ### appbarlayout-spring-behavior（帮助 AppbarLayout 滚动回弹效果）
 
-![](https://github.com/ToDou/appbarlayout-spring-behavior/raw/master/screenshot/appbar_spring.gif#id=hXlJb&originHeight=956&originWidth=572&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://github.com/ToDou/appbarlayout-spring-behavior/raw/master/screenshot/appbar_spring_blur_tab.gif#id=c2dw2&originHeight=958&originWidth=576&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://github.com/ToDou/appbarlayout-spring-behavior/raw/master/screenshot/appbar_scrollview_fling_fix.gif#id=WzMpX&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![muukg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/muukg.gif)
+
+![43kke](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/43kke.gif)
 
 ### behavior-learn
 

@@ -1,12 +1,12 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:44 pm
-date_updated: Tuesday, January 21st 2025, 1:27:32 am
+date_updated: Friday, January 31st 2025, 9:57:38 pm
 title: WebSocket
 author: hacket
 categories:
   - 计算机基础
 category: 网络协议
-tags: [网络协议, WebSocket]
+tags: [WebSocket, 网络协议]
 toc: true
 description: 
 dg-publish: true

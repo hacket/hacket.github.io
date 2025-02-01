@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:44 pm
-date_updated: Thursday, January 23rd 2025, 12:29:53 am
+date_updated: Thursday, January 30th 2025, 6:34:35 pm
 title: JVM Runtime Data Area(运行时内存区域)
 author: hacket
 categories:
@@ -29,7 +29,7 @@ linter-yaml-title-alias: JVM Runtime Data Area（Java 内存模式）
 
 ## Runtime Data Area 运行时数据区介绍
 
-Runtime Data Area 是存放数据的。分为五部分：`Stack`、`Heap`、`Method Area`、`PC Register`、`Native Method Stack`。几乎所有的关于 Java 内存方面的问题，都是集中在这块。下图是关于 Run-time Data Areas 的描述：<br>![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693582779561-35e092c5-88f0-457b-aa4d-bd4935c6d423.png#averageHue=%23f9ecc6&clientId=u27245360-9349-4&from=paste&id=u9574eeed&originHeight=495&originWidth=801&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=uf5502edf-046d-4b2d-9dfd-327417d4a41&title=)
+Runtime Data Area 是存放数据的。分为五部分：`Stack`、`Heap`、`Method Area`、`PC Register`、`Native Method Stack`。几乎所有的关于 Java 内存方面的问题，都是集中在这块。下图是关于 Run-time Data Areas 的描述：<br>![ccmh5](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ccmh5.png)
 
 ### 线程私有的数据区，包含程序计数器、虚拟机栈、本地方法栈
 
@@ -44,7 +44,7 @@ Runtime Data Area 是存放数据的。分为五部分：`Stack`、`Heap`、`Met
 
 > 程序计数器、虚拟机栈、本地方法栈这 3 个区域是线程私有的，会随线程消亡而自动回收，所以不需要 GC 管理；垃圾收集只需要关注堆和方法区，而方法区的回收，往往性价比较低，因为判断可以回收的条件比较苛刻，而垃圾收集回报率高的是堆中内存的回收
 
-详细内存模型：<br>![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693582804453-506bf2a3-95be-4d59-91cd-064e02639ab3.png#averageHue=%23cbd0cc&clientId=u27245360-9349-4&from=paste&id=u55b6c7ca&originHeight=428&originWidth=799&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=ua716fcc3-359e-485d-a8a1-dd8bf16b95f&title=)
+详细内存模型：<br>![yo5n3](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/yo5n3.png)
 
 ## Stack 虚拟机栈  （线程私有）
 
@@ -56,7 +56,7 @@ JVM 的指令集是基于栈而不是寄存器，基于栈可以具备很好的�
 
 ### 栈组成 -- 栈帧
 
-Stack 是 Java 栈内存，它等价于 C 语言中的栈，**栈的内存地址是不连续的，每个线程都拥有自己的栈。栈里面存储着的是 StackFrame**，在《JVM Specification》中文版中被译作 java 虚拟机框架，也叫做 `栈帧`。**StackFrame 包含三类信息：局部变量表、操作数栈、动态连接、返回地址。**<br>![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693582821181-c9bae1fc-5a8b-4f74-885d-cc4ea62280c1.png#averageHue=%2383b495&clientId=u27245360-9349-4&from=paste&id=u89907ce4&originHeight=870&originWidth=1018&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=uf4b01737-adf6-477e-b52e-cd16317bc6e&title=)<br>![](https://note.youdao.com/yws/res/73600/A92E27A4DA8D4670AEFBF4BA23232894#id=k6fvC&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+Stack 是 Java 栈内存，它等价于 C 语言中的栈，**栈的内存地址是不连续的，每个线程都拥有自己的栈。栈里面存储着的是 StackFrame**，在《JVM Specification》中文版中被译作 java 虚拟机框架，也叫做 `栈帧`。**StackFrame 包含三类信息：局部变量表、操作数栈、动态连接、返回地址。**<br>![0v3te](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/0v3te.png)
 
 #### 1. 局部变量表 (Local Variable Table)
 
@@ -73,7 +73,7 @@ public class TestStack {
 
 对应字节码:
 
-```
+```java
 public sub(II)I
    L0
     LINENUMBER 19 L0
@@ -109,11 +109,13 @@ Java 语言特性多态（需要类运行时才能确定具体的方法）。
 
 正常返回（调用程序计数器中的地址作为返回）、异常的话（通过异常处理器表<非栈帧中的>来确定）
 
-StackFrame 在方法被调用时创建，在某个线程中，某个时间点上，只有一个框架是活跃的，该框架被称为 Current Frame，而框架中的方法被称为 Current Method，其中定义的类为 Current Class。局部变量和操作数栈上的操作总是引用当前框架。当 Stack Frame 中方法被执行完之后，或者调用别的 StackFrame 中的方法时，则当前栈变为另外一个 StackFrame。Stack 的大小是由两种类型，固定和动态的，动态类型的栈可以按照线程的需要分配。下面两张图是关于栈之间关系以及栈和非堆内存的关系基本描述（来自<http://www.programering.com/a/MzM3QzNwATA.html> ）<br>![](https://note.youdao.com/src/63DA8DB2300F4839A9C2EDAB62E2DCE5#id=rRx6r&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693582858040-581f3b62-1b9f-4741-8756-e58fb48b0076.png#averageHue=%23efefef&clientId=u27245360-9349-4&from=paste&id=u4841fe47&originHeight=472&originWidth=552&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u46510b28-3dde-4167-a083-c2886953b5c&title=)
+StackFrame 在方法被调用时创建，在某个线程中，某个时间点上，只有一个框架是活跃的，该框架被称为 Current Frame，而框架中的方法被称为 Current Method，其中定义的类为 Current Class。局部变量和操作数栈上的操作总是引用当前框架。当 Stack Frame 中方法被执行完之后，或者调用别的 StackFrame 中的方法时，则当前栈变为另外一个 StackFrame。Stack 的大小是由两种类型，固定和动态的，动态类型的栈可以按照线程的需要分配。下面两张图是关于栈之间关系以及栈和非堆内存的关系基本描述（来自<http://www.programering.com/a/MzM3QzNwATA.html> ）<br>
+![zxhjr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zxhjr.png)
 
 ### 栈的大小
 
-JVM 允许栈的大小是固定的或者是动态变化的。在 [Oracle的关于参数设置的官方文档中有关于Stack的设置](http://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html#wp1024112) 是通过 `-Xss` 来设置其大小。关于 Stack 的默认大小对于不同机器有不同的大小，并且不同厂商或者版本号的 jvm 的实现其大小也不同，如下表是 HotSpot 的默认大小：<br>![](https://note.youdao.com/yws/res/71097/99859277B8704EBC9FE684A3C8EDC0E7#id=ORD0r&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693582869397-9f95c06c-a10a-4474-9c27-15aaaab0d1ad.png#averageHue=%23fdfcfb&clientId=u27245360-9349-4&from=paste&id=ub731657d&originHeight=277&originWidth=639&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=ua7029552-e91e-44e6-aeba-0b866c528a1&title=)
+JVM 允许栈的大小是固定的或者是动态变化的。在 [Oracle的关于参数设置的官方文档中有关于Stack的设置](http://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html#wp1024112) 是通过 `-Xss` 来设置其大小。关于 Stack 的默认大小对于不同机器有不同的大小，并且不同厂商或者版本号的 jvm 的实现其大小也不同，如下表是 HotSpot 的默认大小：<br>
+![mi97k](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/mi97k.png)
 
 ### 栈之 GC
 
@@ -157,21 +159,33 @@ Heap 是用来存放对象信息的，和 Stack 不同，Stack 代表着一种�
 
 在 JVM 初始化的时候，我们可以通过参数来分别指定，堆的大小、以及 Young Generation 和 Old Generation 的比值、Eden 区和 From Space 的比值，从而来细粒度的适应不同 JAVA 应用的内存需求。
 
-![](https://note.youdao.com/src/844063A2AC4C4CD7976EACA673ECC2CA#id=LKM6a&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
-
----
-
-![](https://note.youdao.com/src/F86235CCB721471EB08E32F4897E9C05#id=H8ue9&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
-
 #### Heap Space
 
 堆的存储空间和栈一样是不需要连续的，它分为 `Young Generation` 和 `Old Generation`（也叫 Tenured Generation）两大部分。`Young Generation` 分为 `Eden` 和 `Survivor`，`Survivor` 又分为 `From Space` 和 `ToSpace`。
 
+JDK1.7 堆内部组成：
+
+![or17k](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/or17k.png)
+
+JDK1.8 堆内部组成，其中永久代 (Perm) 换成了元空间。
+
+![fvu66](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/fvu66.png)
+
+堆内存逻辑角度：: 堆=新生代 + 老年代 + 永久代或者元空间；
+
+堆内存物理角度：由新生代 ( Young ) 和老年代 ( Old ) 组成，公式如下：
+
+堆内存的实际大小=新生代的大小 + 老年代的大小。
+
 ##### Young Generation 新生代
 
-###### Eden 存放新生的对象，对象优先分配至 Eden 区，当空间不足时，将触发 MinorGC
+###### Eden
 
-###### Survivor 主要用于存储垃圾回收之后的存活对象
+Eden 存放新生的对象，对象优先分配至 Eden 区，当空间不足时，将触发 MinorGC
+
+###### Survivor
+
+Survivor 主要用于存储垃圾回收之后的存活对象
 
 1. From Space
 2. To Space
@@ -186,7 +200,7 @@ Eden 区里存放的是新生的对象；From Space 和 To Space 中存放的是
 
 大对象：长期存活的对象，对象每在 Survivor 经历一次 MinorGC，Age 增加 1，当增长到 15 时，就直接晋升到老年代；如果在 Survivor 空间中相同年龄所有对象大小的总和大于 Survivor 空间的一半，年龄大于或等于该年龄段对象就可以直接进入老年代。
 
-![](https://note.youdao.com/src/98DAB6EE2DF244EBB71D928104AD5090#id=mjr1J&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+Ref: [JVM 堆的对象转移与年龄判断 - JVM 入门教程-慕课网](https://m.imooc.com/wiki/jvm-objecttrans)
 
 ### MinorGC、MajorGC 和 FullGC
 
@@ -219,9 +233,7 @@ MinorGC 非常频繁，一般回收速度也非常快
 非堆区包括两部分：Permanent Generation 和 Code Cache。
 
 1. Method Area 属于 Permanent Generation 的一部分，Permanent Generation 用来存储类信息，比如说：class definitions，structures，methods， field， method (data and code) 和 constants。
-2. Code Cache 用来存储 Compiled Code，即编译好的本地代码，在 HotSpot JVM 中通过 JIT(Just In Time) Compiler 生成，JIT 是即时编译器，他是为了提高指令的执行效率，把字节码文件编译成本地机器代码，如下图：
-
-![](https://note.youdao.com/src/4B314D597B7B4A8784A460F95298994C#id=OLK0y&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+2. Code Cache 用来存储 Compiled Code，即编译好的本地代码，在 HotSpot JVM 中通过 JIT(Just In Time) Compiler 生成，JIT 是即时编译器，他是为了提高指令的执行效率，把字节码文件编译成本地机器代码
 
 ### 方法区线程安全
 
@@ -233,7 +245,7 @@ MinorGC 非常频繁，一般回收速度也非常快
 
 HotSpot 虚拟机使用永久代来实现方法区，但在其它虚拟机中，例如，Oracle 的 JRockit、IBM 的 J9 就不存在永久代一说。因此，方法区只是 JVM 中规范的一部分，可以说，在 HotSpot 虚拟机中，设计人员使用了永久代来实现了 JVM 规范的方法区。
 
-Java7 及以前版本的 Hotspot 中方法区位于永久代中。同时，永久代和堆是相互隔离的，但它们使用的物理内存是连续的。永久代的垃圾收集是和老年代捆绑在一起的，因此无论谁满了，都会触发永久代和老年代的垃圾收集。但在 Java7 中永久代中存储的部分数据已经开始转移到 Java Heap 或 Native Memory 中了。比如，符号引用 (Symbols) 转移到了 Native Memory；字符串常量池 (interned strings) 转移到了 Java Heap；类的静态变量 (class statics) 转移到了 Java Heap。<br>![](https://note.youdao.com/src/6577730AA96A4F59BE1C18A402AA13D0#id=zF54o&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+Java7 及以前版本的 Hotspot 中方法区位于永久代中。同时，永久代和堆是相互隔离的，但它们使用的物理内存是连续的。永久代的垃圾收集是和老年代捆绑在一起的，因此无论谁满了，都会触发永久代和老年代的垃圾收集。但在 Java7 中永久代中存储的部分数据已经开始转移到 Java Heap 或 Native Memory 中了。比如，符号引用 (Symbols) 转移到了 Native Memory；字符串常量池 (interned strings) 转移到了 Java Heap；类的静态变量 (class statics) 转移到了 Java Heap。
 
 - 设置永久代空间大小<br>JDK1.7 及以前（初始和最大值）：-XX:PermSize；-XX:MaxPermSize；
 
@@ -241,7 +253,7 @@ Java7 及以前版本的 Hotspot 中方法区位于永久代中。同时，永�
 
 Java8，HotSpots 取消了永久代，元空间 (Metaspace) 登上舞台，方法区存在于元空间 (Metaspace)。同时，元空间不再与堆连续，而且是存在于本地内存（Native memory）。
 
-本地内存（Native memory），也称为 C-Heap，是供 JVM 自身进程使用的。当 Java Heap 空间不足时会触发 GC，但 Native memory 空间不够却不会触发 GC。<br>![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693582915023-d50a44ec-af14-41eb-91c8-fceb115413f9.png#averageHue=%2372bf62&clientId=u27245360-9349-4&from=paste&height=587&id=ud4e5e4df&originHeight=1310&originWidth=1440&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u20ef96f5-249e-465e-8155-6def759fcda&title=&width=645.3333740234375)
+本地内存（Native memory），也称为 C-Heap，是供 JVM 自身进程使用的。当 Java Heap 空间不足时会触发 GC，但 Native memory 空间不够却不会触发 GC。<br>![kzym7](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/kzym7.png)
 
 > 元空间存在于本地内存，意味着只要本地内存足够，它不会出现像永久代中 "java.lang.OutOfMemoryError: PermGen space" 这种错误
 
@@ -259,7 +271,7 @@ Java8，HotSpots 取消了永久代，元空间 (Metaspace) 登上舞台，方�
 1. 永久带会为 GC 带来不必要的复杂性，并且回收效率偏低，在永久代中元数据可能会随着每一次赋 GC 发生而进行移动，而 hotspot 虚拟机每种类型的垃圾回收器都要特殊处理永久代中的元数据，分离出来以后可以简化赋 GC，以及以后并发隔离元数据等方面进行优化。
 2. 移除永久代是为了融合 HotSpot JVM 与 JRockit VM 而做出的努力，因为 JRockit 没有永久代，所以不需要配置永久代。永久代内存经常不够用或发生内存溢出，抛出异常 java.lang.OutOfMemoryError: PermGen。这是因为在 JDK1.7 版本中，指定的 PermGen 区大小为 8M，由于 PermGen 中类的元数据信息在每次 FullGC 的时候都可能被收集，回收率都偏低，成绩很难令人满意；还有，为 PermGen 分配多大的空间很难确定，PermSize 的大小依赖于很多因素，比如，JVM 加载的 class 总数、常量池的大小和方法的大小等。
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693582937168-7d4f4a87-1e1b-49a0-9490-d190124d091b.png#averageHue=%23f6faf8&clientId=u27245360-9349-4&from=paste&id=u94a3421a&originHeight=334&originWidth=720&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=uf27bc0f2-4cd5-4fe9-9988-9efe2457dba&title=)
+![3hhjx](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/3hhjx.png)
 
 - [ ] JVM 参数参考：<https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html>
 - [ ] 从永久代（PermGen）到元空间（Metaspace）<br><http://blog.csdn.net/zhyhang/article/details/17246223>
@@ -277,8 +289,6 @@ Java8，HotSpots 取消了永久代，元空间 (Metaspace) 登上舞台，方�
 ## 其他
 
 ### 堆外内存（本地内存）
-
-![](https://note.youdao.com/src/A8B2D67CB56E4838928F39FBA2E6229A#id=e13rP&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
 
 不是虚拟机运行时数据区的一部分，也不是 java 虚拟机规范中定义的内存区域；
 
@@ -440,7 +450,7 @@ public class MethodAreaOutOfMemory {
 1. 该类所有的实例都已经被回收，也就是堆中不存在该类的任何实例
 2. 加载该类的 ClassLoader 已经被回收
 3. 该类对应的 java.lang.Class 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法
-4. 没有设置 `-Xnoclassgc` <br>![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693582965291-1e2fe425-2592-4991-bed6-46a17bc89e61.png#averageHue=%23f9f8f6&clientId=u27245360-9349-4&from=paste&id=ud694c36e&originHeight=116&originWidth=1396&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u06f3a0cc-4409-4962-8e53-cff270c5637&title=)<br>![](https://note.youdao.com/yws/res/73679/196BD8DA58DB44B6B07667FE3C2DD377#id=Nra8Y&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+4. 没有设置 `-Xnoclassgc` <br>![klj4g](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/klj4g.png)
 
 #### 本机直接内存溢出
 
@@ -473,4 +483,4 @@ Exception in thread "main" java.lang.OutOfMemoryError: Direct buffer memory
 
 ### 对象的分配策略
 
-见 `对象的分配策略.md`
+见 [[Java对象创建流程&对象内存分配策略]]

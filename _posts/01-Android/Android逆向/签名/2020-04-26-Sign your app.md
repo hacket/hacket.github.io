@@ -1,12 +1,12 @@
 ---
 date_created: Friday, April 26th 2020, 10:59:03 pm
-date_updated: Wednesday, January 22nd 2025, 12:18:47 am
+date_updated: Thursday, January 30th 2025, 10:23:00 am
 title: Sign your app
 author: hacket
 categories:
   - Android进阶
 category: 逆向
-tags: [安全, 逆向, 签名]
+tags: [安全, 签名, 逆向]
 toc: true
 description: 
 dg-publish: true

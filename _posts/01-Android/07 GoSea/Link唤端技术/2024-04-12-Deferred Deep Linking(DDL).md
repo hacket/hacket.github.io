@@ -1,12 +1,12 @@
 ---
 date_created: Friday, April 12th 2024, 10:41:00 pm
-date_updated: Wednesday, January 22nd 2025, 12:46:40 am
+date_updated: Wednesday, January 29th 2025, 11:16:44 pm
 title: Deferred Deep Linking(DDL)
 author: hacket
 categories:
   - Android进阶
 category: 出海
-tags: [出海, DDL, LInk]
+tags: [DDL, LInk, 出海]
 toc: true
 description: 
 dg-publish: true
@@ -36,7 +36,7 @@ Deferred Deep Linking 介绍，延迟深度链接 (解决未安装 APP)<br>相�
 - 可以引导未安装 APP 的用户下载 APP、
 - 分享者和被分享者的关系链会通过设备指纹信息记录下来，在业务场景中给出相应的奖励。
 
-Deferred Deeplink 可以先判断用户是否已经安装了 App 应用，如果没有则先引导至 App 应用商店中下载 App，在用户安装 App 后跳转到指定 App 页面 Deeplink 中。<br>![image.png|500](https://cdn.nlark.com/yuque/0/2023/png/694278/1684763358491-0b76e570-a910-480f-a097-c9e07d5e4a9a.png#averageHue=%23eae6e6&clientId=u099551e9-a7d7-4&from=paste&height=826&id=u0f58a79a&originHeight=960&originWidth=480&originalType=binary&ratio=2&rotation=0&showTitle=false&size=242431&status=done&style=shadow&taskId=ufd0ca628-754e-496a-b894-04f07f76c8e&title=&width=413)<br>Deferred Deeplink 在未安装 App 应用人群定向推广中效果更佳突出。另外国外的 App 运营在社交推广中广泛使用 Deferred Deeplink 技术，比如一个购物 App 中用户分享了一个自己喜欢的产品到社交账户中，如果没有使用 Deferred Deeplink。其好友看到分享，点击下载安装打开 App 应用后，很可能找不到其好友分享的产品，导致较高的用户流失率。
+Deferred Deeplink 可以先判断用户是否已经安装了 App 应用，如果没有则先引导至 App 应用商店中下载 App，在用户安装 App 后跳转到指定 App 页面 Deeplink 中。<br>![mij3u](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/mij3u.png)<br>Deferred Deeplink 在未安装 App 应用人群定向推广中效果更佳突出。另外国外的 App 运营在社交推广中广泛使用 Deferred Deeplink 技术，比如一个购物 App 中用户分享了一个自己喜欢的产品到社交账户中，如果没有使用 Deferred Deeplink。其好友看到分享，点击下载安装打开 App 应用后，很可能找不到其好友分享的产品，导致较高的用户流失率。
 
 # 三方 Deep Link/App Link/DDL 技术
 
@@ -71,15 +71,15 @@ AppLinkData.fetchDeferredAppLinkData(context, appLinkCallBack)
 1. [打开这个应用广告帮手页面](https://developers.facebook.com/tools/app-ads-helper/?id=145288758558252)
 2. 点击选择应用，选中你的应用，然后确认，再往下滑动网页会看到下面界面：
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1686308876992-a20d0dec-a65e-4f0b-9926-b483cd87c65d.png#averageHue=%23fefcfc&clientId=u0cf66c93-ec48-4&from=paste&height=184&id=IIuZ2&originHeight=560&originWidth=1512&originalType=binary&ratio=2&rotation=0&showTitle=false&size=144580&status=done&style=shadow&taskId=u9a8db5e8-39ed-4283-887e-4c1ab14fcbe&title=&width=498)
+![u381c](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/u381c.png)
 
 3. 点击测试深度链接按钮，在弹出的窗口中填写相应参数信息，发送测试链接：
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1686308895937-75a31851-ad58-4787-ac0d-f85be746f0fa.png#averageHue=%23c4c0be&clientId=u0cf66c93-ec48-4&from=paste&height=214&id=W6qNO&originHeight=822&originWidth=1614&originalType=binary&ratio=2&rotation=0&showTitle=false&size=399440&status=done&style=shadow&taskId=u3e87922e-dd94-4eb3-abda-abc2e31b346&title=&width=420)
+![1rno7](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1rno7.png)
 
 4. 从手机端点击进入测试效果：
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1686308999532-b385795d-3e35-452c-92ae-a0f9e8e6d534.png#averageHue=%23dbdcdc&clientId=u0cf66c93-ec48-4&from=paste&height=129&id=oPmfS&originHeight=258&originWidth=886&originalType=binary&ratio=2&rotation=0&showTitle=false&size=154256&status=done&style=shadow&taskId=ub602beb9-8f71-45f2-8a87-47eb17eee08&title=&width=443)
+![nhqlu](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/nhqlu.png)
 
 5. 为安装后接收深度链接，你的应用需要在启动时调用 Facebook SDK 方式中的
 
@@ -101,7 +101,7 @@ AppLinkData.fetchDeferredAppLinkData(this) {
 4. 再安装调试的 APP，就能获取到 facebook ddl 信息了
 5. 启动 app 时，抓包看接口 `graph.facebook.com/xxx/appid/activities`：
 
-有 `applink_url` 的才算有数据<br>![企业微信截图_16999552824987.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1699955308832-2d3d3307-f5e3-433c-8a80-0dccc5efa63e.png#averageHue=%23f7f7f6&clientId=ub0c8f99a-6196-4&from=paste&height=503&id=hk0iH&originHeight=1006&originWidth=1920&originalType=binary&ratio=2&rotation=0&showTitle=false&size=676998&status=done&style=shadow&taskId=u66772395-e4fc-4870-89db-c9e52c17f0e&title=&width=960)
+有 `applink_url` 的才算有数据<br>![g0v3w](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/g0v3w.png)
 
 ##### 测试的链接
 
@@ -121,13 +121,13 @@ AppLinkData.fetchDeferredAppLinkData(this) {
 
 <https://fb.me/1MNRW42z8QoGGum>
 
-返回下面这个就是失败的<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1699955049965-c527d44c-52f6-48bc-b817-5eb7d9ff3e81.png#averageHue=%23e0e0e0&clientId=ub0c8f99a-6196-4&from=paste&height=393&id=ud1bb446a&originHeight=786&originWidth=2380&originalType=binary&ratio=2&rotation=0&showTitle=false&size=349753&status=done&style=shadow&taskId=u2b6bdce6-1c36-4e4c-9862-2d6328299dd&title=&width=1190)
+返回下面这个就是失败的<br>![f6kl9](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/f6kl9.png)
 
 ### [Facebook applinks](https://developers.facebook.com/docs/applinks)
 
 #### Facebook App links 原理
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1686309296488-b17eeb88-1caa-483f-9a5c-0a19c34a30c0.png#averageHue=%23fbf9f8&clientId=u0cf66c93-ec48-4&from=paste&height=303&id=nPpQt&originHeight=846&originWidth=1500&originalType=binary&ratio=2&rotation=0&showTitle=false&size=229606&status=done&style=shadow&taskId=u9d2ebba9-609c-4a61-8e22-81701d9435d&title=&width=537)
+![v0o63](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/v0o63.png)
 
 #### 实现了 App Links protocol 的库
 
@@ -160,7 +160,7 @@ dependencies {
 
 3. 配置好了，GA4F 会在 App 启动的时候拉取配置
 
-在 APP 首次启动的时候会请求接口：<https://www.googleadservices.com/pagead/conversion/app/deeplink?id_type=adid&sdk_version=v79009.232216&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&bundleid=com.zzkko&retry=0&ddl_test=1><br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1686994042352-328f5ef4-0e84-4ef7-86b2-751166f771ba.png#averageHue=%23f1f0ef&clientId=uf5df239a-88ad-4&from=paste&height=180&id=yU2tK&originHeight=620&originWidth=1164&originalType=binary&ratio=2&rotation=0&showTitle=false&size=89983&status=done&style=none&taskId=ufdef8d3e-149d-471d-8a01-710e24b3e39&title=&width=337)
+在 APP 首次启动的时候会请求接口：<https://www.googleadservices.com/pagead/conversion/app/deeplink?id_type=adid&sdk_version=v79009.232216&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&bundleid=com.zzkko&retry=0&ddl_test=1><br>![wwn32](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wwn32.png)
 
 ### Google DDL 获取配置代码
 
@@ -302,7 +302,7 @@ fun Any?.toSafeLong(): Long {
 
 > curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzkko&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzkko&ddl_test=1)"
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1687183031177-4c0d1985-7228-4c07-8edc-277bed169522.png#averageHue=%23172e38&clientId=ub07af543-ad80-4&from=paste&height=66&id=Qtcpt&originHeight=132&originWidth=1134&originalType=binary&ratio=2&rotation=0&showTitle=false&size=79926&status=done&style=shadow&taskId=ufbdd347d-c3f2-4c94-b8cd-91e783a8ca0&title=&width=567)
+![yj63x](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/yj63x.png)
 
 3. 为你的应用开启 ddl 的 test mode
 

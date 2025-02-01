@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, May 2nd 2022, 10:44:50 am
-date_updated: Wednesday, January 22nd 2025, 12:09:10 am
+date_updated: Wednesday, January 29th 2025, 10:55:42 pm
 title: material-components-android
 author: hacket
 categories:

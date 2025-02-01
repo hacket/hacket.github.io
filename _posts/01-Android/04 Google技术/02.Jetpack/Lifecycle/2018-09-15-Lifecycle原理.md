@@ -1,6 +1,6 @@
 ---
 date_created: Sunday, September 15th 2018, 12:10:00 am
-date_updated: Tuesday, January 21st 2025, 11:42:51 pm
+date_updated: Wednesday, January 29th 2025, 10:27:02 pm
 title: Lifecycle原理
 author: hacket
 categories:
@@ -27,7 +27,7 @@ linter-yaml-title-alias: Lifecycle 原理
 
 ## 1、类组成
 
-![](https://img-blog.csdnimg.cn/20190117102651379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NkX3podXpoaXBlbmc=,size_16,color_FFFFFF,t_70#id=vU7DB&originHeight=1244&originWidth=1750&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250129222449.png)
 
 ### Lifecycle（订阅关系管理）
 
@@ -79,7 +79,7 @@ Event 触发的时机：
 1. `ON_CREATE`、`ON_START`、`ON_RESUME` 事件，是在 LifecycleOwner 对应的方法执行之后分发。
 2. `ON_PAUSE`、`ON_STOP`、`ON_DESTROY` 事件，是在 LifecycleOwner 对应的方法调用之前分发。
 
-![](http://note.youdao.com/yws/res/57355/E89594F2F8C64E0196C30035F6F5CB20#id=xghp4&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250129222537.png)
 
 #### Lifecycle. State 生命周期状态
 
@@ -139,7 +139,7 @@ public interface LifecycleEventObserver extends LifecycleObserver {
 
 LifecycleObserver 子接口。为所有的生命周期事件都定义了对应的回调方法。<br>实现该接口，就需要把不需要观察的方法回调都做一个空实现。在没有 java 8 的 default 关键字时，如果仅需要 1-2 个回调方法，那么最终实现类中的空方法会相当碍眼，这种情况下推选使用@OnLifecycleEvent 注解方式替代。(当然也可以自己弄一个空实现的 BaseLifecycleObserver)。
 
-- DefaultLifecycleObserver<br>FullLifecycleObserver 子接口。使用 java 8 的 default 关键字空实现了 FullLifecycleObserver 的所有方法。<br>需要引入：androidx. Lifecycle: lifecycle-compiler:<*>。<br>如果项目中使用了 java 8 或者开启 java 8 特性，那么官方强烈推选 DefaultLifecycleObserver 替代的@OnLifecycleEvent 注解实现 (注解后续可能被弃用)，包括预编译。<br>引入 DefaultLifecycleObserver 后，就需要把注解实现相关逻辑移除。即使保留注解，由于 Lifecycling 的处理逻辑（系统架构逻辑中所有传入的观察者都会经过 Lifecycling 处理），任何 FullLifecycleObserver 的实现类 (即包括 DefaultLifecycleObserver) 内部所有的@OnLifecycleEvent 注解都会失效。
+- DefaultLifecycleObserver<br>FullLifecycleObserver 子接口。使用 java 8 的 default 关键字空实现了 FullLifecycleObserver 的所有方法。<br>需要引入：`androidx.lifecycle:lifecycle-compiler:<*>`。<br>如果项目中使用了 java 8 或者开启 java 8 特性，那么官方强烈推选 DefaultLifecycleObserver 替代的@OnLifecycleEvent 注解实现 (注解后续可能被弃用)，包括预编译。<br>引入 DefaultLifecycleObserver 后，就需要把注解实现相关逻辑移除。即使保留注解，由于 Lifecycling 的处理逻辑（系统架构逻辑中所有传入的观察者都会经过 Lifecycling 处理），任何 FullLifecycleObserver 的实现类 (即包括 DefaultLifecycleObserver) 内部所有的@OnLifecycleEvent 注解都会失效。
 
 ```java
 interface FullLifecycleObserver extends LifecycleObserver {
@@ -563,7 +563,9 @@ static LifecycleEventObserver lifecycleEventObserver(Object object) {
 2. 后续就是 Fragment 生命周期变化时，通知 LifecycleObserver 的过程：Fragment 的 performXXX ()、onXXX () 方法；LifecycleRegistry 的 handleLifecycleEvent () 方法；LifecycleObserver 的 onXXX() 方法。
 3. 如果你细心点看上面的时序图，你会发现 Fragment 中 performCreate ()、performStart ()、performResume () 会先调用自身的 onXXX () 方法，然后再调用 LifecycleRegistry 的 handleLifecycleEvent () 方法；而在 performPause ()、performStop ()、performDestroy () 中会先 LifecycleRegistry 的 handleLifecycleEvent () 方法，然后调用自身的 onXXX() 方法。
 
-Fragment 实现 Lifecycle 原理图：<br>![](https://img-blog.csdnimg.cn/20190117102726258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NkX3podXpoaXBlbmc=,size_16,color_FFFFFF,t_70#id=FrlSf&originHeight=2242&originWidth=1372&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+Fragment 实现 Lifecycle 原理图：
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250129222630.png)
 
 ## 4、ProcessLifecycleOwner 提供 Application 生命周期
 

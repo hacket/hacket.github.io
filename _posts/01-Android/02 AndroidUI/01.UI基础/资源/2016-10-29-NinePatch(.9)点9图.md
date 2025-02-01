@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, October 29th 2016, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:33:11 pm
+date_updated: Monday, January 27th 2025, 10:44:28 pm
 title: NinePatch(.9)点9图
 author: hacket
 categories:
@@ -36,7 +36,7 @@ linter-yaml-title-alias: .9 图
 
 ## 9 patch
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1682503774630-84505203-a3de-4ef3-a869-bac0e5cd6809.png)
+![84yvv](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/84yvv.png)
 
 左侧和顶部的线定义可拉伸区域，通过底部和右侧的线定义可绘制区域。
 
@@ -51,7 +51,7 @@ linter-yaml-title-alias: .9 图
 1. 将图片放到 `res/drawable`
 2. 右击该图片选择 `Create 9-Patch file` 选项
 
-![|400](https://cdn.nlark.com/yuque/0/2023/png/694278/1682503089733-a195a4fd-13cf-475e-a1d4-d6b8933f123f.png)
+![gx13j](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/gx13j.png)
 
 3. 操作
    - 使用鼠标在图片的边缘拖动就可以进行绘制
@@ -59,7 +59,7 @@ linter-yaml-title-alias: .9 图
 
 #### Draw 9 patch 工具
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1682504521921-e3fd96cb-3fb9-4a9d-bfb7-c13a2acd2951.png)
+![02ylr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/02ylr.png)
 
 **界面介绍：**
 
@@ -81,7 +81,7 @@ linter-yaml-title-alias: .9 图
 
 ### 9 patch 四个边对应的黑线（黑点）的意义
 
-![|400](https://cdn.nlark.com/yuque/0/2023/png/694278/1682504321872-0e9ad274-3698-431d-a2bb-761e896ccb8d.png)
+![ozsaa](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ozsaa.png)
 
 - 1：黑色条位置向下覆盖的区域表示图片横向拉伸时，只拉伸该区域（横向区域）
 - 2：黑色条位置向右覆盖的区域表示图片纵向拉伸时，只拉伸该区域（纵向区域）
@@ -102,23 +102,23 @@ Badge Patches 原因可参考：[关于.9图失效以及.9图不可以错过的�
 
 案例：
 
-![|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1682508807067-0dd8fefc-4059-4800-a58e-4700f1055146.png)
+![h6dwu](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/h6dwu.png)
 
 解决后：
 
-![|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1682508841307-9b229ebf-cced-4438-8009-e316db84aaec.png)
+![od3zu](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/od3zu.png)
 
 ## 示例
 
 原图：等级背景图
 
-![|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1682576558203-87be3261-7161-4419-88c1-89dc96785fd9.png)
+![slwa0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/slwa0.png)
 
 目标：在不同场景下，图标不会被压贬了
 
 .9 图：
 
-![|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1682576573516-a331cc43-a705-42d9-a0b5-70da1ce63b41.png)
+![uiutj](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/uiutj.png)
 
 ## 注意
 
@@ -126,6 +126,6 @@ Badge Patches 原因可参考：[关于.9图失效以及.9图不可以错过的�
 2. 左边和上边的线用于限制可以拉伸的区域，右边和下边的线用于限制内容可以显示的区域；
 3. 拉伸区域选择没有内容的区域进行拉伸
 
-# 代码创建. 9 图
+# 代码创建 `.9` 图
 
 <https://juejin.im/entry/5d82306ff265da03d42fdc1e>

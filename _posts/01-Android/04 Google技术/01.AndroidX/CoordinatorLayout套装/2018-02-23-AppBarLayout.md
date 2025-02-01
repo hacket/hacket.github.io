@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:21:58 pm
+date_updated: Wednesday, January 29th 2025, 7:10:10 pm
 title: AppBarLayout
 author: hacket
 categories:
@@ -58,19 +58,19 @@ app:layout_scrollFlags
 
 #### scroll
 
-View 会跟随滚动事件一起发生移动。就是当指定的 ScrollView 发生滚动时，该 View 也跟随一起滚动，就好像这个 View 也属于这个 ScrollView 一样；向上滑动过程中停下来会保持那个状态；当已经完全滚动上去时，再向下滚动 ScrollView 需要 ScrollView 滚动到最上面时该 View 才会跟随 ScrollView 滚动<br />![](http://upload-images.jianshu.io/upload_images/2154124-3be36f546d6f5bbd?imageMogr2/auto-orient/strip#id=Dgkl2&originHeight=579&originWidth=346&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />**scroll 小结**<br />往上跟着滑动退出，往下到顶时进入
+View 会跟随滚动事件一起发生移动。就是当指定的 ScrollView 发生滚动时，该 View 也跟随一起滚动，就好像这个 View 也属于这个 ScrollView 一样；向上滑动过程中停下来会保持那个状态；当已经完全滚动上去时，再向下滚动 ScrollView 需要 ScrollView 滚动到最上面时该 View 才会跟随 ScrollView 滚动<br />![n0cp5](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/n0cp5.webp)<br />**scroll 小结**<br />往上跟着滑动退出，往下到顶时进入
 
 #### enterAlways
 
-当 ScrollView 往下滚动时，该 View 会直接往下滚动。而不用考虑 ScrollView 是否在滚动。和 scroll 的区别是，scroll 需要 ScrollView 滚动到顶再往下滚动，该 View 才会滚动下来，而 enterAlways 是只要 ScrollView 你往下滚动，而不关心 ScrollView 是否到顶了该 View 都会滚动。需要配合 scroll 使用，要不然该 View 滚动不上去。<br />![](http://upload-images.jianshu.io/upload_images/2154124-0c127a011cd0706e?imageMogr2/auto-orient/strip#id=II8et&originHeight=579&originWidth=346&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />**enterAlways 小结**<br />往上给 scroll，只要往下就进入
+当 ScrollView 往下滚动时，该 View 会直接往下滚动。而不用考虑 ScrollView 是否在滚动。和 scroll 的区别是，scroll 需要 ScrollView 滚动到顶再往下滚动，该 View 才会滚动下来，而 enterAlways 是只要 ScrollView 你往下滚动，而不关心 ScrollView 是否到顶了该 View 都会滚动。需要配合 scroll 使用，要不然该 View 滚动不上去。<br />![481y1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/481y1.webp)<br />**enterAlways 小结**<br />往上给 scroll，只要往下就进入
 
 #### exitUntilCollapsed
 
-设置为 `exitUntilCollapsed` 的 View，当这个 View 要往上逐渐 `消逝` 时，会一直往上滑动，直到剩下的高度达到它的最小高度后，再响应 ScrollView 的内部滑动事件，直到 ScrollView 向上滑动到底，该 View 一直都只出现最小高度。其实就是在 ScrollView 往上滑动时，首先是 View 把滑动事件夺走，由 View 去执行滑动，直到滑动最小高度后，再把这个事件还回去，让 ScrollView 内部去上滑。需要配合 scroll 使用，要不然该 View 滚动不上去。<br />![](http://upload-images.jianshu.io/upload_images/2154124-a17793a6ffcca05e?imageMogr2/auto-orient/strip#id=BJti1&originHeight=579&originWidth=347&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />**exitUntilCollapsed 小结**<br />往上先自己，到最小高度给他人，后保持最小高度；往下 `scroll` 到顶再进入
+设置为 `exitUntilCollapsed` 的 View，当这个 View 要往上逐渐 `消逝` 时，会一直往上滑动，直到剩下的高度达到它的最小高度后，再响应 ScrollView 的内部滑动事件，直到 ScrollView 向上滑动到底，该 View 一直都只出现最小高度。其实就是在 ScrollView 往上滑动时，首先是 View 把滑动事件夺走，由 View 去执行滑动，直到滑动最小高度后，再把这个事件还回去，让 ScrollView 内部去上滑。需要配合 scroll 使用，要不然该 View 滚动不上去。<br />![64cav](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/64cav.webp)<br />**exitUntilCollapsed 小结**<br />往上先自己，到最小高度给他人，后保持最小高度；往下 `scroll` 到顶再进入
 
 #### enterAlwaysCollapsed
 
-`enterAlwaysCollapsed` 是 `enterAlways` 的附加选项，一般跟 `enterAlways` 一起使用，它是指，在 View 往下出现时，首先是 `enterAlways` 效果，当 View 的高度达到最小高度时，View 就暂停不去往下滑动，直到 ScrollView 滑动到顶部时，View 再继续往下滑动，直到滑到 View 的顶部结束。需要配合 scroll 使用，要不然该 View 滚动不上去。<br />![](http://upload-images.jianshu.io/upload_images/2154124-97ea2548a54a6e7b?imageMogr2/auto-orient/strip#id=ToMzg&originHeight=576&originWidth=347&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+`enterAlwaysCollapsed` 是 `enterAlways` 的附加选项，一般跟 `enterAlways` 一起使用，它是指，在 View 往下出现时，首先是 `enterAlways` 效果，当 View 的高度达到最小高度时，View 就暂停不去往下滑动，直到 ScrollView 滑动到顶部时，View 再继续往下滑动，直到滑到 View 的顶部结束。需要配合 scroll 使用，要不然该 View 滚动不上去。<br />![exh5d](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/exh5d.webp)
 
 **enterAlwaysCollapsed 小结**<br />往上给 scroll，往下先 `enterAlwasy` 自己，然后他人，然后再自己进入。
 

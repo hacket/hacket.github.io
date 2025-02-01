@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:28:31 pm
+date_updated: Wednesday, January 29th 2025, 10:07:54 pm
 title: RecyclerView辅助
 author: hacket
 categories:
@@ -156,7 +156,7 @@ void snapToTargetExistingView() {
 
 snapToTargetExistingView() 方法顾名思义是移动到指定已存在的 View 的位置，findSnapView 是查到目标的 SnapView，calculateDistanceToFinalSnap 是计算 SnapView 到最终位置的距离；由于 findSnapView 和 calculateDistanceToFinalSnap 是抽象方法，所以需要子类的具体实现；<br />整理一下滚动状态回调下，SnapHelper 的实现流程图如下：
 
-![](http://note.youdao.com/yws/res/41132/D8D7AC46E6794AAF8898386C300E1356#id=HUZe9&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688489946047-f5f8a339-ae02-41b2-bd61-d4ba9db321c8.png#averageHue=%23f5f4f4&clientId=u4bb3d248-2555-4&from=paste&height=577&id=u7827bcfc&originHeight=866&originWidth=593&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=100089&status=done&style=none&taskId=u198adf72-be31-4f1e-a76a-030bf4e6f1a&title=&width=395.3333333333333)
+![e9r76](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/e9r76.png)
 
 #### Fling 结果回调处理 OnFlingListener
 
@@ -208,11 +208,15 @@ private boolean snapFromFling(@NonNull RecyclerView.LayoutManager layoutManager,
 
 ### SnapHelper 重要方法
 
-#### View findSnapView(RecyclerView.LayoutManager layoutManager)
+#### findSnapView
+
+View findSnapView(RecyclerView.LayoutManager layoutManager)
 
 提供给 scroll/fling 用。在 scroll 处于 idle 时需要 snap 时，回调该方法找一个 snap 的 view。在 fling 时也会调用
 
-#### int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View targetView)
+#### calculateDistanceToFinalSnap
+
+`int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View targetView)`
 
 提供给 scroll 用。参数 2 targetView 就是 findSnapView 找到的 snap 的 View。计算滚动到 targetView 的坐标
 

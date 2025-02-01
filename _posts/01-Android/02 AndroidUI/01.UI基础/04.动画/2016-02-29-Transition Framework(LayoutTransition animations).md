@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:31:08 pm
+date_updated: Monday, January 27th 2025, 10:34:01 pm
 title: Transition Framework(LayoutTransition animations)
 author: hacket
 categories:
@@ -210,7 +210,7 @@ new Explode() 为 Android 提供的方法，还有其他的
 
 ## 进出场动画解释
 
-```
+```java
 // 目标Activity的进入转场动画
 // setEnterTransition() 
 // android:windowEnterTransition  
@@ -658,8 +658,6 @@ ObjectAnimator changeDis = ObjectAnimator.ofPropertyValuesHolder(this,changeLeft
 
 layoutTransition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING, changeDis);
 ```
-
-![](https://img-blog.csdnimg.cn/20190103161557530.gif#id=yoyZQ&originHeight=537&originWidth=360&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 # Transition Framework 介绍
 

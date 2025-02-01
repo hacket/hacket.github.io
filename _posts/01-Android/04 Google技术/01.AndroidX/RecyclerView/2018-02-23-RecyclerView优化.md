@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:30:23 pm
+date_updated: Wednesday, January 29th 2025, 9:54:45 pm
 title: RecyclerView优化
 author: hacket
 categories:
@@ -505,7 +505,7 @@ public abstract static class Callback {
 }
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688516614417-c438af58-3f05-4cc2-a657-86d0bd74b26d.png#averageHue=%23f7f7f7&clientId=u67093510-60d4-4&from=paste&height=506&id=u58887c71&originHeight=1264&originWidth=1440&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uda41e0d1-85e0-4b21-9fa9-ff958e50b2d&title=&width=576)
+![nk4l3](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/nk4l3.png)
 
 ### DiffUtil.calculateDiff()
 

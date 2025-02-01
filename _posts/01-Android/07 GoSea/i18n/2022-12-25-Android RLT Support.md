@@ -1,12 +1,12 @@
 ---
 date_created: Wednesday, December 25th 2022, 12:07:52 am
-date_updated: Wednesday, January 22nd 2025, 12:43:45 am
+date_updated: Wednesday, January 29th 2025, 11:03:30 pm
 title: Android RLT Support
 author: hacket
 categories:
   - Android进阶
 category: 出海
-tags: [出海, Android适配, RTL]
+tags: [Android适配, RTL, 出海]
 toc: true
 description: 
 dg-publish: true

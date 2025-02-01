@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2019, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:57:57 pm
+date_updated: Wednesday, January 29th 2025, 10:39:19 pm
 title: ViewBinding
 author: hacket
 categories:
@@ -649,7 +649,9 @@ class OvoFragment : BaseViewBindingFragment<FragmentOvoBinding>() {
 
 #### 委托属性封装 ViewBinding(反射)
 
-这几种方式，不添加 keep 规则，release 混淆后也可以跑，method 方法名 inflate 直接替换成为混淆后的 b 了<br />![](https://note.youdao.com/yws/res/91927/F7C09F0EAF534974A8EEFD500D287A06#id=RY7Yd&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691240032992-bf285aa4-4ffa-4019-999e-6f3e8262a145.png#averageHue=%23fcfaf9&clientId=u6108771b-319b-4&from=paste&height=113&id=uc1698474&originHeight=226&originWidth=1022&originalType=binary&ratio=2&rotation=0&showTitle=false&size=29586&status=done&style=none&taskId=u6de243bf-edd7-4f67-8f2a-41a17c24a80&title=&width=511)
+这几种方式，不添加 keep 规则，release 混淆后也可以跑，method 方法名 inflate 直接替换成为混淆后的 b 了
+
+![04xrs](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/04xrs.png)
 
 ```kotlin
 /**
@@ -786,7 +788,7 @@ inline fun <T : ViewBinding> ViewGroup.viewBinding(
 
 ## 区别
 
-![](https://miro.medium.com/max/1400/1*APXv8swJYGv2O8CAqV1jLQ.png#id=Lht9R&originHeight=699&originWidth=1400&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![z8xni](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/z8xni.png)
 
 ### ViewBinding 相较 ButterKnife、Kotlin Android Extensions 的几点优势
 

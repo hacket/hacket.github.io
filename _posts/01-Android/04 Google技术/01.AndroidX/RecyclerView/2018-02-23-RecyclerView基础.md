@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:28:56 pm
+date_updated: Wednesday, January 29th 2025, 10:03:09 pm
 title: RecyclerView基础
 author: hacket
 categories:
@@ -202,7 +202,7 @@ adapter = new MyAdapter(this);
 recyclerView.setAdapter(adapter);
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688488188990-f9d4d242-6d30-4e6f-84c7-8ee04e48d62e.png#averageHue=%23e3e2ed&clientId=u1a8cb8ea-a7d1-4&from=paste&height=550&id=u0253a157&originHeight=1129&originWidth=1000&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u8270bfbd-e7e7-49a9-b18b-299b639f936&title=&width=487)
+![109wg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/109wg.png)
 
 ### RecyclerView 中 scroll 相关 滚动条（垂直和水平）
 
@@ -235,9 +235,12 @@ recyclerView.setAdapter(adapter);
 
 **效果：**
 
-竖直：<br>![](https://note.youdao.com/yws/res/42532/460FDF5DCCF2413BAD423DEA57AB2EF2#id=yAHdj&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688488221575-41d78cca-1f92-428a-899d-c63133f40484.png#averageHue=%23f8f8f8&clientId=u1a8cb8ea-a7d1-4&from=paste&id=u1aaa9cb2&originHeight=391&originWidth=233&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ufeb7ba32-30cb-498f-b3bc-bd480e6485c&title=)
+竖直：
 
-水平：<br>![](https://note.youdao.com/yws/res/42536/8BFF51D75E534A93AE1E02E46A7A216E#id=VA1NV&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688488230244-317c7453-7499-42cb-84ab-114c53cbb917.png#averageHue=%237dc999&clientId=u1a8cb8ea-a7d1-4&from=paste&id=u468b66b1&originHeight=368&originWidth=714&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uce6d0eeb-1cc5-4d02-a545-ace51cf30e2&title=)
+![sor6z](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/sor6z.png)
+
+水平：<br>
+![5iu3h](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/5iu3h.png)
 
 #### Fade Edge 注意
 
@@ -277,7 +280,7 @@ class CustomFadingEdgeRecyclerView @JvmOverloads constructor(
 
 #### Fade Edge 应用
 
-1. 直播间在线列表边缘<br>![](https://note.youdao.com/yws/res/53186/5E8EEEFDAE12404181ED23DF993932D0#id=cpSVc&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688488238443-a1f66e98-b77b-4045-a9e0-defe9f5f820e.png#averageHue=%232a2a3c&clientId=u1a8cb8ea-a7d1-4&from=paste&id=u95258c6f&originHeight=196&originWidth=1406&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u70331d4f-49c8-4ae5-aa49-4125259c5ae&title=)
+1. 直播间在线列表边缘<br>![ichgw](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ichgw.png)
 
 ### RecyclerView 的 ItemView 需要超出父容器 clipToPadding/clipChildren
 
@@ -296,16 +299,16 @@ android:clipChildren="false"
 
 #### onBindViewHolder 中的 position
 
-- onBindViewHolder([@NonNull](/NonNull) final ViewHolder holder, final int position)
+- onBindViewHolder(@NonNull final ViewHolder holder, final int position)
 
-1. 这个 position 可以在 onBindViewHolder 方法中用来获取数据，但不要超出该方法<br>![](https://note.youdao.com/yws/res/59481/C73E9E0F16CB4E2FAE38D90806D20FA7#id=EJKDq&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
-2. 不要在 OnClickListener 调用<br>![](https://note.youdao.com/yws/res/59487/6AC4731FB71842B4AEE5CEF1BD9ADED2#id=TAZbw&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+1. 这个 position 可以在 onBindViewHolder 方法中用来获取数据，但不要超出该方法 ![qjekb](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/qjekb.png)
+2. 不要在 OnClickListener 调用 ![bibod](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/bibod.png)
 
 > 这是因为 RecyclerView 不会像 ListView 一样在 item 的 position 变化时调用 onBindViewHolder，导致 position 是个旧值，不会更新；所以不要在一些 later 操作中使用 position（如 click），用 `getAdapterPosition()` 替代。
 
 notifyItemInserted(position) 只会调用 position 的 onBindViewHolder，其他 item 项不会调用，onBindViewHolder 参数的 position 就会是旧的值，有问题；notifyDataSetChanged 可见的 item 都会调用 onBindViewHolder，不会有问题
 
-```
+```java
 Why? because if you deleted/added/changed any item in the data set and notified the RecyclerView Using notifyItem*(), RecyclerView will not call onBindViewHolder method and update all item’s positions, It will only update the position of the new ones for the new calls of onBindViewHolder and this will cause inconsistency between displayed items and position value.
 
 Imagine that we have a RecyclerView that will display 10 items so it will create 10 items and call onBindView for those 10 items and pass the positions from 0 to 9, so if you fixed the position by using it to handle user clicks and later you added an item at position 0 and notified the data set that you inserted a new item by notifyItemInserted() the RecyclerView will create a new item with position 0 and pass it to the layout but the pre created ones still have the old positions and if you logged those positions you will have 00123…9 which is not true it should be 0123…10. Here come the power of holder.getAdapterPosition().
@@ -379,7 +382,7 @@ override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestVH {
 rv_content_list.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688489360685-91428fdb-aa18-4737-b401-ee244f7e8e9c.png#averageHue=%235bcf94&clientId=u836cc140-b75b-4&from=paste&height=347&id=uae12a7d3&originHeight=1242&originWidth=1471&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=283292&status=done&style=none&taskId=uf0adf819-2c94-485d-a344-ffdb4df1b26&title=&width=411)
+![dp1pc](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/dp1pc.png)
 
 2. 默认设置 them: android:listDivider
 
@@ -415,8 +418,6 @@ divider.setDrawable(it)
 }
 rv_content_list.addItemDecoration(divider)
 ```
-
-![](https://note.youdao.com/src/D1A128C70EE24A8CBEA10D520316BAF6#id=Gu33l&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=320)
 
 4. 代码设置
 
@@ -459,7 +460,7 @@ val simpleItemDecoration = SimpleItemDecoration(this, DividerItemDecoration.VERT
 rv_content_list.addItemDecoration(simpleItemDecoration)
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688489398080-678c75f7-0e66-4e6c-a79c-177ab1af742f.png#averageHue=%2356ca8b&clientId=u836cc140-b75b-4&from=paste&height=580&id=u47488201&originHeight=1059&originWidth=496&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=119411&status=done&style=none&taskId=uc25829cf-e744-4564-8f18-8ee4445dfb3&title=&width=271.66668701171875)
+![gril1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/gril1.png)
 
 #### DividerItemDecoration 源码分析
 
@@ -555,7 +556,7 @@ public abstract static class ItemDecoration {
 }
 ```
 
-- outRect 当前 itemView 距离上下左右的边距<br>![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688489502716-c6ea5529-bacc-4a9b-912b-bfc179858ec0.png#averageHue=%23dfdfdb&clientId=u836cc140-b75b-4&from=paste&id=u68f7d390&originHeight=1136&originWidth=2108&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ub148a905-c14f-46d3-befc-f2acac02a0d&title=)
+- outRect 当前 itemView 距离上下左右的边距<br>![lxz2l](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/lxz2l.png)
 - onDraw 中绘制的内容会被 itemView 覆盖；onDrawOver 的内容会覆盖 itemView
 - 注意处理 padding/margin
 - 注意 RecyclerView clipChildren，可参考 DividerItemDecoration 画布裁剪
@@ -723,7 +724,7 @@ public class StarDecoration extends RecyclerView.ItemDecoration {
 }
 ```
 
-效果：<br>![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688489540198-8f302a66-df58-4d0a-b342-aed8bb5b86ff.png#averageHue=%232fd047&clientId=u836cc140-b75b-4&from=paste&height=913&id=u08addbe7&originHeight=2400&originWidth=1080&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u165da14b-c01a-4f23-9066-ae3dc02c175&title=&width=411)
+效果：<br>![s4dgp](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/s4dgp.png)
 
 ## ItemTouchHelper 处理 item 拖拽，事件相关的
 
@@ -1441,9 +1442,7 @@ public boolean fling(int velocityX, int velocityY) {
 }
 ```
 
-在 RecyclerView 中 fling 行为流程图如下：<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688488719955-53e8ee8e-03ec-425b-8848-585971ab38b3.png#averageHue=%23f7f7f7&clientId=u1a8cb8ea-a7d1-4&from=paste&height=441&id=uc0d3830e&originHeight=661&originWidth=718&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=57661&status=done&style=none&taskId=uee0953e4-8f44-41ec-a5ea-c79125029fb&title=&width=478.6666666666667)
-
-# ![](http://note.youdao.com/yws/res/41063/0F40B18CA63D469C90FACA572527857C#id=CoMia&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)AndroidFastScroll
+在 RecyclerView 中 fling 行为流程图如下：<br>![5wau1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/5wau1.png)
 
 <https://github.com/zhanghai/AndroidFastScroll>
 
@@ -1457,7 +1456,8 @@ public boolean fling(int velocityX, int velocityY) {
 
 - 默认是作为 ViewPager 子 View 的 RecyclerView 在滑到最后一个或第一个 ItemView 到导致 ViewPager 滑动
 
-**分析：**<br>作为子 View 的 RecyclerView 在滑到最后一个或第一个 ItemView 到导致 ViewPager 滑动，这一定是 ViewPager 在此刻对滑动事件进行了拦截，解决的最简单办法就是不让 ViewPager 拦截横向 RecyclerView 的滑动事件（即 ViewPager::onInterceptTouchEvent 方法返回 false），ViewPager::onInterceptTouchEvent 中的 Move 事件如下：<br>![](http://note.youdao.com/yws/res/45262/0AE2164432DE4188BCDA1A8CE4B8AE3D#id=yjRP1&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688490805264-c81d4996-65d2-4284-9cd9-087ce3fd4a44.png#averageHue=%232a2a25&clientId=u327fc544-fac9-4&from=paste&id=u78586096&originHeight=408&originWidth=684&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u799a1eae-508f-460e-9d36-80b530bd2ec&title=)<br>**解决：** RecyclerView 在滑到最后一个或第一个 ItemView 到不让 ViewPager 滑动<br>目前，有以下两种方式使 ViewPager 不去拦截横向 RecyclerView 滑动事件:
+**分析：**<br>作为子 View 的 RecyclerView 在滑到最后一个或第一个 ItemView 到导致 ViewPager 滑动，这一定是 ViewPager 在此刻对滑动事件进行了拦截，解决的最简单办法就是不让 ViewPager 拦截横向 RecyclerView 的滑动事件（即 ViewPager:: onInterceptTouchEvent 方法返回 false），ViewPager:: onInterceptTouchEvent 中的 Move 事件如下：
+![if22y](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/if22y.png)<br>**解决：** RecyclerView 在滑到最后一个或第一个 ItemView 到不让 ViewPager 滑动<br>目前，有以下两种方式使 ViewPager 不去拦截横向 RecyclerView 滑动事件:
 
 1. 在 RecyclerView 对应滑动事件分发中调用 `getParent().requestDisallowInterceptTouchEvent(true);` 阻止 ViewPager 对其 MOVE 或者 UP 事件进行拦截，但是考虑的因素比较多，而且效果不是太好，故放弃这种方式。
 2. 修改某些方法，进入到上图 if 判断中 : 在滑动横向 RecyclerView 到两端时，dx != 0 && !isGutterDrag(mLastMotionX, dx) 肯定满足条件，那说明 canScroll() （用来判断一个 View 以及它的子 View 是否可以滑动）一定返回了 false， 复写 canScroll() 方法，打 log，发现返回果然为 false，验证了自己的判断。
@@ -1485,11 +1485,13 @@ class NotScrollBorderViewPager @JvmOverloads constructor(
 
 ### 垂直 RecyclerView 嵌套水平 RecyclerView 水平滑动易滑动垂直 RecyclerView 问题，ViewPager2 也类似 (水平 RecyclerView 容易滑动到垂直 RecyclerView)
 
-垂直 Recyclerview 嵌套水平 Recyclerview 的时候，有时候水平滑动的事件会被垂直的 View 消费掉，这时候横划就会比较困难 <br>** 原因 **<br>外层纵向滑动的 RecyclerView 对 横向滑动的 RecyclerView 的滑动事件进行了拦截，源码：<br>![](http://note.youdao.com/yws/res/45276/99095FCE5BDF4E299E9D36634EF9B2AB#id=qxIWF&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688490841807-a6c7a2a5-2b0a-4092-b53e-e8f24fa23ef1.png#averageHue=%232c2c25&clientId=u327fc544-fac9-4&from=paste&id=u2d8e4fb0&originHeight=493&originWidth=566&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u799308a0-5515-49f7-a5d2-bf3523df4c9&title=)
+垂直 Recyclerview 嵌套水平 Recyclerview 的时候，有时候水平滑动的事件会被垂直的 View 消费掉，这时候横划就会比较困难 <br>原因： **<br>外层纵向滑动的 RecyclerView 对横向滑动的 RecyclerView 的滑动事件进行了拦截，源码：
+
+![2dzjh](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2dzjh.png)
 
 > canScrollVertically 此刻为 true，因此这里仅仅只判断了 Math.abs(dy)>mTouchSlop(可以认为是一个滑动阀值，是一个定值 8dp) ，并未判断方向或角度，从而决定是否拦截。
 
-**解决**<br>既然 RecyclerView::onInterceptTouchEvent 内部没有判断滑动角度或方向，那我们就人为去判断，在上面判读的基础上继续判断 Math.abs(dy) 和 Math.abs(dx) 的大小，从而决定是否拦截
+**解决** <br>既然 RecyclerView:: onInterceptTouchEvent 内部没有判断滑动角度或方向，那我们就人为去判断，在上面判读的基础上继续判断 Math.abs(dy) 和 Math.abs(dx) 的大小，从而决定是否拦截
 
 解决 1：重新内测垂直 RecyclerView，通过 getParent().requestDisallowInterceptTouchEvent(true); 让父 RecyclerView 不去拦截横向滑动<br><https://www.jianshu.com/p/4c87e0b6d16c>
 
@@ -1833,9 +1835,9 @@ RecyclerView 未设置 `constraintBottom_xxx` 和 `constraintTop`，`constraintS
 </ConstraintLayout>
 ```
 
-如下图，后面几条数据显示不出来了；点击取消/选择 item 会滚动距离<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688517393764-a2fed14d-890d-4aca-8e2a-e10bf5b4dd99.png#averageHue=%2314232c&clientId=ue88291d7-7932-4&from=paste&height=657&id=u06440443&originHeight=985&originWidth=945&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=716939&status=done&style=none&taskId=u47419d55-5d85-42ba-af75-fc64a24c8f1&title=&width=630)
+如下图，后面几条数据显示不出来了；点击取消/选择 item 会滚动距离<br>![78wm2](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/78wm2.png)
 
-### ![](http://note.youdao.com/yws/res/43813/92F8D69C8CA8485B9FA14264DC0B8046#id=uRGBH&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)解决
+解决
 
 设置 `app:layout_constraintEnd_toEndOf="parent"`
 
@@ -1856,7 +1858,7 @@ RecyclerView 未设置 `constraintBottom_xxx` 和 `constraintTop`，`constraintS
 </ConstraintLayout>
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688517414975-d92fceb0-1471-4dc4-9a76-5272a838ca8b.png#averageHue=%2314232d&clientId=ue88291d7-7932-4&from=paste&height=317&id=u3c8b4562&originHeight=906&originWidth=967&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=648559&status=done&style=none&taskId=ud9b226b7-6e71-4e15-a717-1b0bb80b910&title=&width=338.66668701171875)
+![qmgz2](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/qmgz2.png)
 
 ### 小结
 

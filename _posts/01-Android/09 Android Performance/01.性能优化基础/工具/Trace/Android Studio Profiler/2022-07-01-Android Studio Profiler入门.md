@@ -1,12 +1,12 @@
 ---
 date_created: Monday, July 1st 2022, 10:42:58 pm
-date_updated: Wednesday, January 22nd 2025, 1:17:55 am
+date_updated: Thursday, January 30th 2025, 12:09:02 am
 title: Android Studio Profiler入门
 author: hacket
 categories:
   - 性能优化
 category: 性能优化工具
-tags: [性能优化, 性能优化工具, Profiler]
+tags: [Profiler, 性能优化, 性能优化工具]
 toc: true
 description: 
 dg-publish: true

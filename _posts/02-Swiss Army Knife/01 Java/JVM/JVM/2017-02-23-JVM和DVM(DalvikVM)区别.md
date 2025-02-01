@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:44 pm
-date_updated: Thursday, January 23rd 2025, 12:30:17 am
+date_updated: Thursday, January 30th 2025, 6:38:54 pm
 title: JVM和DVM(DalvikVM)区别
 author: hacket
 categories:
@@ -27,7 +27,7 @@ linter-yaml-title-alias: JVM 和 DVM(DalvikVM) 区别
 
 ## JVM 和 DVM 的区别
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693584336251-5efed75b-bfe9-483e-a6b1-fe4748563f53.png#averageHue=%23f7f7f7&clientId=u178b7559-5ba9-4&from=paste&id=u1ef577df&originHeight=889&originWidth=964&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=uf1a83e0e-2b32-4d95-b6f7-6c6d50a51e4&title=)
+![jpq8u](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/jpq8u.png)
 
 ### 执行的文件格式不同
 
@@ -60,7 +60,7 @@ JVM 只能同时存在一个实例；dvm 可同时存在多个实例（好处是
 
 ## DVM 与 ART 区别
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693584351246-a90eb6c9-a532-426c-b28c-67f8e8d2c2d6.png#averageHue=%23f8f7f6&clientId=u178b7559-5ba9-4&from=paste&id=u1ef18db6&originHeight=916&originWidth=1040&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u86b19b79-6c05-4286-8aba-64aa4893673&title=)
+![a8jmw](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/a8jmw.png)
 
 ### JIT 和 AOT 区别
 
@@ -75,7 +75,7 @@ JIT 是 Just-In-Time Compilation 的缩写，中文为即时编译。就是 JAVA
 3. 当开启 JIT 时，JVM 会分析 Java 应用程序的函数调用并且（达到内部一些阀值后）编译字节码为本地更高效的机器码。JIT 流程通常为最繁忙的函数调用提供更高的优先级。
 4. 一旦函数调用被转为机器码，JVM 会直接执行而不是 " 解释执行 "
 
-流程图：<br>![](https://cdn.nlark.com/yuque/0/2023/png/694278/1693584364010-bc82032a-be41-4e9f-8d2b-d5c23ece6c44.png#averageHue=%23f5f5f5&clientId=u178b7559-5ba9-4&from=paste&id=ud6908e39&originHeight=537&originWidth=330&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u809ac344-9e00-4f71-874e-64485eab938&title=)
+流程图：<br>![1g7it](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1g7it.png)
 
 > 其实就是省略了 JVM 加载 class 文件，将 class 文件解释成二进制机器码的一个过程。
 

@@ -1,6 +1,6 @@
 ---
 date_created: Friday, April 12th 2024, 10:41:00 pm
-date_updated: Wednesday, January 22nd 2025, 12:06:23 am
+date_updated: Wednesday, January 29th 2025, 10:53:31 pm
 title: Google Play Billing
 author: hacket
 categories:
@@ -47,11 +47,11 @@ linter-yaml-title-alias: Google 支付接入流程
 
 ### 2.1、新建一个项目
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691224346152-0bacf06e-603a-4cc2-bb22-474732d9ad54.png#averageHue=%23f9f9f9&clientId=uc9b7d058-c0b3-4&from=paste&height=356&id=ufa13205a&originHeight=712&originWidth=2418&originalType=binary&ratio=2&rotation=0&showTitle=false&size=197261&status=done&style=none&taskId=ub5f7a019-54a7-446c-8fed-540c77eeeb6&title=&width=1209)
+![2mlj4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2mlj4.png)
 
 ### 2.2、配置应用版本
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691224357675-60ae56e6-85a5-414d-aab6-97a09e5dbb57.png#averageHue=%23f5f5f5&clientId=uc9b7d058-c0b3-4&from=paste&height=646&id=u99d13ef4&originHeight=1292&originWidth=2410&originalType=binary&ratio=2&rotation=0&showTitle=false&size=456730&status=done&style=none&taskId=u60b12bf1-419f-4fea-a28b-cd1d0d7a075&title=&width=1205)<br />![](http://note.youdao.com/yws/res/50002/F38A6F8C2A8C44C89F5B785C7E4E359D#id=v8GFT&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)应用版本分四大类：
+![8eup2](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/8eup2.png)应用版本分四大类：
 
 - 正式版<br />当您创建正式版后，应用的此版本便可供您指定的国家/地区的所有用户使用。
 - Beta 版<br />在您完成封闭式版本的测试后，即可创建开放式测试版。您可以让更多的用户参与开放式版本测试，然后再发布应用的正式版。
@@ -294,17 +294,13 @@ boolean isConnected =mBillingClient.isReady()
 - 准备<br />一张 visa 信用卡，一个从未设置付款方式的 Google 账号。
 - 设置流程：<br />在 Google play 中登录你的 Google 账号并 [设置付款方式](https://pay.google.com/gp/w/u/1/home/paymentmethods?sctid=2951382848143197)，
 
-![](https://note.youdao.com/src/BC16000658844727B38766849AE1F15A#id=JSKuu&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
-
 在设置付款详情时，需要注意的是，你的账单地址需要填写外国地址。你可以打开 Google map 随便点击一个地址，上面会显示相应的地址和邮编等信息，填写上去就 OK 了。
-
-![](https://note.youdao.com/src/F99BA485ED6B4943A18DB6E9D3D16462#id=RMF1I&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 ### 4.2、在测试人员列表中添加需要测试的测试账号
 
 发布到内部测试渠道的 APP，如果其他人需要测试购买流程，需要在测试人员列表中添加测试人的 Google 账号。<br />
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691224418761-c3b45d35-b0ba-4462-99a4-32a988ba7697.png#averageHue=%23f8f8f1&clientId=uc9b7d058-c0b3-4&from=paste&height=658&id=u86533af0&originHeight=1316&originWidth=2396&originalType=binary&ratio=2&rotation=0&showTitle=false&size=565358&status=done&style=none&taskId=u71d5e2af-81a5-41ca-b99b-31cefa2718e&title=&width=1198)
+![xetat](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/xetat.png)
 
 ## 五、其他
 
@@ -330,5 +326,3 @@ boolean isConnected =mBillingClient.isReady()
 官方文档<https://developer.android.com/google/play/billing/billing_subscriptions?hl=zh-cn>
 
 用户订购的商品会自动续订，用户可以在 Google play 商店中查看并操作 (取消订阅等操作) 自己订阅的商品。到期时用户续订是否成功，在客户端去查询订单信息的时候是不能确定的，需要通过后端接入 [Google Play Developer API](https://developer.android.com/google/play/developer-api.html?hl=zh-cn) 才能知晓用户是否已经续订成功。
-
-**同学们在开发的过程中发现本文档中描述错误或需要补充时，请联系我更改 zhaoyoujun**[**@qiushibaike.com **](/qiushibaike.com)** **

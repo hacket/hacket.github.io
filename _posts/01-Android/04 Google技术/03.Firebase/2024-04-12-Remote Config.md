@@ -1,6 +1,6 @@
 ---
 date_created: Friday, April 12th 2024, 10:41:00 pm
-date_updated: Wednesday, January 22nd 2025, 12:03:17 am
+date_updated: Wednesday, January 29th 2025, 10:44:06 pm
 title: Remote Config
 author: hacket
 categories:
@@ -35,7 +35,7 @@ Firebase 远程配置是指在 Firebase 后台存储一些键值对，在 app �
 
 ### [集成Firebase](https://firebase.google.com/docs/android/setup)
 
-[**方式1：自动 Add Firebase using the Firebase Assistant**](https://firebase.google.com/docs/android/setup#assistant)<br>Tools > Firebase.<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684500533294-8641e97d-6b05-445a-a777-9c796937fbda.png#averageHue=%233f4144&clientId=ud986f970-0ddb-4&from=paste&height=386&id=u02b671f9&originHeight=1264&originWidth=1766&originalType=binary&ratio=2&rotation=0&showTitle=false&size=235748&status=done&style=none&taskId=u8bb44a59-dff3-4e28-ab12-7427c2450da&title=&width=539)<br>[**方式2：手动 Add Firebase using the Firebase console**](https://firebase.google.com/docs/android/setup#console)
+[**方式1：自动 Add Firebase using the Firebase Assistant**](https://firebase.google.com/docs/android/setup#assistant)<br>Tools > Firebase.<br>![40im8](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/40im8.png)<br>[**方式2：手动 Add Firebase using the Firebase console**](https://firebase.google.com/docs/android/setup#console)
 
 1. 下载 `google-services.json` 到 app 根目录
 2. root-level (project-level) 添加 gms Gradle 插件
@@ -161,7 +161,7 @@ remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
 
 ### Firebase 后台配置值
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684495568154-9d0e7569-2305-470e-ae32-7a0262def21e.png#averageHue=%23d4d7ea&clientId=u7140af31-cf46-4&from=paste&height=370&id=ub19cb464&originHeight=1116&originWidth=1196&originalType=binary&ratio=2&rotation=0&showTitle=false&size=424451&status=done&style=none&taskId=uf4b502aa-7453-4cbc-97b7-de43e2b3c2b&title=&width=397)
+![n59da](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/n59da.png)
 
 - Parameter name 配置 key
 - Data Type 配置类型

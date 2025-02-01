@@ -1,12 +1,12 @@
 ---
 date_created: Wednesday, August 28th 2024, 12:37:33 am
-date_updated: Wednesday, January 22nd 2025, 11:15:24 pm
+date_updated: Saturday, February 1st 2025, 12:49:57 am
 title: Burp Suite Intruder 模块
 author: hacket
 categories:
   - 计算机基础
 category: 安全
-tags: [安全, BurpSuite]
+tags: [BurpSuite, 安全]
 toc: true
 description: 
 dg-publish: true

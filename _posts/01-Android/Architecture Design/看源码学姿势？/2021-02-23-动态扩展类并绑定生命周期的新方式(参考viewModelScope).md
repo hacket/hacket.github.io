@@ -1,12 +1,12 @@
 ---
 date_created: Friday, February 23rd 2021, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 11:14:06 pm
+date_updated: Thursday, January 30th 2025, 9:57:30 am
 title: 动态扩展类并绑定生命周期的新方式(参考viewModelScope)
 author: hacket
 categories:
   - Android进阶
 category: 源码学习
-tags: [优秀代码, 源码学习, ViewModel]
+tags: [ViewModel, 优秀代码, 源码学习]
 toc: true
 description: 
 dg-publish: true

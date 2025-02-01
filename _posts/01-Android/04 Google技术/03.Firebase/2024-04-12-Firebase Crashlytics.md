@@ -1,6 +1,6 @@
 ---
 date_created: Friday, April 12th 2024, 10:41:00 pm
-date_updated: Wednesday, January 22nd 2025, 12:02:17 am
+date_updated: Wednesday, January 29th 2025, 10:42:58 pm
 title: Firebase Crashlytics
 author: hacket
 categories:
@@ -35,11 +35,11 @@ linter-yaml-title-alias: Firebase Crashlytics
 
 > keytool -list -v -alias hacket.alias -keystore hacket.keystore
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1679630094371-2d07527a-00c8-4e00-93b8-0494b1f8995a.png#averageHue=%23f8f7f7&clientId=u9b27e629-1e79-4&from=paste&height=446&id=u087f006a&originHeight=789&originWidth=881&originalType=binary&ratio=1&rotation=0&showTitle=false&size=56113&status=done&style=none&taskId=u99c53aa7-87a7-43f1-835e-bc834da80d9&title=&width=498)
+![54dtd](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/54dtd.png)
 
 4. 下载 `google-services.json` 放到 app/根目录
 5. 添加 Firebase SDK
-   - root build.gradle <project>/build.gradle)
+   - `root build.gradle <project>/build.gradle`
 
 ```groovy
 buildscript {
@@ -62,7 +62,7 @@ allprojects {
 }
 ```
 
-- app build.gradle <project>/<app-module>/build.gradle
+- `app build.gradle <project>/<app-module>/build.gradle`
 
 ```groovy
 plugins {

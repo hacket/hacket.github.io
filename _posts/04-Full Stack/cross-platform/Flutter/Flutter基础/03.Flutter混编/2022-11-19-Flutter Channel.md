@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, November 19th 2022, 11:27:19 pm
-date_updated: Wednesday, January 22nd 2025, 11:05:22 pm
+date_updated: Saturday, February 1st 2025, 12:47:31 am
 title: Flutter Channel
 author: hacket
 categories:
@@ -27,7 +27,7 @@ linter-yaml-title-alias: Flutter Channel 平台通道
 
 ## Platform Channel 介绍
 
-Platform Channel 是一个异步消息通道，消息在发送之前会编码成二进制消息，接收到的二进制消息会解码成 Dart 值，其传递的消息类型只能是对应的解编码器支持的值，所有的解编码器都支持空消息，其 Native 与 Flutter 通信架构如下图所示：<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691549109898-9e23125b-7cf8-40d0-a12e-e80dadd1388e.png#averageHue=%23f6f5f2&clientId=u640ab7c4-2f16-4&from=paste&height=516&id=u4fd4cf4b&originHeight=647&originWidth=580&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=94060&status=done&style=stroke&taskId=u59090d7b-27cd-4496-bea5-eee67656cbe&title=&width=463)<br>消息和响应以异步的形式进行传递，以确保用户界面能够保持响应。<br>Flutter 中定义了三种不同类型的 PlatformChannel：
+Platform Channel 是一个异步消息通道，消息在发送之前会编码成二进制消息，接收到的二进制消息会解码成 Dart 值，其传递的消息类型只能是对应的解编码器支持的值，所有的解编码器都支持空消息，其 Native 与 Flutter 通信架构如下图所示：<br>![6p4gj](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/6p4gj.png)<br>消息和响应以异步的形式进行传递，以确保用户界面能够保持响应。<br>Flutter 中定义了三种不同类型的 PlatformChannel：
 
 1. BasicMessageChannel 用于数据传递
 2. MethodChannel 用于传递方法调用
@@ -39,7 +39,7 @@ Platform Channel 是一个异步消息通道，消息在发送之前会编码成
 
 ## [Platform Channel 数据类型及编解码器](https://flutter.cn/docs/development/platform-integration/platform-channels?tab=type-mappings-java-tab#codec)
 
-Platform Channel 提供不同的消息解码机制，StandardMessageCodec 提供基本数据类型的解编码，JSONMessageCodec 支持 JSON 的解编码，在平台之间通信时都会自动转换：<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691549217760-59e9f329-dcfc-449e-982b-2a5a13b28e0d.png#averageHue=%23f9f9f9&clientId=u640ab7c4-2f16-4&from=paste&height=450&id=u755b541f&originHeight=675&originWidth=596&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=81598&status=done&style=stroke&taskId=u4a89bbb2-4b6e-44a2-a840-09cd273a2e8&title=&width=397.3333333333333)
+Platform Channel 提供不同的消息解码机制，StandardMessageCodec 提供基本数据类型的解编码，JSONMessageCodec 支持 JSON 的解编码，在平台之间通信时都会自动转换：<br>![yw6sr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/yw6sr.png)
 
 ## BasicMessageChannel
 
@@ -418,7 +418,7 @@ class MainActivity : FlutterActivity() {
 }
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691549789621-b13ef584-3eae-4e57-b94f-6df4c506caa1.png#averageHue=%23fcf7fc&clientId=u640ab7c4-2f16-4&from=paste&height=551&id=u436e3b7b&originHeight=2400&originWidth=1080&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=49998&status=done&style=stroke&taskId=ua3a75a7d-a2ed-4f5c-93aa-cf77b97b62c&title=&width=248)
+![hygrm](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/hygrm.png)
 
 ## EventChannel
 

@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2022, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 12:10:26 am
+date_updated: Wednesday, January 29th 2025, 10:56:52 pm
 title: Column Row Box
 author: hacket
 categories:
@@ -23,7 +23,7 @@ aliases: [Column]
 linter-yaml-title-alias: Column
 ---
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1703596541112-18a720c9-ce7f-47ca-9cdb-157e739c03fe.png#averageHue=%23edaf9d&clientId=u672149a1-e9aa-4&from=paste&height=288&id=u63a983c0&originHeight=576&originWidth=1382&originalType=binary&ratio=2&rotation=0&showTitle=false&size=183542&status=done&style=none&taskId=u9a8fe5cb-a510-42ff-9b62-32266a59847&title=&width=691)<br>Compose 的布局控件 Column、Row、Box
+![zujjp](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zujjp.png)<br>Compose 的布局控件 Column、Row、Box
 
 # Column
 
@@ -74,7 +74,7 @@ Arrangement 的值和对应效果如下：
 - `Arrangement.Center` 内容居中对齐
 - `Arrangement.Bottom` 内容对齐到 Column 的最下方
 
-![](https://cdn.nlark.com/yuque/0/2023/gif/694278/1703599519474-4054c6a7-71e9-4cef-b4a8-6ab599bf6ff2.gif#averageHue=%236891db&clientId=u2d7af5bb-3677-4&height=457&id=AETHn&originHeight=881&originWidth=600&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=ud4506bbf-3f86-403f-a94e-c517a0f4e04&title=&width=311)
+![kuusl](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/kuusl.gif)
 
 #### horizontalAlignment Column 内组件水平对齐
 
@@ -288,7 +288,7 @@ fun BoxView() {
 }
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1703601458689-1283fc76-7d0e-4b36-bbb1-528a6b164e7c.png#averageHue=%23454745&clientId=u2d7af5bb-3677-4&from=paste&height=279&id=u4792771e&originHeight=1238&originWidth=1254&originalType=binary&ratio=2&rotation=0&showTitle=false&size=111230&status=done&style=none&taskId=ubb2bac40-ad86-45ce-92e0-b3edcb2cdec&title=&width=283)
+![6js26](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/6js26.png)
 
 ## Box 子 View 方向设定 contentAlignment
 

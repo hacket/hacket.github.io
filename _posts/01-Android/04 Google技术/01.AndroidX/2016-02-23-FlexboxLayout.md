@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2016, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:39:38 pm
+date_updated: Wednesday, January 29th 2025, 10:11:11 pm
 title: FlexboxLayout
 author: hacket
 categories:
@@ -33,7 +33,7 @@ FlexboxLayout 是去年 Google I/O 上开源的一个布局控件，使得 Andro
 
 FlexboxLayout 可以理解成一个高级版的 LinearLayout，因为两个布局都把子 view 按顺序排列。两者之间最大的差别在于 FlexboxLayout 具有换行的特性。
 
-![](https://raw.githubusercontent.com/google/flexbox-layout/master/assets/flexbox-visual.png#id=rSsOX&originHeight=583&originWidth=1151&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)
+![atco4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/atco4.png)
 
 - flex item<br />FlexBoxLayout 的的 child view
 - main axis 主轴<br />主要的 axis，新元素排列方向为主轴，一般是 left 到 right 摆放 item，从左到右：main start→main end
@@ -85,7 +85,7 @@ FlexboxLayout 可以理解成一个高级版的 LinearLayout，因为两个布�
 
 > alignItems 从 v2.0 开始，默认值改为 flex_start
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691228051757-ad65d23f-d806-45c6-864d-011cea00c80f.png#averageHue=%23badfbf&clientId=u5473d4c7-4f82-4&from=paste&height=440&id=ud53cc273&originHeight=880&originWidth=1166&originalType=binary&ratio=2&rotation=0&showTitle=false&size=311960&status=done&style=stroke&taskId=uaa9cbd7f-fc9e-4d21-b193-ab298522279&title=&width=583)
+![e0dym](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/e0dym.png)
 
 ### alignContent 多根轴对齐模式
 
@@ -188,7 +188,7 @@ Example of putting both vertical and horizontal dividers.
       android:text="5" />
 ```
 
-- 效果:<br />![](https://note.youdao.com/yws/res/85585/EEED5B848C724A8AB5384C5AB9D08C7B#id=aIRnp&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691228106347-f6e9bd35-688b-4ed4-b7e2-fed79ca4850d.png#averageHue=%234ca34c&clientId=u5473d4c7-4f82-4&from=paste&height=256&id=u40b184b7&originHeight=512&originWidth=288&originalType=binary&ratio=2&rotation=0&showTitle=false&size=20903&status=done&style=stroke&taskId=ua9106591-28a5-4228-a7f5-70004d6c817&title=&width=144)
+- 效果:<br />![lgrj8](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/lgrj8.png)
 
 ## FlexboxLayout 子元素属性
 

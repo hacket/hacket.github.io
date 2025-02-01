@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:29:54 pm
+date_updated: Monday, January 27th 2025, 9:48:59 pm
 title: 补间动画TweenedAnimation
 author: hacket
 categories:
@@ -627,7 +627,7 @@ ABSOLUTE，RELATIVE_TO_SELF，RELATIVE_TO_PARENT第一个代表具体值，第�
 
 > 两个 400*200 的 TextView 相互覆盖，然后移动顶部的 TextView 移动（400,200）的距离。fillAfter 为 true 表示动画结束时保持动画最终的效果。
 
-![](http://note.youdao.com/yws/public/resource/b1e2a9a07df3125c55e2867d6a061906/5A7B7FD09D5E4E1480560348E416B266?ynotemdtimestamp=1688200843587#height=427&id=NJoM9&originHeight=564&originWidth=355&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=269)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/5A7B7FD09D5E4E1480560348E416B266)
 
 ### 案例 2：百分数 (坐标以自身为参考)
 
@@ -645,7 +645,7 @@ ABSOLUTE，RELATIVE_TO_SELF，RELATIVE_TO_PARENT第一个代表具体值，第�
 </translate>
 ```
 
-![](http://note.youdao.com/yws/public/resource/b1e2a9a07df3125c55e2867d6a061906/B423AD2978584D2B83134704B3859D0E?ynotemdtimestamp=1688200843587#height=427&id=VHsTj&originHeight=564&originWidth=355&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=269)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/B423AD2978584D2B83134704B3859D0E)
 
 ### 案例 3：百分数 +p(坐标以父容器 (0,0) 为参考)
 
@@ -663,7 +663,7 @@ ABSOLUTE，RELATIVE_TO_SELF，RELATIVE_TO_PARENT第一个代表具体值，第�
 </translate>
 ```
 
-结果图，红色框是截图是画上的，为了标识移动了整个父 view 的宽高的一半。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688200972226-6916bdb0-c2f4-4410-b664-994fe6b3855b.png#averageHue=%23d8d4d4&clientId=u72fbe636-9943-4&from=paste&height=354&id=u805b7074&originHeight=707&originWidth=476&originalType=binary&ratio=2&rotation=0&showTitle=false&size=66966&status=done&style=none&taskId=ue99f8a54-4f54-4f83-a19b-9864d6ff327&title=&width=238)
+结果图，红色框是截图是画上的，为了标识移动了整个父 view 的宽高的一半。<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688200972226-6916bdb0-c2f4-4410-b664-994fe6b3855b.png)
 
 ### 案例 4：设置 fromXDelta 和 fromYDelta 为负呢？
 
@@ -680,8 +680,6 @@ ABSOLUTE，RELATIVE_TO_SELF，RELATIVE_TO_PARENT第一个代表具体值，第�
     android:fillAfter="true">
 </translate>
 ```
-
-![](https://img-blog.csdnimg.cn/20181227194619911.gif#height=345&id=KArFe&originHeight=564&originWidth=355&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=217)
 
 ## Java 代码实现
 
@@ -739,7 +737,7 @@ pivotXType,pivotYType 类似和其他动画类含义类似。
 </rotate>
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201060679-6e583648-2809-4a36-92a8-661489c1d8d2.png#averageHue=%23ededed&clientId=u72fbe636-9943-4&from=paste&height=282&id=u3a246124&originHeight=563&originWidth=355&originalType=binary&ratio=2&rotation=0&showTitle=false&size=16864&status=done&style=none&taskId=ucb60fdd1-d4b4-42ae-b713-98b67332836&title=&width=177.5)<br />![](http://note.youdao.com/yws/res/27477/5748D44013124B97BBA1B58432FEAA51#id=ZD6FC&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688201060679-6e583648-2809-4a36-92a8-661489c1d8d2.png)<br />![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688201104635-773a4650-7a9b-4151-8348-48c48e627108.png)
 
 ### 案例 2：利用百分数，修改坐标原点为 view 的中心点
 
@@ -757,7 +755,7 @@ pivotXType,pivotYType 类似和其他动画类含义类似。
 
 绕中心旋转
 
-![](http://note.youdao.com/yws/res/27483/2E5596DE4D294D879812560BF192AE2D#id=hiaKN&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201067143-c7d56a58-5089-44d5-9173-0cc881373083.png#averageHue=%23ededed&clientId=u72fbe636-9943-4&from=paste&height=247&id=u2829d01e&originHeight=494&originWidth=355&originalType=binary&ratio=2&rotation=0&showTitle=false&size=15445&status=done&style=none&taskId=ued2c5c9f-3e56-4d52-9e6f-fb04272d08b&title=&width=177.5)
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688201211125-30c14265-a7a5-40c3-8b73-8294d9bb037f.png)
 
 ## Java 实现
 
@@ -803,7 +801,7 @@ AlphaAnimation(float fromAlpha, float toAlpha)：
 </alpha>
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201104635-773a4650-7a9b-4151-8348-48c48e627108.png#averageHue=%23f1f1f1&clientId=u72fbe636-9943-4&from=paste&height=458&id=NhJsy&originHeight=1132&originWidth=712&originalType=binary&ratio=2&rotation=0&showTitle=false&size=44803&status=done&style=none&taskId=ud335727f-35f3-46d6-9b9c-820dbf91c64&title=&width=288)![](http://note.youdao.com/yws/res/27427/EB5127C5136B4B45B0C8D08858050739#id=REEmr&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688201216988-1c0d404e-4b2a-4cab-b993-cbaf08da65a8.png)![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688201225674-608b161a-40ec-4987-9ca0-550621d93afd.png)
 
 ### 代码实现
 
@@ -856,7 +854,8 @@ pivotYType 坐标类型，类似TranslateAnimation的坐标类型，主要用于
 变换的坐标原点依然是view的左上角
 ```
 
-- 坐标概念<br />![](http://note.youdao.com/yws/res/29548/92C16C110FBF41ECB3CEE8823E2F7180#id=eQcau&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201211125-30c14265-a7a5-40c3-8b73-8294d9bb037f.png#averageHue=%23e1e1e1&clientId=u72fbe636-9943-4&from=paste&height=480&id=ua5097e8e&originHeight=960&originWidth=540&originalType=binary&ratio=2&rotation=0&showTitle=false&size=48048&status=done&style=none&taskId=u4153326a-d4dc-4048-8d9b-3cb48892bb6&title=&width=270)
+- 坐标概念<br />
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688201236991-a6c5b8bb-bd7f-482c-9986-a9b6cd2a169e.png)![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688201243020-83bb928b-3b51-49b0-adaa-83b3ba8767c0.png)
 
 ## xml 实现
 
@@ -877,7 +876,9 @@ pivotYType 坐标类型，类似TranslateAnimation的坐标类型，主要用于
     android:fillAfter="true"/>
 ```
 
-在以 view 左上角为坐标原点从 0 经历 3 秒放大两倍 view。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201216988-1c0d404e-4b2a-4cab-b993-cbaf08da65a8.png#averageHue=%23f1f1f1&clientId=u72fbe636-9943-4&from=paste&height=282&id=uf8ec6964&originHeight=564&originWidth=355&originalType=binary&ratio=2&rotation=0&showTitle=false&size=13364&status=done&style=none&taskId=u1ee90e2d-1eae-4cec-8a32-a26d4b2ca33&title=&width=177.5)<br />![](http://note.youdao.com/yws/res/27446/4BCE0946ACDC4DBCAB81FE50D7F3AD5D#id=nMdHs&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+在以 view 左上角为坐标原点从 0 经历 3 秒放大两倍 view。<br />
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1688201338118-01daa6d6-4f5e-417e-bcee-84b9901f6515.png)
 
 ### 案例 2：坐标原点为自身中心
 
@@ -899,7 +900,7 @@ pivotYType 坐标类型，类似TranslateAnimation的坐标类型，主要用于
     android:toYScale="2.0" />
 ```
 
-利用百分比，移动到 view 的中心进行缩放，无限循环<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201225674-608b161a-40ec-4987-9ca0-550621d93afd.png#averageHue=%23f0f0f0&clientId=u72fbe636-9943-4&from=paste&height=282&id=u8d2b4ba7&originHeight=564&originWidth=355&originalType=binary&ratio=2&rotation=0&showTitle=false&size=13925&status=done&style=none&taskId=uc0885944-b055-4e30-a193-6e2b36c6ede&title=&width=177.5)<br />![](http://note.youdao.com/yws/res/27453/D1155B894DB3494996D49AFA5D435A9D#id=yWvQH&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+利用百分比，移动到 view 的中心进行缩放，无限循环<br />![image.png](undefined)<br />![](undefined)
 
 ### 案例 3：利用百分数 +p，设置缩放原点
 
@@ -916,9 +917,9 @@ pivotYType 坐标类型，类似TranslateAnimation的坐标类型，主要用于
     android:fillAfter="true"/>
 ```
 
-利用百分数 +p 移动缩放点左右都移动父 view 的一半，然后进行缩放。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201236991-a6c5b8bb-bd7f-482c-9986-a9b6cd2a169e.png#averageHue=%23ededed&clientId=u72fbe636-9943-4&from=paste&height=282&id=ubbc0335a&originHeight=563&originWidth=355&originalType=binary&ratio=2&rotation=0&showTitle=false&size=13419&status=done&style=none&taskId=u704fbb0e-5a0d-4753-856a-f733daa9799&title=&width=177.5)
+利用百分数 +p 移动缩放点左右都移动父 view 的一半，然后进行缩放。<br />![image.png](undefined)
 
-类似投影方式，缩放原点和最终图片的关系：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201243020-83bb928b-3b51-49b0-adaa-83b3ba8767c0.png#averageHue=%23d0c8c8&clientId=u72fbe636-9943-4&from=paste&height=295&id=u539acac6&originHeight=589&originWidth=369&originalType=binary&ratio=2&rotation=0&showTitle=false&size=42802&status=done&style=none&taskId=u362bc948-cfd4-44b7-b45a-143df7857e5&title=&width=184.5)
+类似投影方式，缩放原点和最终图片的关系：<br />![image.png](undefined)
 
 ## Java 代码
 
@@ -1075,8 +1076,6 @@ public void addAnimation (Animation a)
         android:toDegrees="-270" />
 </set>
 ```
-
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688201338118-01daa6d6-4f5e-417e-bcee-84b9901f6515.png#averageHue=%23ededed&clientId=u72fbe636-9943-4&from=paste&height=267&id=u240daa49&originHeight=534&originWidth=355&originalType=binary&ratio=2&rotation=0&showTitle=false&size=15487&status=done&style=none&taskId=u4a21cce8-37b5-4f17-87b0-b80382a62e0&title=&width=177.5)<br />![](http://note.youdao.com/yws/res/27501/B77B0B03E5E647189DA9CB5BC1D4721B#id=CrCtY&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 ### 案例 2：监听动画执行过程
 

@@ -1,12 +1,12 @@
 ---
 date_created: Monday, July 1st 2020, 10:42:58 pm
-date_updated: Wednesday, January 22nd 2025, 1:18:54 am
+date_updated: Thursday, January 30th 2025, 12:09:37 am
 title: Systrace基础-MainThread和RenderThread
 author: hacket
 categories:
   - 性能优化
 category: 性能优化工具
-tags: [性能优化, 性能优化工具, Systrace]
+tags: [Systrace, 性能优化, 性能优化工具]
 toc: true
 description: 
 dg-publish: true

@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2020, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 1:23:35 am
+date_updated: Thursday, January 30th 2025, 12:14:03 am
 title: LeakCanary2.x
 author: hacket
 categories:
@@ -186,7 +186,7 @@ override fun invoke(application: Application) {
 ```
 
 1. **checkRunningInDebuggableBuild()** 校验是否在 debuggable 的包运行 LeakCanary，不在 debuggable 的包默认是不行；如果需要在非 debuggable 上运行，需要配置 `<bool name="leak_canary_allow_in_non_debuggable_build">false</bool>` 为 true
-2. **addOnObjectRetainedListener()**方法，这里会给单例的 `AppWatcher.objectWatcher` 对象注册一个 OnObjectRetainedListener 监听，当默认的那些 AppWatcher 对象 retain 了就会回调到这里来
+2. **addOnObjectRetainedListener()** 方法，这里会给单例的 `AppWatcher.objectWatcher` 对象注册一个 OnObjectRetainedListener 监听，当默认的那些 AppWatcher 对象 retain 了就会回调到这里来
 3. **GcTrigger** 通过调用 Runtime.getRuntime().gc() 方法触发虚拟机进行 GC 操作
 4. **HeapDumpTrigger** 管理触发 Heap Dump 的逻辑，有两个地方会触发 dumpHeap()：
    - retain 的对象超过阈值（5，应用可见的情况下），可以通过 Config 配置：
@@ -383,7 +383,7 @@ private fun checkRetainedObjects() {
 
 > 弱引用和引用队列搭配使用，如果弱引用持有的对象被回收，Java 虚拟机就会把这个弱引用加入到与之关联的引用队列中。也就是说如果 KeyedWeakReference 持有的 Activity 对象被回收，该 KeyedWeakReference 就会加入到引用队列 queue 中。 LeakCanary 就是利用这个原理。
 
-![](https://cdn.nlark.com/yuque/0/2023/webp/694278/1683300540418-47a96fe1-be52-4476-bcb2-0173677b2a34.webp#averageHue=%23f4efe7&clientId=u356458d5-e5b3-4&from=paste&height=545&id=uf690e308&originHeight=675&originWidth=862&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u7914d220-a513-4fab-9689-c1081b82060&title=&width=696)
+![tc5nt](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/tc5nt.webp)
 
 ## LeakCanary 疑问？
 

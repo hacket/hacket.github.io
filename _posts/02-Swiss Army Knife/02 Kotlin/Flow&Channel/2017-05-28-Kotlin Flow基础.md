@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, May 28th 2017, 12:02:31 am
-date_updated: Thursday, January 23rd 2025, 12:12:16 am
+date_updated: Friday, January 31st 2025, 6:19:29 pm
 title: Kotlin Flow基础
 author: hacket
 categories:
@@ -29,7 +29,7 @@ linter-yaml-title-alias: Flow
 
 ### 认识 Flow？
 
-![ ](https://cdn.nlark.com/yuque/0/2023/png/694278/1684769691098-312b266d-c427-4499-956e-cfbd2e16dbb8.png#averageHue=%23f4ede3&clientId=uf58e2420-07b0-4&from=paste&id=uc4590694&originHeight=382&originWidth=1427&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u0deb0dc8-58dd-4f4e-b658-8a8c7ff2d2c&title=)
+![uupyz](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/uupyz.png)
 
 ### 冷流 & 热流
 
@@ -80,7 +80,7 @@ suspend fun test4() {
 }
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1684769730180-5a975e92-a3f2-4481-9bbf-18c9ccb078b2.png#averageHue=%23fefefb&clientId=uf58e2420-07b0-4&from=paste&id=ud7348369&originHeight=194&originWidth=1018&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u07a56de3-05fa-44de-af68-73458e6d03a&title=)
+![4blky](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/4blky.png)
 
 #### channelFlow()
 
@@ -100,7 +100,7 @@ suspend fun test5() {
 - flow 是 Cold Stream。在没有切换线程的情况下，生产者和消费者是同步非阻塞的。
 - channel 是 Hot Stream。而 `channelFlow` 实现了生产者和消费者异步非阻塞模型。
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1684769751519-2efb38b1-bc8a-4fec-a28c-a43e93607155.png#averageHue=%23fefefc&clientId=uf58e2420-07b0-4&from=paste&id=u1f6bddbc&originHeight=202&originWidth=988&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u59959450-fc48-4c06-b1be-260d09587a6&title=)
+![v221y](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/v221y.png)
 
 ### 流取消
 
@@ -141,7 +141,7 @@ Done
 - 背压解决的问题：发送者生成速度比接收者消费速度快
 - RxJava 中的背压
 
-```
+```kotlin
 Backpressure 是响应式编程的功能之一。RxJava2 Flowable 支持的 Backpressure 策略，包括：
 - MISSING：创建的 Flowable 没有指定背压策略，不会对通过 OnNext 发射的数据做缓存或丢弃处理。
 - ERROR：如果放入 Flowable 的异步缓存池中的数据超限了，则会抛出 MissingBackpressureException 异常。

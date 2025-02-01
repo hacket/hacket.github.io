@@ -1,12 +1,12 @@
 ---
 date_created: Friday, April 19th 2024, 10:45:19 pm
-date_updated: Wednesday, January 22nd 2025, 12:04:04 am
+date_updated: Wednesday, January 29th 2025, 10:49:04 pm
 title: Android App Bundles（AAB）
 author: hacket
 categories:
   - Android
 category: GooglePlay
-tags: [包体积, AAB, GooglePlay]
+tags: [AAB, GooglePlay, 包体积]
 toc: true
 description: 
 dg-publish: true
@@ -92,7 +92,7 @@ Google Play 根据用户设备设置中的语言选择来确定与应用一起�
 
 AS 打包 Android Studio 打包：`Build`→`Generate Signed Bundle or APK`，选择 `aab`，配置 `keystore`，`输出 aab 的目录`，等待打包结果
 
-![|500](https://cdn.nlark.com/yuque/0/2023/webp/694278/1682179630830-f25827ec-4342-417d-add4-02feea6f3967.webp#averageHue=%23404347&clientId=ua6c7f918-4928-4&from=paste&height=598&id=u51e5577f&originHeight=598&originWidth=607&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u5d1e6d61-63de-484c-b745-34ae4aee950&title=&width=607)
+![45421a16656848b3a350dd9d6feb65ad~tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/45421a16656848b3a350dd9d6feb65ad%7Etplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp)
 
 ### [Build an app bundle with Gradle](https://developer.android.com/build/building-cmdline#bundle_build_gradle)
 
@@ -137,7 +137,7 @@ java -jar bundletool-all-1.10.0.jar build-apks --bundle=app-debug.aab --output=a
 
 使用 zip 工具解压生成的 APKS 文件，可以看见在 splits 目录下，针对不同的语言、分辨率、ABI 生成了不同的 APK 文件：
 
-![image.png|600](https://cdn.nlark.com/yuque/0/2023/png/694278/1699422153480-f3a1bd9d-9dc1-4974-8d6e-e33f82ca18e8.png#averageHue=%239cbb56&clientId=u11733774-079c-4&from=paste&height=321&id=u15e2e941&originHeight=812&originWidth=1410&originalType=binary&ratio=2&rotation=0&showTitle=false&size=273516&status=done&style=none&taskId=ucd26362f-07bd-4aca-becb-0e63de2f801&title=&width=557)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250129224841.png)
 
 如果 `language` 的 `enableSplit` 设置为 false，则不会针对语言生成不同的 APK 文件：
 

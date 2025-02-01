@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:36:00 pm
+date_updated: Wednesday, January 29th 2025, 10:05:36 pm
 title: RecyclerView总结
 author: hacket
 categories:
@@ -73,7 +73,7 @@ RecyclerView 四级缓存按照顺序依次读取。
 - 如果自定义缓存获取失败，就从 mRecyclerPool 中获取；如果获取到需要重新 bindViewHolder
 - 如果从 mRecyclerPool 获取失败，只能 createViewHolder 和 bindViewHolder 了
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1675788711452-78d08272-27c6-4af2-bbbe-19e1a0ad2a0d.png#averageHue=%23fafaf9&clientId=u92a92831-3e9c-4&from=paste&height=217&id=u4ff182f1&originHeight=362&originWidth=896&originalType=binary&ratio=1&rotation=0&showTitle=false&size=68937&status=done&style=none&taskId=ufc4eca22-126d-4651-9072-d444b86553d&title=&width=538.3333740234375)
+![mtlz3](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/mtlz3.png)
 
 ## Prefetch 预取下一个
 

@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:44 pm
-date_updated: Thursday, January 23rd 2025, 12:28:52 am
+date_updated: Thursday, January 30th 2025, 6:43:08 pm
 title: ClassLoader基础
 author: hacket
 categories:
@@ -31,7 +31,7 @@ linter-yaml-title-alias: ClassLoader 类加载器机制
 
 ## 2、Java 默认提供了三个 ClassLoader
 
-![image.png|1000](https://cdn.nlark.com/yuque/0/2022/png/694278/1654962656762-b9a4bf33-bc7b-4e7f-9d2f-6d2e7d78c8fc.png#averageHue=%23e6f8ce&clientId=ud6ac9a06-311a-4&from=paste&height=506&id=TFGAP&originHeight=759&originWidth=1071&originalType=binary&ratio=1&rotation=0&showTitle=false&size=443379&status=done&style=none&taskId=uf791fa27-dc91-48d5-b74c-ea8f12c42fa&title=&width=714)
+![79r21](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/79r21.png)
 
 ### Bootstrap ClassLoader 启动类加载器
 
@@ -97,7 +97,7 @@ linter-yaml-title-alias: ClassLoader 类加载器机制
 
 ## JVM 之 class 加载过程
 
-![image.png|500](https://cdn.nlark.com/yuque/0/2022/png/694278/1671207947140-35ca041e-6c9a-40f4-8b17-0f961a0b7dec.png#averageHue=%23fefefd&clientId=u0e786c22-4665-4&from=paste&height=290&id=u0d2eb479&originHeight=691&originWidth=1380&originalType=binary&ratio=1&rotation=0&showTitle=false&size=147360&status=done&style=none&taskId=uf787af15-e166-446f-a098-3eee05a71f3&title=&width=580)
+![bazse](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/bazse.png)
 
 - **Loading**<br>类的信息从文件中获取并且载入到 JVM 的内存里
 - **Verifying**<br>检测读入的结构是否符合 JVM 规范的描述

@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2016, 10:10:45 pm
-date_updated: Thursday, January 23rd 2025, 12:06:38 am
+date_updated: Friday, January 31st 2025, 7:08:41 pm
 title: git-repos-tool
 author: hacket
 categories:
@@ -103,7 +103,7 @@ python3 git_repos_tool.py clone --shein -f settings.gradle路径 -p xxx/xxx/path
 
 > gits clone -f /Users/10069683/WorkSpace/shein/shein_android/settings.gradle -p /Users/10069683/temp/ --shein
 
-![git_clone_shein.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1701781327233-e226b59f-9798-4018-8e5c-ea311fc84416.png#averageHue=%23c88c87&clientId=uc6de396d-4097-4&from=paste&height=429&id=u67730ac3&originHeight=1396&originWidth=1938&originalType=binary&ratio=2&rotation=0&showTitle=false&size=1229612&status=done&style=none&taskId=u9ae937ff-a696-4453-9eb5-4c49d5dd098&title=&width=596)
+![s5iue](attachments/s5iue.png)
 
 ### checkout 切换分支
 
@@ -115,7 +115,7 @@ python3 git-repos-tool.py checkout --branch maseter
 python3 git-repos-tool.py co -b maseter
 ```
 
-![git_checkout.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1701781345507-bbde4154-1b5b-41f6-aac7-2924789f2a57.png#averageHue=%23baa9a6&clientId=uc6de396d-4097-4&from=paste&height=634&id=ua2317503&originHeight=1860&originWidth=1772&originalType=binary&ratio=2&rotation=0&showTitle=false&size=1408236&status=done&style=none&taskId=u17d3fe73-bc64-4d19-bfe1-5e8ff83209a&title=&width=604)
+![ls66n](attachments/ls66n.png)
 
 ### pull 更新代码
 
@@ -129,7 +129,7 @@ python3 git_repos_tool.py pull -b dev
 python3 git_repos_tool.py pull --branch dev
 ```
 
-![git_pull.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1701781364269-bff2a2d1-ee71-4a77-9ac7-06f245b18c58.png#averageHue=%23cbc7c4&clientId=uc6de396d-4097-4&from=paste&height=731&id=u2cdc7e34&originHeight=2012&originWidth=1742&originalType=binary&ratio=2&rotation=0&showTitle=false&size=1540682&status=done&style=none&taskId=u09de176b-fd8d-4a5b-a83b-c8b5e9328e7&title=&width=633)
+![vukh9](attachments/vukh9.png)
 
 ### query 查询当前分支
 
@@ -140,7 +140,7 @@ python3 git_repos_tool.py query -b 9.9.0/user 查看当前仓库所在分支如�
 python3 git_repos_tool.py query 查看当前仓库所在分支
 ```
 
-![git_query.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1701781392414-b5da3d02-f4fc-498e-993a-34c33298ecdc.png#averageHue=%23b7b4b2&clientId=uc6de396d-4097-4&from=paste&height=983&id=u33aa94b4&originHeight=1834&originWidth=1222&originalType=binary&ratio=2&rotation=0&showTitle=false&size=1226564&status=done&style=none&taskId=uee06f8fd-9a22-42da-a0dd-5ca42e9da69&title=&width=655)![](./images/git_query.png#id=Sz5AB&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![lcbct](attachments/lcbct.png)![](./images/git_query.png#id=Sz5AB&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 ### push 推送到远端
 

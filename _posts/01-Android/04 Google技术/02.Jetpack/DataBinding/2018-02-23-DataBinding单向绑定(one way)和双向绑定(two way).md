@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:42:09 pm
+date_updated: Wednesday, January 29th 2025, 10:22:12 pm
 title: DataBinding单向绑定(one way)和双向绑定(two way)
 author: hacket
 categories:
@@ -228,7 +228,7 @@ private fun singleTest3(binding: ActivityMainBinding) {
 
 ## 什么是双向绑定？
 
-在 TextView 中，我们通过 dataBinding 把实体中的数据放到 TextView 中展示，这是从实体到 view 方向上的绑定；当 TextView 的数据发生改变时，比如我们手动输入了一些数据，我们通过 dataBinding 把 view 中的数据设置到对应的实体类的字段中，这是从 view 到实体类方向上的绑定，整合起来就是双向绑定。<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1689521279520-35afffde-06aa-4352-a428-6abc4dd4fe4e.png#averageHue=%23165b1b&clientId=u70c4743f-0d86-4&from=paste&height=77&id=u9ede36da&originHeight=116&originWidth=521&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=17314&status=done&style=none&taskId=u9bae1d39-3f78-4bdd-b0a5-f4c15505a57&title=&width=347.3333333333333)<br>使用双向绑定的场景并不多
+在 TextView 中，我们通过 dataBinding 把实体中的数据放到 TextView 中展示，这是从实体到 view 方向上的绑定；当 TextView 的数据发生改变时，比如我们手动输入了一些数据，我们通过 dataBinding 把 view 中的数据设置到对应的实体类的字段中，这是从 view 到实体类方向上的绑定，整合起来就是双向绑定。<br>![2ez94](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2ez94.png)<br>使用双向绑定的场景并不多
 
 ## 双向绑定不足？
 
@@ -237,7 +237,7 @@ private fun singleTest3(binding: ActivityMainBinding) {
 
 ## 官方提供的支持双向绑定的 View
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684256681500-47ea01cc-c514-4e9b-82a8-d11ef9b8a48b.png#averageHue=%23fefefe&clientId=u78350c78-360d-4&from=paste&height=489&id=ihYSR&originHeight=1080&originWidth=1296&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=124736&status=done&style=none&taskId=ud1c670e4-5e29-4494-8a95-1becfbe5938&title=&width=587)
+![gnfgj](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/gnfgj.png)
 
 ## EditText 支持的双向绑定
 
@@ -299,7 +299,7 @@ fun TextView.notifyBindName( inverseBindingListener: InverseBindingListener){
 
 ### LiveData 双向绑定
 
-比如 xml 里面 Textview 和 EditText 用的是一个 Model 的 nameLiveData ，此时你会看出来，TextView 单向绑定，EditText 双向绑定，当输入内容的时候 TextView 也会改变<br>![](https://cdn.nlark.com/yuque/0/2023/webp/694278/1684256319254-55d88acb-7d67-4c84-bd67-73de8642457a.webp#clientId=u78350c78-360d-4&from=paste&height=526&id=N9HA9&originHeight=1280&originWidth=640&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u9d575e1e-b67e-4053-be58-0f044d39a51&title=&width=263)
+比如 xml 里面 Textview 和 EditText 用的是一个 Model 的 nameLiveData ，此时你会看出来，TextView 单向绑定，EditText 双向绑定，当输入内容的时候 TextView 也会改变<br>![ezsv0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ezsv0.webp)
 
 - xml
 
@@ -334,7 +334,7 @@ fun TextView.notifyBindName( inverseBindingListener: InverseBindingListener){
 </layout>
 ```
 
-这里 `android:text="@{viewmodel.nameLiveData}"` 对 text 进行设置<br>在 Edittext 中可以使用 `android:text="@={viewmodel.nameLiveData}"` 进行双向绑定,关键是这个 `=` 号;
+这里 `android:text="@{viewmodel.nameLiveData}"` 对 text 进行设置<br>在 Edittext 中可以使用 `android:text="@={viewmodel.nameLiveData}"` 进行双向绑定,关键是这个 = 号;
 
 - 代码
 
@@ -1055,7 +1055,7 @@ publi void setTextWatcher(TextView view, final BeforeTextChanged before,
 
 1. 自定义 view 的路径有中文
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688897646096-369997b4-576f-46ad-a15c-fccff5a53014.png#averageHue=%23383131&clientId=u9da1adfb-4cb0-4&from=paste&height=241&id=u5c541f49&originHeight=482&originWidth=1930&originalType=binary&ratio=2&rotation=0&showTitle=false&size=164602&status=done&style=none&taskId=uce3038c5-f6c1-4ddf-9c7a-02551197d4c&title=&width=965)
+![fvhr4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/fvhr4.png)
 
 2. String 区分 java.lang.String 和 kotlin.String？
 3. XXXBinding on a null object reference
@@ -1077,7 +1077,7 @@ Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'voi
 1. 点击变更颜色为绿色的按钮后，两个 View 变更为绿色背景
 2. 点击下面方块后，变成蓝色
 
-[![device-2023-07-18-011520.mp4 (138.68KB)](https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*NNs6TKOR3isAAAAAAAAAAABkARQnAQ)]()
+[![obk2m](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/obk2m.png)]()
 
 ### 主要源码解释
 
@@ -1437,7 +1437,7 @@ object TwoWayBind {
 
 效果：
 
-[![device-2023-07-18-020928.mp4 (136.14KB)](https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*NNs6TKOR3isAAAAAAAAAAABkARQnAQ)]()
+[![wae0p](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wae0p.png)]()
 
 - 第一个方块写死了数字
 - 第二个方块是单向绑定，所以点击 view 更新 ui 时，数据源并没有改变

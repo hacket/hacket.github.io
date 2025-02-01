@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Thursday, January 23rd 2025, 12:15:33 am
+date_updated: Friday, January 31st 2025, 6:27:14 pm
 title: Kotlin DSL
 author: hacket
 categories:
@@ -145,7 +145,7 @@ class SomeView : View {
 }
 ```
 
-### 使用 inline 和 [@PublishedApi](/PublishedApi) 提高性能
+### 使用 inline 和 @PublishedApi 提高性能
 
 - DSL 的实现使用了大量高阶函数，过多的 lambda 会产生过的匿名类，同时也会增加运行时对象创建的开销，不少 DSL 选择使用 inline 操作符，减少匿名类的产生，提高运行时性能。
 - inline 函数内部调用的函数必须是 public 的，这会造成一些不必要的代码暴露，此时可以借助 `@PublishedApi` 化解。
@@ -169,7 +169,7 @@ internal inline fun ViewGroup._ImageView(init: ImageView.() -> Unit) =
     }
 ```
 
-> 为了方便 DSL 中使用，我们定义了两个 ImageView 方法，分别用于 resId 和 drawable 的图片设置。由于大部分代码可以复用，我们抽出了一个  _ImageView 方法。但是由于要在 inline 方法中使用，所以编译器要求 _ImageView 必须是 public 类型。_ImageView 只需在库的内部服务，所以可以添加为 internal 的同时加 [@PublishdApi](/PublishdApi) 注解，它允许一个模块内部方法在 inline 中使用，且编译器不会报错。
+> 为了方便 DSL 中使用，我们定义了两个 ImageView 方法，分别用于 resId 和 drawable 的图片设置。由于大部分代码可以复用，我们抽出了一个  ImageView 方法。但是由于要在 inline 方法中使用，所以编译器要求 ImageView 必须是 public 类型。可能的值为 ImageView 只需在库的内部服务，所以可以添加为 internal 的同时加 @PublishdApi 注解，它允许一个模块内部方法在 inline 中使用，且编译器不会报错。
 
 ## DSL 总结
 

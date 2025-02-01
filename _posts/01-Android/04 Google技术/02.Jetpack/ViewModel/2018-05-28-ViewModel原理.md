@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, May 28th 2018, 12:02:31 am
-date_updated: Tuesday, January 21st 2025, 11:45:47 pm
+date_updated: Wednesday, January 29th 2025, 10:31:57 pm
 title: ViewModel原理
 author: hacket
 categories:
@@ -27,7 +27,7 @@ linter-yaml-title-alias: ViewModel 原理
 
 ## ViewModel 生命周期
 
-ViewModel 的生命周期依赖于对应的 Activity 或 Fragment 的生命周期。通常会在 Activity 第一次 `onCreate()` 时创建 ViewModel，ViewModel 的生命周期一直持续到 Activity 最终销毁或 Fragment 最终 `detached`，期间由于屏幕旋转等配置变化引起的 Activity 销毁重建并不会导致 ViewModel 重建。借用官方示意图来解释一下：<br>![image.png|700](https://cdn.nlark.com/yuque/0/2023/png/694278/1691240763611-40e10e39-5672-4fff-b771-1da066d834c0.png#averageHue=%23fbf9f6&clientId=ufb16f5af-ab1a-4&from=paste&height=272&id=u84d565b1&originHeight=543&originWidth=522&originalType=binary&ratio=2&rotation=0&showTitle=false&size=35020&status=done&style=stroke&taskId=u32680168-be39-4acd-9b2d-ea145c8b2f1&title=&width=261)
+ViewModel 的生命周期依赖于对应的 Activity 或 Fragment 的生命周期。通常会在 Activity 第一次 `onCreate()` 时创建 ViewModel，ViewModel 的生命周期一直持续到 Activity 最终销毁或 Fragment 最终 `detached`，期间由于屏幕旋转等配置变化引起的 Activity 销毁重建并不会导致 ViewModel 重建。借用官方示意图来解释一下：<br>![wgpg4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wgpg4.png)
 
 ## ViewModel 原理 -- ViewModelProviders
 
@@ -197,7 +197,7 @@ public <T extends ViewModel> T get(@NonNull String key, @NonNull Class<T> modelC
 
 ### Activity 中创建与获取 ViewModel 的整体流程如下所示
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691240786969-db57580c-2d91-4bdd-9dbf-2de880e93823.png#averageHue=%23f7f7f7&clientId=ufb16f5af-ab1a-4&from=paste&height=412&id=u564414e3&originHeight=823&originWidth=1240&originalType=binary&ratio=2&rotation=0&showTitle=false&size=137620&status=done&style=stroke&taskId=ub80d08e4-8f22-450e-911b-63b89dc5305&title=&width=620)
+![9i6ad](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/9i6ad.png)
 
 # ViewModel 原理 --ViewModelProvider
 

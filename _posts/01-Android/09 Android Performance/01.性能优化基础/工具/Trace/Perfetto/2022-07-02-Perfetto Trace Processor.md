@@ -1,12 +1,12 @@
 ---
 date_created: Tuesday, July 2nd 2022, 12:48:21 am
-date_updated: Wednesday, January 22nd 2025, 1:17:56 am
+date_updated: Thursday, January 30th 2025, 12:09:11 am
 title: Perfetto Trace Processor
 author: hacket
 categories:
   - 性能优化
 category: 性能优化工具
-tags: [性能优化, 性能优化工具, Perfetto]
+tags: [Perfetto, 性能优化, 性能优化工具]
 toc: true
 description: 
 dg-publish: true

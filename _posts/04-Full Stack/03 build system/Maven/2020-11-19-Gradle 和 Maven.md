@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, November 19th 2020, 11:27:19 pm
-date_updated: Wednesday, January 22nd 2025, 11:16:55 pm
+date_updated: Saturday, February 1st 2025, 12:28:07 am
 title: Gradle 和 Maven
 author: hacket
 categories:
@@ -513,7 +513,7 @@ task printComponents(group: 'tools', description: project.name) {
 }
 ```
 
-执行 `gradlew printComponents`<br>输出：Components: [all, debug, release]
+执行 `gradlew printComponents`<br>输出：`Components: [all, debug, release]`
 
 ### 多 productFlavor 情况
 
@@ -610,7 +610,7 @@ An exception occurred applying plugin request [id: 'appinit-auto-register']
 > Could not find implementation class 'me.hacket.appinit.autoregister.AppInitAutoRegisterPlugin' for plugin 'appinit-auto-register' specified in jar:file:/C:/Users/hacket/.gradle/caches/jars-9/a6583eb47811da0aaaa4984b4cc74a47/appinit-1.0.0.jar!/META-INF/gradle-plugins/appinit-auto-register.properties.
 ```
 
-**现象：** 生成的 jar 中没有 classes<br>![](https://note.youdao.com/yws/res/103922/WEBRESOURCEbba0f95028fd7fe131e4ec8478bcb200#id=oc9Ui&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691503935722-e4fc7315-059a-4598-b814-298bece4e387.png#averageHue=%23f1f1f1&clientId=ub26d7ec9-355f-4&from=paste&height=89&id=u56cd4a91&originHeight=177&originWidth=918&originalType=binary&ratio=2&rotation=0&showTitle=false&size=46036&status=done&style=none&taskId=u9c04cf19-a876-4aca-ac7f-0ba010ed9f5&title=&width=459)<br>**原因：**<br>在 java 的 sourcesets 写了 groovy 代码，导致没有 classes 生成，具体看 build/classes 有没有生成文件<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691503970285-c27a54ef-2296-4da0-a8e3-af6f792325a5.png#averageHue=%2381af91&clientId=ub26d7ec9-355f-4&from=paste&height=374&id=ub43fce17&originHeight=748&originWidth=651&originalType=binary&ratio=2&rotation=0&showTitle=false&size=44804&status=done&style=none&taskId=ue3410a22-74ca-47db-8bab-572d2763c42&title=&width=325.5)<br>**解决：**<br>将 groovy 代码移动到 groovy 的 sourcesets 目录下
+**现象：** 生成的 jar 中没有 classes<br>![acu1f](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/acu1f.png)<br>**解决：**<br>将 groovy 代码移动到 groovy 的 sourcesets 目录下
 
 ### 2、找不到 AppExtension
 
@@ -665,13 +665,13 @@ afterEvaluate {
 
 ### 创建 Project
 
-如 AppInit<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504138829-c84faaf8-12e6-48d8-a502-483e1dff824f.png#averageHue=%23fefefe&clientId=ub26d7ec9-355f-4&from=paste&height=614&id=u2ee65cf4&originHeight=1228&originWidth=1190&originalType=binary&ratio=2&rotation=0&showTitle=false&size=135667&status=done&style=none&taskId=u8cd095ef-08fd-4819-a894-e4781e136b6&title=&width=595)<br>过几分钟在 `Projects`→`Community Support - Open Source Project Repository Hosting` 下，选择 Switch filter，Reported by me<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504157034-c1493021-4e0f-4c15-b1dd-94c53b4d3a9d.png#averageHue=%23fefdfd&clientId=ub26d7ec9-355f-4&from=paste&height=360&id=u2da88247&originHeight=719&originWidth=1262&originalType=binary&ratio=2&rotation=0&showTitle=false&size=140549&status=done&style=none&taskId=u5e445c6d-78e6-4561-a34c-8058685fb45&title=&width=631)<br>[OSSRH-86107 AppInit](https://issues.sonatype.org/projects/OSSRH/issues/OSSRH-86107?filter=reportedbyme)
+如 AppInit<br>![wec1d](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wec1d.png)<br>过几分钟在 `Projects`→`Community Support - Open Source Project Repository Hosting` 下，选择 Switch filter，Reported by me<br>![9cvfn](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/9cvfn.png)<br>[OSSRH-86107 AppInit](https://issues.sonatype.org/projects/OSSRH/issues/OSSRH-86107?filter=reportedbyme)
 
 - 证明自己的域名或者在 github 创建公开的仓库 [OSSRH-86107](https://github.com/hacket/OSSRH-86107)
 - 将状态更改为 OPEN
 - 过一会状态改为 RESOLVED 就可以用了
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504174497-da5e05fc-ed99-4f79-a89f-ef7d5c311d27.png#averageHue=%23e8ecf2&clientId=ub26d7ec9-355f-4&from=paste&height=362&id=ub84ad930&originHeight=724&originWidth=1051&originalType=binary&ratio=2&rotation=0&showTitle=false&size=165800&status=done&style=none&taskId=u16e30762-520b-4ce4-bba5-15fe68b84f1&title=&width=525.5)
+![2kyk0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2kyk0.png)
 
 ### 登录 maven
 
@@ -791,14 +791,14 @@ version = '1.0.0'
 
 ### 发布 library
 
-<https://s01.oss.sonatype.org/>![](https://note.youdao.com/yws/res/104064/WEBRESOURCEe21abe78bb3c0b75b7f96c738e9aa84e#id=EmsAf&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+<https://s01.oss.sonatype.org/>
 
 1. 在左侧面板 Staging Repositories
 2. 选中要发布的 Repository
 3. 点击 Release，会弹窗进行二次 Confirm
 4. 确认无误后，发布
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504249020-b61696a0-9038-45f3-a59f-14274183e911.png#averageHue=%23d3d2d1&clientId=ub26d7ec9-355f-4&from=paste&height=404&id=u182f16e8&originHeight=807&originWidth=1531&originalType=binary&ratio=2&rotation=0&showTitle=false&size=185104&status=done&style=none&taskId=u5589d01d-b71f-4b44-a247-82ebe117924&title=&width=765.5)
+![2d656](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2d656.png)
 
 ### 搜索
 
@@ -808,7 +808,7 @@ version = '1.0.0'
 
 #### Cannot get stagingProfiles for account
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691504645419-42f983f5-fd7b-426d-9e17-9f66519011af.png#averageHue=%23332d2d&clientId=ub26d7ec9-355f-4&from=paste&height=106&id=uca19bed4&originHeight=212&originWidth=1147&originalType=binary&ratio=2&rotation=0&showTitle=false&size=38273&status=done&style=none&taskId=ucb372ae3-d46f-4add-a358-61d76c8fc3a&title=&width=573.5)<br>原因：大概率是账号 hacket 的密码不对
+![smt8v](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/smt8v.png)<br>原因：大概率是账号 hacket 的密码不对
 
 #### secret.gpg 找不到
 
@@ -944,7 +944,7 @@ done
 
 1. Preference→Access Tokens→Private Access Tokens
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1700813875347-09d59415-96af-487d-b8f1-b1b5e783bc9d.png#averageHue=%23f7f6f8&clientId=uc2f9aecd-f07b-4&from=paste&height=290&id=uec9a2e81&originHeight=580&originWidth=2560&originalType=binary&ratio=2&rotation=0&showTitle=false&size=124573&status=done&style=none&taskId=u7280094d-cbc5-48c7-a874-eb993cd7c83&title=&width=1280)
+![zw03v](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zw03v.png)
 
 2. maven-publish 脚本
 

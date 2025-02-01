@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:22:06 pm
+date_updated: Wednesday, January 29th 2025, 7:05:13 pm
 title: ConstrainLayout基础
 author: hacket
 categories:
@@ -53,11 +53,11 @@ ConstraintLayout 基本操作：
 
 ## Inspector
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688517992039-533a80ff-e12a-40e2-9c54-1e9d96eaaa81.png#averageHue=%23324c5f&clientId=ucd6c232c-036c-4&from=paste&id=ua59ab897&originHeight=389&originWidth=462&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u5e6c8059-2c56-4cdf-ba0d-6ec31b97e2a&title=)<br />
+![je05o](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/je05o.png)<br />
 
 下面这部分称为 Inspector：<br />
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518032569-8398c81f-6237-4558-9d26-6be6c52a35dc.png#averageHue=%233f4244&clientId=ucd6c232c-036c-4&from=paste&id=u42f35120&originHeight=282&originWidth=423&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u52d7ca7f-2359-46d9-b6b1-c583974c177&title=)
+![k96gn](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/k96gn.png)
 
 ### 左和下的轴
 
@@ -71,11 +71,11 @@ ConstraintLayout 基本操作：
 它是用来控制控件大小的。一共有三种模式可选，每种模式都使用了一种不同的符号表示，点击符号即可进行切换：
 
 - 箭头 `>>>` wrap_content
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518091891-98481b1f-90d8-40dc-8f4d-fd6c9d1e8049.png#averageHue=%23464b4f&clientId=ucd6c232c-036c-4&from=paste&height=53&id=ud99c4d6d&originHeight=21&originWidth=42&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u96dd552d-b2f8-42fd-90d3-b60db4b556c&title=&width=106) 表示 wrap_content。
+![tthmq](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/tthmq.png) 表示 wrap_content。
 - `|——|` Fixed
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518102925-6d25d643-3fcf-496c-9f70-1901129621e7.png#averageHue=%23464b50&clientId=ucd6c232c-036c-4&from=paste&height=59&id=u57f49b2f&originHeight=22&originWidth=40&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u98b6716d-f19f-4342-936a-3e52c43a644&title=&width=108) 表示固定值，也就是给控件指定了一个固定的长度或宽度值。
+![f4xgd](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/f4xgd.png) 表示固定值，也就是给控件指定了一个固定的长度或宽度值。
 - `波浪` Match Constraints
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518112118-0eaf9db5-294e-4e13-b0c5-45af1cf24490.png#averageHue=%23464e55&clientId=ucd6c232c-036c-4&from=paste&height=56&id=u14edef28&originHeight=20&originWidth=37&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uc94b51f1-08bb-4069-82d8-f0bce43111e&title=&width=103) 表示 any size，有点类似于 match_parent，但和 match_parent 不一样，它是属于 ConstraintLayout 中特有的一种大小控制方式。
+![1z3og](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1z3og.png) 表示 any size，有点类似于 match_parent，但和 match_parent 不一样，它是属于 ConstraintLayout 中特有的一种大小控制方式。
 而 any size 就是用于在 ConstraintLayout 中顶替 match parent 的，怎样使用 any size 实现和 match parent 同样的效果？只要将 width 和 height 设置为 0dp 即可。
 
 > 首先需要说明，在 ConstraintLayout 中是有 match parent 的，只不过用的比较少，因为 ConstraintLayout 的一大特点就是为了解决布局嵌套，既然没有了布局嵌套，那么 match parent 也就没有多大意义了。<br />match_parent 和 any size 区别？<br />match_parent 是用于填充满当前控件的父布局，而 any size 是用于填充满当前控件的约束规则。也就是说有个控件宽度如果设置为 any size，那么它的宽度会和约束的控件的宽度一致。
@@ -84,13 +84,13 @@ ConstraintLayout 基本操作：
 
 需求：如果我们想让两个按钮共同居中对齐该怎么实现呢？其实这个需求很常见，比如说在应用的登录界面，都会有一个登录按钮和一个注册按钮，不管它们是水平居中也好还是垂直居中也好，但肯定都是两个按钮共同居中的。<br />解决：我们希望让这两个按钮在水平方向上居中显示，在垂直方向上都距离底部 64dp，那么就需要先添加一个垂直方向上的 Guideline。
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518161454-6c5750aa-9ad3-4981-a33c-63b51338b0ce.png#averageHue=%23a9aeb0&clientId=ucd6c232c-036c-4&from=paste&id=u841ea0b1&originHeight=524&originWidth=646&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u8cc6dfee-3c0f-4ea6-8a01-1530ec78ce1&title=)<br />
+![4lka5](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/4lka5.png)<br />
 
 首先点击通知栏中的 Guidelines 图标可以添加一个垂直或水平方向上的 Guideline，这里我们需要的是垂直方向上的。而 Guideline 默认是使用的 dp 尺，我们需要选中 Guideline，并点击一下最上面的箭头图标将它改成百分比尺，然后将垂直方向上的 Guideline 调整到 50% 的位置，这样就将准备工作做好了。<br />
 
 接下来我们开始实现让两个按钮在水平方向上居中显示，并距离底部 200dp 的功能。可以无缝重定向到对应的
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518175763-40f491e3-802a-40bc-9360-06a0ec81a285.png#averageHue=%232a5172&clientId=ucd6c232c-036c-4&from=paste&id=ub1be39cf&originHeight=451&originWidth=568&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ud604c4db-ab3d-4c34-b601-fffd68b4d7d&title=)
+![loety](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/loety.png)
 
 这样就实现了让两个按钮在水平方向上居中显示，在垂直方向上都距离底部 64dp 的功能了。
 
@@ -98,7 +98,7 @@ ConstraintLayout 基本操作：
 
 如果界面中的内容变得复杂起来，给每个控件一个个地添加约束也是一件很繁琐的事情。为此，ConstraintLayout 中支持自动添加约束的功能，可以极大程度上简化那些繁琐的操作。<br />
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518197497-2d69794e-77ff-4090-83fa-8b1d7dcd94fa.png#averageHue=%234b4e50&clientId=ucd6c232c-036c-4&from=paste&id=uc2dde605&originHeight=37&originWidth=109&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u0837c9b1-1ed0-47ac-a4d8-98d638f7ffc&title=)<br />
+![8rnqz](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/8rnqz.png)<br />
 
 分别是：
 
@@ -177,7 +177,7 @@ ConstraintLayout 基本操作：
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518347831-4e2c3bbb-2414-4da9-9186-e9668a92e326.png#averageHue=%23cee7f0&clientId=ucd6c232c-036c-4&from=paste&id=uee680c2c&originHeight=165&originWidth=299&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u1382f611-da7c-4488-894f-04615dfc604&title=)
+![1iaxr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1iaxr.png)
 
 ## constraintCircleXXX ConstraintLayout 方位角
 
@@ -226,7 +226,7 @@ app:layout_constraintCircleRadius=""   到目标中心的距离
 
 > jetpack 图标在 android 图标的 45 度方向，距离为 60dp
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518360444-e2df600a-df6f-4417-b3cf-38f8ee0eeb94.png#averageHue=%23c4eeed&clientId=ucd6c232c-036c-4&from=paste&id=uad1c5d7a&originHeight=332&originWidth=414&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ubb290871-62d4-420c-adc3-bf1466fabe1&title=)
+![q8wqs](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/q8wqs.png)
 
 ## constraintHorizontal_bias/constraintVertical_bias 百分比偏移，约束强度
 
@@ -271,7 +271,7 @@ app:layout_constraintVertical_bias=""     垂直偏移 默认是0.5，取值范�
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518427300-01d0c579-377b-49f7-8d49-708071d79adf.png#averageHue=%23d8f0fc&clientId=ucd6c232c-036c-4&from=paste&height=437&id=u812ec928&originHeight=640&originWidth=360&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u4577fbd0-474e-4ad2-93ce-325d5936540&title=&width=246)
+![akge3](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/akge3.png)
 
 ## 控件内边距/外边距、GONE Margin
 
@@ -352,11 +352,11 @@ app:layout_goneMarginTop="0dp"
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518540164-30e0474d-cc3e-47ed-a444-0d5646b23478.png#averageHue=%23adc7cc&clientId=ucd6c232c-036c-4&from=paste&height=165&id=uf135cb8f&originHeight=216&originWidth=352&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uf6e3f256-876a-4d48-b0ea-89ab51dbe82&title=&width=269)
+![zh94y](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zh94y.png)
 
 - A GONE 了，自身的 margin 都失效了
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518547682-15c803fe-b2be-4549-a354-26ab23dce57d.png#averageHue=%2393b7e1&clientId=ucd6c232c-036c-4&from=paste&height=97&id=u36121b6a&originHeight=152&originWidth=200&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u4f4f9dd5-f28c-48c7-9b83-5e8460ee473&title=&width=128)
+![62l8r](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/62l8r.png)
 
 ### 负数 margin
 
@@ -441,7 +441,7 @@ android:maxHeight=""  设置view的最大高度
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518602348-dfc043d4-a1a5-4071-98e8-58bd2059f996.png#averageHue=%23cde9f5&clientId=ucd6c232c-036c-4&from=paste&id=uaef06fcd&originHeight=266&originWidth=898&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u3bfb141b-cffa-48e7-b23a-56c9ce91873&title=)<br />![](http://note.youdao.com/yws/res/58931/28CB0A5052F44282B3FE8953C3A901A6#id=VTdeR&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![4d2qz](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/4d2qz.png)<br />
 
 2. layout_constraintWidth_default="percent"，自身宽度按照父布局的百分比设置
 
@@ -476,7 +476,7 @@ android:maxHeight=""  设置view的最大高度
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518608748-37a224b8-27ce-47cd-accf-0b832a23d25f.png#averageHue=%23d2ecf9&clientId=ucd6c232c-036c-4&from=paste&id=u0a814ff2&originHeight=258&originWidth=894&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u6021e5a3-fe6e-4090-a457-6930c221ba5&title=)
+![7rqw4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/7rqw4.png)
 
 > percent 模式的意思是自身 view 的尺寸是父布局尺寸的一定比例，上图所展示的是宽度是父布局宽度的 0.5（50%，取值是 0-1 的小数），该模式需要配合 layout_constraintWidth_percent 使用，但是写了 layout_constraintWidth_percent 后，layout_constraintWidth_default="percent" 其实就可以省略掉了
 
@@ -533,7 +533,7 @@ android:maxHeight=""  设置view的最大高度
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518614760-bb829c37-926f-4a62-a8b4-be75c13b9bb0.png#averageHue=%2377a2b1&clientId=ucd6c232c-036c-4&from=paste&id=ub3fe683a&originHeight=299&originWidth=800&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uc3f488b1-6cc0-4bd5-9f0e-2706a5881fa&title=)
+![ygpt1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ygpt1.png)
 
 > 控件 A 宽度设置为 wrap_content，宽度适应内容大小，并且设置了 margin，但是显然宽度已经超过 margin 的设置值了，而控件 B 宽度设置为 0dp wrap 模式，宽度适应内容大小，并且不会超过 margin 的设置值，也就是不会超过约束限制，这就是这两者的区别
 
@@ -580,7 +580,7 @@ app:layout_constrainedHeight="true|false"
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518625892-ba50551e-7250-4ea9-9b2f-9d566308a429.png#averageHue=%23cbe7f4&clientId=ucd6c232c-036c-4&from=paste&id=u3583bae1&originHeight=196&originWidth=448&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uc14eb97d-19e5-4c2a-b886-9c30c86e9ed&title=)
+![90qme](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/90qme.png)
 
 ### min/max (0dp 下 width/height 的最小/最大值)
 
@@ -691,7 +691,7 @@ ConstraintLayout 也可以像 LinearLayout 一样为子控件设置 layout_weigh
 </android.support.constraint.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518640246-b1ab6670-08f2-4f2a-862d-1505db8a1cc5.png#averageHue=%23486b78&clientId=ucd6c232c-036c-4&from=paste&id=u7c15f121&originHeight=92&originWidth=1114&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ue9470f04-2409-4b16-953d-2a0faacdf23&title=)
+![bd1ue](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/bd1ue.png)
 
 ## Chains (链)
 
@@ -716,18 +716,18 @@ Chain 链比较难描述，它是一种特殊的约束，可以为多个通过 c
 
 #### spread
 
-1. 当参数值为 spread 以及控件宽度非 0 时，所有链条都会被展开 ![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688575265514-64d8d21a-d7e6-4a1d-9f6d-f4fb723c6525.png#averageHue=%234f6989&clientId=ucd6c232c-036c-4&from=paste&id=u4df88e50&originHeight=174&originWidth=700&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u30157227-d93f-4fe4-a295-75fdd82fbdf&title=)
-2. 当参数值为 spread 以及控件宽度为 0dp（即 MATCH_CONSTRAINT 时，和 LinearLayout 的 weight 效果类似 ![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688575288042-618a6be7-c70b-4565-9570-7d2d674adf98.png#averageHue=%23486487&clientId=ucd6c232c-036c-4&from=paste&id=u87d4f901&originHeight=174&originWidth=700&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u492d931b-0c0d-46de-af00-67a4d1fcaab&title=)
+1. 当参数值为 spread 以及控件宽度非 0 时，所有链条都会被展开 ![ibsds](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ibsds.png)
+2. 当参数值为 spread 以及控件宽度为 0dp（即 MATCH_CONSTRAINT 时，和 LinearLayout 的 weight 效果类似 ![nb5hc](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/nb5hc.png)
 
 #### packed
 
-当参数值为 packed 以及控件宽度非 0 时，链条上的点聚集到一起![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688575293776-0e68ff65-bcf0-4c72-a07f-285b7a9c37db.png#averageHue=%23516b8c&clientId=ucd6c232c-036c-4&from=paste&id=ub6a2f2df&originHeight=181&originWidth=700&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u3f3d060d-df29-4a32-bb97-ab27f0cf006&title=)
+当参数值为 packed 以及控件宽度非 0 时，链条上的点聚集到一起![g3rqy](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/g3rqy.png)
 
 > 如果控件的宽度为 0dp 时，那就和 spread 一样了
 
 #### spread_inside
 
-当参数值为 spread_inside 以及控件宽度非 0 时，两端点不展开，中间的点展开![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688575312648-2f824168-31a6-4191-b332-d55ee21910a7.png#averageHue=%23506a8c&clientId=ucd6c232c-036c-4&from=paste&id=u5e1fe7e4&originHeight=174&originWidth=700&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u77557585-21a2-4155-8e87-e2776402e42&title=)
+当参数值为 spread_inside 以及控件宽度非 0 时，两端点不展开，中间的点展开![uiwpr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/uiwpr.png)
 
 > 如何控件宽度为 0dp，match_constraint 时，那么和 spread 效果一样。
 
@@ -799,7 +799,7 @@ Chain 链比较难描述，它是一种特殊的约束，可以为多个通过 c
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688575362434-f7d63d06-d217-47db-8299-62c6dd04d26d.png#averageHue=%23c7ecf8&clientId=ucd6c232c-036c-4&from=paste&id=u1ab12d68&originHeight=147&originWidth=651&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ufbcbd923-c80a-4ba9-aa6e-e809ab3c095&title=)
+![gm5tj](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/gm5tj.png)
 
 #### chain 不生效
 
@@ -813,7 +813,7 @@ app:layout_constraintVertical_chainStyle="packed"
 
 Guideline 只能用于 ConstraintLayout 中，是一个工具类，不会被显示，仅仅用于辅助布局。(GuideLine 只是为了帮助其他 View 定位而存在，实际上并不会出现在实际界面中)
 
-```
+```xml
 android:orientation="horizontal|vertical"  辅助线的对齐方式
 app:layout_constraintGuide_percent="0-1"   百分比方式：距离父级宽度或高度的百分比(小数形式)
 app:layout_constraintGuide_begin=""        dp方式：距离父级起始位置的距离(左侧或顶部)
@@ -859,7 +859,7 @@ app:layout_constraintGuide_end=""          dp方式：距离父级结束位置�
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518720114-4e5dc6c1-14b5-407a-abb2-357d8ca4a433.png#averageHue=%23d1f2fe&clientId=ucd6c232c-036c-4&from=paste&height=355&id=u1bf65f7d&originHeight=1032&originWidth=675&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=49724&status=done&style=none&taskId=ucd5f6090-d980-49d8-bd4d-7b1c66c6514&title=&width=232)
+![2q8x3](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2q8x3.png)
 
 ## Barrier（屏障 v1.1）
 
@@ -932,7 +932,7 @@ Barrier 是一个看不见的视图，如果其引用形成 Barrier 的视图的
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-其中 `constraint_referenced_ids` 指定限定源 id,多个 id 用逗号隔开<br />`barrierDirection` 指定限制的方向,有 left, right, top, bottom, start, end, 6 种上面代表的是 barrier 以 tv_name 和 tv_contact 两者最右侧为基准线来作为自己的定位<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688574198368-9d1f02de-d0a5-4aed-9f65-4f3fd86e607c.png#averageHue=%23dfdfdf&clientId=ucd6c232c-036c-4&from=paste&height=635&id=u74e0841e&originHeight=2960&originWidth=1440&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u25511011-2375-4680-a8bc-7b549cf7982&title=&width=309)
+其中 `constraint_referenced_ids` 指定限定源 id,多个 id 用逗号隔开<br />`barrierDirection` 指定限制的方向,有 left, right, top, bottom, start, end, 6 种上面代表的是 barrier 以 tv_name 和 tv_contact 两者最右侧为基准线来作为自己的定位<br />![g5s0g](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/g5s0g.png)
 
 #### 案例 2： 糗百注册登录
 
@@ -1120,7 +1120,7 @@ Barrier 是一个看不见的视图，如果其引用形成 Barrier 的视图的
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688575007470-06a7b195-fef5-410c-abc2-0d711f65823a.png#averageHue=%23394b61&clientId=ucd6c232c-036c-4&from=paste&id=ua0d8fe0f&originHeight=681&originWidth=793&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u94d2c848-3a09-45be-a9ce-b0a789221a3&title=)
+![ekvmn](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ekvmn.png)
 
 ## Group (组 v1.1)
 
@@ -1200,7 +1200,7 @@ app:constraint_referenced_ids="id,id"  加入组的控件id
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518664160-c1a7a08e-fc38-424d-ab25-819c45179904.png#averageHue=%23d5f0fb&clientId=ucd6c232c-036c-4&from=paste&height=362&id=u98a9ad92&originHeight=540&originWidth=449&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u4b6958f2-deee-4f38-865f-1e569776a96&title=&width=301)
+![xwh1p](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/xwh1p.png)
 
 ### Group 注意
 
@@ -1452,7 +1452,7 @@ public void initViews(@Nullable Bundle savedInstanceState) {
 </android.support.constraint.ConstraintLayout>
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518754136-01df6584-cf24-4f85-ad55-8c5f100c14e2.png#averageHue=%235ce4fb&clientId=ucd6c232c-036c-4&from=paste&height=316&id=u54ef04b3&originHeight=753&originWidth=921&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=127339&status=done&style=none&taskId=uf9d8503d-fe97-408b-a990-a12c2bc32fe&title=&width=386)
+![zbvkn](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zbvkn.png)
 
 ## ConstraintHelper
 
@@ -1537,7 +1537,7 @@ Layer 可以看作是它引用的 view 的边界（可以理解为包含这些 v
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688575952854-f7777c91-4e78-4aca-a587-40f0e61ba073.png#averageHue=%23e0dfd9&clientId=ucd6c232c-036c-4&from=paste&height=777&id=u4a78bf2f&originHeight=2960&originWidth=1440&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u3584706c-6656-4e80-9583-5a2d72cb652&title=&width=378)
+![qd47u](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/qd47u.png)
 
 #### 案例 2：做变换
 
@@ -1708,7 +1708,7 @@ button8.setOnClickListener {
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688518677072-79a7e473-9af1-4c4e-8882-6cda0ca60f76.png#averageHue=%23d7effc&clientId=ucd6c232c-036c-4&from=paste&id=ua9b379e8&originHeight=355&originWidth=468&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u89ec00c6-cd63-44d6-be03-d2aa46e8845&title=)
+![qaldl](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/qaldl.png)
 
 ## Flow (流式虚拟布局 v2.0+)
 

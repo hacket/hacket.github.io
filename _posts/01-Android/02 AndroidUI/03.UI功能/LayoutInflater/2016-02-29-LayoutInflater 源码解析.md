@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:45:51 pm
+date_updated: Wednesday, January 29th 2025, 6:36:57 pm
 title: LayoutInflater 源码解析
 author: hacket
 categories:
@@ -499,8 +499,6 @@ BlinkLayout 是 LayoutInflater 中的一个内部类，它本身是是 FrameLayo
         app:layout_constraintTop_toTopOf="parent" />
 </blink>
 ```
-
-![](https://user-gold-cdn.xitu.io/2019/11/20/16e86998404438a3?imageslim#id=rXupY&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 这种效果也适合来做 EditText 中光标的闪烁效果
 

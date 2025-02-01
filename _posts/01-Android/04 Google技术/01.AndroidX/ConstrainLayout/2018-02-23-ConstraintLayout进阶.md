@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:22:11 pm
+date_updated: Wednesday, January 29th 2025, 7:06:18 pm
 title: ConstraintLayout进阶
 author: hacket
 categories:
@@ -50,7 +50,7 @@ v1.1.3 layout_optimizationLevel 属性默认打开，默认 standard<br /><https
 
 ## Flow 介绍
 
-<https://developer.android.com/reference/androidx/constraintlayout/helper/widget/Flow><br />Flow 是 VirtualLayout，Flow 可以像 `Chain` 那样帮助快速横向/纵向布局 `constraint_referenced_ids` 里面的元素；是 `ContraintHelper` 的实现。<br />Flow 是用于构建链的新虚拟布局，当链用完时可以缠绕到下一行甚至屏幕的另一部分。当您在一个链中布置多个项目时，这很有用，但是您不确定容器在运行时的大小。您可以使用它来根据应用程序中的动态尺寸（例如旋转时的屏幕宽度）构建布局。Flow 是一种虚拟布局。在 ConstraintLayout 中，虚拟布局 (Virtual layouts) 作为 virtual view group 的角色参与约束和布局中，但是它们并不会作为视图添加到视图层级结构中，而是仅仅引用其它视图来辅助它们在布局系统中完成各自的布局功能<br />下面使用动画来展示 Flow 创建多个链将布局元素充裕地填充一整行：<br />![](https://cdn.nlark.com/yuque/0/2023/gif/694278/1688576209703-ec3e3a95-1800-4b14-b941-8ee6a444b075.gif#averageHue=%23fefefe&clientId=u90401e08-49fb-4&from=paste&id=u67adabc8&originHeight=255&originWidth=720&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ua312846b-6c02-47a0-81d5-a3147761e92&title=)
+<https://developer.android.com/reference/androidx/constraintlayout/helper/widget/Flow><br />Flow 是 VirtualLayout，Flow 可以像 `Chain` 那样帮助快速横向/纵向布局 `constraint_referenced_ids` 里面的元素；是 `ContraintHelper` 的实现。<br />Flow 是用于构建链的新虚拟布局，当链用完时可以缠绕到下一行甚至屏幕的另一部分。当您在一个链中布置多个项目时，这很有用，但是您不确定容器在运行时的大小。您可以使用它来根据应用程序中的动态尺寸（例如旋转时的屏幕宽度）构建布局。Flow 是一种虚拟布局。在 ConstraintLayout 中，虚拟布局 (Virtual layouts) 作为 virtual view group 的角色参与约束和布局中，但是它们并不会作为视图添加到视图层级结构中，而是仅仅引用其它视图来辅助它们在布局系统中完成各自的布局功能<br />下面使用动画来展示 Flow 创建多个链将布局元素充裕地填充一整行：<br />![4buid](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/4buid.gif)
 
 ## Flow 基本用法
 
@@ -75,7 +75,9 @@ v1.1.3 layout_optimizationLevel 属性默认打开，默认 standard<br /><https
 
 ##### 1. none（默认） 所引用的 View 形成一条链，水平居中，超出屏幕两侧的 view 不可见
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688576247472-fa2d5b83-1e8f-4429-b699-fb58b083f8ad.png#averageHue=%2379a3b0&clientId=u90401e08-49fb-4&from=paste&id=u7098d1f0&originHeight=236&originWidth=651&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u72e78078-bd3f-4bf8-bd0f-bc9a9f36254&title=)<br />下面属性可用：
+![2awj7](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2awj7.png)<br />
+
+下面属性可用：
 
 ```xml
 flow_horizontalStyle = "spread|spread_inside|packed"
@@ -90,7 +92,9 @@ flow_verticalAlign = "top|bottom|center|baseline
 
 ##### 2. chain 所引用的 View 形成一条链，超出部分会自动换行，同行的 view 平分宽度
 
-根据空间的大小和元素的大小组成一条或者多条 chain（一行显示不在会显示到第二行，不会对齐） <br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688576279326-51a6dd41-06f7-4f54-af4e-99271765211b.png#averageHue=%2385b0bf&clientId=u90401e08-49fb-4&from=paste&id=uc9c19d86&originHeight=283&originWidth=660&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ua3fdfc1e-50b7-46e8-b202-fdaeef05a54&title=)<br />![](http://note.youdao.com/yws/res/59127/E867B383E8BB40D387C7FC9043577599#id=vPm1p&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)下面属性可用：
+根据空间的大小和元素的大小组成一条或者多条 chain（一行显示不在会显示到第二行，不会对齐） <br />![jktz1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/jktz1.png)<br />
+
+下面属性可用：
 
 ```xml
 flow_firstHorizontalStyle = "spread|spread_inside|packed"
@@ -101,11 +105,13 @@ flow_firstVerticalBias = "float"
 
 ##### 3. aligned 所引用的 View 形成一条链，但 view 会在同行同列
 
-wrap chain 类似，但是会对齐 <br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688576293046-e67707b0-1972-413c-9018-112debeae00b.png#averageHue=%2382afbe&clientId=u90401e08-49fb-4&from=paste&id=ub3e0ed9c&originHeight=256&originWidth=664&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u73ab793e-c8a6-4b8f-94c3-9add2554091&title=)
+wrap chain 类似，但是会对齐 <br />
+
+![tcfnh](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/tcfnh.png)
 
 ##### 动画演示 flow_wrapMode 效果
 
-![](https://cdn.nlark.com/yuque/0/2023/gif/694278/1688576298158-6a506244-21ab-4d82-844b-fe844752b6ca.gif#averageHue=%23fef9f7&clientId=u90401e08-49fb-4&from=paste&id=u7695d2c9&originHeight=336&originWidth=480&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u13094e5c-3226-48f7-bbac-4272629180f&title=)<br />
+![vlscv](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/vlscv.gif)<br />
 
 当 flow_wrapMode 的值是 chian 或 aligned 时，我们还可以针对不同的链进行配置 Style
 
@@ -125,7 +131,7 @@ app:flow_lastVerticalStyle="packed｜spread｜spread_inside"    最后一条垂�
 
 当 `flow_wrapMode` 属性为 `aligned` 和 `chian` 时，通过 `flow_maxElementsWrap` 属性控制每行最大的子 View 数量，例如我们设置为 flow_maxElementsWrap=4<br />
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688576311568-8acfc922-a69a-49d0-8f1d-cae35e0a7dfa.png#averageHue=%23c6ebf9&clientId=u90401e08-49fb-4&from=paste&id=uf56f7694&originHeight=800&originWidth=450&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u71f745a3-d5df-4694-9aca-88495be4bb9&title=)
+![p8r3b](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/p8r3b.png)
 
 #### gap 水平和垂直 view 之间的间隔
 
@@ -161,7 +167,7 @@ app:flow_horizontalAlign="start|end|center"
         app:layout_constraintTop_toTopOf="parent" />
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688576336747-da99590a-0fa8-4e09-8ff2-4edf7b5031d3.png#averageHue=%23cfeef9&clientId=u90401e08-49fb-4&from=paste&height=539&id=u0c73c477&originHeight=803&originWidth=577&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u9ebffc32-d99a-4ad3-a0f2-324de5494d2&title=&width=387)
+![wz94n](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wz94n.png)
 
 ##### 案例 2：app:flow_verticalAlign="bottom"
 
@@ -176,7 +182,7 @@ app:flow_horizontalAlign="start|end|center"
         app:layout_constraintTop_toTopOf="parent" />
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688576349241-9375d72d-ef23-41c1-af22-0ff921b99a84.png#averageHue=%23cdeef9&clientId=u90401e08-49fb-4&from=paste&height=443&id=u521a7db9&originHeight=747&originWidth=565&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ufd612b24-9af4-4743-930e-f8b8121249b&title=&width=335)
+![lu77p](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/lu77p.png)
 
 ##### 案例 3：app:flow_verticalAlign="center"
 
@@ -542,7 +548,7 @@ class ConstraintFlowDemo1Activity : AppCompatActivity() {
 }
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688576388383-67456f16-9bc2-4754-8ef0-700f31b9ad34.png#averageHue=%2359ae6c&clientId=u90401e08-49fb-4&from=paste&id=uc1251f7a&originHeight=2960&originWidth=1440&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ub7028f1e-b684-49cd-8fcd-235610fd2f9&title=)
+![3th8i](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/3th8i.png)
 
 # ConstraintLayout 动画
 

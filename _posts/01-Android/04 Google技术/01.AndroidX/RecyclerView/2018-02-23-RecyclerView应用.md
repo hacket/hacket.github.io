@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:29:54 pm
+date_updated: Wednesday, January 29th 2025, 10:04:30 pm
 title: RecyclerView应用
 author: hacket
 categories:
@@ -43,7 +43,7 @@ linter-yaml-title-alias: RecyclerView 实现网页分格布局
 
 # RecyclerView 应用之多宫格抽奖
 
-![](https://img2018.cnblogs.com/common/1450935/201911/1450935-20191122163921469-1421130888.gif#id=RTaDW&originHeight=643&originWidth=420&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![jh8gy](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/jh8gy.gif)
 
 ## 请求获取到结果后做动画
 
@@ -660,7 +660,7 @@ mLuckyDrawHelper.updateResult(helperResult)
 mLuckyDrawHelper.cancel()
 ```
 
-![](http://note.youdao.com/yws/res/41789/2601F75F11D140029937513B2B31D250#id=NZZ89&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250129220415.png)
 
 ### 计算多宫格要加入到动画 list
 

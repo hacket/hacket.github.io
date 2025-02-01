@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, November 19th 2022, 11:27:19 pm
-date_updated: Wednesday, January 22nd 2025, 11:05:27 pm
+date_updated: Saturday, February 1st 2025, 12:48:13 am
 title: Flutter Module
 author: hacket
 categories:
@@ -27,7 +27,7 @@ linter-yaml-title-alias: Flutter Module
 
 ## 命令创建 Flutter module
 
-命令：`flutter create -t module flutter_module`<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1695660373698-9da100cf-5512-4197-968b-1f36dcf8e976.png#averageHue=%23080605&clientId=uce5d150e-d1e2-4&from=paste&height=166&id=ue126db46&originHeight=249&originWidth=880&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=21947&status=done&style=stroke&taskId=u6449da9e-e139-4d54-b19f-c75c696d143&title=&width=586.6666666666666)<br>目录结构：<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1695660415602-d88cab71-6c94-4327-b42a-2ade4c2ac54c.png#averageHue=%233e444b&clientId=uce5d150e-d1e2-4&from=paste&height=330&id=u9ea1d66e&originHeight=672&originWidth=640&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=39949&status=done&style=stroke&taskId=u72473e11-efa0-4458-a816-4baef47ba6c&title=&width=314.66668701171875)
+命令：`flutter create -t module flutter_module`<br>![yjwlm](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/yjwlm.png)
 
 - flutter module 也是可以跑到手机上的
 - flutter 中的 `.android` 和 `.ios` 是自动生成的，app 的是没有 `.` 的
@@ -45,7 +45,7 @@ linter-yaml-title-alias: Flutter Module
 2. 进入到 flutter_module 目录
 3. 执行命令：`flutter build aar`
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1695661545972-92e0fc32-33c6-41b1-b897-db7802ab4fbe.png#averageHue=%23646b6d&clientId=u3aff7655-b2c6-4&from=paste&height=640&id=u92069d82&originHeight=600&originWidth=513&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=249820&status=done&style=stroke&taskId=ucc91e5aa-0ff7-4ef4-952a-124fe536da2&title=&width=547)
+![p9gby](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/p9gby.png)
 
 4. 构建后的产物
 
@@ -111,7 +111,7 @@ dependencies {
 
 - Android Studio using the Build > Flutter > Build AAR menu.
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1695661642811-0bef9441-f591-486e-a4f7-ee6ba2ba84d5.png#averageHue=%238a8f8e&clientId=u3aff7655-b2c6-4&from=paste&id=u3e2eedc3&originHeight=241&originWidth=718&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=149336&status=done&style=stroke&taskId=u92354e13-f97d-4dd0-b221-3580c39def1&title=)
+![56vwv](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/56vwv.png)
 
 ## [依赖模块源码引入](https://docs.flutter.dev/add-to-app/android/project-setup#option-b---depend-on-the-modules-source-code)
 

@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, November 19th 2020, 11:27:19 pm
-date_updated: Wednesday, January 22nd 2025, 11:20:19 pm
+date_updated: Saturday, February 1st 2025, 12:06:26 am
 title: Gradle Task基础
 author: hacket
 categories:
@@ -39,7 +39,7 @@ Task 的 Action 就是编译时所需的操作，它不是一个，它是一组�
 
 > doFirst 和 doLast 是可以被执行多次的
 
-![image.png|700](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240307213513.png)
+![vmrqu](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/vmrqu.png)
 
 Action 执行顺序为 ：
 
@@ -299,7 +299,7 @@ taskB.doLast {
 
 #### tasks.create() (TaskContainer)
 
-tasks 是 Project 的属性，其类型是 TaskContainer，所以可以通过 tasks 来创建任务，当然 TaskContainer 创建任务也有创建任务的其他构造方法<br>![image.png|500](https://cdn.nlark.com/yuque/0/2023/png/694278/1691410270835-82556a94-cf56-4a70-97f7-9b043f62e7a4.png#averageHue=%233c4554&clientId=ub4bccdd5-b16e-4&from=paste&height=194&id=u757ae71b&originHeight=388&originWidth=1316&originalType=binary&ratio=2&rotation=0&showTitle=false&size=109244&status=done&style=none&taskId=u840bf08c-2099-40f3-84bd-ab73547f853&title=&width=658)
+tasks 是 Project 的属性，其类型是 TaskContainer，所以可以通过 tasks 来创建任务，当然 TaskContainer 创建任务也有创建任务的其他构造方法<br>![qydsd](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/qydsd.png)
 
 示例：
 
@@ -498,7 +498,7 @@ tasks.register<MyTask1>("myTask1") {
 
 否则报错：
 
-![image.png|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240310111046.png)
+![xpysx](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/xpysx.png)
 
 ### Skipping tasks
 
@@ -573,7 +573,7 @@ tasks.register("hangingTask") {
 
 分析：执行下：` ./gradlew -q printDepTask  `
 
-![image.png|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240309194947.png)
+![etfzr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/etfzr.png)
 
 解决：task 需要是 open 的
 

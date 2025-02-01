@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2022, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 12:49:59 am
+date_updated: Wednesday, January 29th 2025, 11:24:33 pm
 title: Android Notification
 author: hacket
 categories:
@@ -29,7 +29,7 @@ linter-yaml-title-alias: Android Notification
 
 ## 通知栏发展史
 
-![notification_xxx.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1692586537381-5ac45e15-2e05-4cad-a1a0-3663398114d0.png#averageHue=%2345453d&clientId=uf7890d14-3943-4&from=ui&id=L2itB&originHeight=1787&originWidth=3582&originalType=binary&ratio=2&rotation=0&showTitle=false&size=1269200&status=done&style=stroke&taskId=u81ac6569-aeb8-4d2f-b5e7-2b583cd040d&title=)<br />Android 通知栏从最初的 Android1.1 系统一直到如今的 7.X 版本，发生了翻天覆地的变化。从图中可以看出，1.X-2.2 版本的通知栏采用了白色背景和黑色字体；2.3-4.X 版本，默认背景变成了黑色，而主标题采用白色字体，内容为灰色字体。从 Android5.0 开始，又更改为白色背景和黑色字体。这只是原生的 Android 系统通知栏默认颜色，许多厂商对每个 Android 的版本都尝试了各式各样的修改。
+![11h9n](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/11h9n.jpg)<br />Android 通知栏从最初的 Android1.1 系统一直到如今的 7.X 版本，发生了翻天覆地的变化。从图中可以看出，1.X-2.2 版本的通知栏采用了白色背景和黑色字体；2.3-4.X 版本，默认背景变成了黑色，而主标题采用白色字体，内容为灰色字体。从 Android5.0 开始，又更改为白色背景和黑色字体。这只是原生的 Android 系统通知栏默认颜色，许多厂商对每个 Android 的版本都尝试了各式各样的修改。
 
 ### Android 1.X 修改记录
 
@@ -239,7 +239,7 @@ val moreSecureNotification = Notification.Builder(context, NotificationListenerV
 
 - 通知栏 UI 缩紧
 
-安卓 12（targetSdk >= 32）自定义通知的显示区域在收紧（折叠时高度上限为 64dp，展开时高度上限为 256dp），系统强制显示通知的小图标，包括常驻通知，显示区域为图中阴影部分<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1693213659528-2b7a23d2-6baf-4913-80d2-22ea5a6664a4.png#averageHue=%23fafafa&clientId=u1d9d11ab-42e3-4&from=paste&height=168&id=u317da93f&originHeight=656&originWidth=1578&originalType=binary&ratio=2&rotation=0&showTitle=false&size=214293&status=done&style=stroke&taskId=uad25d808-d1f9-434c-beba-976eb768a3f&title=&width=403)<br />在 Android12 通知 UI 的显示可能会异常，可以对 Android11 和 Android12 提供 2 套布局
+安卓 12（targetSdk >= 32）自定义通知的显示区域在收紧（折叠时高度上限为 64dp，展开时高度上限为 256dp），系统强制显示通知的小图标，包括常驻通知，显示区域为图中阴影部分<br />![2sik7](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2sik7.png)<br />在 Android12 通知 UI 的显示可能会异常，可以对 Android11 和 Android12 提供 2 套布局
 
 ### Android13.x（Android T API33）
 
@@ -348,7 +348,9 @@ private fun createNotificationChannel(channelId: String, channelName: String, im
 }
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1693137612045-dc2d1d26-cd04-445f-a7af-1738a2530113.png#averageHue=%23f2f2f2&clientId=u77cf8e66-75cc-4&from=paste&height=79&id=u1c118cf0&originHeight=158&originWidth=584&originalType=binary&ratio=2&rotation=0&showTitle=false&size=19114&status=done&style=stroke&taskId=uda3d045c-04b4-43d8-8942-ede522106be&title=&width=292)<br />发起一个普通通知的几个要素：
+![pfyxd](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/pfyxd.png)<br />
+
+发起一个普通通知的几个要素：
 
 - setContentTitle 标题
 - setContentText 内容
@@ -383,7 +385,7 @@ private fun createNotificationForHigh() {
 }
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1693140032665-40a3cd5a-fd53-4513-84c7-eb5a3a3891ea.png#averageHue=%23ebe6d5&clientId=u77cf8e66-75cc-4&from=paste&height=648&id=ube3784aa&originHeight=2880&originWidth=1440&originalType=binary&ratio=2&rotation=0&showTitle=false&size=511547&status=done&style=stroke&taskId=u45f1995a-a677-4226-b9ab-b2fb55d7689&title=&width=324)
+![al0zx](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/al0zx.png)
 
 - setNumber 桌面通知数量
 - addAction 在通知下添加一个自定义操作，Android4.1 及以上功能；基于 expanded notifications
@@ -416,7 +418,7 @@ private fun createNotificationForProgress() {
 }
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1693141291855-029315e4-42b0-4ad5-b544-d24fa4c8bfcd.png#averageHue=%23f8f8f8&clientId=u77cf8e66-75cc-4&from=paste&height=78&id=u186023ef&originHeight=156&originWidth=592&originalType=binary&ratio=2&rotation=0&showTitle=false&size=15721&status=done&style=stroke&taskId=u936bd1b9-56bb-4df1-a581-016390626c0&title=&width=296)<br />setProgress 配置进度，接收 3 个参数：
+![ewoa0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ewoa0.png)<br />setProgress 配置进度，接收 3 个参数：
 
 - max 最大值
 - progress 当前进度
@@ -452,7 +454,7 @@ private fun createNotificationForBigText() {
 
 > 一劳永逸的做法就是无论内容有多少行，都用大文本的这种方式通知，具体展示让系统自己去适配
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1693142034199-e1b74723-f1ce-457f-8e3a-a8037b69d75d.png#averageHue=%23a5a4a2&clientId=u77cf8e66-75cc-4&from=paste&height=687&id=uf9974ab1&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=215118&status=done&style=stroke&taskId=u63e30556-2687-4a66-be93-6909e5f40b6&title=&width=309)
+![zvknj](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zvknj.png)
 
 > 默认是展开的，点击箭头可以把文本内容收起来
 
@@ -524,13 +526,13 @@ private fun createNotificationForBigImage() {
 
 三星 A51 效果，默认是收起来的，点击展开：
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1693142471760-0fb08b4d-5e39-4867-8bef-6679c40bab38.png#averageHue=%23343430&clientId=u77cf8e66-75cc-4&from=paste&height=733&id=u923231ce&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=248587&status=done&style=stroke&taskId=u53bbf9e4-c427-4715-af87-0e13cf32772&title=&width=330)
+![mu8fi](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/mu8fi.png)
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1693142447483-658305fa-1832-4747-a49b-793b5463c7b5.png#averageHue=%2341423f&clientId=u77cf8e66-75cc-4&from=paste&height=720&id=u6c46f6e1&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=1104954&status=done&style=stroke&taskId=u76c432b7-9583-43ba-88a0-d354013b3e4&title=&width=324)
+![4biot](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/4biot.png)
 
 原始设备会展示不全，会被裁剪，要注意大图的尺寸：
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1693142564067-ec707887-b72f-4804-8cf4-a9afa8c0e878.png#averageHue=%23635547&clientId=u77cf8e66-75cc-4&from=paste&height=690&id=udfd284ec&originHeight=3040&originWidth=1440&originalType=binary&ratio=2&rotation=0&showTitle=false&size=1054339&status=done&style=stroke&taskId=uf5dc3c95-0bf5-46c7-a4bb-a024d476705&title=&width=327)
+![o4m3c](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/o4m3c.png)
 
 ### 自定义通知
 
@@ -661,7 +663,7 @@ registerReceiver(
 
 效果：
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1693194331684-f187c761-b153-407f-8a62-0c9f825b6b1b.png#averageHue=%239b9381&clientId=uf6fb087b-eb93-4&from=paste&height=550&id=u7ebb9fa0&originHeight=2880&originWidth=1440&originalType=binary&ratio=2&rotation=0&showTitle=false&size=852754&status=done&style=stroke&taskId=u60dd27da-cc90-4e4d-81c7-6257e617bac&title=&width=275)
+![3j5lz](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/3j5lz.png)
 
 更新：
 
@@ -752,7 +754,7 @@ open class DeletePendingReceiver : BroadcastReceiver() {
 
 - Android7.0 及以上可以将相关的消息放到一组，例如新到来邮件 notification
 
-![A collapsed (top) and expanded (bottom) notification group.](https://cdn.nlark.com/yuque/0/2023/png/694278/1692769287981-4972a3a3-7468-4e46-a880-9cce63cf9d6e.png#averageHue=%23f9f8f8&clientId=ub5a26fcf-4407-4&from=paste&height=288&id=u5c73b94f&originHeight=869&originWidth=772&originalType=binary&ratio=2&rotation=0&showTitle=true&size=150033&status=done&style=stroke&taskId=ud88e72be-4e3e-48fe-b873-7fb5bc59e61&title=A%20collapsed%20%28top%29%20and%20expanded%20%28bottom%29%20notification%20group.&width=256 "A collapsed (top) and expanded (bottom) notification group.")
+![0q2ev](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/0q2ev.png) and expanded (bottom) notification group.")
 
 - 通过一条单独的 notification summary 将所有 group notification 总结起来
 - notifications group 和 notification channels 不同，详细见下面介绍
@@ -787,11 +789,11 @@ private fun create() {
 - 原始系统是 4 条就自动分组了，最多显示 8 条，超过了 8 条还会显示到来的消息数量，但只会保留最新的 8 条消息
 - MIUI 13 国内版，4 条就会自动分组
 
-![折叠](https://cdn.nlark.com/yuque/0/2023/png/694278/1692775437296-a2c46260-c08a-4da4-a035-a4611ef92b94.png#averageHue=%23dfe3e7&clientId=ub5a26fcf-4407-4&from=paste&height=75&id=u84c6a010&originHeight=224&originWidth=574&originalType=binary&ratio=2&rotation=0&showTitle=true&size=104090&status=done&style=stroke&taskId=u509480e1-7334-4f0f-b68e-9d1a75ba88c&title=%E6%8A%98%E5%8F%A0&width=193 "折叠")<br />![展开](https://cdn.nlark.com/yuque/0/2023/png/694278/1692774952624-69530de5-7e29-462a-ab95-ec1858bf1142.png#averageHue=%23b4beca&clientId=ub5a26fcf-4407-4&from=paste&height=422&id=u80412378&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=true&size=583073&status=done&style=stroke&taskId=ua486c4e0-1b67-4636-9be0-8e38bdf3101&title=%E5%B1%95%E5%BC%80&width=190 "展开")
+![ncufh](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ncufh.png)<br />![uwj3d](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/uwj3d.png)
 
 - 三星 A51，4 条自动分组
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1692776076381-e230f5cb-5df3-493a-bac7-e35b2844d370.png#averageHue=%23f5f5f3&clientId=ub5a26fcf-4407-4&from=paste&height=159&id=ud67b9a0d&originHeight=318&originWidth=594&originalType=binary&ratio=2&rotation=0&showTitle=false&size=25472&status=done&style=stroke&taskId=u54c0aeaa-5985-408f-9477-87ce788c50b&title=&width=297)
+![nnsi6](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/nnsi6.png)
 
 ### create group notification
 
@@ -812,7 +814,7 @@ val newMessageNotification = NotificationCompat.Builder(this, CHANNEL_ID)
 
 - 设置了 `setGroup`，未设置 `setGroupSummary`，Notification 不会分组到一起，group Notification 必须要设置一个 summary notification
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1692758384686-e13fc981-aff6-442b-8177-86ca091599d7.png#averageHue=%23d6d6d5&clientId=ud81777bc-7223-4&from=paste&height=333&id=ua978da28&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=193417&status=done&style=stroke&taskId=uc3851fda-775b-4091-a44d-15fa2d3c22a&title=&width=150)
+![g8tpl](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/g8tpl.png)
 
 #### [Create a notification channel group](https://developer.android.com/develop/ui/views/notifications/channels#CreateChannelGroup)
 
@@ -885,9 +887,9 @@ summary notification 在不同的版本表现不一样：
 1. Android7.0(API24) 以下，只会展示 summary notification 这一条，子 notification 会被隐藏，点击 summary notification 也展开不了
 2. Android7.0 及以上，会展示 summary notification 这条，子 notification 可以点击展开和收起
 
-![Android6.0 Summary Notification|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1692782593299-c09d36af-3003-41e9-9b17-54951e91c4d9.png#averageHue=%23605e56&clientId=ub5a26fcf-4407-4&from=paste&height=640&id=u6fe6152c&originHeight=1280&originWidth=768&originalType=binary&ratio=2&rotation=0&showTitle=true&size=89044&status=done&style=stroke&taskId=u245bfe70-8177-4cfa-a7b3-71e34941dfb&title=Android6.0%20Summary%20Notification&width=384 "Android6.0 Summary Notification")
+![flj0t](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/flj0t.png)
 
-![Android7.0+ Summary Notification|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1692782655290-b992736b-d483-4ebf-ba62-75353f503cbe.png#averageHue=%23f2f2ed&clientId=ub5a26fcf-4407-4&from=paste&height=856&id=ub011304e&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=true&size=196139&status=done&style=stroke&taskId=u58a11a09-74ae-4041-88c9-336c457fc34&title=Android7.0%2B%20Summary%20Notification&width=385 "Android7.0+ Summary Notification")
+![ddr85](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ddr85.png)
 
 ### 如何设置通知不分组折叠？
 
@@ -897,11 +899,11 @@ summary notification 在不同的版本表现不一样：
 
 - Android7.0 及以上
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1692859990556-273c782a-59b7-4c86-aa0d-15ae3e426cf0.png#averageHue=%23e1e0df&clientId=ub5a26fcf-4407-4&from=paste&height=1170&id=u67e97a8e&originHeight=2340&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=416872&status=done&style=stroke&taskId=u12e890e8-aee0-407f-9358-e2d22fd4b66&title=&width=540)
+![b61qo](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/b61qo.png)
 
 - Android7.0 以下，不会
 
-![image.png|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1692858747931-7b5f8b94-d4cd-4251-8a9f-d301997b779b.png#averageHue=%23c8c8c6&clientId=ub5a26fcf-4407-4&from=paste&height=397&id=uf7f79def&originHeight=1280&originWidth=768&originalType=binary&ratio=2&rotation=0&showTitle=false&size=168759&status=done&style=stroke&taskId=u65a9b2ee-1646-4561-b599-9b2435bc1fe&title=&width=238)
+![aara8](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/aara8.png)
 
 ## [notification channels](https://developer.android.com/develop/ui/views/notifications/channels#CreateChannelGroup) （Android8.0 AndroidO API26）
 
@@ -909,7 +911,9 @@ summary notification 在不同的版本表现不一样：
 
 notification channel，通知渠道，或者叫通知类别。从 Android8.0（API26）起，所有的 Notification 必须指定一个 channel，可以单独对 channel 内的 Notification 做展示、声音的控制及其他的一些设置
 
-![Notification settings for the Clock app and one of its channels.|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1692783256565-4995126a-da85-42b1-a591-4937f07d0c90.png#averageHue=%23e4e4e4&clientId=ub5a26fcf-4407-4&from=paste&height=412&id=u71d5ecbc&originHeight=1067&originWidth=1260&originalType=binary&ratio=2&rotation=0&showTitle=true&size=181897&status=done&style=stroke&taskId=u449b284d-6cdf-4e75-9ad3-49a546d61eb&title=Notification%20settings%20for%20the%20Clock%20app%20and%20one%20of%20its%20channels.&width=487 "Notification settings for the Clock app and one of its channels.")<br />当一个 notification channel 被创建后，App 就不能改变了该 channel 内的 notification 的行为了，完全交给用户来控制了，用户可以在设置页更改行为，但 App 可以改 channel 的 name 和 desc。
+![tbhzr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/tbhzr.png)<br />
+
+当一个 notification channel 被创建后，App 就不能改变了该 channel 内的 notification 的行为了，完全交给用户来控制了，用户可以在设置页更改行为，但 App 可以改 channel 的 name 和 desc。
 
 ### Android8.0 和之前对比
 
@@ -974,7 +978,7 @@ private fun createNotificationChannel(channelId: String, channelName: String, im
 }
 ```
 
-![三星A51 Android11 channel类别](https://cdn.nlark.com/yuque/0/2023/png/694278/1692792824744-d7bcd689-9d60-4a3c-b68c-e0c6e93a6134.png#averageHue=%23f4f4f4&clientId=ub5a26fcf-4407-4&from=paste&height=489&id=u49d9db6a&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=true&size=186807&status=done&style=stroke&taskId=u338ffcb0-d83b-4ded-a1e9-7b827a81d53&title=%E4%B8%89%E6%98%9FA51%20Android11%20channel%E7%B1%BB%E5%88%AB&width=220 "三星A51 Android11 channel类别")<br />![原生Android9 channel类别](https://cdn.nlark.com/yuque/0/2023/png/694278/1692792960920-a6a36ed6-3823-44d2-9b90-c94021e82264.png#averageHue=%23f4f4f4&clientId=ub5a26fcf-4407-4&from=paste&height=481&id=u5b113783&originHeight=3040&originWidth=1440&originalType=binary&ratio=2&rotation=0&showTitle=true&size=238608&status=done&style=stroke&taskId=u8547c65d-cd0b-4b01-841e-9b5a22eb575&title=%E5%8E%9F%E7%94%9FAndroid9%20channel%E7%B1%BB%E5%88%AB&width=228 "原生Android9 channel类别")
+![wyy5l](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wyy5l.png)<br />![582c4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/582c4.png)
 
 ### notification importance level
 
@@ -1046,7 +1050,7 @@ private fun createNotificationForHeadsUp() {
 }
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1693213872497-55c8143a-5db8-4e5a-882d-a46e97dca487.png#averageHue=%23fbf4de&clientId=u1d9d11ab-42e3-4&from=paste&height=1047&id=u31690078&originHeight=2340&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=165794&status=done&style=stroke&taskId=u1f6f7e72-18c7-4dfa-9b48-20215f55ff6&title=&width=483)<br />兼容问题：
+![0eod5](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/0eod5.png)<br />兼容问题：
 
 - 在华为 Mate8（Android 7.0）上，调用 setFullScreenIntent 反而无法实现 Heads Up -- 待验证
 
@@ -1056,13 +1060,13 @@ private fun createNotificationForHeadsUp() {
 
 ### 华为通知栏样式
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1694402047399-2314b9b3-795f-40da-b097-af9218976322.png#averageHue=%23888787&clientId=u352ad8e4-dd11-4&from=paste&height=79&id=u7d7e2b04&originHeight=158&originWidth=599&originalType=binary&ratio=2&rotation=0&showTitle=false&size=26093&status=done&style=stroke&taskId=u33094bb8-a44f-43a4-bb67-7a7bd264ce7&title=&width=299.5)
+![vfkjl](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/vfkjl.png)
 
 ### 华为通知分类
 
 ## MIUI9.0 不重要通知
 
-自 MIUI 9 开始，MIUI 新增了通知过滤的功能<br />通知过滤是指通过分析用户对通知的操作，来个性化地确定通知的重要与不重要，然后将不重要的通知收纳进一个统一的页面<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1692772526724-79108c1a-763d-4596-9c56-8b95a32e3925.png#averageHue=%23bcbcbc&clientId=ub5a26fcf-4407-4&from=paste&height=451&id=VGNui&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=494521&status=done&style=stroke&taskId=u78747a61-e09c-47d8-b1f5-a4b9db03281&title=&width=203)
+自 MIUI 9 开始，MIUI 新增了通知过滤的功能<br />通知过滤是指通过分析用户对通知的操作，来个性化地确定通知的重要与不重要，然后将不重要的通知收纳进一个统一的页面<br />![4afg9](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/4afg9.png)
 
 > 注意：在不重要通知里的消息不会自动 group 了
 
@@ -1223,13 +1227,13 @@ if (resolveInfo != null) {
 
 如下图：
 
-![image.png|600](https://cdn.nlark.com/yuque/0/2023/png/694278/1693214776545-2866054c-a08f-4dbd-99e1-405472e435aa.png#averageHue=%233f3f3f&clientId=u1d9d11ab-42e3-4&from=paste&height=50&id=u472a112f&originHeight=100&originWidth=1500&originalType=binary&ratio=2&rotation=0&showTitle=false&size=40204&status=done&style=stroke&taskId=u2bc8b8e8-3e47-465b-8381-e277c0568e7&title=&width=750)
+![ifae4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ifae4.png)
 
 **解决：** 首先产生灰色图标的原因就是 5.0 系统引入了材料设计，谷歌强制使用带有 alpha 通道的图标，并且 RGB 的 alpha 值必须是 0(实测不为 0 也是可以的，但系统会忽略所有 RGB 值)。因此，使用 JPG 的图片是不行的，最好的代替方案就是一张背景透明的 PNG 图片可以修改尺寸。
 
 **类似的问题：通知栏小图标显示成灰色**
 
-![image.png|400](https://cdn.nlark.com/yuque/0/2023/png/694278/1693214985464-6e8b2c23-a20e-417d-9221-1e82d4a66efb.png#averageHue=%23646058&clientId=u1d9d11ab-42e3-4&from=paste&height=626&id=u340cb8ca&originHeight=2880&originWidth=1440&originalType=binary&ratio=2&rotation=0&showTitle=false&size=982421&status=done&style=stroke&taskId=u316ed325-b9d3-45a1-b599-6ad17ebc43f&title=&width=313)
+![74vfe](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/74vfe.png)
 
 解决：将小图标替换为透明背景的 PNG 图片
 
@@ -1250,7 +1254,7 @@ xxhdpi：72px *72px
 xxxhdpi：96px * 96px
 ```
 
-![|500](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20241213100031.png)
+![45t90](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/45t90.png)
 
 ## 通知栏更新频率
 

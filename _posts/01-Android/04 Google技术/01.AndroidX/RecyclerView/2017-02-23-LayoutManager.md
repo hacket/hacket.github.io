@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:28:15 pm
+date_updated: Wednesday, January 29th 2025, 9:53:58 pm
 title: LayoutManager
 author: hacket
 categories:
@@ -31,7 +31,7 @@ LayoutManager 是 RecyclerView 中 Item 的布局管理器，LayoutManager 是 R
 
 ## LinearLayoutManager
 
-![vertical未reverse](https://cdn.nlark.com/yuque/0/2023/gif/694278/1679936168937-0b9dc4dc-b772-4b34-bba4-e1a0a7d17dc8.gif#averageHue=%23bbd0b3&clientId=uf83f1ffe-ae0a-4&from=paste&height=370&id=u0c2dc91a&originHeight=631&originWidth=360&originalType=url&ratio=1.5&rotation=0&showTitle=true&status=done&style=none&taskId=uae989ca2-eb19-443a-969a-1c4f09abd9a&title=vertical%E6%9C%AAreverse&width=211 "vertical未reverse")![vertical且reverse](https://cdn.nlark.com/yuque/0/2023/gif/694278/1679936270993-4f84f20b-4610-42fa-8fae-b2a95187ea20.gif#averageHue=%23bbd0b3&clientId=uf83f1ffe-ae0a-4&from=paste&height=372&id=u5f17c8f4&originHeight=631&originWidth=360&originalType=url&ratio=1.5&rotation=0&showTitle=true&status=done&style=none&taskId=uf1f60bf7-7118-4852-a089-727018479f7&title=vertical%E4%B8%94reverse&width=212 "vertical且reverse")![horizontal](https://cdn.nlark.com/yuque/0/2023/gif/694278/1679936190076-6024aab2-dfe7-4303-8f2f-24db71df4e97.gif#averageHue=%23dac1a1&clientId=uf83f1ffe-ae0a-4&from=paste&height=370&id=u8de4b690&originHeight=631&originWidth=360&originalType=url&ratio=1.5&rotation=0&showTitle=true&status=done&style=none&taskId=u1fe084e2-24d5-458a-9d60-47e9d82b9e6&title=horizontal&width=211 "horizontal")
+![e1o30](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/mmyd6.gif)
 
 > 图一是 VERTICAL 未 reverse；图二是 VERTICAL 且 reverse 了；图三是 HORIZONTAL
 
@@ -44,7 +44,11 @@ LayoutManager 是 RecyclerView 中 Item 的布局管理器，LayoutManager 是 R
 
 ## GridLayoutManager
 
-提供了与 GridView 类似的功能，网格展示。<br />![vertical未reverse](https://cdn.nlark.com/yuque/0/2023/png/694278/1679936381057-47a389cf-2294-4fda-b040-d3cabec8e58d.png#averageHue=%23dbcfac&clientId=uf83f1ffe-ae0a-4&from=paste&height=426&id=uac1f28c8&originHeight=1885&originWidth=1079&originalType=url&ratio=1.5&rotation=0&showTitle=true&size=494308&status=done&style=none&taskId=u686be5f5-5156-4e51-af2d-646a5a46ff8&title=vertical%E6%9C%AAreverse&width=244 "vertical未reverse")![vertical且reverse](https://cdn.nlark.com/yuque/0/2023/png/694278/1679936496260-d801591a-b686-4115-99e6-8741b922cbbb.png#averageHue=%23dbcfac&clientId=uf83f1ffe-ae0a-4&from=paste&height=449&id=uccbd7df4&originHeight=1887&originWidth=1079&originalType=url&ratio=1.5&rotation=0&showTitle=true&size=492671&status=done&style=none&taskId=u98174c9c-0cd6-4c53-88c7-e97933291da&title=vertical%E4%B8%94reverse&width=257 "vertical且reverse")![horizontal](https://cdn.nlark.com/yuque/0/2023/gif/694278/1679936556550-61ffa4ea-79fd-47b5-90e5-12c44e65f0d0.gif#averageHue=%23bfd1b2&clientId=uf83f1ffe-ae0a-4&from=paste&height=349&id=u8efe440b&originHeight=631&originWidth=360&originalType=url&ratio=1.5&rotation=0&showTitle=true&status=done&style=none&taskId=u18e85e76-52bf-43be-b34e-e43cbfe7cdf&title=horizontal&width=199 "horizontal")<br />GridLayoutManager 的 Vertical 排列：
+提供了与 GridView 类似的功能，网格展示。<br />
+
+![baur1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/qai7q.gif)<br />
+
+GridLayoutManager 的 Vertical 排列：
 
 > 1 2 3
 > 4 5 6
@@ -59,11 +63,11 @@ GridLayoutManager 的 Horizontal 排列：
 
 ## StaggeredGridLayoutManager
 
-StaggeredGridLayoutManager 交错的网格布局，如果子 View 宽高一致，那效果就和 GridLayoutManager 一样，如果子 View 宽高不一致，就可以实现瀑布流效果。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1679936757812-ea0ac68b-fee2-408b-805c-6fc8e584c14d.png#averageHue=%23bbc8ac&clientId=uf83f1ffe-ae0a-4&from=paste&height=592&id=u9b611355&originHeight=1920&originWidth=1080&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=1656356&status=done&style=none&taskId=u32f7946c-5cb4-4d46-88ab-83aaa5b42dc&title=&width=333)
+StaggeredGridLayoutManager 交错的网格布局，如果子 View 宽高一致，那效果就和 GridLayoutManager 一样，如果子 View 宽高不一致，就可以实现瀑布流效果。<br />![lq2kt](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/lq2kt.png)
 
 ## FlexboxLayoutManager
 
-[flexbox-layout](https://github.com/google/flexbox-layout) 流式布局<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1679936822631-2a7108bb-6225-4917-acd3-acec007f24af.png#averageHue=%23e8dfd3&clientId=uf83f1ffe-ae0a-4&from=paste&height=622&id=u27151a33&originHeight=1920&originWidth=1080&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=96724&status=done&style=none&taskId=uf4611c31-deb9-45c5-b933-5dd55b1c777&title=&width=350)
+[flexbox-layout](https://github.com/google/flexbox-layout) 流式布局<br />![tvo83](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/tvo83.png)
 
 # 自定义 LayoutManager
 
@@ -530,7 +534,7 @@ public int getDecoratedBottom(@NonNull View child) { // 获取child的botom边�
 
 - 获取 child 在各个 left/right/top/bottom 的 decoration 的 width 尺寸
 
-```
+```java
 public int getTopDecorationHeight(@NonNull View child) { // 获取child top方向decoration的height
     return ((LayoutParams) child.getLayoutParams()).mDecorInsets.top; 
 }
@@ -547,7 +551,7 @@ public int getRightDecorationWidth(@NonNull View child) { // 获取child right�
 
 #### getDecoratedMeasurementHorizontal/getDecoratedMeasurementVertical 包括 margin
 
-```
+```java
 /**
  * 获取某个childView在水平方向所占的空间
  */

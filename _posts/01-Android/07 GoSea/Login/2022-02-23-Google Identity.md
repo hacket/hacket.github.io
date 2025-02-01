@@ -1,12 +1,12 @@
 ---
 date_created: Friday, February 23rd 2022, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 12:48:15 am
+date_updated: Wednesday, January 29th 2025, 11:17:35 pm
 title: Google Identity
 author: hacket
 categories:
   - Android进阶
 category: 出海
-tags: [出海, 登录, Google]
+tags: [Google, 出海, 登录]
 toc: true
 description: 
 dg-publish: true
@@ -69,7 +69,7 @@ dependencies {
 
 ##### [Get your backend server's OAuth 2.0 client ID](https://developers.google.com/identity/sign-in/android/start-integrating#get_your_backend_servers_oauth_20_client_id)
 
-Sign-in 用的是 Web Client Id<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684244433454-1914caba-8b90-4407-a4d9-9e4ebfb9dab5.png#averageHue=%23f9f7f7&clientId=ua5ed4906-465a-4&from=paste&height=638&id=s2rKZ&originHeight=1276&originWidth=3000&originalType=binary&ratio=2&rotation=0&showTitle=false&size=379184&status=done&style=none&taskId=u8a7d6457-c74f-49b8-a575-620014088b0&title=&width=1500)
+Sign-in 用的是 Web Client Id<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684244433454-1914caba-8b90-4407-a4d9-9e4ebfb9dab5.png)
 
 - [ ] [具体参考：start-integrating](https://developers.google.com/identity/sign-in/android/start-integrating)
 
@@ -129,7 +129,7 @@ signInButton.setSize(SignInButton.SIZE_STANDARD);
 
 - 效果
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684293816187-20ec69ed-ee2c-438a-9b09-2d094b805a35.png#averageHue=%23f2f1f0&clientId=ua5ed4906-465a-4&from=paste&height=40&id=u30b94505&originHeight=80&originWidth=188&originalType=binary&ratio=2&rotation=0&showTitle=false&size=7241&status=done&style=none&taskId=ue170c8a1-5306-45bf-b480-1c70201fbf2&title=&width=94)
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684293816187-20ec69ed-ee2c-438a-9b09-2d094b805a35.png)
 
 #### [Start the sign-in flow](https://developers.google.com/identity/sign-in/android/sign-in#start_the_sign-in_flow) 开始登录
 
@@ -458,7 +458,7 @@ public class GoogleSignInHelper {
 }
 ```
 
-UI 展示：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684244308362-36b336cf-d271-46e0-a8b1-17b48e0b3871.png?x-oss-process=image/format,png#averageHue=%23949494&clientId=ua5ed4906-465a-4&from=paste&height=776&id=njdSw&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=10368850&status=done&style=none&taskId=u0da5d5cc-976d-423e-aa8c-89234fa9613&title=&width=349)
+UI 展示：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684244308362-36b336cf-d271-46e0-a8b1-17b48e0b3871.png)
 
 #### Ref
 
@@ -472,7 +472,7 @@ Google 登录参考这个即可
 
 #### New Sign-In API 概述
 
-你不应该用这些 API 在 app launch 或触发加入购物车时提示用户登录，这些场景你应该用 [One Tap for Android](https://developers.google.com/identity/one-tap/android/get-started)。<br />登录过程中会展示这些 UI<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684303449537-24fd5b64-c921-46a5-91f8-58649d5e334a.png#averageHue=%23c2c2c2&clientId=u1e9fa9d8-7429-4&from=paste&height=361&id=u0d2c8a63&originHeight=721&originWidth=1061&originalType=binary&ratio=2&rotation=0&showTitle=false&size=95881&status=done&style=none&taskId=ud3c680f4-9bbc-4413-88f2-9778204dc1f&title=&width=530.5)
+你不应该用这些 API 在 app launch 或触发加入购物车时提示用户登录，这些场景你应该用 [One Tap for Android](https://developers.google.com/identity/one-tap/android/get-started)。<br />登录过程中会展示这些 UI<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684303449537-24fd5b64-c921-46a5-91f8-58649d5e334a.png)
 
 #### [Make a sign-in request](https://developers.google.com/identity/sign-in/android/sign-in-identity#make_a_sign-in_request)
 
@@ -507,7 +507,7 @@ private void signIn() {
 }
 ```
 
-需要注意：web_client_id 用的是这个红色框的，而不是 Android client 的那个：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684244433454-1914caba-8b90-4407-a4d9-9e4ebfb9dab5.png#averageHue=%23f9f7f7&clientId=ua5ed4906-465a-4&from=paste&height=638&id=u9c436e34&originHeight=1276&originWidth=3000&originalType=binary&ratio=2&rotation=0&showTitle=false&size=379184&status=done&style=none&taskId=u8a7d6457-c74f-49b8-a575-620014088b0&title=&width=1500)
+需要注意：web_client_id 用的是这个红色框的，而不是 Android client 的那个：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684244433454-1914caba-8b90-4407-a4d9-9e4ebfb9dab5.png)
 
 #### [Handle sign in results](https://developers.google.com/identity/sign-in/android/sign-in-identity#handle_sign_in_results)
 
@@ -565,7 +565,7 @@ private val googleLoginLauncher =
     }
 ```
 
-效果图：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684244277951-36993cbb-40f6-4f6c-b226-07612dacebdd.png?x-oss-process=image/format,png#averageHue=%23898989&clientId=ua5ed4906-465a-4&from=paste&height=782&id=ufa3232a6&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=10368850&status=done&style=none&taskId=ue0283467-98a7-463d-9ff3-50d96c7132f&title=&width=352)
+效果图：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684244277951-36993cbb-40f6-4f6c-b226-07612dacebdd.png)
 
 #### 完整代码
 
@@ -764,7 +764,7 @@ class YourActivity : AppCompatActivity() {
 
 用户登出了 App，调用 One Tap client's `signOut()`
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684308070963-20ac846e-2645-4d05-820c-dce86feb80df.png?x-oss-process=image/format,png#averageHue=%23f1c125&clientId=u1e9fa9d8-7429-4&from=paste&height=691&id=u3a494ad7&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=10368850&status=done&style=none&taskId=ua60a1564-b4da-4935-a82b-e96206935db&title=&width=311)<br />**注意：**One Tap 需要在之前已经登录过了账号才会弹出 UI；未登录时不会弹出 UI 框，且报错：16: Cannot find a matching credential.
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684308070963-20ac846e-2645-4d05-820c-dce86feb80df.png)<br />**注意：**One Tap 需要在之前已经登录过了账号才会弹出 UI；未登录时不会弹出 UI 框，且报错：16: Cannot find a matching credential.
 
 ## [Save passwords with Credential Saving](https://developers.google.com/identity/one-tap/android/save-passwords)
 
@@ -790,7 +790,7 @@ fun savePassword(activity: Activity, username: String, password: String) {
 }
 ```
 
-UI 效果：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684315094569-ac3b5743-17d9-496c-bcc8-977df32af06a.png?x-oss-process=image/format,png#averageHue=%23f9c327&clientId=u1e9fa9d8-7429-4&from=paste&height=709&id=uc5704727&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=10368850&status=done&style=none&taskId=u7ae82557-a0c0-454c-b302-2e520ff0ce4&title=&width=319)<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684315141061-d941adfa-d059-4536-ba24-a5175d030069.png?x-oss-process=image/format,png#averageHue=%2349cd80&clientId=u1e9fa9d8-7429-4&from=paste&height=713&id=uba586f68&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=10368850&status=done&style=none&taskId=u2bcf141a-d48a-4383-be4a-55e40170d18&title=&width=321)
+UI 效果：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684315094569-ac3b5743-17d9-496c-bcc8-977df32af06a.png)<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684315141061-d941adfa-d059-4536-ba24-a5175d030069.png)
 
 # [Credential management](https://developers.google.com/identity/credential-management) 凭据管理
 
@@ -850,7 +850,7 @@ fun save(
 }
 ```
 
-如果没有立即 save 成功，就会抛出一个 `ResolvableApiException�` 异常，调用 `startResolutionForResult�()` 让用户来确认，效果图如下：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684327508971-70f83a10-a4a5-4216-9958-b6ccf2d59774.png?x-oss-process=image/format,png#averageHue=%23f5cc56&clientId=u1e9fa9d8-7429-4&from=paste&height=724&id=uc5ef78a1&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=10368850&status=done&style=none&taskId=u4f7c6f0e-33e4-4762-a40b-dff1e3a31ef&title=&width=326)
+如果没有立即 save 成功，就会抛出一个 `ResolvableApiException�` 异常，调用 `startResolutionForResult�()` 让用户来确认，效果图如下：<br />![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1684327508971-70f83a10-a4a5-4216-9958-b6ccf2d59774.png)
 
 ### [Retrieve a user's stored credentials](https://developers.google.com/identity/smartlock-passwords/android/retrieve-credentials)
 

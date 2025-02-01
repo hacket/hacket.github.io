@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 12:57:27 am
+date_updated: Wednesday, January 29th 2025, 11:26:16 pm
 title: javapoetkotlinpoet
 author: hacket
 categories:
@@ -79,7 +79,7 @@ public enum Modifier {
 - beginControlFlow(String controlFlow, Object… args) 流程控制开始
 - endControlFlow() 流程控制结束
 - addJavadoc(String format, Object… args) 添加方法文档注释
-- addAnnotation(Class<?> annotation) 方法上面添加注解
+- `addAnnotation(Class<?> annotation)` 方法上面添加注解
 
 #### 构造方法
 
@@ -185,7 +185,7 @@ TypeSpec.interfaceBuilder("Test").build();
 JavaFile 用于输出包含单个顶级类的 Java 文件。
 
 - builder(String packageName, TypeSpec typeSpec) 包名，类名
-- addStaticImport(Class<?> clazz, String… names) 静态导包
+- `addStaticImport(Class<?> clazz, String… names) ` 静态导包
 - writeTo(Appendable out) 写入到 xxx
 
 案例 1：

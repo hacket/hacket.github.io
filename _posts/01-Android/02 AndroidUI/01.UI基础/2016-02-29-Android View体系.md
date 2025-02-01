@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:36:59 pm
+date_updated: Tuesday, January 28th 2025, 8:16:13 am
 title: Android View体系
 author: hacket
 categories:
@@ -47,7 +47,7 @@ MeasureSpec 是一个 32bit 的 int 值，其中高 2 位为测量模式 SpecMod
 1. MeasureSpec 最顶层的的值是根据 Window 的 MATCH_PARENT 和 WRAP_CONTENT 来配置的，具体代码在 ViewRootImpl 的 getRootMeasureSpec() 里，而 PhoneWindow 默认都是 MATCH_PARENT
 2. 其他 view 的 onMeasure 的 widthMeasureSpec 和 heightMeasureSpec 的计算
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/694278/1654531731878-14228daa-3e85-4146-9079-e38794dcd162.png#averageHue=%23fdfcf7&clientId=uc9ede57a-475a-4&from=paste&height=643&id=uf066344e&originHeight=965&originWidth=1328&originalType=binary&ratio=1&rotation=0&showTitle=false&size=616711&status=done&style=none&taskId=uf2109ddd-58dd-43b0-ae4a-4b40a7b5c0f&title=&width=885.3333333333334)
+![ghxkg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ghxkg.png)
 
 ## measure
 

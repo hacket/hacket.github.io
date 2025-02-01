@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2013, 10:10:45 pm
-date_updated: Thursday, January 23rd 2025, 12:22:04 am
+date_updated: Thursday, January 30th 2025, 7:26:45 pm
 title: Java HashMap
 author: hacket
 categories:
@@ -258,8 +258,8 @@ public V put(K key, V value) {
 特殊 key 值，指的就是 key 为 null。 先说结论：
 
 1. HashMap 中，是允许 key、value 都为 null 的，且 key 为 null 只存一份，多次存储会将旧 value 值覆盖；value 可以多个为 null；
-2. key 为 null 的存储位置，都统一放在下标为 0 的 bucket，即：table[0] 位置的链表；
-3. 如果是第一次对 key=null 做 put 操作，将会在 table[0] 的位置新增一个 Entry 结点，使用头插法做链表插入。
+2. key 为 null 的存储位置，都统一放在下标为 0 的 bucket，即：`table[0] ` 位置的链表；
+3. 如果是第一次对 key=null 做 put 操作，将会在 `table[0]` 的位置新增一个 Entry 结点，使用头插法做链表插入。
 
 先来看 `putForNullKey`：
 
@@ -281,7 +281,7 @@ private V putForNullKey(V value) {
 }
 ```
 
-> putForNullKey() 方法中的代码较为简单：首先选择 table[0] 位置的链表，然后对链表做遍历操作，如果有结点的 key 为 null，则将新 value 值替换掉旧 value 值，返回旧 value 值，如果未找到，则新增一个 key 为 null 的 Entry 结点。
+> putForNullKey() 方法中的代码较为简单：首先选择 `table[0]` 位置的链表，然后对链表做遍历操作，如果有结点的 key 为 null，则将新 value 值替换掉旧 value 值，返回旧 value 值，如果未找到，则新增一个 key 为 null 的 Entry 结点。
 
 第二个方法 `addEntry()`。 这是一个通用方法：
 
@@ -297,7 +297,7 @@ void addEntry(int hash, K key, V value, int bucketIndex) {
 }
 ```
 
-> 给定 hash、key、value、bucket 下标，新增一个 Entry 结点，另外还担负了扩容职责。如果哈希表中存放的 k-v 对数量超过了当前阈值 (threshold = table.length * loadFactor)，且当前的 bucket 下标有链表存在，那么就做扩容处理（resize）。扩容后，重新计算 hash，最终得到新的 bucket 下标，然后使用头插法新增结点。
+> 给定 hash、key、value、bucket 下标，新增一个 Entry 结点，另外还担负了扩容职责。如果哈希表中存放的 k-v 对数量超过了当前阈值 (`threshold = table.length * loadFactor`)，且当前的 bucket 下标有链表存在，那么就做扩容处理（resize）。扩容后，重新计算 hash，最终得到新的 bucket 下标，然后使用头插法新增结点。
 
 ##### 2. 扩容 resize
 
@@ -395,9 +395,11 @@ for (Entry<K,V> e = table[i]; e != null; e = e.next) {
 }
 ```
 
-通过 hash 值计算出下标，找到对应的目标 bucket，然后对链表做遍历操作，逐个比较，如下：<br />![](https://note.youdao.com/yws/res/100741/964843BFBF6C4C6D99F5EFFF439891FC#id=Be0Wp&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687455773165-13818e40-00d7-4171-8b6a-a63cd3fa1b87.png#averageHue=%23050404&clientId=ucc19406b-7688-4&from=paste&id=uee1c5f58&originHeight=818&originWidth=1284&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=ub261c141-e8c8-4af0-8805-961b40644b2&title=)
+通过 hash 值计算出下标，找到对应的目标 bucket，然后对链表做遍历操作，逐个比较，如下：<br />
 
-查找条件：`**e.hash == hash && ((k = e.key) == key || key.equals(k))**` 结点的 key 与目标 key 的相等，要么内存地址相等，要么逻辑上相等，两者有一个满足即可。
+![7domb](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/7domb.png)
+
+查找条件：`e.hash == hash && ((k = e.key) == key || key.equals(k))` 结点的 key 与目标 key 的相等，要么内存地址相等，要么逻辑上相等，两者有一个满足即可。
 
 ##### 5. 添加新的 Entry createEntry
 
@@ -413,7 +415,7 @@ void createEntry(int hash, K key, V value, int bucketIndex) {
 
 #### put JDK8.0
 
-- JDK8.0 put 流程<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687455811537-f99234ce-5391-40fc-b0f6-e3f887cf5ec9.png#averageHue=%23f9f7ee&clientId=ucc19406b-7688-4&from=paste&id=u8250f9e9&originHeight=960&originWidth=1211&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u629e919a-feac-4c47-b19c-da6d8cbf0dc&title=)
+- JDK8.0 put 流程<br />![v6557](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/v6557.png)
 - JDK8.0 put 源码分析
 
 ```java
@@ -481,7 +483,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
    - 3.4 替换该位置元素
 4. 看当前 Map 中存储的 k-v 对的数量是否超出了 threshold，若超出，还需再次扩容。
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687455843772-fb284019-6147-49b2-93ec-1345c23f1edb.png#averageHue=%231b1b1b&clientId=ucc19406b-7688-4&from=paste&id=u859acf9e&originHeight=1278&originWidth=1304&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=uf4cd1b18-6b2c-40ad-b8e6-760cc2abd65&title=)
+![g3z7e](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/g3z7e.png)
 
 红黑树的转换操作如下：
 
@@ -513,7 +515,7 @@ final void treeifyBin(Node<K,V>[] tab, int hash) {
 **什么场景下会触发扩容？**
 
 1. 哈希 table 为 null 或长度为 0；
-2. Map 中存储的 k-v 对数量超过了阈值 threshold（threshold = capacity*loadFactor）；
+2. Map 中存储的 k-v 对数量超过了阈值 threshold（`threshold = capacity*loadFactor`）；
 3. 链表中的长度超过了 `TREEIFY_THRESHOLD(8)`，但表长度却小于 `MIN_TREEIFY_CAPACITY(64)`。
 
 **扩容分为 2 步**
@@ -603,7 +605,9 @@ final Node<K,V>[] resize() {
 1. 图（a）表示扩容前的 key1 和 key2 两种 key 确定索引位置的示例，
 2. 图（b）表示扩容后 key1 和 key2 两种 key 确定索引位置的示例，其中 hash1 是 key1 对应的哈希与高位运算结果。
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687455899458-7a744f1c-b5b8-4324-b299-42b6b0ead878.png#averageHue=%23fdfcfc&clientId=ucc19406b-7688-4&from=paste&id=u6f4d27bc&originHeight=446&originWidth=1632&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u5482ebe0-0f08-476e-b4b1-9d4b151450c&title=)<br />元素在重新计算 hash 之后，因为 n 变为 2 倍，那么 n-1 的 mask 范围在高位多 1bit(红色)，因此新的 index 就会发生这样的变化：<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687455961400-1584df33-708d-46ab-b552-5d099c30898d.png#averageHue=%23f5f5f5&clientId=ucc19406b-7688-4&from=paste&id=u88aa2316&originHeight=202&originWidth=1064&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u1ed924fe-42d9-4bd9-851a-24b7ac5270a&title=)<br />因此，我们在扩充 HashMap 的时候，不需要像 JDK1.7 的实现那样重新计算 hash，只需要看看原来的 hash 值新增的那个 bit 是 1 还是 0 就好了，是 0 的话索引没变，是 1 的话索引变成 " 原索引 +oldCap"，可以看看下图为 16 扩充为 32 的 resize 示意图：<br />![](https://note.youdao.com/yws/res/100745/7A0F03770AA346499DB74AD7A94003AD#id=x2fcA&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687480664509-f0addbef-dda7-46b0-a105-c54ef0c004ad.png#averageHue=%23f1f1f1&clientId=u0ccb56ef-5d2f-4&from=paste&id=ueff323a4&originHeight=730&originWidth=1268&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u39c313e0-705b-471b-9408-03165edfa6c&title=)
+![ip3tn](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ip3tn.png)<br />元素在重新计算 hash 之后，因为 n 变为 2 倍，那么 n-1 的 mask 范围在高位多 1bit(红色)，因此新的 index 就会发生这样的变化：<br />![biok2](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/biok2.png)<br />因此，我们在扩充 HashMap 的时候，不需要像 JDK1.7 的实现那样重新计算 hash，只需要看看原来的 hash 值新增的那个 bit 是 1 还是 0 就好了，是 0 的话索引没变，是 1 的话索引变成 " 原索引 +oldCap"，可以看看下图为 16 扩充为 32 的 resize 示意图：<br />
+
+![8mtah](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/8mtah.png)
 
 这个设计确实非常的巧妙，既省去了重新计算 hash 值的时间，而且同时，由于新增的 1bit 是 0 还是 1 可以认为是随机的，因此 resize 的过程，均匀的把之前的冲突的节点分散到新的 bucket 了。这一块就是 JDK1.8 新增的优化点。有一点注意区别，JDK1.7 中 rehash 的时候，旧链表迁移新链表的时候，如果在新表的数组索引位置相同，则链表元素会倒置，但是从上图可以看出，JDK1.8 不会倒置。
 
@@ -725,8 +729,8 @@ while (iterator.hasNext()) {
   1. 底层都是哈希表 + 链表实现
 - 区别
   1. 从层级结构上看，HashMap、HashTable 有一个共用的 Map 接口。另外，HashTable 还单独继承了一个抽象类 Dictionary；
-  2. HashTable 诞生自 JDK1.0，HashMap 从 JDK1.2 之后才有；<br />H3. ashTable 线程安全，HashMap 线程不安全；
-  3. 初始值和扩容方式不同。HashTable 的初始值为 11，扩容为原大小的 2*d+1。容量大小都采用奇数且为素数，且采用取模法，这种方式散列更均匀。但有个缺点就是对素数取模的性能较低（涉及到除法运算），而 HashTable 的长度都是 2 的次幂，设计就较为巧妙，这种方式的取模都是直接做位运算，性能较好。
+  2. HashTable 诞生自 JDK1.0，HashMap 从 JDK1.2 之后才有；H3. ashTable 线程安全，HashMap 线程不安全；
+  3. 初始值和扩容方式不同。HashTable 的初始值为 11，扩容为原大小的 `2*d+1`。容量大小都采用奇数且为素数，且采用取模法，这种方式散列更均匀。但有个缺点就是对素数取模的性能较低（涉及到除法运算），而 HashTable 的长度都是 2 的次幂，设计就较为巧妙，这种方式的取模都是直接做位运算，性能较好。
   4. HashMap 的 key、value 都可为 null，且 value 可多次为 null，key 多次为 null 时会覆盖。当 HashTable 的 key、value 都不可为 null，否则直接 NPE(NullPointException)。
 
 ### HashMap 怎么计算数组下标的？
@@ -740,7 +744,7 @@ index = (n - 1) & hash]
 
 以 16 为例：
 
-```
+```java
 n = 16
 n-1 = 15 = 0000 1111
 hash & 1111 = hash的后四位为1的为1，为0的为0
@@ -803,9 +807,9 @@ HashMap 根据用户传入的初始化容量，利用无符号右移和按位或
 
 > 为什么&效率更高呢？因为位运算直接对内存数据进行操作，不需要转成十进制，所以位运算要比取模运算的效率更高
 
-2. 当 length 为 2 的 N 次方的时候，数据分布均匀，减少冲突<br />我们来举例当 length 为奇数、偶数时的情况：<br />![](https://note.youdao.com/yws/res/100740/8B609D5E32F945A0A8C08FDB6AD9B8C1#id=ADSdd&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687480734116-96b7e213-db08-458b-a38e-aeefa4c37896.png#averageHue=%23f9f7f6&clientId=u0ccb56ef-5d2f-4&from=paste&id=u58b2840a&originHeight=496&originWidth=768&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u13c3d817-bb80-4432-b62b-8fd4a0a12db&title=)
+2. 当 length 为 2 的 N 次方的时候，数据分布均匀，减少冲突<br />我们来举例当 length 为奇数、偶数时的情况：<br />![7h9mg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/7h9mg.png)
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687480759814-773e4674-817f-4938-a626-e93ff03c60f4.png#averageHue=%23faf8f6&clientId=u0ccb56ef-5d2f-4&from=paste&id=u931efc3c&originHeight=498&originWidth=774&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u060ccc25-2970-4edf-8ac7-9136eb3b6e0&title=)![](https://note.youdao.com/yws/res/100737/AED8BA3C93ED4B87AA88D1D7D9E04B99#id=V8r6K&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=)<br />从上面的图表中我们可以看到，当 length 为 15 时总共发生了 8 次碰撞，同时发现空间浪费非常大，因为在 1、3、5、7、9、11、13、15 这八处没有存放数据。
+![bk5g2](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/bk5g2.png)<br />从上面的图表中我们可以看到，当 length 为 15 时总共发生了 8 次碰撞，同时发现空间浪费非常大，因为在 1、3、5、7、9、11、13、15 这八处没有存放数据。
 
 这是因为 hash 值在与 14（即 1110）进行&运算时，得到的结果最后一位永远都是 0，那么最后一位为 1 的位置即 0001、0011、0101、0111、1001、1011、1101、1111 位置处是不可能存储数据的。这样，空间的减少会导致碰撞几率的进一步增加，从而就会导致查询速度慢
 
@@ -825,7 +829,7 @@ HashMap 根据用户传入的初始化容量，利用无符号右移和按位或
 
 装载因子，loadFactor 的默认值为 0.75f。负载因子衡量的是一个散列表的空间的使用程度。
 
-- loadFactor=0.5<br />loadFactory 越小，空间利用率低，数组中个存放的数据 (entry) 也就越少，表现得更加稀疏
+- loadFactor=0.5 loadFactory 越小，空间利用率低，数组中个存放的数据 (entry) 也就越少，表现得更加稀疏
 - loadFactor=1.0
 
 loadFactory 越趋近于 1，空间利用率高，那么数组中存放的数据（entry 也就越来越多），数据也就越密集，也就会有更多的链表长度处于更长的数值，我们的查询效率就会越低，当我们添加数据，产生 hash 冲突的概率也会更高
@@ -863,8 +867,8 @@ HashMap 最多只允许一个键为 Null(多条键为 null 的后面的会覆盖
 
 ### JDK7.0 和 JDK8.0 HashMap 数据结构有什么不同？
 
-- JDK7.0，由 " 数组 + 链表 " 组成，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的<br />![](https://note.youdao.com/yws/res/100743/D94F0EFA3AA44FE89D7F42737E87FEF9#id=yfAKB&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=) ![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687480783201-a133a219-64fd-4086-b0b3-1be0e509ad29.png#averageHue=%23050404&clientId=u0ccb56ef-5d2f-4&from=paste&id=ude5dfaaa&originHeight=818&originWidth=1098&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u600ee738-ceda-4b64-8c2e-bbf2fe625f5&title=)
-- JDK8.0 中，有 " 数组 + 链表 + 红黑树 " 组成。当链表过长，则会严重影响 HashMap 的性能，红黑树搜索时间复杂度是 O(logn)，而链表是 O(n)。因此，JDK8.0 对数据结构做了进一步的优化，引入了红黑树，链表和红黑树在达到一定条件会进行转换<br />![](https://note.youdao.com/yws/res/100747/DCB9ACFB45E54026A7795D631D3A3813#id=wv3AW&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=stroke&title=) ![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687480788735-b702b9b0-7b4c-40bc-9302-dff77a24b7f6.png#averageHue=%23050504&clientId=u0ccb56ef-5d2f-4&from=paste&id=u2a898f8c&originHeight=816&originWidth=948&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u81b7466c-2e75-425a-b339-d0519acc75b&title=)
+- JDK7.0，由 "`数组 + 链表`" 组成，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的<br /> ![10fmw](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/10fmw.png)
+- JDK8.0 中，有 " `数组 + 链表 + 红黑树` " 组成。当链表过长，则会严重影响 HashMap 的性能，红黑树搜索时间复杂度是 `O(logn)`，而链表是 O(n)。因此，JDK8.0 对数据结构做了进一步的优化，引入了红黑树，链表和红黑树在达到一定条件会进行转换<br /> ![tvft2](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/tvft2.png)
   - 当链表超过 8 且数组长度 (数据总量) 超过 64 才会转为红黑树
   - 链表超过 8，将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树，以减少搜索时间
 
@@ -999,9 +1003,9 @@ Map<String, Integer> map = Collections.synchronizedMap(testMap);
 
 ## Reference
 
-- [x] [JDK7.0下载](https://www.oracle.com/java/technologies/javase/javase7-archive-downloads.html)
+- [x] [JDK7.0下载（Oracle）](https://www.oracle.com/java/technologies/javase/javase7-archive-downloads.html)
 - [x] [JDK7.0下载（国内镜像）](https://files-cdn.liferay.com/mirrors/download.oracle.com/otn-pub/java/jdk/7u80-b15/jdk-7u80-macosx-x64.dmg)
 - [x] HashMap 夺命 14 问，你能坚持到第几问？<br /><https://juejin.cn/post/7077363148281348126>
-- [ ] Java HashMap 工作原理及实现<br />[http://yikun.github.io/2015/04/01/Java-HashMap工作原理及实现/](http://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/)
+- [x] Java HashMap 工作原理及实现<br />[http://yikun.github.io/2015/04/01/Java-HashMap工作原理及实现/](http://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/)
 - [x] HashMap 面试题，看这一篇就够了！<br /><https://juejin.cn/post/6844904013909983245>
-- [ ] Java 8 系列之重新认识 HashMap （美团）<br /><https://tech.meituan.com/2016/06/24/java-hashmap.html>
+- [x] Java 8 系列之重新认识 HashMap （美团）<br /><https://tech.meituan.com/2016/06/24/java-hashmap.html>

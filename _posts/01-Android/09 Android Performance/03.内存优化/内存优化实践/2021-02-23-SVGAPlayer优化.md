@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2021, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 1:24:08 am
+date_updated: Thursday, January 30th 2025, 12:13:35 am
 title: SVGAPlayer优化
 author: hacket
 categories:
@@ -27,7 +27,7 @@ linter-yaml-title-alias: SVGAPlayer
 
 ## 什么是 SVGA？
 
-SVGA 是一种跨平台的开源动画格式，同时兼容 iOS / Android / Web。SVGA 除了使用简单，性能卓越，同时让动画开发分工明确，各自专注各自的领域，大大减少动画交互的沟通成本，提升开发效率。动画设计师专注动画设计，通过工具输出 svga 动画文件，提供给开发工程师在集成 svga player 之后直接使用。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1678033589331-d6ba0d62-f524-4576-8ca2-712d68ed60f3.png#averageHue=%23aedfef&clientId=u1c04e2f9-6743-4&from=paste&height=165&id=u2c92a399&originHeight=235&originWidth=1036&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=159552&status=done&style=none&taskId=u2ba5bc1c-1e2d-4efe-b230-928151a26a9&title=&width=725.6666870117188)
+SVGA 是一种跨平台的开源动画格式，同时兼容 iOS / Android / Web。SVGA 除了使用简单，性能卓越，同时让动画开发分工明确，各自专注各自的领域，大大减少动画交互的沟通成本，提升开发效率。动画设计师专注动画设计，通过工具输出 svga 动画文件，提供给开发工程师在集成 svga player 之后直接使用。<br />![63e08](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/63e08.png)
 
 ## SVGA 原理
 
@@ -180,7 +180,8 @@ override fun onDetachedFromWindow() {
 }
 ```
 
-**原因：**onDetachedFromWindow 方法不一定每次都会执行（[Android泄漏模式：View中的订阅](https://www.jianshu.com/p/73f347c028e4)）故 onDetachedFromWindow 中的解绑逻辑失效（还未 attach 的 View 不会执行 detach 操作）<br />匿名内部类 AnimatorListener/AnimatorUpdateListener 会持有外部类 SVGAImageView 造成内存泄漏<br />![ValueAnimator造成的内存泄漏](https://cdn.nlark.com/yuque/0/2023/png/694278/1679246237237-8d917d96-13d4-48f8-8df9-9ed91062179f.png#averageHue=%232a2727&clientId=u202d78e5-7861-4&from=paste&id=Ckdmg&originHeight=373&originWidth=1363&originalType=url&ratio=1.5&rotation=0&showTitle=true&size=312603&status=done&style=none&taskId=ude541f39-a75a-4767-aef7-5f83ebe8639&title=ValueAnimator%E9%80%A0%E6%88%90%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F "ValueAnimator造成的内存泄漏")<br />**解决：**AnimatorListener/AnimatorUpdateListener 中引用的 SVGAImageView 用一个 WeakReference 包裹
+**原因：** onDetachedFromWindow 方法不一定每次都会执行（[Android泄漏模式：View中的订阅](https://www.jianshu.com/p/73f347c028e4)）故 onDetachedFromWindow 中的解绑逻辑失效（还未 attach 的 View 不会执行 detach 操作）<br />匿名内部类 AnimatorListener/AnimatorUpdateListener 会持有外部类 SVGAImageView 造成内存泄漏<br />![agdax](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/agdax.png)<br />
+**解决：** AnimatorListener/AnimatorUpdateListener 中引用的 SVGAImageView 用一个 WeakReference 包裹
 
 ```kotlin
 private class AnimatorListener(view: SVGAImageView) : Animator.AnimatorListener {
@@ -222,7 +223,8 @@ class SVGAParser(private var mContext: Context?) {
 }
 ```
 
-**原因：**<br />SVGAParser 是个静态实例，持有了一个 context，如果传入的是一个 Activity，可能导致内存泄漏<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1679247189958-ccec6655-d5b8-4097-b9ae-b18feecb18a8.png#averageHue=%232a2727&clientId=u202d78e5-7861-4&from=paste&id=u520b0db2&originHeight=658&originWidth=1106&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=489666&status=done&style=none&taskId=uc800b01d-bc7f-403c-91bb-78d97ffbd9f&title=)<br />**解决：**用 context.applicationContext
+**原因：**<br />SVGAParser 是个静态实例，持有了一个 context，如果传入的是一个 Activity，可能导致内存泄漏<br />![uimym](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/uimym.png)<br />**解决：**
+用 context.applicationContext
 
 ```kotlin
 class SVGAParser(context: Context?) {
@@ -238,7 +240,13 @@ Bitmap 没有做 recycle，只是简单的把缓存 list 清理掉
 
 #### bitmap 未及时释放
 
-App 对内存的消耗很大经常 OOM。最终定位到 SVGAVideoEntity<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1679416937631-07da8ff9-13a8-4f20-af8f-2bd40ee5137e.png#averageHue=%23e8e8e8&clientId=u4577afc4-92db-4&from=paste&id=ub3e073d3&originHeight=210&originWidth=999&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=173730&status=done&style=none&taskId=u48086a80-e539-46f9-8559-954ab25bd44&title=)<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1679416949992-e31a99d2-47d4-4e0d-9d6d-804b3fa72e3e.png#averageHue=%23e7e7e6&clientId=u4577afc4-92db-4&from=paste&id=ue7d6fb21&originHeight=428&originWidth=874&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=301785&status=done&style=none&taskId=ucb99bd9c-c748-48c1-8e15-3827d685412&title=)<br />**原因：**<br />在 SVGA 播放播放完成后，SVGAImageView 永远会持有最后一个 SVGADrawable 的引用，而这个 SVGADrawable 持有包含大量 Bitmap 集合的 SVGAVideoEntity ，这样一来就导致了一块很大的内存空间不会被 GC ，在 App 内存紧张或者多个 SVGAImageView 同时播放动画的时候很容易 OOM。<br />**SVGAImageView 引用关系：**<br />SVGAImageView 里面持有 SVGADrawable，SVGADrawable 持有了 SVGAVideoEntity
+App 对内存的消耗很大经常 OOM。最终定位到 SVGAVideoEntity<br />
+
+![j3fue](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/j3fue.png)<br />
+
+![emz93](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/emz93.png)<br />**原因：**<br />
+
+在 SVGA 播放播放完成后，SVGAImageView 永远会持有最后一个 SVGADrawable 的引用，而这个 SVGADrawable 持有包含大量 Bitmap 集合的 SVGAVideoEntity ，这样一来就导致了一块很大的内存空间不会被 GC ，在 App 内存紧张或者多个 SVGAImageView 同时播放动画的时候很容易 OOM。<br />**SVGAImageView 引用关系：**<br />SVGAImageView 里面持有 SVGADrawable，SVGADrawable 持有了 SVGAVideoEntity
 
 ```kotlin
 open class SVGAImageView : ImageView {
@@ -351,11 +359,11 @@ fun clear() {
 
 #### 验证后的数据
 
-用了一个比较容易出现问题的低端测试机，抓了一下内存情况：<br />可以看到在一个大 SVGA 动画播放完毕后，内存是可以被回收的。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1679418905345-b9f0d53b-0245-441f-b4bb-9ffc0c7f9417.png#averageHue=%2391dae6&clientId=u4577afc4-92db-4&from=paste&id=ucf4beeff&originHeight=1048&originWidth=2151&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=803111&status=done&style=none&taskId=ud9e6c605-7d2e-4acc-99d9-53eb5435afa&title=)
+用了一个比较容易出现问题的低端测试机，抓了一下内存情况：<br />可以看到在一个大 SVGA 动画播放完毕后，内存是可以被回收的。<br />![vhiy1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/vhiy1.png)
 
 > 锯齿一样的内存情况不要慌，没有办法 App 里面播放的动效太多了，这也是低端机正常 GC 的表现
 
-最终效果，在 SVGA 播放文件后，内存可有效被 GC。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1679418965278-4fdffeb0-e6cb-4d05-9d50-812b0f57e0fc.png#averageHue=%23a4dfeb&clientId=u4577afc4-92db-4&from=paste&id=u290d3586&originHeight=1142&originWidth=2191&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=626755&status=done&style=none&taskId=uc6bb5ac1-6423-4539-84df-2f9fdaecd42&title=)
+最终效果，在 SVGA 播放文件后，内存可有效被 GC。<br />![728qr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/728qr.png)
 
 [内存泄漏与修复方式，最高降低85%](https://github.com/svga/SVGAPlayer-Android/issues/370)
 

@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2019, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:56:58 pm
+date_updated: Wednesday, January 29th 2025, 10:37:17 pm
 title: Navigation
 author: hacket
 categories:
@@ -41,7 +41,7 @@ linter-yaml-title-alias: Navigation 基础
 
 ### 依赖
 
-```
+```groovy
 dependencies {
   def nav_version = "2.3.0-alpha01"
 
@@ -197,7 +197,7 @@ dependencies {
 
 #### 将某个屏幕指定为起始目的地
 
-起始目的地是用户打开您的应用时看到的第一个屏幕，也是用户退出您的应用时看到的最后一个屏幕。Navigation Editor 使用房子图标![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691239378596-1fed6ed0-610f-4de0-b450-ff69a86579b5.png#averageHue=%23b0b0b0&clientId=ue1ce4949-44a3-4&from=paste&height=54&id=u062ab66a&originHeight=108&originWidth=104&originalType=binary&ratio=2&rotation=0&showTitle=false&size=4843&status=done&style=none&taskId=u9d39183b-eb81-45f0-abfd-f7128413c47&title=&width=52)来表示起始目的地。
+起始目的地是用户打开您的应用时看到的第一个屏幕，也是用户退出您的应用时看到的最后一个屏幕。Navigation Editor 使用房子图标![qe0zg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/qe0zg.png)来表示起始目的地。
 
 所有目的地就绪后，您便可以选择起始目的地，具体操作步骤如下：
 
@@ -359,7 +359,7 @@ Navigation.findNavController(v).navigate(R.id.action_mainFragment_to_secondFragm
 
 接收参数：
 
-```
+```java
 //通过safe args完成参数接收
 Bundle bundle = getArguments();
 if(bundle != null) {
@@ -435,7 +435,7 @@ Navigation 组件使用导航图管理应用导航。导航图是一种资源文
 
 > 通过 include 的导航图，需要提供一个 id，否则报错，include 是导航图的文件名；include 的导航图，其他地方需要用到，他们的 destination 只能填写导航图的 android:id，其里面的 id 是不知道的，否则报下面的错。
 
-```
+```java
 java.lang.IllegalArgumentException: navigation destination me.hacket.assistant:id/userCenterInfoFragment referenced from action me.hacket.assistant:id/action_userCenterInfoFragment is unknown to this NavController
 ```
 
@@ -473,7 +473,7 @@ java.lang.IllegalArgumentException: navigation destination me.hacket.assistant:i
 
 # Navigation 分析
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691239777324-dec46bb2-b824-429f-bcd0-f3e136aededb.png#averageHue=%23f7f7f7&clientId=ue1ce4949-44a3-4&from=paste&height=480&id=u19f712e4&originHeight=960&originWidth=1222&originalType=binary&ratio=2&rotation=0&showTitle=false&size=235590&status=done&style=none&taskId=u14baf1f9-dcd7-4b31-bced-3dc2de1fa18&title=&width=611)
+![2giwr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2giwr.png)
 
 ## NavHostFragment
 

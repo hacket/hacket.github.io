@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Thursday, January 23rd 2025, 12:14:29 am
+date_updated: Friday, January 31st 2025, 6:24:14 pm
 title: Kotlin Coroutine for Android
 author: hacket
 categories:
@@ -463,7 +463,7 @@ I/hacket: end launchWhenStarted
 
 #### launch 和 repeatOnLifecycle
 
-![|700](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*fmQRBPMPpnO7NAO2bg0GKw.png)
+![|900](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*fmQRBPMPpnO7NAO2bg0GKw.png)
 
 #### launch、launchWhenX 和 repeatOnLifecycle
 

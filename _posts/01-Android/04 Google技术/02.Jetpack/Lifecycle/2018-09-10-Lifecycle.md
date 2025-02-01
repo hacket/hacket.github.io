@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, September 10th 2018, 1:17:18 am
-date_updated: Tuesday, January 21st 2025, 11:42:27 pm
+date_updated: Wednesday, January 29th 2025, 10:22:48 pm
 title: Lifecycle
 author: hacket
 categories:
@@ -131,7 +131,7 @@ Activity 或 Fragment 生命周期变化时，就会通知 LifecycleObserver
 
 ### addObserver 后是否需要 removeObserver？
 
-官方回答是不需要，但是在源码中没找到 removeObserver 相关代码。<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1691228625483-d4ba963f-2884-475c-b98c-a075575b3ed0.png#averageHue=%23171b21&clientId=u7634814b-77b5-4&from=paste&height=371&id=ucb73b86b&originHeight=742&originWidth=1652&originalType=binary&ratio=2&rotation=0&showTitle=false&size=153519&status=done&style=stroke&taskId=u9d439f83-ff33-47f5-8d96-187c4d7fb4e&title=&width=826)
+官方回答是不需要，但是在源码中没找到 removeObserver 相关代码。<br>![y3kik](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/y3kik.png)
 
 > <https://github.com/googlecodelabs/android-lifecycles/issues/5>
 

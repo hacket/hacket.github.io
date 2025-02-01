@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:29:20 pm
+date_updated: Monday, January 27th 2025, 10:26:58 pm
 title: ObjectAnimator
 author: hacket
 categories:
@@ -36,7 +36,7 @@ linter-yaml-title-alias: ObjectAnimator
 
 #### ObjectAnimator 原理
 
-属性动画并不是真正通过改变对象的属性来实现动画，而是通过调用目标对象指定的 setXxx 方法，其中 xxx 就是指定的属性名，对象不一定有 xxx 这个属性，只要有 setXxx 这个方法就可以。ObjectAnimator 动画过程中会调用 SetXxx 函数设置 xxx 的值，然后其内部会主动调用 invalidate（）函数进行不停地重绘，这样就实现了动画效果。<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688203195930-8adbaced-bca0-45ed-9318-23f18d050e0c.png#averageHue=%23fcfcfc&clientId=u9f7489ae-45b9-4&from=paste&height=451&id=u05d413cc&originHeight=902&originWidth=1088&originalType=binary&ratio=2&rotation=0&showTitle=false&size=290520&status=done&style=none&taskId=ue491443a-14be-4230-b71b-cb4b95ff247&title=&width=544)
+属性动画并不是真正通过改变对象的属性来实现动画，而是通过调用目标对象指定的 setXxx 方法，其中 xxx 就是指定的属性名，对象不一定有 xxx 这个属性，只要有 setXxx 这个方法就可以。ObjectAnimator 动画过程中会调用 SetXxx 函数设置 xxx 的值，然后其内部会主动调用 invalidate（）函数进行不停地重绘，这样就实现了动画效果。<br />![m4ehc](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/m4ehc.png)
 
 #### ObjectAnimator 注意事项
 
@@ -360,7 +360,7 @@ void animateValue(float fraction) {
 
 ## 利用 ObjectAnimator 实现补间动画效果 (Java 代码方式)
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688203233383-42f0a27c-67dd-400f-b254-496e2f39a659.png#averageHue=%23f2f2f2&clientId=u9f7489ae-45b9-4&from=paste&height=342&id=udb4a57b8&originHeight=684&originWidth=1338&originalType=binary&ratio=2&rotation=0&showTitle=false&size=152491&status=done&style=none&taskId=u6757aaf7-825c-415b-9c64-9d60fa0e4dd&title=&width=669)
+![75ddc](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/75ddc.png)
 
 ### translationX/translationY 平移 （原点控件左上角）
 
@@ -384,7 +384,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188825616-6eb1687a-7e3b-429e-a5f5-6995c69e2637.gif#averageHue=%23f7f7f7&clientId=ube8c8cf8-1eef-4&id=yLM42&originHeight=412&originWidth=349&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u93f15762-5279-4079-93ef-18e1a2fb29b&title=)
+![1hiht](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/1hiht.gif)
 
 案例 2：
 
@@ -430,7 +430,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188825567-3160c524-7e16-4cb1-814d-4d319d57d5e9.gif#averageHue=%23f8f8f8&clientId=ube8c8cf8-1eef-4&id=sX0rV&originHeight=410&originWidth=348&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u514d06a8-1612-4aef-9200-e650af3df8a&title=)
+![59ula](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/59ula.gif)
 
 #### Property 方式
 
@@ -466,7 +466,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188825677-273d8e8b-eafa-4cdd-8ff9-71a362dca07b.gif#averageHue=%23f8f8f8&clientId=ube8c8cf8-1eef-4&id=f9JBL&originHeight=410&originWidth=348&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u87750e06-a507-4d1e-a6e1-0a859dda613&title=)
+![cpok9](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/cpok9.gif)
 
 #### Property 方式
 
@@ -508,7 +508,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188825747-588631d3-9279-4047-9905-2b3e2986b8a5.gif#averageHue=%23f8f8f8&clientId=ube8c8cf8-1eef-4&id=etkHD&originHeight=424&originWidth=348&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u31df1e42-7375-4e64-b3ae-dac60a87ac9&title=)
+![pln4r](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/pln4r.gif)
 
 #### Property 方式
 
@@ -762,7 +762,7 @@ objectAnimator.setRepeatCount(-1);
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188826424-af2ce184-9955-4ed9-b5a2-399301ae5e99.gif#averageHue=%23f9fafa&clientId=ube8c8cf8-1eef-4&id=kApua&originHeight=482&originWidth=349&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=uff76047b-0af8-4586-a8ab-99f777cf6f6&title=)
+![ab97b](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ab97b.gif)
 
 改变颜色,没有设置插值器，只是简单数据改变：
 
@@ -774,15 +774,15 @@ objectAnimator.setRepeatCount(-1);
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188826565-bcd4204d-19f8-46ff-98b7-c8468c7aee81.gif#averageHue=%23f3f3f3&clientId=ube8c8cf8-1eef-4&id=MAl8s&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=uc83c52b1-46ae-427c-98bf-5764135fded&title=)
+![ggd3i](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ggd3i.gif)
 
 ## 案例
 
 ### 属性动画实际应用（猜拳 PK 动画）
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1688203302859-e92c5065-1d8e-4140-973a-ed8f7c947ce6.png#averageHue=%23073940&clientId=u9f7489ae-45b9-4&from=paste&height=194&id=uda8f7a65&originHeight=388&originWidth=732&originalType=binary&ratio=2&rotation=0&showTitle=false&size=177567&status=done&style=none&taskId=ub47a549c-2241-4819-ac17-914107c44c9&title=&width=366)<br />动画过程（具体动画效果见 `猜拳游戏_动画效果.mp4`）：<br />[猜拳游戏_动画效果.mp4](https://www.yuque.com/attachments/yuque/0/2024/mp4/694278/1706188825471-93c64a48-9e45-4769-9a93-d6519754a96a.mp4?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2024%2Fmp4%2F694278%2F1706188825471-93c64a48-9e45-4769-9a93-d6519754a96a.mp4%22%2C%22name%22%3A%22%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F_%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C.mp4%22%2C%22size%22%3A1943099%2C%22ext%22%3A%22mp4%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22ud656689b-c53a-4d42-b892-bba125771f1%22%2C%22taskType%22%3A%22transfer%22%2C%22type%22%3A%22video%2Fmp4%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u8738610b%22%2C%22card%22%3A%22file%22%7D)
+![zjt33](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zjt33.png)<br />动画过程（具体动画效果见 `猜拳游戏_动画效果.mp4`）：<br />[猜拳游戏_动画效果.mp4](https://www.yuque.com/attachments/yuque/0/2024/mp4/694278/1706188825471-93c64a48-9e45-4769-9a93-d6519754a96a.mp4?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2024%2Fmp4%2F694278%2F1706188825471-93c64a48-9e45-4769-9a93-d6519754a96a.mp4%22%2C%22name%22%3A%22%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F_%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C.mp4%22%2C%22size%22%3A1943099%2C%22ext%22%3A%22mp4%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22ud656689b-c53a-4d42-b892-bba125771f1%22%2C%22taskType%22%3A%22transfer%22%2C%22type%22%3A%22video%2Fmp4%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u8738610b%22%2C%22card%22%3A%22file%22%7D)
 
-[![猜拳游戏_动画效果.mp4 (1.85MB)](https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*NNs6TKOR3isAAAAAAAAAAABkARQnAQ)]()
+[![tzytl](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/tzytl.png)]()
 
 1. 左右背景分别从左/右进入
 2. 闪电缩放一下
@@ -1219,7 +1219,7 @@ objectAnimator.start();
 
 实现 TextView 的旋转：
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188826704-3c097372-5be9-4e68-8eea-3797e5409533.gif#averageHue=%23eeeeee&clientId=ube8c8cf8-1eef-4&id=ug8P5&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u5960a6ea-ca29-4cc5-88bc-f73cc8889c8&title=)
+![h4zss](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/h4zss.gif)
 
 ### ofFloat(Object target, String xPropertyName, String yPropertyName, Path path) (API21)
 
@@ -1250,7 +1250,7 @@ objectAnimator.start();
 
 TextView 在 X 轴和 Y 轴方向上移动：
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188826859-9108cdbe-6883-461f-926c-a0b99dacb27d.gif#averageHue=%23eeeeee&clientId=ube8c8cf8-1eef-4&id=H04Nl&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u9ee195b9-c06f-4533-9f4b-e38c0d7c85c&title=)
+![5003x](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/5003x.gif)
 
 上面的示例代码利用了 translationX 和 translationX 属性，这两个属性是 View 的自带的属性，同时也可以是两个互不相干的属性，可以实现类似组合动画的效果。
 
@@ -1268,7 +1268,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188826895-f362649c-d8a4-425f-95dd-189dbde324f6.gif#averageHue=%23eeeeee&clientId=ube8c8cf8-1eef-4&id=cOyaQ&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=uee52a483-8cd9-404b-b788-27b411017a9&title=)
+![mdyel](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/mdyel.gif)
 
 ### ofFloat 自定义 Property
 
@@ -1321,7 +1321,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188827458-135801a2-a110-44da-9c2d-07817f171592.gif#averageHue=%23ececec&clientId=ube8c8cf8-1eef-4&id=Evreh&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u475d3794-01c2-41ad-837d-effab9fd437&title=)
+![i9k6t](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/i9k6t.gif)
 
 ### ofFloat Property
 
@@ -1351,7 +1351,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188827619-4959e961-9134-4de1-8a41-dd8898307275.gif#averageHue=%23ebe8e6&clientId=ube8c8cf8-1eef-4&id=OLLWi&originHeight=536&originWidth=360&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u56b3774a-17ab-45c8-a66d-602e362da01&title=)
+![lfuak](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/lfuak.gif)
 
 ### ofArgb (API21) 自定义 Property
 
@@ -1392,7 +1392,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188827659-7517dc5c-c37e-4bce-bb89-2e472ac5d886.gif#averageHue=%23ebe8e6&clientId=ube8c8cf8-1eef-4&id=IvtBv&originHeight=536&originWidth=360&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u45393795-fd78-4a0e-b779-0260e6d9abf&title=)
+![x35up](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/x35up.gif)
 
 ## ofMultiFloat, ofMultiInt 不常用
 
@@ -1771,7 +1771,7 @@ objectAnimator.setRepeatCount(-1);
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188827787-27afb98b-ce04-4493-b4a6-fb07ecca03f8.gif#averageHue=%23eeeeee&clientId=ube8c8cf8-1eef-4&id=hynDD&originHeight=537&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=ub6b9dff2-ab8d-422f-bfdb-8e3b34bd32b&title=)
+![sxk6v](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/sxk6v.gif)
 
 ## ObjectAnimator.ofPropertyValuesHolder
 
@@ -1798,7 +1798,7 @@ objectAnimator.setInterpolator(new LinearInterpolator());
 objectAnimator.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188827883-4b81387c-3558-4c43-9067-369283cb3c12.gif#averageHue=%23eeeeee&clientId=ube8c8cf8-1eef-4&id=whjfe&originHeight=537&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u14e88859-1f19-4ce9-bc3a-e410802596a&title=)
+![h519v](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/h519v.gif)
 
 ### PropertyValuesHolder
 
@@ -1825,4 +1825,4 @@ animator.start();
 
 通过设置 Keyframe （关键帧），把同一个动画属性拆分成多个阶段。例如，你可以让一个进度增加到 100% 后再「反弹」回来。
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188828445-2010109e-8f1e-4f59-9d27-fc95d37ae9a6.gif#averageHue=%23292b29&clientId=ube8c8cf8-1eef-4&height=201&id=AWio5&originHeight=252&originWidth=452&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u1c45a571-7403-4330-ad90-bea4c934dc9&title=&width=361)
+![xqflf](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/xqflf.gif)

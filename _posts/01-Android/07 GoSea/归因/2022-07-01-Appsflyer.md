@@ -1,6 +1,6 @@
 ---
 date_created: Monday, July 1st 2022, 10:42:58 pm
-date_updated: Wednesday, January 22nd 2025, 12:42:14 am
+date_updated: Wednesday, January 29th 2025, 11:25:37 pm
 title: Appsflyer
 author: hacket
 categories:
@@ -59,4 +59,4 @@ linter-yaml-title-alias: 什么是 Appsflyer
 
 ### 实时测试
 
-<https://hq1.appsflyer.com/sdk-integration-test/app/me.hacket.assistant.samples>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1686196859976-2ad761d4-d061-488a-ae76-878025631c0d.png#averageHue=%23deac81&clientId=u6a8fc653-f54a-4&from=paste&height=729&id=u8cda7de1&originHeight=1458&originWidth=2848&originalType=binary&ratio=2&rotation=0&showTitle=false&size=298441&status=done&style=none&taskId=u8f49c6a3-72d4-4755-9833-fdff2e73295&title=&width=1424)
+<https://hq1.appsflyer.com/sdk-integration-test/app/me.hacket.assistant.samples>![bqqhg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/bqqhg.png)

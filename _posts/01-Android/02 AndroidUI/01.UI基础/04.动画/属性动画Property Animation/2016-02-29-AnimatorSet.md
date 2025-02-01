@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 20th 2025, 11:27:34 pm
+date_updated: Monday, January 27th 2025, 10:25:35 pm
 title: AnimatorSet
 author: hacket
 categories:
@@ -111,7 +111,7 @@ animatorSet.setDuration(3000);
 animatorSet.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188759864-9ebf21ca-65be-4104-a9af-ac5024507fa3.gif#averageHue=%23eeeeee&clientId=uf7b25f1e-0a80-4&id=W3kMJ&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u4508f1af-ddb4-4d47-a3b8-a99702082a5&title=)
+![3e4tx](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/3e4tx.gif)
 
 #### 多个动画作用于同一个对象同一个属性
 
@@ -131,13 +131,14 @@ animatorSet.setDuration(3000);
 animatorSet.start();
 ```
 
-- animatorSet.playTogether(objectAnimator1,objectAnimator2,objectAnimator3,objectAnimator4,objectAnimator5,objectAnimator6);<br />最终会按照 `objectAnimator6` 的效果进行展示。
+- `animatorSet.playTogether(objectAnimator1,objectAnimator2,objectAnimator3,objectAnimator4,objectAnimator5,objectAnimator6)`;<br />
+最终会按照 `objectAnimator6` 的效果进行展示。
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188760228-87e229a5-dff3-4b2d-922d-3a58da9e669f.gif#averageHue=%23eeeeee&clientId=uf7b25f1e-0a80-4&id=FrTDH&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u7f2b7b65-4bad-43cf-bdfa-a3470d736c8&title=)
+![371p6](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/371p6.gif)
 
-- animatorSet.playTogether(objectAnimator1,objectAnimator2,objectAnimator3,objectAnimator6,objectAnimator5,objectAnimator4);<br />最终会按照 objectAnimator4 的效果进行展示。
-
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188760686-8a950b83-7ec1-4ebb-8293-b109fc914571.gif#averageHue=%23eeeeee&clientId=uf7b25f1e-0a80-4&id=Kilhn&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=ud00aa6b1-bbd3-42e9-8c00-a59025437b5&title=)
+- `animatorSet.playTogether(objectAnimator1,objectAnimator2,objectAnimator3,objectAnimator6,objectAnimator5,objectAnimator4)`;<br />
+最终会按照 objectAnimator4 的效果进行展示。
+![9m6hn](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/9m6hn.gif)
 
 #### 多个动画作用于多个对象
 
@@ -164,7 +165,7 @@ animatorSet.setDuration(3000);
 animatorSet.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188760907-5336dfd7-be25-4d47-b007-0c9c9739aebd.gif#averageHue=%23ededed&clientId=uf7b25f1e-0a80-4&id=PF5ru&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u029842c4-e1f0-44cb-9af8-534dcc310c1&title=)
+![p6lsi](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/p6lsi.gif)
 
 ### playSequentially 动画顺序执行
 
@@ -191,7 +192,7 @@ animatorSet.duration = 1000
 animatorSet.start()
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188761047-2dc8d405-a00b-4d63-b7a8-f812ee48fca9.gif#averageHue=%23ededed&clientId=uf7b25f1e-0a80-4&id=zo5xe&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u88278eaf-c90e-40af-b812-0990c81cb63&title=)
+![0zas0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/0zas0.gif)
 
 ### 如何实现动画的循环播放
 
@@ -237,11 +238,11 @@ animatorSet.setDuration(3000);
 animatorSet.start();
 ```
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188761105-76f6cba7-9fb8-4bb5-8793-13a251bcb772.gif#averageHue=%23eeeeee&clientId=uf7b25f1e-0a80-4&id=ec8lm&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=uc078aef8-21d1-46d5-9ac7-74909e715c0&title=)
+![6bfbr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/6bfbr.gif)
 
 如果利用 playSequentially 并且前一个动画是无限循环动画：
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188761147-25dbb87b-168a-4864-ae1d-6b9600654c17.gif#averageHue=%23ededed&clientId=uf7b25f1e-0a80-4&id=iCDDR&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=ud82f9a90-0b04-4e7a-9411-8238d84bce6&title=)
+![v58d4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/v58d4.gif)
 
 最终实现循环动画的方法为，每个内部子动画设置为无限循环
 
@@ -282,7 +283,7 @@ animatorSet.start();
 
 三个 view 同时执行变色动画：
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188763644-6939474b-8d08-4574-8605-0a0849d41786.gif#averageHue=%23eaeaea&clientId=uf7b25f1e-0a80-4&id=Q8CJC&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u923f4126-b032-40ce-92bd-55f3bdea573&title=)
+![cq47w](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/cq47w.gif)
 
 ### public Builder before(Animator anim) 先执行自己的动画再执行 anim
 
@@ -297,7 +298,7 @@ animatorSet.start()
 
 第一个 view 先执行变色操作再执行 X 轴缩放操作：
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188763717-43a65e55-fed8-4134-bc09-1152cab55cca.gif#averageHue=%23eaeaea&clientId=uf7b25f1e-0a80-4&id=URxvB&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=uf929c39d-0c3e-453d-8968-53ff86113a9&title=)
+![em3cg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/em3cg.gif)
 
 ### public Builder after(Animator anim)	先执行 anim 后再执行自己的动画
 
@@ -312,7 +313,7 @@ animatorSet.start()
 
 第一个 view 先执行 X 轴缩放动画，再执行变色操作。
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188763843-da4c0348-2098-490f-a169-4da882b3d505.gif#averageHue=%23eaeaea&clientId=uf7b25f1e-0a80-4&id=TUGzZ&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u724ec31f-72fa-4d16-a79b-6d993d63be2&title=)
+![a8i1t](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/a8i1t.gif)
 
 ### public Builder after(long delay)  延迟 n 毫秒之后执行动画 (还有疑问)
 
@@ -390,7 +391,7 @@ animatorSet.start();
 
 结果：动画会先执行 objectAnimator11(gif 中的第三个 view 变背景)，然后 objectAnimator1(gif 中的第一个 view 变背景) 和 objectAnimator7（第二个 view 变背景）同时执行，最后执行 objectAnimator2（缩放）；
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188763910-dc951a3c-48ec-4e2f-9fde-c69d3e6b17f2.gif#averageHue=%23eaeaea&clientId=uf7b25f1e-0a80-4&id=QeUtZ&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u77d4a62d-cc7b-4ce3-8d33-dbb3f89bd2c&title=)
+![330pq](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/330pq.gif)
 
 ### Builder with before after 函数返回 Builder 对象，链式操作动画
 
@@ -424,7 +425,7 @@ animatorSet.start();
 
 其中 objectAnimator1,objectAnimator2,objectAnimator3,objectAnimator4 操作左边第一个 view。<br />objectAnimator7 操作第二个 view，<br />objectAnimator11，objectAnimator12 操作第三个 view。<br />上面的代码会同时执行 objectAnimator4,objectAnimator11,objectAnimator14,然后执行 objectAnimator1，再执行 objectAnimator2 和 objectAnimator3
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188764060-b260eb3f-7de8-45bd-b814-1cceaeb73f97.gif#averageHue=%23eaeaea&clientId=uf7b25f1e-0a80-4&id=trqtU&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=ub852ffba-b554-441c-b5b7-8ea87474e31&title=)
+![sf4ac](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/sf4ac.gif)
 
 #### 案例 2
 
@@ -437,7 +438,7 @@ animatorSet.start();
 
 其中 objectAnimator1,objectAnimator2,objectAnimator3,objectAnimator4 操作左边第一个 view。<br />objectAnimator7 操作第二个 view，<br />objectAnimator11，objectAnimator12 操作第三个 view。<br />结果：objectAnimator12 先执行动画，接着 objectAnimator1，objectAnimator7，objectAnimator11 动画会同时执行，objectAnimator1 执行完之后 objectAnimator2,objectAnimator3,objectAnimator4 动画会同时执行。
 
-![](https://cdn.nlark.com/yuque/0/2024/gif/694278/1706188764550-45243c55-a7b4-4501-a3be-0d514216b699.gif#averageHue=%23eaeaea&clientId=uf7b25f1e-0a80-4&id=XHsMg&originHeight=536&originWidth=359&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=ue24aa9cd-da48-476e-ac0d-b768f875248&title=)
+![iaizi](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/iaizi.gif)
 
 ---
 

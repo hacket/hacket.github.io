@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, November 19th 2022, 11:27:19 pm
-date_updated: Wednesday, January 22nd 2025, 11:05:04 pm
+date_updated: Saturday, February 1st 2025, 12:46:06 am
 title: Flutter provider
 author: hacket
 categories:
@@ -113,7 +113,7 @@ typedef Dispose<T> = void Function(BuildContext context, T value);
 
 ## ChangeNotifier
 
-它类似于一个 Observable，继承自 Listenable，内部维护了一个 ObserverList _listeners，提供添加和删除 listener 的方法，有一个 notify 方法，用来通知所有的观察者（在 Provider 或者称为消费者 Consumer）。
+它类似于一个 Observable，继承自 Listenable，内部维护了一个 `ObserverList _listeners`，提供添加和删除 listener 的方法，有一个 notify 方法，用来通知所有的观察者（在 Provider 或者称为消费者 Consumer）。
 
 > ChangeNotifier 只有在需要动态更新时候，也就是 watch 的时候才需要使用
 
@@ -216,7 +216,7 @@ class ChildA extends StatelessWidget {
 }
 ```
 
-效果：<br>![target-1698560378.gif](https://cdn.nlark.com/yuque/0/2023/gif/694278/1698560470620-ea1bffd8-72a2-476d-adf8-f4fd7ef2f7d5.gif#averageHue=%23fafafe&clientId=ue307192f-d6d4-4&from=paste&height=516&id=uc133292d&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=417118&status=done&style=none&taskId=u4d60b8fa-7a20-43d8-92d9-17f7aeecfbb&title=&width=232)<br>上面操作与读取时使用的是 `Provider.of<T>(BuildContext context, {bool listen = true})` 的方式，为了可以更明确对于 Provider 的操作，我们可将它替换为 `context.watch<>()` 和 `context.read<>()` 方式；context.watch<>() 和 context.read<>() 方法其实都是调用 Provider.of<T>(BuildContext context, {bool listen = true}) 来实现的：
+效果：<br>![mur4v](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/mur4v.gif)<br>上面操作与读取时使用的是 `Provider.of<T>(BuildContext context, {bool listen = true})` 的方式，为了可以更明确对于 Provider 的操作，我们可将它替换为 `context.watch<>()` 和 `context.read<>()` 方式；`context.watch<>()` 和 `context.read<>()` 方法其实都是调用 `Provider.of<T>(BuildContext context, {bool listen = true})` 来实现的：
 
 ```dart
 T watch<T>() {
@@ -256,7 +256,7 @@ class ChildB extends StatelessWidget {
 }
 ```
 
-![target-1698561124.gif](https://cdn.nlark.com/yuque/0/2023/gif/694278/1698561180939-2e95289e-fba1-42ef-a09a-469f3538e71f.gif#averageHue=%23f9f9fe&clientId=ue307192f-d6d4-4&from=paste&height=693&id=u1d68a3f1&originHeight=2400&originWidth=1080&originalType=binary&ratio=2&rotation=0&showTitle=false&size=589896&status=done&style=none&taskId=u63a4d0a0-ebec-4199-8a3b-88c364e6fa9&title=&width=312)<br>每点击一次父 Widget 右下角的加号或子 Widget 的 Add Number 按钮，我们看一下 Log 打印的结果：
+![885d4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/885d4.gif)<br>每点击一次父 Widget 右下角的加号或子 Widget 的 Add Number 按钮，我们看一下 Log 打印的结果：
 
 > childA build
 > childB build
@@ -408,7 +408,7 @@ class ProxyProviderStateless extends StatelessWidget {
 }
 ```
 
-**结果： **页面显示 小虎牙正在吃饭；点击按钮后：内容更新为更新的小虎牙正在吃饭。<br>ProxyProvider 还有其他不同的形式：`ProxyProvider`、`ProxyProvider2`、`ProxyProvider3…ProxyProvider6`。类名后的数字是 ProxyProvider 依赖的 provider 的数量。一般很难用到 6 个或以上的模型糅合一个新的模型。
+**结果： ** 页面显示小虎牙正在吃饭；点击按钮后：内容更新为更新的小虎牙正在吃饭。<br>ProxyProvider 还有其他不同的形式：`ProxyProvider`、`ProxyProvider2`、`ProxyProvider3…ProxyProvider6`。类名后的数字是 ProxyProvider 依赖的 provider 的数量。一般很难用到 6 个或以上的模型糅合一个新的模型。
 
 ## ChangeNotifierProxyProvider
 

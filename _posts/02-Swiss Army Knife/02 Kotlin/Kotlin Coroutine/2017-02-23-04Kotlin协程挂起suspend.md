@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Thursday, January 23rd 2025, 12:14:13 am
+date_updated: Friday, January 31st 2025, 6:23:31 pm
 title: 04Kotlin协程挂起suspend
 author: hacket
 categories:
@@ -190,7 +190,7 @@ public interface Continuation<in T> {
 
 ## callback 转换成 suspend 函数
 
-![image.png|500](https://cdn.nlark.com/yuque/0/2024/png/694278/1707202985233-1fe38b83-a227-4c16-9e4e-7a8833d8c430.png#averageHue=%23163a4e&clientId=ufe701b56-e359-4&from=paste&height=415&id=u075ec7b3&originHeight=830&originWidth=1362&originalType=binary&ratio=2&rotation=0&showTitle=false&size=422553&status=done&style=none&taskId=ue13abc5e-4597-4d5a-a40d-6cecb4bcd29&title=&width=681)
+![wqcql](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wqcql.png)
 
 ### suspendCoroutine 和 suspendCancellableCoroutine 异同点
 
@@ -363,7 +363,7 @@ launch {
 implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:1.3.2"
 ```
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1684716108491-c83105fe-0dd5-437d-ab23-5e953838e664.png#averageHue=%23f0f2f4&clientId=u365ea078-7039-4&from=paste&id=uecf74a5b&originHeight=598&originWidth=1752&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uab1b4aa6-543e-48a9-8a9b-30c11120fae&title=)
+![bkcgu](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/bkcgu.png)
 
 ### 其他
 

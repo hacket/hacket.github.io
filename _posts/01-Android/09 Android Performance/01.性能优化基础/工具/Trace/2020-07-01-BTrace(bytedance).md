@@ -1,12 +1,12 @@
 ---
 date_created: Monday, July 1st 2020, 10:42:58 pm
-date_updated: Wednesday, January 22nd 2025, 1:19:29 am
+date_updated: Thursday, January 30th 2025, 12:09:46 am
 title: BTrace(bytedance)
 author: hacket
 categories:
   - 性能优化
 category: 性能优化工具
-tags: [性能优化, 性能优化工具, BTrace, Systrace]
+tags: [BTrace, Systrace, 性能优化, 性能优化工具]
 toc: true
 description: 
 dg-publish: true

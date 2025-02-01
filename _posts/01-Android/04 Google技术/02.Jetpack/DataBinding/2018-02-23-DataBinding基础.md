@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:41:21 pm
+date_updated: Wednesday, January 29th 2025, 10:17:48 pm
 title: DataBinding基础
 author: hacket
 categories:
@@ -173,11 +173,11 @@ data 标签下的 `class` 属性可以**自定义 DataBinding 生成的类名以
 - 二元运算符 `& | ^`
 - 一元运算符 `+ - ! ~`
 - 移位运算符 `>> >>> <<`
-- 比较运算符 `== > < >= <=`（请注意，`<` 需要转义为 <）
+- 比较运算符 == > < >= <= （请注意，`<` 需要转义为 <）
 
 > 如 `<variable name="sparse" type="SparseArray&lt;String>"/>`
 
-- instanceof
+- instanceOf
 - 分组运算符 `()`
 - 字面量运算符 `字符、字符串、数字、null`
 - 类型转换
@@ -552,7 +552,7 @@ public class ObservableContact extends BaseObservable {
 }
 ```
 
-kotlin 版本：
+Kotlin 版本：
 
 ```kotlin
 /**
@@ -708,7 +708,7 @@ public class User implements Observable {
 - 当字段比较多时，要为每个 get/set 方法都对应加上@Bindable 注解和 notifyPropertyChanged() 方法很浪费时间
 - 手动添加@Bindable 注解和 notifyPropertyChanged() 极容易出错，比如 notifyPropertyChanged() 方法中的 BR 字段就容易写错。
 
-为了让每个 get/set 方法都对应自动加上@Bindable 注解和 notifyPropertyChanged() 方法，用 AndroidStudio 插件 -`dataBindingGenerator`，专门用来生成上面说的那些代码。<br>![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2017/9/12/c2078c5435c27c67adb78a6e1ea177ab~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.image#id=X3QMq&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+为了让每个 get/set 方法都对应自动加上@Bindable 注解和 notifyPropertyChanged() 方法，用 AndroidStudio 插件 -`dataBindingGenerator`，专门用来生成上面说的那些代码。<br>![x6a7h](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/x6a7h.gif)
 
 ## 属性设置
 
@@ -809,7 +809,7 @@ public class TextViewBindingAdapter {
 
 对于 Android 框架中 View 中的一些属性，databinding 库已经使用 BindingMethods 已经做了属性自动查找匹配，那么当某些属性没有与之对应的 setter 方法时，需要自定义。
 
-#### ![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1685727777275-d3da3368-fa61-418f-956d-4d32b78c8aab.png#averageHue=%23514c41&clientId=u11331452-03b0-4&from=paste&height=368&id=uccba77d4&originHeight=1198&originWidth=756&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=105461&status=done&style=none&taskId=u7cb5b2cb-890e-40d1-9680-aa53ea65f11&title=&width=232)
+#### ![59ntu](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/59ntu.png)
 
 #### 自定义 BindingMethod
 
@@ -1269,7 +1269,7 @@ protected void executeBindings() {
 }
 ```
 
-**具体原因：**你的 DataBinding 用到了该 DataBindingComponent 中的非静态修饰的@BinderAdapter 方法，在其构造会进行判空处理，在 executeBindings 会调用 DataBindingComponent 中 `@BindingAdapter` 方法，如果没有传递 DataBindingComponent 会出现如上空指针异常，可用 DataBindingUtil.setDefaultComponent 设置全局的默认 Component；如果你的 DataBinding 没有调用 BindingAdapter 中的方法，就不会进行判空处理
+**具体原因：** 你的 DataBinding 用到了该 DataBindingComponent 中的非静态修饰的@BinderAdapter 方法，在其构造会进行判空处理，在 executeBindings 会调用 DataBindingComponent 中 `@BindingAdapter` 方法，如果没有传递 DataBindingComponent 会出现如上空指针异常，可用 DataBindingUtil.setDefaultComponent 设置全局的默认 Component；如果你的 DataBinding 没有调用 BindingAdapter 中的方法，就不会进行判空处理
 
 #### DataBindingComponent 使用场景
 
@@ -2277,7 +2277,7 @@ binding.addOnRebindCallback(object : OnRebindCallback<ActivityBindingAdapterBind
 
 ### 找不到 BR 文件
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1685900174835-1c7d912a-337a-49dd-99ae-59dc754be04b.png#averageHue=%23372e2d&clientId=uf93bb267-ebc6-4&from=paste&height=317&id=uc8a4f32a&originHeight=475&originWidth=2369&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=179393&status=done&style=none&taskId=u067abb97-f7bb-4147-a09c-15dc5dcc3e3&title=&width=1579.3333333333333)<br>**原因：**布局没有用 DataBinding 来加载
+![f3gyh](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/f3gyh.png)<br>**原因：** 布局没有用 DataBinding 来加载
 
 ```kotlin
 class BindingAdapterActivity : AppCompatActivity() {
@@ -2288,7 +2288,7 @@ class BindingAdapterActivity : AppCompatActivity() {
 }
 ```
 
-**解决：**用 DataBindingUtil 加载布局
+**解决：** 用 DataBindingUtil 加载布局
 
 ```kotlin
 class BindingAdapterActivity : AppCompatActivity() {
@@ -2304,7 +2304,7 @@ class BindingAdapterActivity : AppCompatActivity() {
 
 ### Failed resolution of: Landroidx/databinding/DataBinderMapperImpl
 
-出错堆栈：<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684807100297-8d9583e8-ea2b-436e-9a18-782ce4f493d9.png#averageHue=%232b2929&clientId=u599c9b85-c33f-4&from=paste&height=805&id=ue701b46e&originHeight=2240&originWidth=1246&originalType=binary&ratio=2&rotation=0&showTitle=false&size=487672&status=done&style=none&taskId=ufc6db25b-ffdb-4ed8-80d0-d375f04675c&title=&width=448)<br>**解决 1：databinding 开关未开**
+出错堆栈：<br>![bglr5](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/bglr5.png)<br>**解决 1：databinding 开关未开**
 
 1. 主 app 或 module app 都需要把 dataBinding 开关打开
 2. 添加 kapt 插件：`apply plugin: 'kotlin-kapt'`
@@ -2315,7 +2315,7 @@ buildFeatures {
 }
 ```
 
-如果还不行的话，看下在你的 app 工程有没有生成 DataBinderMapperImpl<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684812556312-80ce05ce-943f-432a-bbe8-b29767431514.png#averageHue=%236ccd88&clientId=u599c9b85-c33f-4&from=paste&height=254&id=u9ce85575&originHeight=814&originWidth=950&originalType=binary&ratio=2&rotation=0&showTitle=false&size=85750&status=done&style=none&taskId=u3cac4a87-71ce-4ba1-9c52-fbcc7de2f07&title=&width=297)<br>我的这个项目没有生成 DataBinderMapperImpl，是因为之前做编译优化禁用了 kapt 插件，导致生成不了
+如果还不行的话，看下在你的 app 工程有没有生成 DataBinderMapperImpl<br>![qs8hi](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/qs8hi.png)<br>我的这个项目没有生成 DataBinderMapperImpl，是因为之前做编译优化禁用了 kapt 插件，导致生成不了
 
 ```groovy
 // 禁止模块添加kapt
@@ -2346,11 +2346,11 @@ project.afterEvaluate {
 }
 ```
 
-**解决 2：kapt 插件打开**
+**解决 2：** KAPT 插件打开
 
 - 加上 kapt 插件
 
-到这里生成了 DataBinderMapperImpl 了，但是点进去 DataBinding 页面就崩溃了<br>![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1684820543968-6454c723-cc6b-4813-9057-ecfe8ccb271b.png#averageHue=%23638b4c&clientId=u599c9b85-c33f-4&from=paste&height=234&id=uf2812c52&originHeight=636&originWidth=1208&originalType=binary&ratio=2&rotation=0&showTitle=false&size=145727&status=done&style=none&taskId=u45d2398f-b050-454c-99ae-6e037e3e698&title=&width=445)<br>原因是项目采用了组件化，有 2 个组件的 Manifest 的 packageName 事一样的，就会出现崩溃<br>**解决 3：** 不同组件 module 之间的 packageName 不能一样，需要改名
+到这里生成了 `DataBinderMapperImpl` 了，但是点进去 DataBinding 页面就崩溃了<br>![igfuw](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/igfuw.png)<br>原因是项目采用了组件化，有 2 个组件的 Manifest 的 packageName 事一样的，就会出现崩溃<br>**解决 3：** 不同组件 module 之间的 packageName 不能一样，需要改名
 
 ### view must has a tag
 

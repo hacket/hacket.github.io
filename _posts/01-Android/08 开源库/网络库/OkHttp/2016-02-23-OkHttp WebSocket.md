@@ -1,12 +1,12 @@
 ---
 date_created: Friday, February 23rd 2016, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 12:54:08 am
+date_updated: Wednesday, January 29th 2025, 11:57:56 pm
 title: OkHttp WebSocket
 author: hacket
 categories:
   - 计算机基础
 category: 开源库
-tags: [开源库, 网络库, 网络协议, OkHttp, WebSocket]
+tags: [OkHttp, WebSocket, 开源库, 网络协议, 网络库]
 toc: true
 description: 
 dg-publish: true
@@ -41,11 +41,13 @@ linter-yaml-title-alias: WebSocket
 4. WebSocket 如何管理连接的呢？RFC6455-5.5 给出了答案，协议定义了 `Control Frame`。WebSocket 的控制帧有：Close、Ping、Pong。其中 Close 发起关闭请求；Ping 帧是通信发起方确认链路是否畅通的报文；Pong 则是通信接收方回应链路是否畅通的报文。
 5. WebSocket 在建立连接之后，通信的基本数据帧格式如下图（来源 RFC6455-5.2）没有 Http 协议那么多固定的报头，且不用重复建立连接，所以通信效率高：
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687912861375-65cf95b2-cb09-47fb-af40-b6d935d033d4.png#averageHue=%23f1f1f1&clientId=u6ede8161-a8d7-4&from=paste&id=u64ed416e&originHeight=364&originWidth=720&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ud34bae39-4336-4d45-b07c-54931484e51&title=)
+![ninkg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ninkg.png)
 
 ### WebSocket 连接的生命周期
 
-WebSocket 连接的生命周期如下图 (来源：Design - websockets 7.0 documentation）：<br />![](http://note.youdao.com/yws/res/26903/436CC49E916641C39F754D8409543695#id=Ot2Rm&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)![](https://cdn.nlark.com/yuque/0/2023/png/694278/1687912872399-038d3d6e-b768-4897-a08f-e37d0c8376eb.png#averageHue=%23f2f2f2&clientId=u6ede8161-a8d7-4&from=paste&id=u80340a43&originHeight=441&originWidth=720&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u035a4519-5a50-43c8-b0a0-c70094ec743&title=)
+WebSocket 连接的生命周期如下图 (来源：Design - websockets 7.0 documentation）：<br />
+
+![n0ts0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/n0ts0.png)
 
 1. CONNECTING：使用 Http 发起请求，RFC6455-4 规定了 Client 和 Server 的报文格式。Server 在响应时使用 Http 状态码是 101（切换协议）。在握手时，WebSocket 连接处于 CONNECTING 状态。
 2. OPEN：握手成功之后，进入 OPEN 状态。
@@ -56,7 +58,7 @@ WebSocket 连接的生命周期如下图 (来源：Design - websockets 7.0 docum
 
 - WebSocket 心跳包<br />使用 Websocket 实现消息推送（心跳）<br /><https://blog.csdn.net/ttdevs/article/details/62887058>
 - OkHttp WebSocket 实现的心跳 ping/pong 为何不对接口层感知<br /><https://github.com/square/okhttp/issues/2239>
-- [Android]Okhttp 心跳策略研究<br /><https://juejin.im/post/5c88a8da6fb9a04a027b35f9>
+- Android Okhttp 心跳策略研究<br /><https://juejin.im/post/5c88a8da6fb9a04a027b35f9>
 
 ## WebSocket 开源库
 

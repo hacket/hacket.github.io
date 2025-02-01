@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 27th 2025, 1:29:56 am
+date_updated: Monday, January 27th 2025, 1:33:07 am
 title: View scroll&fling&drag&click
 author: hacket
 categories:
@@ -196,11 +196,15 @@ public void scrollTo(int x, int y) {
 说明：图中**黄色矩形区域**表示的是一个可滑动的 View 控件，**绿色虚线矩形**为滑动控件中的滑动内容。注意这里的坐标是相反的。
 
 调用 scrollTo(100,0) 表示将 View 中的内容移动到距离内容初始显示位置的 x=100，y=0 的地方，效果如下图：<br />
+
 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270119353.png)
+
 <br />调用 scrollTo(0,100) 效果如下图：<br />
+
 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270128212.png)
 
 调用 scrollTo(100,100) 效果如下图：<br />
+
 ![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270119354.png)
 
 - Ref
@@ -208,7 +212,9 @@ public void scrollTo(int x, int y) {
 - [x] Android scrollTo() scrollBy() Scroller 讲解及应用<br /><https://blog.csdn.net/wangjinyu501/article/details/32339379>
 
 ## scroll 总结
+
 ![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270119355.png)
+
 > scrollBy 有误，点击事件区域随着 scrollBy 后变
 
 ### setTranslationX/Y

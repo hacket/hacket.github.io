@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, November 19th 2020, 11:27:19 pm
-date_updated: Wednesday, January 22nd 2025, 11:19:20 pm
+date_updated: Saturday, February 1st 2025, 12:05:37 am
 title: Gradle Project
 author: hacket
 categories:
@@ -38,7 +38,7 @@ Gradle 为每个 build. Gradle 都会创建一个相应的 Project 领域对象�
 
 在 Project 中有很多的 API，但是根据它们的属性和用途我们可以将其分解为六大部分，如下图所示：
 
-![image.png|500](https://cdn.nlark.com/yuque/0/2023/png/694278/1691410026096-2597100c-7ba2-4642-afe8-da2f3e04e1b7.png#averageHue=%23fbf9f0&clientId=ub4bccdd5-b16e-4&from=paste&height=369&id=u1443e51b&originHeight=738&originWidth=1416&originalType=binary&ratio=2&rotation=0&showTitle=false&size=130172&status=done&style=none&taskId=u4c8cba0d-0def-49d9-a010-fe6254ad522&title=&width=708)
+![guhfg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/guhfg.png)
 
 1. Project API：让当前的 Project 拥有了操作它的父 Project 以及管理它的子 Project 的能力。
 2. Task 相关 API：为当前 Project 提供了新增 Task 以及管理已有 Task 的能力。由于 task 非常重要，我们将放到第四章来进行讲解。

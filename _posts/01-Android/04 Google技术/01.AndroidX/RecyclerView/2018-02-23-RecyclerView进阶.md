@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Tuesday, January 21st 2025, 11:29:18 pm
+date_updated: Wednesday, January 29th 2025, 10:10:00 pm
 title: RecyclerView进阶
 author: hacket
 categories:
@@ -29,7 +29,11 @@ linter-yaml-title-alias: RecyclerView 之 Prefetch
 
 ## 什么是 Prefetch？
 
-RecyclerView25+ 和 API21 以上可以开启 prefetch；在 UI 线程空闲的时候，去获取 item，避免下次需要用的时候再去获取，避免了卡顿。<br />在 Android21，在 UI 线程 post 了一 frame 给 RenderThread 和到下一个 vsync pulse 到来时，RecyclerView 这段时间是空闲的，在这段时间我们安排 prefetch 工作<br />RecyclerView 自带的系统优化，默认自动开启。
+RecyclerView25+ 和 API21 以上可以开启 prefetch；在 UI 线程空闲的时候，去获取 item，避免下次需要用的时候再去获取，避免了卡顿。<br />
+
+在 Android21，在 UI 线程 post 了一 frame 给 RenderThread 和到下一个 vsync pulse 到来时，RecyclerView 这段时间是空闲的，在这段时间我们安排 prefetch 工作<br />
+
+RecyclerView 自带的系统优化，默认自动开启。
 
 ## 怎么使用 Prefetch？
 
@@ -280,12 +284,14 @@ private RecyclerView.ViewHolder prefetchPositionWithDeadline(RecyclerView view,
 
 ### ListView 缓存机制
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688490451293-c0213ba0-d3a5-43f9-9d0b-fcc29ff3faf2.png#averageHue=%2328540c&clientId=u52936e03-dc53-4&from=paste&height=492&id=u7c2c6b96&originHeight=848&originWidth=876&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=ue32477c9-25c6-4e91-a371-9ca4d2548bc&title=&width=508)<br />ListView 的缓存有两级，在 ListView 里面有一个内部类 `RecycleBin`，RecycleBin 有两个对象 `Active View` 和 `Scrap View` 来管理缓存，Active View 是第一级，Scrap View 是第二级。
+![alv8f](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/alv8f.png)<br />ListView 的缓存有两级，在 ListView 里面有一个内部类 `RecycleBin`，RecycleBin 有两个对象 `Active View` 和 `Scrap View` 来管理缓存，Active View 是第一级，Scrap View 是第二级。
 
 - **Active View**：是缓存在屏幕内的 ItemView，当列表数据发生变化时，屏幕内的数据可以直接拿来复用，无须进行数据绑定。
 - **Scrap view**：缓存屏幕外的 ItemView，这里所有的缓存的数据都是 " 脏的 "，也就是数据需要重新绑定，也就是说屏幕外的所有数据在进入屏幕的时候都要走一遍 getView（）方法。<br />再来一张图，看看 ListView 的缓存流程
 
-![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688490465585-c2b013e8-8c78-4a34-8431-ecadc29199c9.png#averageHue=%2333f934&clientId=u52936e03-dc53-4&from=paste&height=853&id=u58ba0564&originHeight=1205&originWidth=619&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u023ae02a-1622-4c33-b4d3-b909c7cceca&title=&width=438)<br />ListView 的缓存机制相对比较好理解，它只有两级缓存，一级缓存 Active View 是负责屏幕内的 ItemView 快速复用，而 Scrap View 是缓存屏幕外的数据，当该数据从屏幕外滑动到屏幕内的时候需要走一遍 getView() 方法。当 Active View 和 Scrap View 中都没有缓存的时候就会直接 create view。
+![fansw](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/fansw.png)<br />
+
+ListView 的缓存机制相对比较好理解，它只有两级缓存，一级缓存 Active View 是负责屏幕内的 ItemView 快速复用，而 Scrap View 是缓存屏幕外的数据，当该数据从屏幕外滑动到屏幕内的时候需要走一遍 getView() 方法。当 Active View 和 Scrap View 中都没有缓存的时候就会直接 create view。
 
 ## RecyclerView 的缓存机制
 
@@ -559,7 +565,7 @@ RecyclerViewPool 可能导致的内存泄漏，一个 RecyclerViewPool 对应一
 
 ### ViewHolder 的复用
 
-ViewHolder 的复用，在 `Recycler#getViewForPosition` 入口；在创建 ViewHolder 之前，RecyclerView 会先从缓存中尝试获取是否有符合要求的 ViewHolder，详见 `Recycler#tryGetViewHolderForPositionByDeadline` 方法。<br />![](https://cdn.nlark.com/yuque/0/2023/png/694278/1688490502207-02cb0abd-5e84-4465-a342-d18c654d5b2c.png#averageHue=%23eeeeee&clientId=u52936e03-dc53-4&from=paste&id=u8730460e&originHeight=630&originWidth=1280&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=stroke&taskId=u48eae987-5030-4c47-83c8-9d5d0b91297&title=)
+ViewHolder 的复用，在 `Recycler#getViewForPosition` 入口；在创建 ViewHolder 之前，RecyclerView 会先从缓存中尝试获取是否有符合要求的 ViewHolder，详见 `Recycler#tryGetViewHolderForPositionByDeadline` 方法。<br />![oozwf](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/oozwf.png)
 
 - 第一次，尝试从 `mChangedScrap` 中获取。
   - 只有在 `mState.isPreLayout()` 为 true 时，也就是预布局阶段，才会做这次尝试

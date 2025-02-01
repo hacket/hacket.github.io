@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, November 19th 2022, 11:27:19 pm
-date_updated: Wednesday, January 22nd 2025, 11:05:43 pm
+date_updated: Saturday, February 1st 2025, 12:48:53 am
 title: Flutter Package & Plugin
 author: hacket
 categories:
@@ -61,11 +61,11 @@ print(defaultTargetPlatform); // 会输出TargetPlatform.iOS
 
 2. AS
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1692034249115-3e72b8fb-a07a-4e66-b5d8-14828795edcb.png#averageHue=%233d4144&clientId=u61abb010-438b-4&from=paste&height=375&id=u4910e7d7&originHeight=1137&originWidth=1200&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=146007&status=done&style=stroke&taskId=u116dcf12-04bf-46de-88b1-452aaf821fb&title=&width=396)
+![v89de](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/v89de.png)
 
 3. 目录结构
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/694278/1692034386664-8873df4d-08f7-4a67-9683-461a82c370d4.png#averageHue=%23504c41&clientId=u61abb010-438b-4&from=paste&height=368&id=u7fadc6ef&originHeight=840&originWidth=1026&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=125774&status=done&style=stroke&taskId=u970fb56d-87c1-4d2b-a7b6-1c9e178f58d&title=&width=450)
+![mv3kr](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/mv3kr.png)
 
 ### 配置 pubspec.yaml
 

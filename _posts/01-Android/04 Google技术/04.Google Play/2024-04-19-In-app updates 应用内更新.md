@@ -1,6 +1,6 @@
 ---
 date_created: Friday, April 19th 2024, 10:45:19 pm
-date_updated: Wednesday, January 22nd 2025, 12:07:33 am
+date_updated: Wednesday, January 29th 2025, 10:54:04 pm
 title: In-app updates 应用内更新
 author: hacket
 categories:
@@ -25,9 +25,9 @@ linter-yaml-title-alias: In-app updates
 
 # In-app updates
 
-![|700](https://developer.android.com/static/images/app-bundle/flexible_flow.png#id=flgcB&originHeight=544&originWidth=825&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![xj6me](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/xj6me.png)
 
-![image.png|700](https://cdn.nlark.com/yuque/0/2023/png/694278/1685589635728-ac0efa34-12f2-42dc-aae1-d2c36151288d.png#averageHue=%2356a298&clientId=uef373bb7-dff6-4&from=paste&height=272&id=u2cefe5b7&originHeight=544&originWidth=825&originalType=binary&ratio=2&rotation=0&showTitle=false&size=167600&status=done&style=none&taskId=u94e8258c-5ced-4382-84c7-2630497c490&title=&width=412.5)
+![ne9kx](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ne9kx.png)
 
 # Ref
 

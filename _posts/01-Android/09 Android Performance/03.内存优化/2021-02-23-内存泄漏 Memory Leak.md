@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2021, 10:10:45 pm
-date_updated: Wednesday, January 22nd 2025, 1:25:03 am
+date_updated: Thursday, January 30th 2025, 12:16:52 am
 title: 内存泄漏 Memory Leak
 author: hacket
 categories:
@@ -63,11 +63,11 @@ Android Studio 的 Profiler 工具支持 hprof 的解析，并且很智能的提
 
 #### LeakCanary
 
-具体见 `LeakCanary2.x` 章节
+具体见 [[LeakCanary2.x]] 章节
 
 #### Haha/Shark
 
-具体见 `HPROF文件及工具使用` 章节
+具体见 [[HPROF文件及工具使用]] 章节
 
 ## 内存泄露原理
 

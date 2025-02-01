@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, July 4th 2017, 12:39:10 am
-date_updated: Thursday, January 23rd 2025, 12:28:42 am
+date_updated: Thursday, January 30th 2025, 6:42:46 pm
 title: Android中的ClassLoader
 author: hacket
 categories:
@@ -27,7 +27,7 @@ linter-yaml-title-alias: Android 中的 ClassLoader
 
 ## Android 中 ClassLoader 的种类
 
-![Android ClassLoader 继承体系](https://cdn.nlark.com/yuque/0/2022/png/694278/1671208127170-a78068f4-44a8-4278-a4f6-7aad3ea5e73d.png#averageHue=%23f2f2f2&clientId=u0e786c22-4665-4&from=paste&height=505&id=u733ba69e&originHeight=1054&originWidth=1307&originalType=binary&ratio=1&rotation=0&showTitle=true&size=258526&status=done&style=shadow&taskId=u301d0234-789e-46b3-b03e-3a4e6a112d7&title=Android%20ClassLoader%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB&width=626 "Android ClassLoader 继承体系")
+![d1cab](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/d1cab.png)
 
 ### BootClassLoader 系统预加载用的
 
@@ -420,7 +420,7 @@ public Class loadClassBinaryName(String name, ClassLoader loader) {
 private native static Class defineClass(String name, ClassLoader loader, int cookie);
 ```
 
-最终查找流程：<br>![|300](https://cdn.nlark.com/yuque/0/2023/png/694278/1693558111135-426353c7-dfff-4b68-b0d5-e7020f01f7c8.png#averageHue=%23f3f2cb&clientId=u8cb8b002-d873-4&from=paste&id=ud40bbffb&originHeight=514&originWidth=280&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ufaa845fc-db16-4192-af52-83fe74644aa&title=)
+最终查找流程：<br>![fzp9l](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/fzp9l.png)
 
 ## Android 中 Context 的 getClassLoader() 探索
 
