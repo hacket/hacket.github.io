@@ -1,6 +1,6 @@
 ---
 date_created: Saturday, February 1st 2022, 10:28:40 am
-date_updated: Sunday, February 2nd 2025, 6:43:36 pm
+date_updated: Sunday, February 2nd 2025, 6:45:24 pm
 title: Obsidian插件之shell commands
 author: hacket
 categories:
@@ -194,7 +194,9 @@ echo "Obsidian转换为Jekyll成功，并提交操作完成!"
 ```
 
 #### 配置 Events
-在文件或文件夹bian'ge
+
+在文件或文件夹变更时执行
+
 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202184329.png)
 
 #### 配合 Commander
