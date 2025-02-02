@@ -1,6 +1,6 @@
 ---
 date_created: Saturday, February 1st 2022, 10:28:40 am
-date_updated: Sunday, February 2nd 2025, 1:30:11 am
+date_updated: Sunday, February 2nd 2025, 6:43:36 pm
 title: Obsidian插件之shell commands
 author: hacket
 categories:
@@ -25,7 +25,17 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 
 ## shell commands 概念
 
+### Basic
+
+#### Working directory
+
+`Working directory` 指的是 shell commands 脚本运行的目录，默认是 vault's 根目录。对应内置变量 `{{vault_path}}`，在 `Environments` 可更改：
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202183042.png)
+
 ### Environments
+
+执行脚本的环境，内置了一些 shell，也可以自定义 shell。
 
 ### `Preactions`
 
@@ -48,8 +58,8 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 
 ## shell commands 应用
 
-- hexo 博客预览
-- 将 obsidian 文章转换为 Jekyll 格式的文章，并上传到 Github Pages
+- Hexo 博客预览，[利用Shell Commands在Obsidian中预览和发布Hexo文章](https://ihave.news/post/20240818194015.html)
+- 将 Obsidian 文章转换为 Jekyll 格式的文章，并上传到 Github Pages
 
 ## 示例
 
@@ -62,7 +72,7 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 **shell commands 配置：**
 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202003828.png)
 
-- shell 脚本：
+- Mac 上的 shell 脚本：
 
 ```shell
 which python3
@@ -118,6 +128,8 @@ open $JEKYLL_BUILD_DIR
 ```shell
 #!/bin/bash
 
+echo "当前时间: $(date "+%Y-%m-%d %H:%M:%S")"
+
 # Obsidian Vault 路径
 OBSIDIAN_VAULT_DIR={{vault_path}}
 
@@ -144,12 +156,22 @@ fi
 
 # 清空 _posts 目录
 echo "正在清空 $posts_path 目录…"
-rm -rf "$posts_path"/*
+if [ -d "$posts_path" ]; then
+  rm -rf "$posts_path"/*
+else
+  echo "目录 $posts_path 不存在，跳过删除操作。"
+fi
 
 # 调用 Obsidian 转换脚本
-echo "正在将 Obsidian 文件转换为 Jekyll 格式…"
-
+echo "Obsidian转换Jekyll开始时间: $(date "+%Y-%m-%d %H:%M:%S")"
+echo "正在将Obsidian文件转换为 Jekyll 格式…"
+# 检查目录是否存在，不存在则创建
+if [ ! -d "$posts_path" ]; then
+  mkdir -p "$posts_path"
+  echo "成功创建目录 $posts_path"
+fi
 python3 $obsidian_script --obsidian-dir $OBSIDIAN_VAULT_DIR --jekyll-dir $posts_path
+echo "Obsidian转换Jekyll结束时间: $(date "+%Y-%m-%d %H:%M:%S")"
 
 pwd
 
@@ -158,7 +180,7 @@ cd $repo_path || exit
 
 # 提交并推送更改
 now=$(date "+%Y-%m-%d %H:%M:%S")
-message="自动化更新 Jekyll 内容 (${now})"
+message="[Obsidian shell commands]自动化更新 Jekyll 内容 (${now})"
 echo "正在提交更改: $message"
 git add .
 git commit -m "$message"
@@ -167,8 +189,18 @@ git pull origin master
 echo "正在推送更改…"
 git push origin master
 
-echo "Obsidian转换为Jekyll成功，并提交 操作完成!"
+echo "结束时间: $(date "+%Y-%m-%d %H:%M:%S")"
+echo "Obsidian转换为Jekyll成功，并提交操作完成!"
 ```
+
+#### 配置 Events
+在文件或文件夹bian'ge
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202184329.png)
+
+#### 配合 Commander
+
+- 配合 Commander 在 Ribbon 上配置该命令
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202180818.png)
 
 ### Open the current file in vscode and jump to the current position
 
@@ -179,3 +211,9 @@ code --goto {{file_path:absolute}}:{{caret_position}}
 ```
 
 ![ueyzf](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ueyzf.png)
+
+## shell commands、Commander、Quick Add 区别
+
+- shell commands：用于调用系统的命令，shell 脚本，py 脚本实现一些功能
+- Commander：可将系统命令，自定义的命令在 Ribbon，TabBar，StatusBar 等地方生成图标，直接点击就执行；见 [[Obsidian插件之Commander]]
+- Quick Add：能将 Obsidian 内置命令组合成一个新的命令，支持脚本等；见 [[Obsidian插件之QuickAdd]]
