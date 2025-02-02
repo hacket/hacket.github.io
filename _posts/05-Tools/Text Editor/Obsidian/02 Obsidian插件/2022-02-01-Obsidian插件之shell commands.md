@@ -46,6 +46,11 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 | `{{title}}`        | 当前文件的标题（通常是文件名去掉扩展名，如 `note`）                      |
 | `{{tags}}`         | 当前文件的所有标签（逗号分隔，如 `#work, #meeting`）                |
 
+## shell commands 应用
+
+- hexo 博客预览
+- 将 obsidian 文章转换为 Jekyll 格式的文章，并上传到 Github Pages
+
 ## 示例
 
 ### Obsidian 和 Jekyll
