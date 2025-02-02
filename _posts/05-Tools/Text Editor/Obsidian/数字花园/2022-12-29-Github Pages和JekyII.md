@@ -1,6 +1,6 @@
 ---
 date_created: Sunday, December 29th 2022, 11:27:11 pm
-date_updated: Sunday, February 2nd 2025, 12:38:09 am
+date_updated: Sunday, February 2nd 2025, 9:06:10 pm
 title: Github Pages和JekyII
 author: hacket
 categories:
@@ -45,6 +45,33 @@ linter-yaml-title-alias: Jekyll 和 Github Pages
 - **HoloPress**：简洁的博客或文档站点主题，支持自由组织目录。
 
 这些主题都允许你自由组织文件，并且不强制要求使用日期格式命名文件。你可以根据自己的需求选择合适的主题，灵活管理站点内容。
+
+### Github Pages 配置自定义域名
+
+- `hacket.github.io` 新增 CNAME 文件，里面配置域名：`hacket.me`
+- 要创建 `A` 记录，请将顶点域指向 GitHub Pages 的 IP 地址。（ip v4）
+
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+- 要创建 `AAAA` 记录，请将顶点域指向 GitHub Pages 的 IP 地址。（ip v6）
+
+```
+2606:50c0:8000::153
+2606:50c0:8001::153
+2606:50c0:8002::153
+2606:50c0:8003::153
+```
+
+- Github Pages 设置
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202210604.png)
+
+**Ref:**
+[管理 GitHub Pages 站点的自定义域 - GitHub 文档](https://docs.github.com/zh/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
 
 ## Obsidian 和 Jekyll
 
