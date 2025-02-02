@@ -18,12 +18,12 @@ order: 4
 - Vue 基础开发
 
 ### 后端
-- 语言：Node.js/Java/Python
-- 框架：Spring Boot/Express.js
+- 语言：Node.js/Java
+- 框架：Spring/MyBatis/Express.js
 - 数据库：MySQL
 
 ## 📫 联系我
 - GitHub: [Hacket](https://github.com/hacket)
-- Gmail: shengfanzeng@gmail.com
-- 163邮箱: z_fansheng@163.com
-- 技术博客：[https://hacket.me]
+- Gmail: <a href="mailto:shengfanzeng@gmail.com">联系我</a>
+- 163邮箱: <a href="mailto:z_fansheng@163.com">联系我</a>
+- 技术博客：[https://hacket.me](https://hacket.me)
