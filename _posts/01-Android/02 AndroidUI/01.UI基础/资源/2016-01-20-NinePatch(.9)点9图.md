@@ -1,12 +1,14 @@
 ---
-date_created: Tuesday, October 29th 2016, 12:08:52 am
-date_updated: Monday, January 27th 2025, 10:44:28 pm
+date_created: Monday, January 20th 2016, 11:53:51 pm
+date_updated: Sunday, February 2nd 2025, 9:07:58 pm
 title: NinePatch(.9)点9图
 author: hacket
 categories:
   - AndroidUI
 category: UI杂项
-tags: [Drawable, UI杂项]
+tags:
+  - Drawable
+  - UI杂项
 toc: true
 description: 
 dg-publish: true
@@ -19,11 +21,12 @@ feed: show
 format: list
 date created: 2024-10-11 15:26
 date updated: 2024-12-24 00:29
-aliases: [.9 图]
-linter-yaml-title-alias: .9 图
+aliases:
+  - 9patch 图
+linter-yaml-title-alias: 9patch 图
 ---
 
-# .9 图
+# 9patch 图
 
 - [x] [创建可调整大小的位图（9-patch 文件）](https://developer.android.com/studio/write/draw9patch)
 - [x] [NinePatch 可绘制对象](https://developer.android.com/guide/topics/graphics/drawables?hl=zh-cn#nine-patch)
