@@ -1,6 +1,6 @@
 ---
 date_created: Saturday, February 1st 2022, 10:28:40 am
-date_updated: Sunday, February 2nd 2025, 11:25:29 pm
+date_updated: Sunday, February 2nd 2025, 11:39:23 pm
 title: Obsidian插件之shell commands
 author: hacket
 categories:
@@ -45,7 +45,29 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 
 输出，
 
-一般选 `Ask after execution`，在执行完毕后会弹个窗给你选择如何处理 output
+#### Output channels
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202232900.png)
+
+- Ask after execution：在执行完毕后会弹个模态窗给你选择如何处理 output
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202233147.png)
+
+- Clipboard： 输出作为文本复制到剪贴板
+- Current file: top/bottom/caret position 插入到当前激活的文件；如果没有插入到 message balloon
+- Notification/Error balloon: 在 Obsidian 的右上角弹出
+- Open files：打开文件
+- Status bar：在状态栏输出 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202233748.png)
+- Ignore: 什么也不做
+- Assign custom variables：输出作为一个变量；高级用法
+
+#### Output handling mode
+
+- Wait until finished 等 command 执行完毕后再输出
+- Realtime 实时输出
+
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202232659.png)
+
+#### Output wrappers
 
 ### Events
 
