@@ -1,6 +1,6 @@
 ---
 date_created: Friday, December 20th 2017, 10:48:39 pm
-date_updated: Thursday, January 23rd 2025, 12:16:26 am
+date_updated: Sunday, February 2nd 2025, 11:20:09 pm
 title: Kotlin Result类
 author: hacket
 categories:
@@ -151,3 +151,7 @@ data class AppWidgetData<T>(
 - 大意就是 google 工程师说是 jacoco 插桩问题导致字节码 invalid 了
 - [com.android.tools.r8.CompilationFailedException 384636715 - Issue Tracker](https://issuetracker.google.com/issues/384636715)
 - 解决方案是 jacoco 屏蔽掉该类
+
+## Result 扩展
+
+- [GitHub - kittinunf/Result: The modelling for success/failure of operations in Kotlin and KMM (Kotlin Multiplatform Mobile)](https://github.com/kittinunf/Result)

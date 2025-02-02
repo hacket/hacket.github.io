@@ -1,6 +1,6 @@
 ---
 date_created: Saturday, February 1st 2022, 10:28:40 am
-date_updated: Sunday, February 2nd 2025, 6:45:24 pm
+date_updated: Sunday, February 2nd 2025, 11:25:29 pm
 title: Obsidian插件之shell commands
 author: hacket
 categories:
@@ -39,9 +39,17 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 
 ### `Preactions`
 
+执行 shell command 前的 Prompts，如新建文件时提示用户输入文件名
+
 ### Output
 
+输出，
+
+一般选 `Ask after execution`，在执行完毕后会弹个窗给你选择如何处理 output
+
 ### Events
+
+定义的 shell command 在指定的 `events` 时机执行
 
 ### variables
 
