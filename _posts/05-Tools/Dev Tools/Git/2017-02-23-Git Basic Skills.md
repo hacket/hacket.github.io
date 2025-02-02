@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Thursday, January 30th 2025, 1:31:22 pm
+date_updated: Sunday, February 2nd 2025, 9:11:21 pm
 title: Git Basic Skills
 author: hacket
 categories:
@@ -875,6 +875,23 @@ master 拉取远端最新代码，将本地 master 合并到本地 dev，处理�
 > 现在 master 合并到业务分支，会有临时分支 master-xxx，如果有冲突，只需要将业务分支合并到临时分支 master-xxx 提交即可；如果还出现编译失败，大概率是业务分支 user 用了旧 master 的 API，但新的 master 将该 API 修改了或删除了，导致编译不过，这种就需要在业务分支改成用 master 最新的 api
 
 # 其他
+
+## `.gitattributes` 文件
+
+.gitattributes 是一个文本文件，文件中的一行定义一个路径的若干个属性，主要用于定义每种文件的属性，以方便 git 帮我们统一管理。<br />. gitattributes 文件格式如下：
+
+> 要匹配的文件模式属性 1 属性 2 …
+
+在. gitattributes 文件的一行中，一个属性（以 text 属性为例）可能有 4 种状态：
+
+- 设置 text
+- 不设置 -text
+- 设置值 text=string
+- 未声明，通常不出现该属性即可；但是为了覆盖其他文件中的声明，也可以! text
+
+### .gitattributes 文件中可以定义的属性
+
+[.gitattributes 作用详细讲解（git大佬必会技能)](https://blog.csdn.net/qq_35425070/article/details/106883833)
 
 ## git 修改历史提交信息和提交时间
 

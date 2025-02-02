@@ -1,6 +1,6 @@
 ---
-date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Thursday, January 30th 2025, 1:38:07 pm
+date_created: Monday, January 20th 2017, 1:15:14 am
+date_updated: Sunday, February 2nd 2025, 9:10:22 pm
 title: git subtree和submodule
 author: hacket
 categories:
@@ -29,7 +29,7 @@ linter-yaml-title-alias: git subtree 和 submodule
 
 git subtree 主要命令：
 
-```git
+```shell
 git subtree add --prefix=<prefix> <commit>
 git subtree add --prefix=<prefix> <repository> <ref>
 git subtree pull --prefix=<prefix> <repository> <ref>

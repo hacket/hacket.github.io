@@ -1,14 +1,12 @@
 ---
 date_created: Monday, January 20th 2016, 11:53:51 pm
-date_updated: Sunday, February 2nd 2025, 9:07:58 pm
+date_updated: Sunday, February 2nd 2025, 9:09:23 pm
 title: NinePatch(.9)点9图
 author: hacket
 categories:
   - AndroidUI
 category: UI杂项
-tags:
-  - Drawable
-  - UI杂项
+tags: [Drawable, UI杂项]
 toc: true
 description: 
 dg-publish: true
@@ -21,8 +19,7 @@ feed: show
 format: list
 date created: 2024-10-11 15:26
 date updated: 2024-12-24 00:29
-aliases:
-  - 9patch 图
+aliases: [9patch 图]
 linter-yaml-title-alias: 9patch 图
 ---
 
