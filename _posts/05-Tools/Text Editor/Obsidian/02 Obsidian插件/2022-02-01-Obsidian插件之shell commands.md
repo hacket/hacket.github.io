@@ -1,6 +1,6 @@
 ---
 date_created: Saturday, February 1st 2022, 10:28:40 am
-date_updated: Sunday, February 2nd 2025, 11:39:23 pm
+date_updated: Monday, February 3rd 2025, 12:05:44 am
 title: Obsidian插件之shell commands
 author: hacket
 categories:
@@ -31,7 +31,7 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 
 `Working directory` 指的是 shell commands 脚本运行的目录，默认是 vault's 根目录。对应内置变量 `{{vault_path}}`，在 `Environments` 可更改：
 
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202183042.png)
+![6r0m9](attachments/6r0m9.png)
 
 ### Environments
 
@@ -47,16 +47,16 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 
 #### Output channels
 
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202232900.png)
+![d7olp](attachments/d7olp.png)
 
 - Ask after execution：在执行完毕后会弹个模态窗给你选择如何处理 output
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202233147.png)
+![mdar1](attachments/mdar1.png)
 
 - Clipboard： 输出作为文本复制到剪贴板
 - Current file: top/bottom/caret position 插入到当前激活的文件；如果没有插入到 message balloon
 - Notification/Error balloon: 在 Obsidian 的右上角弹出
 - Open files：打开文件
-- Status bar：在状态栏输出 ![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202233748.png)
+- Status bar：在状态栏输出 ![y586p](attachments/y586p.png)
 - Ignore: 什么也不做
 - Assign custom variables：输出作为一个变量；高级用法
 
@@ -65,9 +65,24 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 - Wait until finished 等 command 执行完毕后再输出
 - Realtime 实时输出
 
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202232659.png)
+![59gb8](attachments/59gb8.png)
 
 #### Output wrappers
+
+Output wrappers 用来包裹 shell commands 的 outputs。
+
+- 多个 shell commands 可以共用同一个 output wrapper
+- shell commands 可以保持干净，不用写一些 echo
+- 在 shell commands 能用的变量，在 output wrappers 中也能用
+
+**示例：创建一个 output wrapper，能输出 shell command 执行的时间**
+![h50kj](attachments/h50kj.png)
+
+```shell
+Executed on: {{date:YYYY-MM-DD HH:mm:ss}}
+Results:
+{{output}}
+```
 
 ### Events
 
@@ -77,6 +92,8 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 
 #### 内置变量 built-in variables
 
+参考：[{{caret\_paragraph}} - Shell commands documentation - Obsidian Publish](https://publish.obsidian.md/shellcommands/Variables/%7B%7Bcaret_paragraph%7D%7D)
+
 | 变量名称               | 说明                                                 |
 | ------------------ | -------------------------------------------------- |
 | `{{vault_path}}`   | 自动替换为当前 Obsidian Vault 仓库的根目录绝对路径                  |
@@ -85,6 +102,10 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 | `{{file.content}}` | 当前文件的**全文内容**（需谨慎使用，内容过长可能导致命令执行失败）                |
 | `{{title}}`        | 当前文件的标题（通常是文件名去掉扩展名，如 `note`）                      |
 | `{{tags}}`         | 当前文件的所有标签（逗号分隔，如 `#work, #meeting`）                |
+
+#### 自定义变量
+
+- [Custom variables - Shell commands documentation - Obsidian Publish](https://publish.obsidian.md/shellcommands/Variables/Custom+variables)
 
 ## shell commands 应用
 
@@ -100,7 +121,7 @@ linter-yaml-title-alias: Obsidian 插件之 shell commands
 **实现的目标：** 将 `ObsidianVault` 下的 md 文章转换为符合 Jekyll 格式的文章
 
 **shell commands 配置：**
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202003828.png)
+![irkjh](attachments/irkjh.png)
 
 - Mac 上的 shell 脚本：
 
@@ -149,9 +170,9 @@ open $JEKYLL_BUILD_DIR
 
 - py 脚本: 位于 `ObsidianVault/.obsidian/scripts/python/obsidian2jekyii.py`
 - 配置 output，stdout 和 stderr 都是询问
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202004027.png)
+![lpgls](attachments/lpgls.png)
 脚本执行完毕后输出的 log
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202004214.png)
+![s96f6](attachments/s96f6.png)
 
 #### Obsidian 转换为 Jekyll，并自动提交
 
@@ -227,12 +248,12 @@ echo "Obsidian转换为Jekyll成功，并提交操作完成!"
 
 在文件或文件夹变更时执行
 
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202184329.png)
+![aq8cu](attachments/aq8cu.png)
 
-#### 配合 Commander
+#### 配合 Commander 配置到 Ribbon 上
 
 - 配合 Commander 在 Ribbon 上配置该命令
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250202180818.png)
+![pyz3d](attachments/pyz3d.png)
 
 ### Open the current file in vscode and jump to the current position
 
@@ -242,7 +263,7 @@ echo "Obsidian转换为Jekyll成功，并提交操作完成!"
 code --goto {{file_path:absolute}}:{{caret_position}}
 ```
 
-![ueyzf](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ueyzf.png)
+![od9ah](attachments/od9ah.png)
 
 ## shell commands、Commander、Quick Add 区别
 

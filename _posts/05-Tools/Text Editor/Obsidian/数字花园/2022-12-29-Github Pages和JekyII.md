@@ -1,6 +1,6 @@
 ---
 date_created: Sunday, December 29th 2022, 11:27:11 pm
-date_updated: Sunday, February 2nd 2025, 9:06:10 pm
+date_updated: Monday, February 3rd 2025, 9:37:59 pm
 title: Github Pages和JekyII
 author: hacket
 categories:
@@ -666,6 +666,28 @@ plugins:
 ```
 
 # 遇到的问题
+
+## Obsidian 发布到 Jekyll 不支持场景
+
+### 双链不支持
+
+Obsidian 的双链 `[[xxx笔记]]`, 发布到 Jekyll 后不支持。
+
+### 不支持任务列表 markdown 语法？
+
+`[x] [How to reliably update widgets on Android	Arkadiusz Chmura](https://arkadiuszchmura.com/posts/how-to-reliably-update-widgets-on-android/)`
+
+`[ ] [Our mission	Don’t kill my app!](https://dontkillmyapp.com/problem)`
+
+### 图片链接
+
+这种在 Obsidian 可以显示，发布到 Jekyll 后，显示不出来
+
+`![|200](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240710203302.png)`
+
+解决：去掉|200
+
+`![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20240710203302.png)`
 
 ## Github Actions Test site 失败：htmlproofer
 

@@ -1,6 +1,6 @@
 ---
 date_created: Wednesday, February 28th 2022, 8:25:43 am
-date_updated: Sunday, January 26th 2025, 11:46:01 pm
+date_updated: Monday, February 3rd 2025, 2:16:56 pm
 title: Obsidian插件之Templater
 author: hacket
 categories:
@@ -34,6 +34,15 @@ Template 中文翻译为 " 模板，范本 "。那插件 Templater 顾名思义�
 > ——引用自 [插件原作者](https://silentvoid13.github.io/Templater/)
 
 翻译：Templater 是一种 template 语言，能够让你插入变量结果和函数结果到你的笔记中。也能让你执行 Javascript 来操作那些变量和函数。使用 Templater，你能够生成功能强大的模板来自动化日常任务。
+
+ templater 主要的功能有：
+
+ - 通过命令调用模板文件
+
+- 不同文件夹使用不同的模板文件
+- 创建新文件时调用模板文件
+- 模板中使用 js 脚本
+- 模板中调用系统命令
 
 ## Ref
 

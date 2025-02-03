@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2013, 10:10:45 pm
-date_updated: Friday, January 31st 2025, 11:41:01 am
+date_updated: Monday, February 3rd 2025, 9:12:47 pm
 title: Java String相关问题
 author: hacket
 categories:
@@ -461,6 +461,47 @@ public static int hashCode(byte[] value) {
 	- 即使多个线程同时触发计算，最终得到的 `h` 是相同的。
 - **单次写入：** 对于每个 String 实例，`hash`（或 `hashIsZero`）字段只能被写入一次。计算出哈希码后，由于缓存，下次或者另外一个线程直接使用
 - **不可变性是关键：** 最重要的因素是 String 对象的底层字符数据的不可变性。如果字符串的内容可以更改，那么 `hash` 上的数据竞争将是一个严重的问题。但由于字符串是不可变的，因此哈希码计算保证始终产生相同的结果。
+
+#### 局部变量保证线程安全
+
+看 `String` 这个类的 `hashcode` 方法，如下：
+
+```java
+public int hashCode() {
+    int h = hash; /* 代码① */
+    if ( h == 0 && value.length > 0 ) {
+        char val[] = value;
+        for ( int i = 0; i < value.length; i++ ) {
+            h = 31 * h + val[i];
+        }
+        hash = h;       /* 代码② */
+    }
+    return(h);              /* 代码③ */
+}
+```
+
+`hash` 是 `String` 类的一个属性，可以看到这边首先是代码①读取了本地属性的值，并且赋值给局部变量 `h`。并且使用 `h` 进行了业务逻辑的判断。如果 `h` 没有值的话，就进行 Hash 值的生成，并且赋值到 `h` 上，并且在代码②处赋值给了属性 `hash`。最终返回的也是局部变量 `h` 的值。
+
+代码能否修改为下面的模式？
+
+```java
+public int hashCode() {
+	// 修改的代码没有局部变量，直接使用属性本身来操作。
+    if ( hash == 0 && value.length > 0 ) { /* 代码① */
+        char  val[] = value;
+        int h = 0;
+        for ( int i = 0; i < value.length; i++ ) {
+            h = 31 * h + val[i];
+        }
+        hash = h;
+    }
+    return(hash); /* 代码② */
+}
+```
+
+答案是**否定**的，因为这种写法是线程不安全的，可能导致方法的返回值是 0 。似乎有点费解，因为如果 `hash` 值为 0 ，则代码会进入循环体，对 `hash` 值进行更新。所以乍看之下，无论如何是不会返回 0 的。
+
+上述的理解逻辑，在单线程环境下，是正确的。但是这段代码工作在多线程环境。实际上，上述代码有两次对 `hash` 值的读取，分别是代码①和②。可能会出现一种情况，在代码①处，读取到 `hash` 值不为 0 ，在代码②处，读取到 `hash` 值为 0，并且以此为结果返回了。显然此时这种结果是错误的。
 
 ### 《Effective Java》上的回答
 

@@ -1,6 +1,6 @@
 ---
 date_created: Thursday, January 2nd 2022, 10:45:50 pm
-date_updated: Monday, January 27th 2025, 12:41:44 am
+date_updated: Monday, February 3rd 2025, 12:19:12 am
 title: Obsidian Markdown相关插件
 author: hacket
 categories:
@@ -71,9 +71,9 @@ Markdown Prettifier 还有一个非常好用的功能：更新文件的元数据
 
 ![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202412232337767.png)
 
-# Editing Toolbar
+# Editing Toolbar（必装的可视化编辑工具，替代 cMenu）
 
-Editing Toolbar 是 Cumany 二次开发的可视化编辑工具栏，旨在增强 Obsidian 的可视化编辑体验。提供类似于 Word，在线办公软件 的浮动工具栏等交互方式。
+Editing Toolbar 是 Cumany 二次开发的**可视化编辑工具栏**，旨在增强 Obsidian 的可视化编辑体验。提供类似于 Word，在线办公软件 的浮动工具栏等交互方式。
 
 ## 基本功能
 
