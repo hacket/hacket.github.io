@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Friday, February 7th 2025, 10:00:08 am
+date_updated: Friday, February 7th 2025, 2:01:42 pm
 title: RecyclerView开源库
 author: hacket
 categories:
@@ -38,6 +38,7 @@ linter-yaml-title-alias: RecyclerView 开源库
 AdapterDelegate 管家，通过 `addDelegate()` 方法注册 AdapterDelegate；在 `AbsDelegationAdapter` 中维护了 `AdapterDelegatesManager` 实例，在对应的方法 `getItemViewType()`、`onCreateViewHolder()`、` onBindViewHolder()` 调用 AdapterDelegatesManager 中的方法。
 
 可以在 AdapterDelegatesManager 添加一些通用逻辑，如调试信息，如：
+
 ```kotlin
 class DebugAdapterDelegatesManager<T> : AdapterDelegatesManager<T>() {  
     companion object {  

@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2015, 10:10:45 pm
-date_updated: Thursday, January 30th 2025, 1:22:41 pm
+date_updated: Friday, February 7th 2025, 2:03:49 pm
 title: Android Studio
 author: hacket
 categories:
@@ -156,7 +156,8 @@ override fun init(binding: ActivityViewBindingHelloWorldBinding) {
 
 ## Android Studio settings
 
-![[settings_mac_2024-03-26.zip]]
+- settings_mac_si_20250207.zip
+<https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/settings_mac_si_20240920.zip>
 
 ## Android Studio 技巧
 
