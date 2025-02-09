@@ -1,6 +1,6 @@
 ---
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Wednesday, January 29th 2025, 9:54:45 pm
+date_updated: Friday, February 7th 2025, 9:09:00 pm
 title: RecyclerView优化
 author: hacket
 categories:
@@ -101,7 +101,7 @@ mTextView.setText(Html.fromHtml(data).toString());
 
 ## RecyclerView 数据预取
 
-升级 Recycle 版本到 25 以上的版本，会开启 Recyclerview prefetch 功能
+升级 Recycle 版本到 25 以上的版本，会开启 RecyclerView prefetch 功能
 
 ## RecyclerView 缓存
 

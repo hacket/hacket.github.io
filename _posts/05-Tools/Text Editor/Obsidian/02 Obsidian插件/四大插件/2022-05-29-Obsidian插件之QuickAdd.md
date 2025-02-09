@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Wednesday, May 29th 2022, 12:37:40 am
-date_updated: Monday, January 27th 2025, 1:05:08 am
+date_updated: Friday, February 7th 2025, 10:56:50 pm
 title: Obsidian插件之QuickAdd
 author: hacket
 categories:
