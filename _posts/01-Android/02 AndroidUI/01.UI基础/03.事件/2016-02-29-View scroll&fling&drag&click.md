@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 27th 2025, 1:33:07 am
+date_updated: Tuesday, March 4th 2025, 12:56:37 am
 title: View scroll&fling&drag&click
 author: hacket
 categories:
@@ -2078,41 +2079,261 @@ class WechatVoiceDragLayout @JvmOverloads constructor(
 - [ ] Android 应用 ViewDragHelper 详解及部分源码浅析<br /><https://yanbober.blog.csdn.net/article/details/50419059>
 - [ ] <https://github.com/xiaosong520/ViewDragHelperDemo>
 
-# Android- 防止用户快速点击和多点触控、重复点击
+# 点击防抖：防止用户快速点击和多点触控、重复点击
 
 ## 防止快速多次点击（防抖动，防重复点击）
 
 ### 自定义 View.OnClickListener（旧项目友好）
 
+#### 自定义 OnViewDebouncingClickListener
+
+```kotlin
+// <editor-fold defaultstate="collapsed"desc="过滤重复点击 自定义OnViewDebounceClickListener，对旧项目友好">  
+abstract class OnViewDebouncingClickListener : View.OnClickListener {  
+    companion object {  
+        private const val MIN_CLICK_DELAY_TIME = 1000  
+    }  
+    private var lastClickTime: Long = 0  
+    override fun onClick(view: View?) {  
+        if (view == null) return  
+        val currentTime = SystemClock.elapsedRealtime()  
+        if (currentTime - lastClickTime > MIN_CLICK_DELAY_TIME) {  
+            lastClickTime = currentTime  
+            onDebounceClick(view)  
+        }  
+    }  
+    abstract fun onDebounceClick(view: View)  
+}  
+/**  
+ * 兼容如Activity实现OnClickListener接口写法，用这种写法改动较小，把setOnClickListener替换成clickDebouncing即可  
+ */  
+fun <T : View> T?.clickDebouncing(listener: View.OnClickListener) {  
+    this?.setOnClickListener(object : OnViewDebouncingClickListener() {  
+        override fun onDebounceClick(view: View) {  
+            listener.onClick(view)  
+        }  
+    })  
+}  
+// </editor-fold>
+```
+
+#### ### ClickUtils.applySingleDebouncing
+
+自定义 OnDebouncingClickListener 参考 `blankj:utilcode项目`
+
+```java
+ClickUtils.applySingleDebouncing
+// blankj:utilcode项目
+```
+
 ### RxBinding+throttleFirst
 
-缺点：比如使用两个手指同时点击两个不同的按钮，按钮的功能都是新开页面，那么有可能会新开两个页面。因为 Rxjava 这种方式是针对单个控件实现防止重复点击，不是多个控件。
+**缺点：** 比如使用两个手指同时点击两个不同的按钮，按钮的功能都是新开页面，那么有可能会新开两个页面。因为 Rxjava 这种方式是针对单个控件实现防止重复点击，不是多个控件。
+
+```kotlin
+// me
+// 默认过滤重复点击时间时长  
+const val DEBOUNCING_CLICK_DURATION: Long = 1000  
+  
+// <editor-fold defaultstate="collapsed"desc="过滤重复点击 RxJava3">  
+/**  
+ * 过滤view重复点击，默认1000ms  
+ *  @param skipDuration Long 延迟时间，默认1000毫秒  
+ */  
+@JvmOverloads  
+fun <T : View> T.clickDebouncingObservable(skipDuration: Long = DEBOUNCING_CLICK_DURATION): Observable<Any> {  
+    return RxView.clicks(this)  
+        .compose(debouncingClicksTransformer(skipDuration))  
+}  
+/**  
+ * 过滤重复点击事件：默认1s  
+ * * @param <T> T  
+ * @return ObservableTransformer  
+</T> */  
+private fun <T> debouncingClicksTransformer(skipDuration: Long = DEBOUNCING_CLICK_DURATION): ObservableTransformer<T, T> {  
+    return ObservableTransformer { upstream ->  
+        upstream.throttleFirst(  
+            skipDuration,  
+            TimeUnit.MILLISECONDS  
+        )  
+    }  
+}  
+// </editor-fold>
+
+
+// si
+private fun isMainThread(): Boolean {
+    try {
+        return Looper.getMainLooper() == Looper.myLooper()
+    } catch (e: Exception) {
+        e.message?.let { Logger.e("setOnAntiShakeClickListener", it) }
+    }
+    return false
+}
+/**
+ * 设置防抖动的按钮，阻止连续点击两次执行两次事物
+ * 介绍：1s内第1次点击按钮的事件
+ */
+@SuppressLint("CheckResult")
+fun View.setOnAntiShakeClickListener(callback: (View) -> Unit) {
+    if (isMainThread()) {
+        this.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe { _ ->
+            callback.invoke(this)
+        }
+    }
+}
+@SuppressLint("CheckResult")  
+fun View.setOnAntiShakeClickListener(windowDurationMs: Long, callback: (View) -> Unit) {  
+    this.clicks().throttleFirst(windowDurationMs, TimeUnit.MILLISECONDS).subscribe { _ ->  
+        callback.invoke(this)  
+    }  
+}  
+@SuppressLint("CheckResult")  
+fun View.setOnAntiShakeClickListener(listener: View.OnClickListener) {  
+    if (isMainThread()) {  
+        this.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe { _ ->  
+            listener.onClick(this)  
+        }  
+    }  
+}
+```
 
 ### View 添加 tag
 
-### View 添加 tag（添加到 DecorView，点击多个 view，指定时间内只有一个 View 响应点击事件）
+**实现原理：** 添加到 DecorView，点击多个 view，指定时间内只有一个 View 响应点击事件
 
 在时间范围内只响应一次点击，通过将上次单击时间保存到 Activity Window 中的 decorView 里，实现一个 Activity 中所有的 View 共用一个上次单击时间
 
-![](undefined)
+- 参数 `TRIGGER_LAST_TIME_TAG` 的默认值为 true，表示该控件和同一个 Activity 中其他控件共用一个上次单击时间，也可以手动改成 false，表示该控件自己独享一个上次单击时间
 
-- 参数 isShareSingleClick 的默认值为 true，表示该控件和同一个 Activity 中其他控件共用一个上次单击时间，也可以手动改成 false，表示该控件自己独享一个上次单击时间
+```kotlin
+// <editor-fold defaultstate="collapsed"desc="过滤重复点击 扩展View属性 tag">private const val TRIGGER_DELAY_TAG = -1000  
+private const val TRIGGER_LAST_TIME_TAG = -1001  
+  
+/**  
+ * 点击透明  
+ * @param block: (T) -> Unit 函数  
+ * @return Unit  
+ */@Suppress("UNCHECKED_CAST")  
+inline fun <T : View> T?.clickAlpha(  
+    pressedAlpha: Float = -1F,  
+    crossinline block: (T) -> Unit  
+) {  
+    this?.setOnClickListener {  
+        if (pressedAlpha != -1F) {  
+            ClickUtils.applyPressedViewAlpha(this, pressedAlpha)  
+        }  
+        block(it as T)  
+    }  
+}  
+  
+/**  
+ * 过滤重复点击事件  
+ * @param skipDuration Long 延迟时间，默认1000毫秒  
+ * @pressedAlpha Float 点击后按钮背景透明度变化  
+ * @param block: (T) -> Unit 函数  
+ * @return Unit  
+ */@Suppress("UNCHECKED_CAST")  
+@JvmOverloads  
+inline fun <T : View> T.clickDebouncingTag(  
+    skipDuration: Long = DEBOUNCING_CLICK_DURATION,  
+//    pressedAlpha: Float = -1F,  
+    crossinline block: (T) -> Unit  
+) {  
+//    if (pressedAlpha != -1F) {  
+//        ClickUtils.applyPressedViewAlpha(this, 0.6f)  
+//    }  
+    triggerDelay = skipDuration  
+    setOnClickListener {  
+        var flag = false  
+        val currentClickTime = SystemClock.elapsedRealtime()  
+        if (currentClickTime - triggerLastTime >= triggerDelay) {  
+            flag = true  
+            triggerLastTime = currentClickTime  
+        }  
+        if (flag) {  
+            block(it as T)  
+        }  
+    }  
+}  
+  
+var <T : View> T.triggerLastTime: Long  
+    get() = (getTag(TRIGGER_LAST_TIME_TAG) as? Long) ?: 0L  
+    set(value) {  
+        setTag(TRIGGER_LAST_TIME_TAG, value)  
+    }  
+  
+var <T : View> T.triggerDelay: Long  
+    get() = (getTag(TRIGGER_DELAY_TAG) as? Long) ?: 0L  
+    set(value) {  
+        setTag(TRIGGER_DELAY_TAG, value)  
+    }  
+  
+// </editor-fold>
+```
 
 ### View.isEnable 封装
 
+```kotlin
+// <editor-fold defaultstate="collapsed"desc="过滤重复点击 占用isEnable属性">
+/**
+ * 过滤重复点击 ，占用了isEnable属性
+ * @param skipDuration  延迟时间，默认1000毫秒
+ */
+@JvmOverloads
+inline fun <T : View> T?.clickDebouncingEnable(
+    skipDuration: Long = DEBOUNCING_CLICK_DURATION,
+    crossinline action: () -> Unit
+) {
+    this?.setOnClickListener {
+        isEnabled = false
+        action()
+        postDelayed({ isEnabled = true }, skipDuration)
+    }
+}
+// </editor-fold>
+```
+
 ### Flow throttleFirst
 
-### ClickUtils.applySingleDebouncing
+```kotlin
+// <editor-fold defaultstate="collapsed"desc="过滤重复点击 Flow">
+private fun <T> Flow<T>.throttleFirst(thresholdMillis: Long): Flow<T> = flow {
+    var lastTime = 0L // 上次发射数据的时间
+    // 收集数据
+    collect { upstream ->
+        // 当前时间
+        val currentTime = System.currentTimeMillis()
+        // 时间差超过阈值则发送数据并记录时间
+        if (currentTime - lastTime > thresholdMillis) {
+            lastTime = currentTime
+            emit(upstream)
+        }
+    }
+}
+
+private fun <T : View> T.clickFlow() = callbackFlow {
+    setOnClickListener { this.trySend(Unit).isSuccess }
+    awaitClose {
+        setOnClickListener(null)
+        LogUtils.w("awaitClose  setOnClickListener(null) ")
+    }
+}
+
+fun <T : View> T.clickDebouncingFlow(block: (View) -> Unit) = clickFlow()
+    .throttleFirst(300)
+    .onEach { block.invoke(this) }
+// </editor-fold>
+```
 
 ### aspect hook
 
 <https://github.com/liys666666/DoubleClick>
 
----
-
-### 代码
+### 全部防抖代码 DebouncingClick.kt
 
 ```kotlin
+// DebouncingClick.kt
 @file:JvmName("DebouncingClick")
 
 // 默认过滤重复点击时间时长

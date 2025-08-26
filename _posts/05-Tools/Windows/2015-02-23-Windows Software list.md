@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2015, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 1:08:36 am
+date_updated: Friday, May 30th 2025, 6:40:08 pm
 title: Windows Software list
 author: hacket
 categories:
@@ -87,7 +88,11 @@ linter-yaml-title-alias: Windows 必备工具
 2. 还可以合并粘贴，在粘贴时不改变剪贴板顺序，纯文本粘贴。
 3. 同时支持内容分组、热键粘贴功能，还可以通过网络共享剪贴板内容。
 
-<https://ditto-cp.sourceforge.io/><br />快捷键：`Ctrl+`` 启动剪切板历史<br />下载：<https://github.com/sabrogden/Ditto/releases>
+<https://ditto-cp.sourceforge.io/>
+
+快捷键：**Ctrl+\`**
+
+启动剪切板历史下载：<https://github.com/sabrogden/Ditto/releases>
 
 ### 录屏
 
@@ -109,7 +114,7 @@ linter-yaml-title-alias: Windows 必备工具
 
 > <https://www.snipaste.com/>
 
-#### PixPin
+#### PixPin（推荐）
 
 <https://pixpinapp.com/>
 
@@ -121,6 +126,10 @@ linter-yaml-title-alias: Windows 必备工具
 - 标注
 
 ### PDF
+
+#### PDF24 (推荐，最好用的 PDF 软件，无 Mac)
+
+- [Solutions for all PDF problems - 100% free - PDF24](https://www.pdf24.org/en/)
 
 #### PDF Candy
 
@@ -160,7 +169,11 @@ PDF Candy 是一个 PDF 的工具箱，软件几乎囊括了有关于 PDF 的全
 
 #### [LiceCAP](https://www.cockos.com/licecap/) 史上最好用 GIF 录屏软件
 
-LiceCAP 是一款功能强大的 GIF 录屏软件，整个界面就是一个录制框。<br />当你要录制动画时，只要将选框覆盖到要录制的区域上，然后点击右下角的 "Record" 便开始了。<br />除了操作简单外，LiceCAP 生成的画质体积也很 OK，既能满足日常需要，也不至于体积太大难以传递，用来和同事做一些工作交流，那是再方便不过了。
+LiceCAP 是一款功能强大的 GIF 录屏软件，整个界面就是一个录制框。
+
+当你要录制动画时，只要将选框覆盖到要录制的区域上，然后点击右下角的 "Record" 便开始了。
+
+除了操作简单外，LiceCAP 生成的画质体积也很 OK，既能满足日常需要，也不至于体积太大难以传递，用来和同事做一些工作交流，那是再方便不过了。
 
 #### [ScreenToGif](https://www.screentogif.com/) Gif 制作
 
@@ -170,7 +183,11 @@ LiceCAP 是一款功能强大的 GIF 录屏软件，整个界面就是一个录�
 
 清新简洁，功能很强大，无广告无捆绑。
 
-### 卸载工具
+### 卸载清理工具
+
+#### Wise Disk Cleaner
+
+免费
 
 #### Geek Uninstaller ——真正的卸载工具
 

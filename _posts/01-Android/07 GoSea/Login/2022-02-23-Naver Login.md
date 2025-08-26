@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2022, 10:10:45 pm
-date_updated: Wednesday, January 29th 2025, 11:21:06 pm
+date_updated: Friday, February 21st 2025, 12:05:07 am
 title: Naver Login
 author: hacket
 categories:
@@ -285,7 +286,7 @@ data class NaverLoginAuthInfo(
 
 ### 兼容性
 
-- SDK 最低版本兼容到 21，和 shein app 最低版本一致
+- SDK 最低版本兼容到 21，和 xxx app 最低版本一致
 - 其他兼容问题待测试
 
 ### 业务功能影响

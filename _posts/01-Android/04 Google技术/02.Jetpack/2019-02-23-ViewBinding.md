@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2019, 10:10:45 pm
-date_updated: Wednesday, January 29th 2025, 10:39:19 pm
+date_updated: Thursday, March 6th 2025, 11:16:44 am
 title: ViewBinding
 author: hacket
 categories:
@@ -278,7 +279,7 @@ dialog 中使用和 Activity 以及 Fragment 一样，直接使用单参数的 i
 
 ### 自定义 View 中使用 ViewBinding
 
-#### 使用的 layout 文件不包含 merge
+#### 使用的布局 xml 文件根标签不为 merge
 
 就是自定义了一个 LinearLayout 然后往其中添加了一个布局，该布局是 `view_my_layout.xml` 文件，代码如下：
 
@@ -298,7 +299,10 @@ dialog 中使用和 Activity 以及 Fragment 一样，直接使用单参数的 i
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-会生成一个对应的 ViewMyLayoutBinding.java 文件，看下文 MyLinearLayout 代码：<br />init1、2、3、4 是使用 inflate 来导入 layout 布局的写法，全部可以正常显示自定义的布局。<br />init10、11、12 是使用 ViewBinding 的写法，10 无法正常显示视图，11 和 12 是两种不同的写法，道理一样。
+会生成一个对应的 ViewMyLayoutBinding.java 文件，看下文 MyLinearLayout 代码：
+
+- init1、2、3、4 是使用 inflate 来导入 layout 布局的写法，全部可以正常显示自定义的布局
+- init10、11、12 是使用 ViewBinding 的写法，10 无法正常显示视图，11 和 12 是两种不同的写法，道理一样。
 
 ```java
 public class MyLinearLayout extends LinearLayout {
@@ -354,7 +358,7 @@ public class MyLinearLayout extends LinearLayout {
 }
 ```
 
-#### 使用的 layout 文件根标签为 merge
+#### 使用的布局 xml 文件根标签为 merge
 
 我们添加一个 `view_my_layout_merge.xml` 文件，根标签为 merge：
 
@@ -372,7 +376,7 @@ public class MyLinearLayout extends LinearLayout {
 </merge>
 ```
 
-此时在 MyLinearLayout.java 中使用的话，正确写法是 init20() 方法：
+此时在 MyLinearLayout.java 中使用的话，正确写法是 `init20()` 方法：
 
 ```java
 private void init20() {
@@ -385,7 +389,9 @@ private void init21() {
 }
 ```
 
-我们对比下使用 merge 标签和不使用 merge 标签所对应的 Binding 文件：<br />使用 merge 标签生成的代码大致如下，inflate() 方法最终调用了 bind() 方法：
+我们对比下使用 merge 标签和不使用 merge 标签所对应的 Binding 文件：
+
+- 使用 merge 标签生成的代码大致如下，inflate() 方法最终调用了 bind() 方法：
 
 ```java
 @NonNull
@@ -407,7 +413,7 @@ public static ViewMyLayoutMergeBinding bind(@NonNull View rootView) {
 }
 ```
 
-不使用 merge 标签的 Binding 代码如下，`inflate(LayoutInflater inflater)` 调用了`nflate([@NonNull](/NonNull) LayoutInflater inflater, [@Nullable](/Nullable) ViewGroup parent, boolean attachToParent) 方法，最终调用了 **bind(**[**@NonNull **](/NonNull)** View rootView) ** 方法：
+- 不使用 merge 标签的 Binding 代码如下，`inflate(LayoutInflater inflater)` 调用了 `inflate(LayoutInflater inflater, ViewGroup parent, boolean attachToParent)` 方法，最终调用了 `bind(View rootView)` 方法：
 
 ```java
   @NonNull
@@ -433,6 +439,67 @@ public static ViewMyLayoutBinding bind(@NonNull View rootView) {
     return new ViewMyLayoutBinding((ConstraintLayout) rootView);
 }
 ```
+
+### ViewStub 和 ViewBinding
+
+见 [[ViewStub#ViewStub 和 ViewBinding]]
+
+- 布局
+
+```xml
+<FrameLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recycler_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<ViewStub
+		android:id="@+id/cartSurpriseCouponLayoutViewStub"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom|end"
+		android:layout_marginBottom="165dp"
+		android:inflatedId="@+id/tipMsgLayout"
+		android:layout="@layout/shopping_bag_surprise_coupon"
+		tools:visibility="visible" />
+
+</FrameLayout>
+```
+
+- 自定义 View
+
+```kotlin
+class CartSurpriseCouponView @JvmOverloads constructor(  
+    context: Context, attrs: AttributeSet? = null  
+) : LinearLayout(context, attrs), View.OnClickListener {  
+  
+    private val mBinding =  
+        ShoppingBagSurpriseCouponBinding.inflate(LayoutInflater.from(context), this) // 使用merge，只有2个构造函数
+}
+```
+
+- shopping_bag_surprise_coupon.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_surprise_coupon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:background="@color/yellow_300">
+</mrege>
+```
+
+- 报错
+![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/20250218171320.png)
+
+- 解决，在 ViewStub 中，不使用 merge 标签
 
 ## 进阶使用
 
@@ -845,9 +912,9 @@ findViewById, ButterKnife 均存在类型转换问题，例如不小心将一个
 </LinearLayout>
 ```
 
-## 生成的 ActivityViewBindingHelloWorldBinding
+## ViewBinding 生成路径
 
-生成的路径 `module_name/build/generated/data_binding_base_class_source_out/ActivityViewBindingHelloWorldBinding.java`：
+生成的路径 `/build/generated/data_binding_base_class_source_out/ActivityViewBindingHelloWorldBinding.java`：
 
 ```java
 public final class ActivityViewBindingHelloWorldBinding implements ViewBinding {

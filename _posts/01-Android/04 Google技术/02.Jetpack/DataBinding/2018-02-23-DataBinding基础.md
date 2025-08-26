@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Wednesday, January 29th 2025, 10:17:48 pm
+date_updated: Friday, February 21st 2025, 12:11:43 am
 title: DataBinding基础
 author: hacket
 categories:
@@ -2120,7 +2121,7 @@ class PushSubscribeTipsView @JvmOverloads constructor(
             name="owner"
             type="androidx.lifecycle.LifecycleOwner" />
     </data>
-    <com.zzkko.bussiness.push.PushSubscribeTipsView
+    <com.zzz.bussiness.push.PushSubscribeTipsView
         android:id="@+id/push_tips"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

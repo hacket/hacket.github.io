@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Thursday, April 18th 2022, 10:58:42 pm
-date_updated: Tuesday, January 21st 2025, 12:44:53 am
+date_updated: Saturday, February 15th 2025, 11:17:25 am
 title: Android RenderScript
 author: hacket
 categories:

@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Thursday, January 23rd 2025, 12:16:25 am
+date_updated: Monday, March 3rd 2025, 11:38:20 pm
 title: Kotlin for Android
 author: hacket
 categories:
@@ -36,7 +37,7 @@ data class Student(val id: String, val name: String, val grade: String) : Parcel
 
 查看：
 
-```
+```java
 Tools→Kotlin→Show Kotlin Bytecode
 ```
 
@@ -124,7 +125,7 @@ class TestActivity : AppCompatActivity() {
 
 CacheImplementation 提供了三种方式：
 
-```
+```java
 public enum class CacheImplementation {
     SPARSE_ARRAY,
     HASH_MAP,

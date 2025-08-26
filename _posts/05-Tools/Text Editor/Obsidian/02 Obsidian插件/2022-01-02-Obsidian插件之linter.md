@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Thursday, January 2nd 2022, 10:45:50 pm
-date_updated: Sunday, February 2nd 2025, 1:23:39 am
+date_updated: Thursday, February 13th 2025, 10:00:51 pm
 title: Obsidian插件之linter
 author: hacket
 categories:

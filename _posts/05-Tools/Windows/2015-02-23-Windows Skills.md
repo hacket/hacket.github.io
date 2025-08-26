@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2015, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 1:08:22 am
+date_updated: Friday, May 30th 2025, 4:24:05 pm
 title: Windows Skills
 author: hacket
 categories:

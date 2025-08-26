@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Sunday, September 22nd 2015, 10:03:13 pm
-date_updated: Monday, January 20th 2025, 1:08:38 am
+date_updated: Sunday, July 27th 2025, 12:29:14 am
 title: Windows terminal & shell
 author: hacket
 categories:
@@ -43,7 +44,7 @@ linter-yaml-title-alias: 终端 (terminal)、shell
 
  在命令行中，shell 提供了访问操作系统内核功能的途径，比如说我们所熟悉的 `bash`、`zsh`，都是不同的 shell；
 
-## 区别
+## 终端和 shell 的区别
 
  **终端** 只是人机交互的一个接口，提供输入输出命令的交互界面。终端的主要任务是接收用户输入的命令，并提交给 Shell。
 
@@ -63,6 +64,14 @@ Shell:
 - 它在终端里运行,处理你输入的指令
 - 常见的 Shell 有 Bash、Zsh 等
 
-## Windows Terminal
+## Windows 上的 Terminal
+
+### Windows Terminal
 
 微软开源的 Terminal，[GitHub - microsoft/terminal: The new Windows Terminal and the original Windows console host, all in the same place!](https://github.com/microsoft/terminal)
+
+### Warp
+
+<https://www.warp.dev/>
+
+见 [[Warp]]

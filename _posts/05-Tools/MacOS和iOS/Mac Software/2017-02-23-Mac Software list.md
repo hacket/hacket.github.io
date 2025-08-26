@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Thursday, January 30th 2025, 3:03:48 pm
+date_updated: Wednesday, August 13th 2025, 12:50:22 am
 title: Mac Software list
 author: hacket
 categories:
@@ -46,7 +47,7 @@ linter-yaml-title-alias: 日常
 
 ## 截图
 
-具体见 `Tools→工具→截图`
+具体见 `Tools→常用工具→截图`： [[截图]]
 
 - [Xnip](http://www.xnipapp.com/)
 - **PixPin（推荐）** <https://pixpinapp.com/>
@@ -71,19 +72,46 @@ linter-yaml-title-alias: 日常
 
 [IINA - The modern media player for macOS](https://iina.io/)
 
+### 连接 Android 手机
+
+- AndroidFileTransfer
+- HandShaker
+- **OpenMTP**
+	- 支持大文件传输（如超过 4GB 的文件）。
+	- 比 Android File Transfer 更稳定，支持拖拽操作。
+- **AirDroid** 无线
+
+## 垃圾清理
+
+- [OmniDiskSweeper](https://www.omnigroup.com/more) 清理软件
+免费；需要手动点开目录，才能查看占用空间多少
+
+- App Cleaner & Uninstaller 软件卸载（收费）
+破解版：[App Cleaner 8.1.2 [TNT]. dmg. zip](https://www.yuque.com/attachments/yuque/0/2023/zip/694278/1683806911096-fb9052d0-b607-4fbe-b3e1-a0bf485b8800.zip?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fzip%2F694278%2F1683806911096-fb9052d0-b607-4fbe-b3e1-a0bf485b8800.zip%22%2C%22name%22%3A%22App%20Cleaner%208.1.2%20%5BTNT%5D.dmg.zip%22%2C%22size%22%3A30887620%2C%22ext%22%3A%22zip%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u4eccfd8e-09f1-4e13-8daf-7bc4d544f3e%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22application%2Fzip%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u70abb6cf%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D) [App Cleaner & Uninstaller Pro 8.1.2破解版 下载链接](https://luoxx.top/archives/appcleaneruninstallerpro811-share)
+
+- 腾讯柠檬
+开源免费，能清理的垃圾有限
+
+- CleanMyMac
+可以找到隐藏的文件，需要一级一级往下找；收费？清理不了多少垃圾；
+
+- DaisyDisk（**推荐**）
+收费，
+
+- gdu/ncdu
+命令行工具，
+
+- grandperspectiv <https://grandperspectiv.sourceforge.net/>
+图像化，按占用大小显示；收费 $2.99
+
+- 其他？
+	- 开源 OnyX
+
 ## 其他
 
-- QuickLook 增强 Mac 快速预览功能
-
-> 见 `QuickLook` 章节
-
+- QuickLook 增强 Mac 快速预览功能 [[QuickLook]]
 - Typora Markdown 编辑器（收费）
 - 滴答清单 任务 TODO
-- [OmniDiskSweeper](https://www.omnigroup.com/more) 清理软件
-- App Cleaner & Uninstaller 软件卸载（收费）
-
-> 破解版：[App Cleaner 8.1.2 [TNT].dmg.zip](https://www.yuque.com/attachments/yuque/0/2023/zip/694278/1683806911096-fb9052d0-b607-4fbe-b3e1-a0bf485b8800.zip?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fzip%2F694278%2F1683806911096-fb9052d0-b607-4fbe-b3e1-a0bf485b8800.zip%22%2C%22name%22%3A%22App%20Cleaner%208.1.2%20%5BTNT%5D.dmg.zip%22%2C%22size%22%3A30887620%2C%22ext%22%3A%22zip%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22u4eccfd8e-09f1-4e13-8daf-7bc4d544f3e%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22application%2Fzip%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u70abb6cf%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D) [App Cleaner & Uninstaller Pro 8.1.2破解版 下载链接](https://luoxx.top/archives/appcleaneruninstallerpro811-share)
-
 - [CheatSheet](https://www.cheatsheetapp.com/CheatSheet/) 在任意程序中长按 command 键查看可用快捷键
 - adobe acrobat reader（mac 上最好的 PDF 阅读器）
 - Omni 套装
@@ -146,9 +174,21 @@ linter-yaml-title-alias: 日常
 
 # 小工具
 
-## [超级右键-iRightMouse](https://www.better365.cn/irightmouse.html)
+## Mac 右键
+
+### 超级右键 iRightMouse
+
+[超级右键-iRightMouse](https://www.better365.cn/irightmouse.html)
 
 [下载](https://www.better365.cn/irightmouse.html)<br>【支持原生 Apple M 芯片和 Intel 芯片】<br>超级右键是 Mac 上最强大的右键菜单工具，丰富的功能，让你的右键菜单如虎添翼，深入人心的交互设计，助你大幅提升 macOS 使用体验！<br>![c3m1f](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/c3m1f.png)
+
+破解版：<https://macxzb.com/app/productivity/7187.html#down>
+
+### RClick（开源）
+
+<https://github.com/wflixu/RClick>
+
+> 截止 2025 年 8 月，不支持 Apple 芯片；
 
 ## 快捷键冲突 ShortcutDetective
 

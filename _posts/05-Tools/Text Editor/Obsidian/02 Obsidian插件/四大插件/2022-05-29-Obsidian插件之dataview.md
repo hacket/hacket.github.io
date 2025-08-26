@@ -1,7 +1,7 @@
 ---
 banner: 
 date_created: Wednesday, May 29th 2022, 12:37:40 am
-date_updated: Sunday, February 9th 2025, 12:23:49 am
+date_updated: Sunday, February 9th 2025, 10:10:50 pm
 title: Obsidian插件之dataview
 author: hacket
 categories:
@@ -903,6 +903,10 @@ sort date(date_created)
 除了 `table` 视图，你还可以使用 `list` 和 `task` 视图来展示查询结果。
 
 ## dataview 应用场景？
+
+### 创建动态目录
+
+- [如何创建动态的笔记目录](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/moy/dataview%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%8A%A8%E6%80%81%E7%9A%84%E7%AC%94%E8%AE%B0%E7%9B%AE%E5%BD%95/)
 
 ### 1、项目管理
 

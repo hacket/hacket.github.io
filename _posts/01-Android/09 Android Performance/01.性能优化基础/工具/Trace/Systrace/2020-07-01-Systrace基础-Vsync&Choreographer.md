@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Monday, July 1st 2020, 10:42:58 pm
-date_updated: Wednesday, January 22nd 2025, 1:19:11 am
+date_updated: Monday, June 16th 2025, 12:11:27 am
 title: Systrace基础-Vsync&Choreographer
 author: hacket
 categories:

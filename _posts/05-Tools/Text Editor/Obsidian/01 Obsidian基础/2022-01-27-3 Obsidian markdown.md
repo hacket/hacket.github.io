@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Monday, January 27th 2022, 7:36:31 pm
-date_updated: Sunday, February 2nd 2025, 12:15:49 am
+date_updated: Thursday, February 13th 2025, 9:59:59 pm
 title: 3 Obsidian markdown
 author: hacket
 categories:

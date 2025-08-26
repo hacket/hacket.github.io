@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2016, 10:10:45 pm
-date_updated: Friday, January 31st 2025, 7:08:41 pm
+date_updated: Monday, April 14th 2025, 11:45:19 pm
 title: git-repos-tool
 author: hacket
 categories:
@@ -61,8 +62,8 @@ options:
   -h, --help            show this help message and exit
   -d, --debug           是否输出详细log
   -f FILTER_FILE, --filter_file FILTER_FILE
-                        clone项目的目标文件/需要create的仓库，每个仓库一行；如果带了--shein，传settings.gradle路径，会自动解析出需要clone的仓库
-  --shein               是否是clone shein项目，需要-f参数传settings.gradle路径
+                        clone项目的目标文件/需要create的仓库，每个仓库一行；如果带了--xxx，传settings.gradle路径，会自动解析出需要clone的仓库
+  --xxx               是否是clone xxx项目，需要-f参数传settings.gradle路径
   -b [BRANCH], --branch [BRANCH]
                         指定target分支
   -p PATH, --path PATH  批处理目录，默认为当前目录
@@ -93,15 +94,15 @@ git@github.com:hacket/ActivityResultHelper.git
 
 > python3 git-repos-tool.py clone -f ~/py/git-repos-tool/clone.txt -p ~~/hacket 从 clone.txt 将配置的仓库 clone 到~~/hacket 路径<br />python3 git-repos-tool.py clone --filter ~/py/git-repos-tool/clone.txt 从 clone.txt 将配置的仓库 clone 到当前路径
 
-- clone shein<br />python3 git-repos-tool.py clone --shein -f settings.gradle 路径 [-p path]<br />如：
+- clone xxx<br />python3 git-repos-tool.py clone --xxx -f settings.gradle 路径 [-p path]<br />如：
 
 ```shell
-python3 git_repos_tool.py clone --shein -f settings.gradle路径 -p xxx/xxx/path
+python3 git_repos_tool.py clone --xxx -f settings.gradle路径 -p xxx/xxx/path
 ```
 
 示例：
 
-> gits clone -f /Users/10069683/WorkSpace/shein/shein_android/settings.gradle -p /Users/10069683/temp/ --shein
+> gits clone -f /Users/xxx/WorkSpace/xxx/xxx_android/settings.gradle -p /Users/xxx/temp/ --xxx
 
 ![s5iue](attachments/s5iue.png)
 
@@ -210,7 +211,7 @@ python3 git_submodule.py pull --repo repo_path --branch branch_name --debug
 案例，所有 submodule 切换到 master，并拉取最新代码
 
 ```shell
-python3 git_submodule.py pull --repo /Users/10069683/WorkSpace/shein/romwe_flutter_module --branch master --debug
+python3 git_submodule.py pull --repo /Users/xxx/WorkSpace/xxx/yyy_flutter_module --branch master --debug
 ```
 
 #### submodule checkout 切换分支
@@ -224,7 +225,7 @@ python3 git_submodule.py checkout --repo repo_path --branch branch_name --debug
 案例：所有 submodule 切换到 master
 
 ```shell
-python3 git_submodule.py checkout --repo /Users/10069683/WorkSpace/shein/romwe_flutter_module --branch master --debug
+python3 git_submodule.py checkout --repo /Users/xxx/WorkSpace/xxx/yyy_flutter_module --branch master --debug
 ```
 
 ### TODO: push 支持，其他支持

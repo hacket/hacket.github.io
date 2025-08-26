@@ -1,12 +1,13 @@
 ---
+banner: 
 date_created: Friday, April 12th 2024, 10:41:00 pm
-date_updated: Wednesday, January 29th 2025, 11:16:44 pm
+date_updated: Friday, February 21st 2025, 12:11:57 am
 title: Deferred Deep Linking(DDL)
 author: hacket
 categories:
   - Android进阶
 category: 出海
-tags: [DDL, LInk, 出海]
+tags: [出海, DDL, LInk]
 toc: true
 description: 
 dg-publish: true
@@ -96,7 +97,7 @@ AppLinkData.fetchDeferredAppLinkData(this) {
 ##### 测试方法
 
 1. 在 facebook app 中分享链接并打开<https://fb.me/2Oz4dhMesRwhy6R>，然后会提示开启动态广告，开启后，打开 facebook app，跳转到个人中的动态，等待广告数据加载出来
-2. 预览到广告之后，先不点击链接下载，先卸载本机已有 shein app
+2. 预览到广告之后，先不点击链接下载，先卸载本机已有 xxx app
 3. 然后点击链接下载，跳转到 Google paly 商店
 4. 再安装调试的 APP，就能获取到 facebook ddl 信息了
 5. 启动 app 时，抓包看接口 `graph.facebook.com/xxx/appid/activities`：
@@ -105,19 +106,19 @@ AppLinkData.fetchDeferredAppLinkData(this) {
 
 ##### 测试的链接
 
-1. shein 新客 onelink
+1. xxx 新客 onelink
 
 <https://fb.me/bfS9ofDGL0kZdR>
 
-2. shein 老客 deeplink
+2. xxx 老客 deeplink
 
 <https://fb.me/2Oz4dhMesRwhy6R>
 
-3. romwe deeplink
+1. yyy deeplink
 
 <https://fb.me/1EYdPIavwb85PsD>
 
-4. romwe onelink
+1. yyy onelink
 
 <https://fb.me/1MNRW42z8QoGGum>
 
@@ -160,7 +161,7 @@ dependencies {
 
 3. 配置好了，GA4F 会在 App 启动的时候拉取配置
 
-在 APP 首次启动的时候会请求接口：<https://www.googleadservices.com/pagead/conversion/app/deeplink?id_type=adid&sdk_version=v79009.232216&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&bundleid=com.zzkko&retry=0&ddl_test=1><br>![wwn32](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wwn32.png)
+在 APP 首次启动的时候会请求接口：<https://www.googleadservices.com/pagead/conversion/app/deeplink?id_type=adid&sdk_version=v79009.232216&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&bundleid=com.zzz&retry=0&ddl_test=1><br>![wwn32](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wwn32.png)
 
 ### Google DDL 获取配置代码
 
@@ -287,7 +288,7 @@ fun Any?.toSafeLong(): Long {
 
 ### Google DDL 模拟测试
 
-#### Shein Google DDL 测试
+#### xxx Google DDL 测试
 
 1. 设置你的设备应该接收到的 DDL，24h 有效（修改 rdid 为 google ad id，bundleid 为 applicationId，deeplink 为要带的数据）gaid(google ad id) 在不同 APP 的值是一样的
 
@@ -296,58 +297,58 @@ fun Any?.toSafeLong(): Long {
 ```
 
 > 示例：
-> curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzkko&deeplink=sheinlink://applink/sheinGals�&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzkko&deeplink=sheinlink://applink/sheinGals�&ddl_test=1)"
+> curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzz&deeplink=xxxlink://applink/xxxGals�&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzz&deeplink=xxxlink://applink/xxxGals�&ddl_test=1)"
 
 2. 验证 deeplink 设置的对不对，你从 Google 获取的 deeplink 对不对
 
-> curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzkko&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzkko&ddl_test=1)"
+> curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzz&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.zzz&ddl_test=1)"
 
 ![yj63x](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/yj63x.png)
 
 3. 为你的应用开启 ddl 的 test mode
 
-> adb shell setprop debug.deferred.deeplink com.zzkko
+> adb shell setprop debug.deferred.deeplink com.zzz
 
 4. 你的设备开启 test mode: 在 Android 设备上启用 Analytics 调试模式
 
-> adb shell setprop debug.firebase.analytics.app com.zzkko
+> adb shell setprop debug.firebase.analytics.app com.zzz
 > // 调试模式将保持启用状态，直至您通过执行以下命令明确将其停用
 > adb shell setprop debug.firebase.analytics.app .none.
 
-#### Romwe Google DDL 模拟测试
+#### yyy Google DDL 模拟测试
 
 1. 生成可测试的 ddl
 
-> curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.romwe&deeplink=romwelink://applink/category/751&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.romwe&deeplink=romwelink://applink/category/751&ddl_test=1)"
+> curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.yyy&deeplink=yyylink://applink/category/751&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.yyy&deeplink=yyylink://applink/category/751&ddl_test=1)"
 
 2. 测试生成的 ddl
 
-> curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.romwe&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.romwe&ddl_test=1)"
+> curl "[www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.yyy&ddl_test=1](http://www.googleadservices.com/pagead/conversion/app/deeplink?&rdid=d6f32803-fecd-4226-b7a7-18fffbcfd52a&id_type=adid&bundleid=com.yyy&ddl_test=1)"
 
 3. 为你的应用开启 ddl 的 test mode
 
-> adb shell setprop debug.deferred.deeplink com.romwe
+> adb shell setprop debug.deferred.deeplink com.yyy
 
 #### Google DDL 测试完整的 shell 脚本
 
 ```shell
-## 模拟测试google ddl流程：shein
-function adb:gooddl:shein() {
+## 模拟测试google ddl流程：xxx
+function adb:gooddl:xxx() {
     rdid=c6f320e6-4aec-4245-8a69-52296591f9b8
     applicationId=$MAIN_APP_ID
-    deeplink=sheinlink://applink/cart
+    deeplink=xxxlink://applink/cart
     find_apk_regex=$1
-    APK_BUILD_PATH=$WORKSPACE_MAIN/shein_android/shein/build/outputs/apk
+    APK_BUILD_PATH=$WORKSPACE_MAIN/xxx_android/xxx/build/outputs/apk
     adb:gooddl $rdid $applicationId $deeplink $APK_BUILD_PATH $find_apk_regex
     
 }
-function adb:gooddl:romwe() {
+function adb:gooddl:yyy() {
     # rdid为google ad id
     rdid=c6f320e6-4aec-4245-8a69-52296591f9b8
     applicationId=$SECOND_APP_ID
-    deeplink=sheinlink://applink/cart
+    deeplink=xxxlink://applink/cart
     find_apk_regex=$1
-    APK_BUILD_PATH=$WORKSPACE_MAIN/shein_android/shein/build/outputs/apk
+    APK_BUILD_PATH=$WORKSPACE_MAIN/xxx_android/xxx/build/outputs/apk
     adb:gooddl $rdid $applicationId $deeplink $APK_BUILD_PATH $find_apk_regex
     
 }
@@ -421,7 +422,7 @@ function adb:gooddl() {
     proxy:on
 
     echo "8. 重新打开 $applicationId，开始测试Google DDL吧"
-    echo "  |-- 即将启动shein"
+    echo "  |-- 即将启动xxx"
     if [ "$applicationId" = "$MAIN_APP_ID" ]; then
       adb shell am start -n $MAIN_APP_SPLASH
     elif [ "$applicationId" = "$SECOND_APP_ID" ]; then

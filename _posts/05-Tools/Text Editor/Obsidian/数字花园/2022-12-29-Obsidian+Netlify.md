@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Sunday, December 29th 2022, 11:14:28 pm
-date_updated: Saturday, January 25th 2025, 11:59:52 pm
+date_updated: Tuesday, July 8th 2025, 11:32:28 pm
 title: Obsidian+Netlify
 author: hacket
 categories:

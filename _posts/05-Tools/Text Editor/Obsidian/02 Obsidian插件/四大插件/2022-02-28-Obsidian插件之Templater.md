@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Wednesday, February 28th 2022, 8:25:43 am
-date_updated: Monday, February 3rd 2025, 2:16:56 pm
+date_updated: Thursday, July 31st 2025, 11:11:05 pm
 title: Obsidian插件之Templater
 author: hacket
 categories:

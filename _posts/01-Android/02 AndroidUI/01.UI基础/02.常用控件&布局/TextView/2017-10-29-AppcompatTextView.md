@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Tuesday, October 29th 2017, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:11:03 pm
+date_updated: Saturday, March 15th 2025, 8:42:12 pm
 title: AppcompatTextView
 author: hacket
 categories:
@@ -118,6 +119,7 @@ xml 中使用：
       app:autoSizeTextType="uniform"
       app:autoSizePresetSizes="@array/autosize_text_sizes" />
 </LinearLayout>
+
 <resources>
   <array name="autosize_text_sizes">
     <item>10sp</item>
@@ -133,10 +135,18 @@ xml 中使用：
 
 ### 1、TextView 必须限定尺寸
 
-如果你想要使用 Autosizeing，就必须对 TextView 这个控件，限定大小，不能使用 wrap_content 来作为限定符。<br />用官方文档话来说，使用 wrap_content 可能出现不可预料的效果。其实这也非常好理解，如果 TextView 的尺寸不是固定的，那就不存在 TextView 重新计算尺寸的依据了，同比放大 TextView 就可以达到容纳文字的效果了。<br />我在实际使用过程中会发现，它会阻止放大效果。例如一个 TextView 中使用了 Autosizeing，一直增加文本内容，是可以正常缩小的，但是当你删除文本的时候，它并不会随之放大文字尺寸。<br />但是不确定还有没有其它的问题，这里建议按照官方文档的建议来操作，限定 TextView 的尺寸。
+如果你想要使用 Autosizeing，就必须对 TextView 这个控件，限定大小，不能使用 wrap_content 来作为限定符。
+
+用官方文档话来说，使用 wrap_content 可能出现不可预料的效果。其实这也非常好理解，如果 TextView 的尺寸不是固定的，那就不存在 TextView 重新计算尺寸的依据了，同比放大 TextView 就可以达到容纳文字的效果了。
+
+我在实际使用过程中会发现，它会阻止放大效果。例如一个 TextView 中使用了 Autosizeing，一直增加文本内容，是可以正常缩小的，但是当你删除文本的时候，它并不会随之放大文字尺寸。
+
+但是不确定还有没有其它的问题，这里建议按照官方文档的建议来操作，限定 TextView 的尺寸。
 
 ### 2、Autosizeing 不能作用在 EditText 中
 
 ### 3、和 singleLine 冲突
 
-如果你想在 TextView 中，只显示一行文字，在之前你可以使用 android:singleLine 这个属性，对其标记。而如果你 同事使用 Autosizeing，你会发现 AutoSizeing 就不再生效，它会在末尾显示 "…"。<br />所幸的是，android:singleLine 已经被标记为废弃，所以本身我们就不建议使用它，如果你想让 TextView 只显示单行文字，可以使用 android:maxLines="1" 属性，它是可以正常和 Autosizeing 兼容的
+如果你想在 TextView 中，只显示一行文字，在之前你可以使用 android: singleLine 这个属性，对其标记。而如果你同事使用 Autosizeing，你会发现 AutoSizeing 就不再生效，它会在末尾显示 "…"。
+
+所幸的是，android:singleLine 已经被标记为废弃，所以本身我们就不建议使用它，如果你想让 TextView 只显示单行文字，可以使用 android:maxLines="1" 属性，它是可以正常和 Autosizeing 兼容的

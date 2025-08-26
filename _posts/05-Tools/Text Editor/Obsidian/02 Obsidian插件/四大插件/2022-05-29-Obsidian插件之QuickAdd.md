@@ -1,7 +1,7 @@
 ---
 banner: 
 date_created: Wednesday, May 29th 2022, 12:37:40 am
-date_updated: Friday, February 7th 2025, 10:56:50 pm
+date_updated: Wednesday, March 26th 2025, 8:50:02 pm
 title: Obsidian插件之QuickAdd
 author: hacket
 categories:
@@ -37,7 +37,7 @@ QuickAdd 是一款可快速添加信息，捕捉想法，采用模板新建笔�
 - Macro 快速创建一个宏
 - Multi 创建一个命令组
 
-![au18w](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033747.png)
+![202501270033747](attachments/202501270033747.png)
 
 ## 基本使用
 
@@ -89,39 +89,39 @@ Quickadd 最强大的地方就是这个 Macro 了，它能把一系列的命令�
 
 **解决：** 需要将语雀 CDN 的图片上传到自己的图床，并替换图片链接
  配合 `Image auto upload Plugin` 插件，先 download 所有的图片，再 upload 图片到配置的图床，如 Github
-![2t1p1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033748.png)
+![202501270033748](attachments/202501270033748.png)
 
 通过 `Quick Add` 将 2 条命令命令组合起来
 
 - 添加 `DownloadImagesThenUploadToGithubOSS`
-![0ho1k](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033749.png)
+![202501270033749](attachments/202501270033749.png)
 
 - 点击 `Manage Macros` 或者右侧的设置图片，配置 Macros
-![aeh2p](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033750.png)
+![202501270033750](attachments/202501270033750.png)
 添加一个 600 ms 的 delay，是为了有时间下载图片
-![cvywp](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033751.png)
+![202501270033751](attachments/202501270033751.png)
 
 - 激活闪电图标，不激活在命令面板搜索不到
-![64sif](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033752.png)
+![202501270033752](attachments/202501270033752.png)
 
 - 配合 `Commander` 插件，将该命令配置到状态栏
-![wrpej](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033753.png)
+![202501270033753](attachments/202501270033753.png)
 
-![nnzqg](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033754.png)
+![202501270033754](attachments/202501270033754.png)
 
 ### Multi
 
 创建一个命令组；当添加了很多命令的时候，使用 Multi 可以做整理分组，方便搜索
 
-![mkfv4](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033755.png)
+![202501270033755](attachments/202501270033755.png)
 
 建立了一个名为 group 的 multi 类型分组按最右按键拖动分组：
 
-![pnw7p](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033756.png)
+![202501270033756](attachments/202501270033756.png)
 
 点进去就可以看到组内的命令
 
-![01i8u](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033757.png)
+![202501270033757](attachments/202501270033757.png)
 
 ## 脚本增强
 
@@ -155,15 +155,15 @@ module.exports = async (params) => {
 ```
 
 - 新增 `QuickAdd` 配置
-![0yuif](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033758.png)
+![202501270033758](attachments/202501270033758.png)
 
 - 命令面板搜索 `OpenWith`，点击出现选择
-![o4uqw](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270033759.png)
+![202501270033759](attachments/202501270033759.png)
 
 - 配合 `Commander` 添加到状态栏（如没有出现，重启 OB）
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270034575.png)
+![202501270034575](attachments/202501270034575.png)
 - 点击 `Tab Bar` 上的文件夹图标
-![image.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202501270034421.png)
+![202501270034421](attachments/202501270034421.png)
 
 - Ref
 [【QuickAdd脚本】自定义外部应用打开 - 经验分享 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/33393/6)

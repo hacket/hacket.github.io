@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Wednesday, January 1st 2022, 9:55:21 am
-date_updated: Monday, January 27th 2025, 12:42:20 am
+date_updated: Thursday, July 31st 2025, 11:10:21 pm
 title: Obsidian插件之Easy Typing
 author: hacket
 categories:

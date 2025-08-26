@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Thursday, January 2nd 2022, 10:45:50 pm
-date_updated: Monday, January 27th 2025, 12:08:39 am
+date_updated: Thursday, July 31st 2025, 11:10:47 pm
 title: Obsidian插件之obsidian-excalidraw-plugin
 author: hacket
 categories:

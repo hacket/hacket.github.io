@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Monday, July 1st 2020, 10:42:58 pm
-date_updated: Wednesday, January 22nd 2025, 1:19:03 am
+date_updated: Monday, June 16th 2025, 12:11:02 am
 title: Systrace基础-SurfaceFlinger
 author: hacket
 categories:

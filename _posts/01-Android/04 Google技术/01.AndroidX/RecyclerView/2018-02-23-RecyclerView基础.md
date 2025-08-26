@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Wednesday, January 29th 2025, 10:03:09 pm
+date_updated: Thursday, March 27th 2025, 1:22:27 am
 title: RecyclerView基础
 author: hacket
 categories:
@@ -221,15 +222,15 @@ recyclerView.setAdapter(adapter);
 
 ### RecyclerView fadeEdge 相关
 
-1. android:fadingEdge
+1. `android:fadingEdge`
 
-> Formats: flags Values: horizontal, none, vertical  This attribute is ignored in API level 14 ({[@link](/link) android.os.Build.VERSION_CODES#ICE_CREAM_SANDWICH}) and higher. Using fading edges may introduce noticeable performance degradations and should be used only when required by the application's visual design. To request fading edges with API level 14 and above, use the `android:requiresFadingEdge` attribute instead.
+> Formats: flags Values: horizontal, none, vertical  This attribute is ignored in API level 14 @link android.os.Build.VERSION_CODES#ICE_CREAM_SANDWICH}) and higher. Using fading edges may introduce noticeable performance degradations and should be used only when required by the application's visual design. To request fading edges with API level 14 and above, use the `android:requiresFadingEdge` attribute instead.
 
-2. android:requiresFadingEdge<br>拉滚动条时 ，边框渐变的放向,none（边框颜色不变），horizontal（水平方向颜色变淡），vertical（垂直方向颜色变淡）
+2. `android:requiresFadingEdge`<br>拉滚动条时 ，边框渐变的放向,none（边框颜色不变），horizontal（水平方向颜色变淡），vertical（垂直方向颜色变淡）
 
 > 代码设置：setHorizontalFadingEdgeEnabled(boolean); setVerticalFadingEdgeEnabled(boolean)
 
-3. fadingEdgeLength: 设置边框渐变的长度
+3. `fadingEdgeLength`: 设置边框渐变的长度
 
 > 代码设置：setFadingEdgeLength(int)
 
@@ -282,7 +283,7 @@ class CustomFadingEdgeRecyclerView @JvmOverloads constructor(
 
 1. 直播间在线列表边缘<br>![ichgw](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/ichgw.png)
 
-### RecyclerView 的 ItemView 需要超出父容器 clipToPadding/clipChildren
+### ItemView 需要超出父容器 clipToPadding/clipChildren
 
 ```xml
 <!--可绘制到padding-->
@@ -349,382 +350,33 @@ override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestVH {
 
 - [x] [Difference between position getAdapterPosition(), and getLayoutPosition() in RecyclerView.](https://proandroiddev.com/difference-between-position-getadapterposition-and-getlayoutposition-in-recyclerview-80279a2711d1)
 
-### 吸顶
+### 限制 item 最大高度
 
-#### RecyclerViewExtensions
+```kotlin
+// RecyclerView Adapter
+override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+	holder.bind(list[position])
+	holder.itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+	val height = holder.itemView.measuredHeight
+	val lp = holder.itemView.layoutParams
+	lp.height = if (height > 200) {
+		200
+	} else if (height < 150) {
+		150
+	} else {
+		height
+	}
+	holder.itemView.layoutParams = lp
+}
+```
+
+## 吸顶
+
+### RecyclerViewExtensions
 
 <https://github.com/Doist/RecyclerViewExtensions>
 
-#### 自定义 ItemDecoration
-
-## ItemDecoration
-
-### DividerItemDecoration
-
-#### DividerItemDecoration 系统提供默认
-
-1. 只用于 LinearLayoutManager 的 divider
-2. 如果需要全局修改 divider，在 theme 定义 `android:listDivider` 属性
-
-```xml
-<style name="AppTheme.Base.ListDivider">
-<item name="android:listDivider">@drawable/inset_recyclerview_divider</item>
-</style>
-```
-
-3. DividerItemDecoration 默认的 drawable 是个 width/height 为 4 的 GradientDrawable
-
-#### DividerItemDecoration 案例
-
-1. 默认
-
-```
-rv_content_list.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-```
-
-![dp1pc](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/dp1pc.png)
-
-2. 默认设置 them: android:listDivider
-
-```xml
-<item name="android:listDivider">@drawable/inset_recyclerview_divider</item>
-rv_content_list.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-```
-
-3. 渐变
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<inset xmlns:android="http://schemas.android.com/apk/res/android"
-android:insetLeft="10dp">
-<!--android:insetLeft="10dp" 分割线距离左侧10dp-->
-<shape>
-    <!--分割线的高度，横向的RecyclerView,这里设置宽度即可-->
-    <size android:height="10dp" />
-    <gradient
-        android:endColor="@color/green_200"
-        android:startColor="@color/red_900" />
-    <corners android:radius="20dp" />
-</shape>
-</inset>
-```
-
-代码
-
-```kotlin
-val divider = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-getDrawable(R.drawable.inset_recyclerview_divider_gradient)?.let {
-divider.setDrawable(it)
-}
-rv_content_list.addItemDecoration(divider)
-```
-
-4. 代码设置
-
-```kotlin
-class SimpleItemDecoration(context: Context?,
-                       orientation: Int,
-                       dividerSize: Int,
-                       @ColorInt
-                       startColor: Int = Color.TRANSPARENT,
-                       @ColorInt
-                       endColor: Int = Color.TRANSPARENT) :
-    DividerItemDecoration(context, orientation) {
-
-init {
-    val drawable = if (orientation == HORIZONTAL) {
-
-        GradientDrawable(
-                GradientDrawable.Orientation.TOP_BOTTOM,
-                intArrayOf(startColor, endColor)
-        ).apply {
-            setSize(dividerSize, 0)
-        }
-    } else {
-        GradientDrawable(
-                GradientDrawable.Orientation.LEFT_RIGHT,
-                intArrayOf(startColor, endColor)
-        ).apply {
-            setSize(0, dividerSize)
-        }
-    }
-    setDrawable(drawable)
-}
-}
-```
-
-使用
-
-```kotlin
-val simpleItemDecoration = SimpleItemDecoration(this, DividerItemDecoration.VERTICAL, 15.dp(), Color.GREEN, Color.BLUE)
-rv_content_list.addItemDecoration(simpleItemDecoration)
-```
-
-![gril1](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/gril1.png)
-
-#### DividerItemDecoration 源码分析
-
-分析下绘制垂直方向分割线的方法
-
-```java
-/**
- * 绘制垂直方向的分割线
- * @param canvas
- * @param parent
- */
-private void drawVertical(Canvas canvas, RecyclerView parent) {
-    canvas.save();
-    final int left;
-    final int right;
-    //对应于布局中的clipToPadding属性，是否允许在padding区域绘制子View,true:不允许在padding区域绘制 false:允许在padding区域绘制子View
-    if (parent.getClipToPadding()) {
-        //不允许在padding区域绘制子View的left和right
-        left = parent.getPaddingLeft();
-        right = parent.getWidth() - parent.getPaddingRight();
-        //设置画布的显示区域(在布局文件中设置clipToPadding为true的关键在这里体现)
-        canvas.clipRect(left, parent.getPaddingTop(), right,
-                parent.getHeight() - parent.getPaddingBottom());
-    } else {
-        left = 0;
-        right = parent.getWidth();
-    }
-
-    //可见子View的数目
-    final int childCount = parent.getChildCount();
-    for (int i = 0; i < childCount; i++) {
-        final View child = parent.getChildAt(i);
-        //获取装饰边界mBounds
-        parent.getDecoratedBoundsWithMargins(child, mBounds);
-        final int bottom = mBounds.bottom + Math.round(ViewCompat.getTranslationY(child));
-        final int top = bottom - mDivider.getIntrinsicHeight();
-        mDivider.setBounds(left, top, right, bottom);//设置分割线的位置
-        mDivider.draw(canvas);//绘制分割线
-    }
-    canvas.restore();
-}
-```
-
 ### 自定义 ItemDecoration
-
-#### ItemDecoration
-
-```java
-public abstract static class ItemDecoration {
-    // 在itemView绘制之前绘制
-    public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull State state) {
-        onDraw(c, parent);
-    }
-
-    /**
-     * @deprecated
-     * Override {@link #onDraw(Canvas, RecyclerView, RecyclerView.State)}
-     */
-    @Deprecated
-    public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent) {
-    }
-
-    // 在itemView绘制之后绘制
-    public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent,
-            @NonNull State state) {
-        onDrawOver(c, parent);
-    }
-
-    /**
-     * @deprecated
-     * Override {@link #onDrawOver(Canvas, RecyclerView, RecyclerView.State)}
-     */
-    @Deprecated
-    public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent) {
-    }
-
-
-    /**
-     * @deprecated
-     * Use {@link #getItemOffsets(Rect, View, RecyclerView, State)}
-     */
-    @Deprecated
-    public void getItemOffsets(@NonNull Rect outRect, int itemPosition,
-            @NonNull RecyclerView parent) {
-        outRect.set(0, 0, 0, 0);
-    }
-
-    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view,
-            @NonNull RecyclerView parent, @NonNull State state) {
-        getItemOffsets(outRect, ((LayoutParams) view.getLayoutParams()).getViewLayoutPosition(),
-                parent);
-    }
-}
-```
-
-- outRect 当前 itemView 距离上下左右的边距<br>![lxz2l](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/lxz2l.png)
-- onDraw 中绘制的内容会被 itemView 覆盖；onDrawOver 的内容会覆盖 itemView
-- 注意处理 padding/margin
-- 注意 RecyclerView clipChildren，可参考 DividerItemDecoration 画布裁剪
-
-```java
-// DividerItemDecoration 
-private void drawVertical(Canvas canvas, RecyclerView parent) {
-    canvas.save();
-    final int left;
-    final int right;
-    //noinspection AndroidLintNewApi - NewApi lint fails to handle overrides.
-    if (parent.getClipToPadding()) {
-        left = parent.getPaddingLeft();
-        right = parent.getWidth() - parent.getPaddingRight();
-        canvas.clipRect(left, parent.getPaddingTop(), right,
-                parent.getHeight() - parent.getPaddingBottom());
-    } else {
-        left = 0;
-        right = parent.getWidth();
-    }
-
-    final int childCount = parent.getChildCount();
-    for (int i = 0; i < childCount; i++) {
-        final View child = parent.getChildAt(i);
-        parent.getDecoratedBoundsWithMargins(child, mBounds);
-        final int bottom = mBounds.bottom + Math.round(child.getTranslationY());
-        final int top = bottom - mDivider.getIntrinsicHeight();
-        mDivider.setBounds(left, top, right, bottom);
-        mDivider.draw(canvas);
-    }
-    canvas.restore();
-}
-```
-
-#### 吸顶分类 ItemDecoration
-
-```java
-public class StarDecoration extends RecyclerView.ItemDecoration {
-
-    private int groupHeaderHeight;
-    private int lineHeight;
-
-    private Paint headPaint;
-    private Paint textPaint;
-    private Paint linePaint;
-
-    private Rect textRect;
-
-
-    public StarDecoration() {
-        groupHeaderHeight = SizeUtils.dp2px(80F);
-        lineHeight = SizeUtils.dp2px(10F);
-
-        headPaint = new Paint();
-        headPaint.setColor(ResUtils.getColor(R.color.black_30_percent_transparent));
-
-        linePaint = new Paint();
-        linePaint.setColor(Color.GREEN);
-
-        textPaint = new Paint();
-        textPaint.setTextSize(50);
-        textPaint.setColor(Color.WHITE);
-
-        textRect = new Rect();
-    }
-
-    @Override
-    public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-        RecyclerView.Adapter adapter = parent.getAdapter();
-        if (adapter instanceof StarAdapter) {
-            StarAdapter starAdapter = (StarAdapter) adapter;
-            int itemCount = parent.getChildCount(); // 获取的是RecyclerView的子view，不是Adapter.getItemCount，只是当前可见的
-            for (int i = 0; i < itemCount; i++) {
-                View view = parent.getChildAt(i);
-
-                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-                int left = parent.getPaddingStart() + view.getPaddingStart() + layoutParams.getMarginStart();
-                int right = parent.getWidth() - parent.getPaddingEnd() - view.getPaddingEnd() - layoutParams.getMarginEnd();
-
-                int position = parent.getChildAdapterPosition(view);
-
-                // 当前是group，且当前view的top-rv的paddingTop>=0
-                if (starAdapter.isGourpHeader(position) && (view.getTop() - parent.getPaddingTop() >= 0)) {
-                    c.save();
-                    int bottom = view.getTop();
-                    int viewTop = view.getTop() - groupHeaderHeight;
-                    if (view.getTop() - parent.getPaddingTop() - groupHeaderHeight >= 0) {
-                        viewTop = view.getTop() - groupHeaderHeight;
-                    } else {
-                        c.clipRect(left, parent.getPaddingTop(), right, bottom); // 防止文字绘制到parent的paddingTop
-                    }
-                    c.drawRect(left, viewTop, right, bottom, headPaint);
-
-                    String groupName = starAdapter.getGroupName(position);
-                    textPaint.getTextBounds(groupName, 0, groupName.length(), textRect);
-                    int x = left + 20;
-                    int y = (view.getTop() - groupHeaderHeight / 2) + textRect.height() / 2;
-                    c.drawText(groupName, x, y, textPaint);
-                    c.restore();
-                } else if (view.getTop() - parent.getPaddingTop() >= 0) {
-                    int viewTop;
-                    if (view.getTop() - parent.getPaddingTop() - lineHeight >= 0) {
-                        viewTop = view.getTop() - lineHeight;
-                    } else {
-                        viewTop = parent.getPaddingTop();
-                    }
-                    c.drawRect(left, viewTop, right, view.getTop(), linePaint);
-                }
-            }
-        }
-    }
-
-    @Override
-    public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-        RecyclerView.Adapter adapter = parent.getAdapter();
-        if (adapter instanceof StarAdapter) {
-            StarAdapter starAdapter = (StarAdapter) adapter;
-            RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
-            if (layoutManager == null) return;
-            // 返回可见区域内的第一个item的position
-            int position = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
-            if (position == RecyclerView.NO_POSITION) return;
-            RecyclerView.ViewHolder viewHolder = parent.findViewHolderForAdapterPosition(position);
-            if (viewHolder == null) return;
-            // 获取对应position的View
-            View itemView = viewHolder.itemView;
-            int left = parent.getPaddingStart();
-            int right = parent.getWidth() - parent.getPaddingEnd();
-            int top = parent.getPaddingTop();
-            boolean isGroupHeader = starAdapter.isGourpHeader(position + 1);
-            // 当第二个是组的头部的时候
-            if (isGroupHeader) {
-                int bottom = Math.min(groupHeaderHeight, itemView.getBottom() - parent.getPaddingTop());
-//                int bottom = itemView.getBottom() - parent.getPaddingTop();
-                c.drawRect(left, top, right, top + bottom, headPaint);
-                String groupName = starAdapter.getGroupName(position);
-                textPaint.getTextBounds(groupName, 0, groupName.length(), textRect);
-                c.drawText(groupName, left + 20, top + bottom - groupHeaderHeight / 2F + textRect.height() / 2F, textPaint);
-            } else {
-                c.drawRect(left, top, right, top + groupHeaderHeight, headPaint);
-                String groupName = starAdapter.getGroupName(position);
-                textPaint.getTextBounds(groupName, 0, groupName.length(), textRect);
-                c.drawText(groupName, left + 20, top + groupHeaderHeight / 2F + textRect.height() / 2F, textPaint);
-            }
-        }
-    }
-
-
-    @Override
-    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-
-        RecyclerView.Adapter adapter = parent.getAdapter();
-        if (adapter instanceof StarAdapter) {
-            StarAdapter starAdapter = (StarAdapter) adapter;
-            int childAdapterPosition = parent.getChildAdapterPosition(view);
-            if (starAdapter.isGourpHeader(childAdapterPosition)) { // 分组头，留大一点
-                outRect.set(0, groupHeaderHeight, 0, 0);
-            } else {
-                outRect.set(0, lineHeight, 0, 0);
-            }
-        }
-
-    }
-
-}
-```
-
-效果：<br>![s4dgp](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/s4dgp.png)
 
 ## ItemTouchHelper 处理 item 拖拽，事件相关的
 
@@ -1392,6 +1044,64 @@ rv_content_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             super.onScrolled(recyclerView, dx, dy)
         }
     })
+```
+
+#### # 判断 RecyclerView 中 View 的可见性（完整可见）
+
+- 获取 RecyclerView 当前屏幕中可见 item 下标
+- 下面是 itemView 可见的回调
+
+```kotlin
+override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+    super.onScrollStateChanged(recyclerView, newState)
+    if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+        emitVisibleItems()
+    }
+}
+
+override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+    super.onScrolled(recyclerView, dx, dy)
+
+    if (dx == 0 && dy == 0) {
+        emitVisibleItems()
+    }
+}
+
+fun emitVisibleItems() {
+    val manager = recyclerView.layoutManager
+    if (manager is LinearLayoutManager) {
+        val firstPosition = manager.findFirstVisibleItemPosition()
+        val lastPosition = manager.findLastVisibleItemPosition()
+        val visibleRange = mutableListOf<Int>()
+        for (i in firstPosition..lastPosition) {
+            val view = manager.findViewByPosition(i) ?: continue
+            val rect = Rect()
+            val isVisible = view.getGlobalVisibleRect(rect)
+            if (isVisible) {
+                visibleRange.add(i)
+            }
+        }
+        // iVisualItems 是 VisibleItemsListener 类型，回调接口
+        iVisualItems.onItemsVisible(visibleRange)
+    }
+}
+
+interface VisibleItemsListener {
+    fun onItemsVisible(items: List<Int>)
+}
+```
+
+- 如果需要判断 RecyclerView 某个 View 是否完全显示，用下面的替换
+
+```kotlin
+/**
+ * 调用此方法最好延时 16ms （即一帧）
+ */
+fun isCompletelyVisible(): Boolean {
+    val rect = Rect()
+    val isVisible = view.getGlobalVisibleRect(rect)
+    return isVisible && (rect.bottom - rect.top >= view.height)
+}
 ```
 
 ### OnFlingListener(fling 行为监听)

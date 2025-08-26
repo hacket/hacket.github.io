@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, May 31st 2024, 12:48:09 am
-date_updated: Wednesday, January 22nd 2025, 12:06:41 am
+date_updated: Friday, February 21st 2025, 12:04:39 am
 title: Google Play Cubes
 author: hacket
 categories:
@@ -22,6 +23,8 @@ date updated: 2024-12-24 00:33
 aliases: [Google Play Cubes]
 linter-yaml-title-alias: Google Play Cubes
 ---
+
+。、，'、'
 
 # Google Play Cubes
 
@@ -54,7 +57,7 @@ Cubes 是 Google 开发的一个新的功能。
 
 ## Google Play Engage Shopping for app 交互流程
 
-![Google_Cubes_for_shein.jpg|1000](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/Google_Cubes_for_shein.jpg)
+![Google_Cubes_for_xxx.jpg|1000](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/Google_Cubes_for_xxx.jpg)
 
 ## Engage 开发者集成流程
 
@@ -615,7 +618,7 @@ Shopping reorder 说的是我买了一个东西可能之后还会再买一次，
 ```kotlin
 object GetShoppingOrderTrackingCluster {  
   
-    private const val ACTION_LINK_URI = "mysheinlink://applink/order_detail"  
+    private const val ACTION_LINK_URI = "myxxxlink://applink/order_detail"  
   
     fun getShoppingOrderTrackingCluster(): ShoppingOrderTrackingCluster {  
   

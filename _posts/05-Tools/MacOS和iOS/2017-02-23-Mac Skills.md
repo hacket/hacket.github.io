@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 1:07:39 am
+date_updated: Monday, April 14th 2025, 11:47:32 pm
 title: Mac Skills
 author: hacket
 categories:
@@ -247,7 +248,7 @@ launchctl error errcode 查看哪里不对
 
 ##### 每隔 5 秒定时任务
 
-1. /Users/10069683/Library/LaunchAgents/me.hacket.cron.plist
+1. /Users/xxx/Library/LaunchAgents/me.hacket.cron.plist
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -259,7 +260,7 @@ launchctl error errcode 查看哪里不对
 
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/10069683/.sh/wework.sh</string>
+      <string>/Users/xxx/.sh/wework.sh</string>
     </array>
 
     <key>Nice</key>
@@ -272,10 +273,10 @@ launchctl error errcode 查看哪里不对
     <true />
 
     <key>StandardErrorPath</key>
-    <string>/Users/10069683/.sh/tmp/test_err.txt</string>
+    <string>/Users/xxx/.sh/tmp/test_err.txt</string>
 
     <key>StandardOutPath</key>
-    <string>/Users/10069683/.sh/tmp/test_out.txt</string>
+    <string>/Users/xxx/.sh/tmp/test_out.txt</string>
   </dict>
 </plist>
 ```
@@ -321,7 +322,7 @@ function pid:kill() {
   ps -ef | grep $1 | awk 'NR==1{print $2}' | xargs kill -9
 }
 
-OUT_FILE=/Users/10069683/.sh/tmp/test_out.txt
+OUT_FILE=/Users/xxx/.sh/tmp/test_out.txt
 
 echo '-----------------add path-------------------'
 date >> $OUT_FILE
@@ -329,7 +330,7 @@ echo "adb shell am force-stop com.tencent.wework" >>  $OUT_FILE
 adb shell am force-stop com.tencent.wework
 
 echo "adb shell monkey -p com.tencent.wework -c android.intent.category.LAUNCHER 1" >>  $OUT_FILE
-# /Users/10069683/Library/Android/sdk/platform-tools/adb shell monkey -p com.tencent.wework -c android.intent.category.LAUNCHER 1 
+# /Users/xxx/Library/Android/sdk/platform-tools/adb shell monkey -p com.tencent.wework -c android.intent.category.LAUNCHER 1 
 
 echo "kill 企业微信 111"  >>  $OUT_FILE
 # ps -ef | grep '企业微信' | awk 'NR==1{print $2}'
@@ -406,40 +407,40 @@ minute  hour  day  month  week  command
 
 ```shell
 # 每天9点输出一条日志到~/.sh/work_log.txt
-0 9 * * * /bin/date >> /Users/10069683/.sh/time.txt
+0 9 * * * /bin/date >> /Users/xxx/.sh/time.txt
 
-00 22 * * 1-6 /bin/zsh /Users/10069683/.sh/click.sh
+00 22 * * 1-6 /bin/zsh /Users/xxx/.sh/click.sh
 
 # 每周一上午9点35分执行wework.sh
-35 9 * * 1 /bin/zsh /Users/10069683/.sh/wework.sh
-22 22 * * 1 /bin/zsh /Users/10069683/.sh/wework.sh
+35 9 * * 1 /bin/zsh /Users/xxx/.sh/wework.sh
+22 22 * * 1 /bin/zsh /Users/xxx/.sh/wework.sh
 
-36 9 * * 2 /bin/zsh /Users/10069683/.sh/wework.sh
-21 22 * * 2 /bin/zsh /Users/10069683/.sh/wework.sh
+36 9 * * 2 /bin/zsh /Users/xxx/.sh/wework.sh
+21 22 * * 2 /bin/zsh /Users/xxx/.sh/wework.sh
 
-32 9 * * 3 /bin/zsh /Users/10069683/.sh/wework.sh
-25 22 * * 3 /bin/zsh /Users/10069683/.sh/wework.sh
+32 9 * * 3 /bin/zsh /Users/xxx/.sh/wework.sh
+25 22 * * 3 /bin/zsh /Users/xxx/.sh/wework.sh
 
-38 9 * * 4 /bin/zsh /Users/10069683/.sh/wework.sh
-20 22 * * 4 /bin/zsh /Users/10069683/.sh/wework.sh
+38 9 * * 4 /bin/zsh /Users/xxx/.sh/wework.sh
+20 22 * * 4 /bin/zsh /Users/xxx/.sh/wework.sh
 
-33 9 * * 5 /bin/zsh /Users/10069683/.sh/wework.sh
-15 22 * * 5 /bin/zsh /Users/10069683/.sh/wework.sh
+33 9 * * 5 /bin/zsh /Users/xxx/.sh/wework.sh
+15 22 * * 5 /bin/zsh /Users/xxx/.sh/wework.sh
 
-#30 9 * * 6 /bin/zsh /Users/10069683/.sh/wework.sh
-#40 22 * * 6 /bin/zsh /Users/10069683/.sh/wework.sh
+#30 9 * * 6 /bin/zsh /Users/xxx/.sh/wework.sh
+#40 22 * * 6 /bin/zsh /Users/xxx/.sh/wework.sh
 
-*/1 * * 5 /bin/zsh /Users/10069683/.sh/wework.sh
+*/1 * * 5 /bin/zsh /Users/xxx/.sh/wework.sh
 ```
 
 ```shell
 echo '------------------------------------'
-/bin/date >> /Users/10069683/.sh/work_log.txt
-echo "adb shell am force-stop com.tencent.wework" >> /Users/10069683/.sh/work_log.txt
-/Users/10069683/Library/Android/sdk/platform-tools/adb shell am force-stop com.tencent.wework
+/bin/date >> /Users/xxx/.sh/work_log.txt
+echo "adb shell am force-stop com.tencent.wework" >> /Users/xxx/.sh/work_log.txt
+/Users/xxx/Library/Android/sdk/platform-tools/adb shell am force-stop com.tencent.wework
 
-echo "adb shell monkey -p com.tencent.wework -c android.intent.category.LAUNCHER 1" >> /Users/10069683/.sh/work_log.txt
-/Users/10069683/Library/Android/sdk/platform-tools/adb shell monkey -p com.tencent.wework -c android.intent.category.LAUNCHER 1 
+echo "adb shell monkey -p com.tencent.wework -c android.intent.category.LAUNCHER 1" >> /Users/xxx/.sh/work_log.txt
+/Users/xxx/Library/Android/sdk/platform-tools/adb shell monkey -p com.tencent.wework -c android.intent.category.LAUNCHER 1 
 ```
 
 #### crontab 用 vscode 编辑

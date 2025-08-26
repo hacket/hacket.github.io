@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Wednesday, January 29th 2025, 9:53:58 pm
+date_updated: Tuesday, March 11th 2025, 12:20:19 am
 title: LayoutManager
 author: hacket
 categories:

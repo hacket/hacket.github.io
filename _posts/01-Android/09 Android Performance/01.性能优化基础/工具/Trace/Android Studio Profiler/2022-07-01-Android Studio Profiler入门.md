@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Monday, July 1st 2022, 10:42:58 pm
-date_updated: Thursday, January 30th 2025, 12:09:02 am
+date_updated: Friday, March 28th 2025, 11:13:23 am
 title: Android Studio Profiler入门
 author: hacket
 categories:

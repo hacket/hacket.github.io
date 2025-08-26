@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Tuesday, November 19th 2020, 11:27:19 pm
-date_updated: Saturday, February 1st 2025, 12:07:14 am
+date_updated: Monday, April 14th 2025, 11:45:30 pm
 title: Gradle Task进阶
 author: hacket
 categories:
@@ -615,10 +616,10 @@ producer {
 // Don't need to update producer.outputFile and consumer.inputFile. These are automatically updated as the build directory changes
 layout.buildDirectory = layout.projectDirectory.dir("output")
 //> Task :app:producer  
-//Producer Wrote 'Hello, World 1!' to /Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/file.txt  
+//Producer Wrote 'Hello, World 1!' to /Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/file.txt  
 //  
 //> Task :app:consumer  
-//Consumer Read 'Hello, World 1!' from /Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/file.txt
+//Consumer Read 'Hello, World 1!' from /Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/file.txt
 ```
 
 上面会自动将 Consumer Task 依赖 Producer Task，隐式的依赖关系也可以不用 File
@@ -727,14 +728,14 @@ producerTwo {
 layout.buildDirectory = layout.projectDirectory.dir("output")  
 // 首次运行./gradlew consumer1  
 //> Task :app:producerOne  
-//Producer1 Wrote 'Hello, World!' to /Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/one.txt  
+//Producer1 Wrote 'Hello, World!' to /Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/one.txt  
 //  
 //> Task :app:producerTwo  
-//Producer1 Wrote 'Hello, World!' to /Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/two.txt  
+//Producer1 Wrote 'Hello, World!' to /Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/two.txt  
 //  
 //> Task :app:consumer1  
-//Consumer1 Read 'Hello, World!' from /Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/one.txt  
-//Consumer1 Read 'Hello, World!' from /Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/two.txt
+//Consumer1 Read 'Hello, World!' from /Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/one.txt  
+//Consumer1 Read 'Hello, World!' from /Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/two.txt
 ```
 
 ## 处理 map 的 lazy property

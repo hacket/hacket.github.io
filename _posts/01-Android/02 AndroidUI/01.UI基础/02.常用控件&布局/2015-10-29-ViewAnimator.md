@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Tuesday, October 29th 2015, 12:08:52 am
-date_updated: Monday, January 20th 2025, 11:17:48 pm
+date_updated: Saturday, February 22nd 2025, 4:42:14 pm
 title: ViewAnimator
 author: hacket
 categories:

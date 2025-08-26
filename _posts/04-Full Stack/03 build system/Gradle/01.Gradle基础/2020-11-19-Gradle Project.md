@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Tuesday, November 19th 2020, 11:27:19 pm
-date_updated: Saturday, February 1st 2025, 12:05:37 am
+date_updated: Monday, April 14th 2025, 11:44:52 pm
 title: Gradle Project
 author: hacket
 categories:
@@ -270,9 +271,9 @@ println("layout.buildDirectory=${layout.buildDirectory.get()}")
 println("layout.projectDirectory=${layout.projectDirectory.asFile}")  
 println("layout.buildDirectory.dir(\"output\")=${layout.buildDirectory.dir("output").get()}")
 //layout=org.gradle.api.internal.file.DefaultProjectLayout@24141afb  
-//layout.buildDirectory=/Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output  
-//layout.projectDirectory=/Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app  
-//layout.buildDirectory.dir("output")=/Users/10069683/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/output
+//layout.buildDirectory=/Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output  
+//layout.projectDirectory=/Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app  
+//layout.buildDirectory.dir("output")=/Users/xxx/WorkSpace/GradlePluginDemos/GradlePlugin8.0-Kotlin-New/app/output/output
 ```
 
 #### 更改 build 目录、基于 build 获取目录

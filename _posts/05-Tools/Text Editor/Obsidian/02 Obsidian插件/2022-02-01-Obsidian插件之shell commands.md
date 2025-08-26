@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Saturday, February 1st 2022, 10:28:40 am
-date_updated: Monday, February 3rd 2025, 12:05:44 am
+date_updated: Thursday, February 13th 2025, 10:00:48 pm
 title: Obsidian插件之shell commands
 author: hacket
 categories:

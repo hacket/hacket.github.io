@@ -1,7 +1,8 @@
 ---
+banner: 
 date_created: Thursday, January 2nd 2022, 10:45:50 pm
-date_updated: Saturday, January 25th 2025, 11:59:28 pm
-title: Various Complements
+date_updated: Thursday, February 13th 2025, 10:00:42 pm
+title: Obsidian插件之Various Complements
 author: hacket
 categories:
   - Tools

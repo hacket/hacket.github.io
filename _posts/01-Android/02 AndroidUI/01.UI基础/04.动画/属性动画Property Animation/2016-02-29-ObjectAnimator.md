@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Thursday, February 29th 2016, 10:50:50 pm
-date_updated: Monday, January 27th 2025, 10:26:58 pm
+date_updated: Thursday, February 20th 2025, 4:03:49 pm
 title: ObjectAnimator
 author: hacket
 categories:

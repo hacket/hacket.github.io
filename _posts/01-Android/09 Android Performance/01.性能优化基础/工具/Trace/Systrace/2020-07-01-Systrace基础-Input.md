@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Monday, July 1st 2020, 10:42:58 pm
-date_updated: Wednesday, January 22nd 2025, 1:18:46 am
+date_updated: Thursday, June 12th 2025, 12:51:38 am
 title: Systrace基础-Input
 author: hacket
 categories:

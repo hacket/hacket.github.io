@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Monday, December 23rd 2024, 11:19:51 pm
-date_updated: Thursday, January 30th 2025, 2:55:25 pm
+date_updated: Friday, February 21st 2025, 12:14:16 am
 title: Proxifier
 author: hacket
 categories:
@@ -149,7 +150,7 @@ Proxifier 代理配置，分为三步：代理服务器配置、代理规则设�
 
 ### `Proxifier` profile 导出
 
-[work-shein.ppx.zip](https://www.yuque.com/attachments/yuque/0/2023/zip/694278/1691484668661-6b7fedff-56ee-4ee6-b33e-d1b9f7957fb0.zip?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fzip%2F694278%2F1691484668661-6b7fedff-56ee-4ee6-b33e-d1b9f7957fb0.zip%22%2C%22name%22%3A%22work-shein.ppx.zip%22%2C%22size%22%3A1576%2C%22ext%22%3A%22zip%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22uebf2f2ff-290b-4be7-b27a-995aaa5f37c%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22application%2Fzip%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u7e27727a%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)
+[work-xxx.ppx.zip](https://www.yuque.com/attachments/yuque/0/2023/zip/694278/1691484668661-6b7fedff-56ee-4ee6-b33e-d1b9f7957fb0.zip?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2023%2Fzip%2F694278%2F1691484668661-6b7fedff-56ee-4ee6-b33e-d1b9f7957fb0.zip%22%2C%22name%22%3A%22work-xxx.ppx.zip%22%2C%22size%22%3A1576%2C%22ext%22%3A%22zip%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22uebf2f2ff-290b-4be7-b27a-995aaa5f37c%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22application%2Fzip%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22u7e27727a%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D)
 
 ### Ref
 
@@ -180,7 +181,7 @@ Proxifier 代理配置，分为三步：代理服务器配置、代理规则设�
 - `[Work]No Proxy Domain` direct 不需要代理的域名
 
 ```shell
-10.122.*.*;10.102.*.*;nexus.dev.sheincorp.cn;*.dotfashion.cn;*.sheincorp.cn;*.*.sheincorp.cn;*.shein.com;*.*.shein.com;dotfashion.cn;innospace.biz.sheincorp.cn;*.*.sheincorp.cn;*.Shein-inc.com;drive.weixin.qq.com;doc.weixin.qq.com;*.weixin.qq.com;cube.weixinbridge.com;*.weixinbridge.com;*.qq.com;;wakatime.com;*.wakatime.com;*.xunlei.com;*.*.xunlei.com
+10.122.*.*;10.102.*.*;nexus.dev.xxxcorp.cn;*.zzz.cn;*.xxxcorp.cn;*.*.xxxcorp.cn;*.xxx.com;*.*.xxx.com;zzz.cn;innospace.biz.xxxcorp.cn;*.*.xxxcorp.cn;*.xxx-inc.com;drive.weixin.qq.com;doc.weixin.qq.com;*.weixin.qq.com;cube.weixinbridge.com;*.weixinbridge.com;*.qq.com;;wakatime.com;*.wakatime.com;*.xunlei.com;*.*.xunlei.com
 ```
 
 ![zayb7](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zayb7.png)

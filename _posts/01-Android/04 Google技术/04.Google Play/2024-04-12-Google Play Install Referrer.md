@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, April 12th 2024, 10:41:00 pm
-date_updated: Wednesday, January 22nd 2025, 12:07:10 am
+date_updated: Friday, February 21st 2025, 12:12:04 am
 title: Google Play Install Referrer
 author: hacket
 categories:
@@ -134,19 +135,19 @@ private fun requestGoogleInstallReferer(
 
 ### Play Install Referrer 如何模拟测试？
 
-- 准备好要测试的包，先不安装；卸载已有的 Shein app
-- 用户通过手机浏览器点击带有 referrer 的 url，[](http://play.google.com/store/apps/details?id=com.zzkko&referrer=utm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_shein_onelink%3Dhttp%3A%2F%2Fshein.top%2Fm-app-9e9d8f58e6c24ac89314006c46c20d3d) 会跳转到 Google Play 商店的 Shein App 安装页面，**点击安装后取消**（不要直接复制链接在浏览器打开该 url 或浏览器扫码跳转，有的低端手机不会带数据给 GP，可复制链接到备忘录后进行跳转）
+- 准备好要测试的包，先不安装；卸载已有的 xxx app
+- 用户通过手机浏览器点击带有 referrer 的 url，[](http://play.google.com/store/apps/details?id=com.zzz&referrer=utm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_xxx_onelink%3Dhttp%3A%2F%2Fxxx.top%2Fm-app-9e9d8f58e6c24ac89314006c46c20d3d) 会跳转到 Google Play 商店的 xxx App 安装页面，**点击安装后取消**（不要直接复制链接在浏览器打开该 url 或浏览器扫码跳转，有的低端手机不会带数据给 GP，可复制链接到备忘录后进行跳转）
 
 > Referrer 就是带给 Google Play 的数据，需要进行一次 Url Encode，Play Install Referrer SDK 取 referer 会进行一次 Url Decode 操作。
-> 带有 referrer 的 url 示例：<http://play.google.com/store/apps/details?id=com.zzkko&referrer=utm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_shein_onelink%3Dhttp%3A%2F%2Fshein.top%2Fm-app-9e9d8f58e6c24ac89314006c46c20d3d>
+> 带有 referrer 的 url 示例：<http://play.google.com/store/apps/details?id=com.zzz&referrer=utm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_xxx_onelink%3Dhttp%3A%2F%2Fxxx.top%2Fm-app-9e9d8f58e6c24ac89314006c46c20d3d>
 > 上面链接 decode 后：
-> <http://play.google.com/store/apps/details?id=com.zzkko&referrer=utm_source=google&utm_medium=cpc&utm_shein_onelink=http>:<//shein.top/m-app-9e9d8f58e6c24ac89314006c46c20d3d>
-> 对应的短链（utm_shein_onelink 后的链接）：
-> <http://shein.top/m-app-9e9d8f58e6c24ac89314006c46c20d3d>
+> <http://play.google.com/store/apps/details?id=com.zzz&referrer=utm_source=google&utm_medium=cpc&utm_xxx_onelink=http>:<//xxx.top/m-app-9e9d8f58e6c24ac89314006c46c20d3d>
+> 对应的短链（utm_xxx_onelink 后的链接）：
+> <http://xxx.top/m-app-9e9d8f58e6c24ac89314006c46c20d3d>
 
 - 然后安装刚刚准备好的测试包
 - 打开 App，首次启动 App 会通过 Play Install Referrer SDK 的数据，拿到 Install Referer 数据
-- 解析 Install Referer 中 utm_shein_onelink 的链接：短链或者 onelink，然后请求中间层接口，拿到 deeplink 跳转落地页并埋点上报
+- 解析 Install Referer 中 utm_xxx_onelink 的链接：短链或者 onelink，然后请求中间层接口，拿到 deeplink 跳转落地页并埋点上报
 
 这个 [Google Play 网址构建工具](https://developers.google.com/analytics/devguides/collection/android/v4/campaigns?hl=zh-cn#google-play-url-builder) 可以生成带 referrer 的链接
 

@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Friday, February 23rd 2021, 10:10:45 pm
-date_updated: Thursday, January 30th 2025, 12:16:52 am
+date_updated: Monday, April 14th 2025, 11:44:33 pm
 title: 内存泄漏 Memory Leak
 author: hacket
 categories:
@@ -177,7 +178,7 @@ public class InnerClassOutClass {
 编译成 class 后，会生成 `InnerClassOutClass.class` 和 `InnerClassOutClass$InnerUser.class`<br />定位到 build 编译类的目录：`javap -verbose InnerClassOutClass`
 
 ```java
-Classfile /Users/10069683/OpenSources/king-assist/JavaKotlinCodeLabs/build/classes/java/main/com/hacket/面向对象/匿名内部类和lambda/InnerClassOutClass.class
+Classfile /Users/xxx/OpenSources/king-assist/JavaKotlinCodeLabs/build/classes/java/main/com/hacket/面向对象/匿名内部类和lambda/InnerClassOutClass.class
   Last modified 11 Aug 2023; size 929 bytes
   MD5 checksum 62e78e9634dff689ef62b5c71455903f
   Compiled from "InnerClassOutClass.java"
@@ -268,7 +269,7 @@ InnerClasses:
 
 ```java
 Warning: File ./InnerClassOutClass$InnerUser.class does not contain class InnerClassOutClass$InnerUser
-Classfile /Users/10069683/OpenSources/king-assist/JavaKotlinCodeLabs/build/classes/java/main/com/hacket/面向对象/匿名内部类和lambda/InnerClassOutClass$InnerUser.class
+Classfile /Users/xxx/OpenSources/king-assist/JavaKotlinCodeLabs/build/classes/java/main/com/hacket/面向对象/匿名内部类和lambda/InnerClassOutClass$InnerUser.class
   Last modified 11 Aug 2023; size 996 bytes
   MD5 checksum aff7cec22b1fce9e8cbf7f482d45b686
   Compiled from "InnerClassOutClass.java"

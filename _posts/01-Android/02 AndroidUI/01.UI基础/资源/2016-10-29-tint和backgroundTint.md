@@ -1,6 +1,7 @@
 ---
+banner: 
 date_created: Tuesday, October 29th 2016, 12:08:52 am
-date_updated: Monday, January 27th 2025, 10:47:41 pm
+date_updated: Thursday, March 6th 2025, 1:47:39 pm
 title: tint和backgroundTint
 author: hacket
 categories:
@@ -40,9 +41,10 @@ linter-yaml-title-alias: tint 和 backgroundTint
 
 ## 相关属性
 
-### android:tint & android:tintMode (ImageView)
+### tint 和 tintMode (ImageView 的 src)
 
-tint: 作用于 src 属性，给图标着色的属性，值为所要着色的颜色值，没有版本限制；通常用于给透明通道的 png 图标或者点九图着色。<br />tintMode: 图标着色模式，值为枚举类型，共有 六种可选值（`add`、`multiply`、`screen`、`src_over`、`src_in`、`src_atop`），仅可用于 API 21 及更高版本。
+**tint: 作用于 src 属性**，给图标着色的属性，值为所要着色的颜色值，没有版本限制；通常用于给透明通道的 png 图标或者点九图着色。
+**tintMode**: 图标着色模式，值为枚举类型，共有 六种可选值（`add`、`multiply`、`screen`、`src_over`、`src_in`、`src_atop`），仅可用于 API 21 及更高版本。
 
 1. android:tint 效果是叠加，而不是直接覆盖。使用 tint 可以保留原来的阴影波纹等效果
 2. android:tint 默认 `SRC_ATOP`
@@ -52,15 +54,99 @@ tint: 作用于 src 属性，给图标着色的属性，值为所要着色的颜
 <attr name="tint" format="color" />
 ```
 
-### android:backgroundTint 和 android:backgroundTintMode (所有控件)
+在 Android 中，**`tint` 属性（无论是 `android:tint` 还是 `app:tint`）默认只作用于 `ImageView` 的 `src`（内容图片）**，而不会作用于 `background`（背景图）。这是由 Android 的视图渲染机制决定的。
 
-我们可以通过 xml 中的属性 android:backgroundTint 和 android:backgroundTintMode 来设置，android:backgroundTintMode 这个属性传的值就是 PorterDuff.Mode 中的值。android:backgroundTint 的话就是传 color 的值。
+#### 为什么 tint 只对 src 生效？
+
+1. **设计逻辑分离**
+	- `src`：通常用于显示图标、图片等**内容**，需要动态着色（如根据主题切换颜色）。
+	- `background`：通常用于设置背景（如形状、颜色块），**不预期频繁改变颜色**。
+	- 系统默认将 `tint` 绑定到 `src`，保持逻辑职责清晰。
+		
+2. **性能优化**  
+	`background` 可能包含复杂图形（如渐变、形状），直接着色可能导致性能损耗，而 `src` 通常更简单（如图标），适合快速着色。
+
+### backgroundTint 和 backgroundTintMode (所有控件)
+
+backgroundTint: 作用于 background 属性
 
 那么 android:background 和 android:backgroundTint 有什么区别呢？
 
 - 如果设置了 android:background，那么控件的背景颜色就会直接修改。
 - 如果设置了 android:backgroundTint，那么就会将设置的颜色和原来的背景进行一个叠加的过程，至于如何叠加，就是 mode。
 - 如果控件没有背景，设置 backgroundTint 无效
+
+#### backgroundTint 使用
+
+**1、使用 backgroundTint 属性**
+- API 21+
+
+```xml
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/your_background"
+    android:backgroundTint="#FF0000" />
+```
+
+- 低版本：低版本需使用 `app:backgroundTint` 并依赖 AppCompat 库：
+
+```xml
+<androidx.appcompat.widget.AppCompatImageView
+    …
+    app:backgroundTint="#FF0000" />
+```
+
+**2、代码动态着色**
+通过 `DrawableCompat` 对 `background` 的 Drawable 着色：
+
+```kotlin
+val imageView: ImageView = findViewById(R.id.image_view)
+val backgroundDrawable = imageView.background.mutate() // 避免共享状态
+DrawableCompat.setTint(backgroundDrawable, Color.RED)
+imageView.background = backgroundDrawable
+```
+
+### tint 和 backgroundTint 总结
+
+| 属性                       | 作用对象         | 适用场景       | 兼容性              |
+| ------------------------ | ------------ | ---------- | ---------------- |
+| `android:tint`           | `src`        | 图标、矢量图着色   | API 21+          |
+| `app:tint`               | `src`        | 兼容旧版本的图标着色 | 全版本（需 AppCompat） |
+| `android:backgroundTint` | `background` | 背景着色       | API 21+          |
+| `app:backgroundTint`     | `background` | 兼容旧版本的背景着色 | 全版本（需 AppCompat） |
+
+#### 常见问题？
+
+##### 为什么 backgroundTint 不生效？
+
+- **未使用 AppCompat 组件**：在低版本中需使用 `AppCompatImageView` 或 `AppCompatButton`。
+- **背景非透明**：若 `background` 是纯色不透明图片，着色可能不可见。
+
+##### 如何同时着色 src 和 background？
+
+- 对 `src` 使用 `app:tint`，对 `background` 使用 `app:backgroundTint`
+
+```xml
+<androidx.appcompat.widget.AppCompatImageView
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:src="@drawable/ic_icon"
+    android:background="@drawable/bg_shape"
+    app:tint="#FF0000"             <!-- 着色 src -->
+    app:backgroundTint="#00FF00" /> <!-- 着色 background -->
+```
+
+- 或通过代码分别设置：
+
+```kotlin
+// 着色 src
+imageView.setColorFilter(Color.RED)
+
+// 着色 background
+val background = imageView.background.mutate()
+DrawableCompat.setTint(background, Color.RED)
+```
 
 ### 简单使用
 
