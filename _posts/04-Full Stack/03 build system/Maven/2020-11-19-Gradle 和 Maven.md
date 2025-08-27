@@ -879,9 +879,9 @@ GitHub Package Registry 是一个包托管服务，类似 npm、gem、docker 之
 ### 将 user 和 token 配置到 gradle.properties
 
 ```shell
-#------ Github name&ntoken ------
+#------ Github name&token ------
 gpr.user=hacket
-gpr.key=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
+gpr.key={{YOUR_GITHUB_PERSONAL_ACCESS_TOKEN}}
 #------ Github name&token ------
 ```
 
@@ -959,7 +959,7 @@ static def isReleaseBuild() {
 class Config {
     static groupId = "me.hacket"
     static versionName = "1.0.0"
-    static gitLabAccessToken = "glpat-3sQGymTv9LVwyWE29CrN"
+    static gitLabAccessToken = "{{YOUR_GITLAB_ACCESS_TOKEN}}"
     static gitLabProjectId = "52451437"
 }
 
