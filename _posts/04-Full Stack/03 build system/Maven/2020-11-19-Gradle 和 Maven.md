@@ -1,6 +1,6 @@
 ---
 date_created: Tuesday, November 19th 2020, 11:27:19 pm
-date_updated: Saturday, February 1st 2025, 12:28:07 am
+date_updated: Wednesday, August 27th 2025, 8:47:05 am
 title: Gradle 和 Maven
 author: hacket
 categories:
@@ -433,7 +433,7 @@ afterEvaluate {
 
 解决 1：直接把 aar 给到业务测，业务测直接依赖<br>解决 2：将三方 aar 也发布到 maven 仓库，当作远端依赖来依赖
 
-1. 去除要发布的 moduleA 的本地 aar 依赖（如 api fileTree(dir: "libs", include: ["_.jar", "_.aar"])），不然执行 gradle task publishShanYanSdkPublicationToMavenRepository 会编译出错
+1. 去除要发布的 moduleA 的本地 aar 依赖（如 `api fileTree(dir: "libs", include: ["_.jar", "_.aar"])`），不然执行 gradle task publishShanYanSdkPublicationToMavenRepository 会编译出错
 2. 定义 maven-publish 的配置
 3. 通过 gradle task publishShanYanSdkPublicationToMavenRepository 就其发布到本地 repo
 4. 和 remote 方式一样依赖这个 aar
@@ -695,7 +695,7 @@ sub   rsa3072 2022-11-13 [E] [expires: 2024-11-12]
 ```
 # maven账号密码
 mavenCentralUsername=hacket
-mavenCentralPassword=zfs1314520
+mavenCentralPassword=xxx
 
 # GPG keyId、密码和gpg文件
 signing.keyId=49FAA5EA
@@ -879,9 +879,9 @@ GitHub Package Registry 是一个包托管服务，类似 npm、gem、docker 之
 ### 将 user 和 token 配置到 gradle.properties
 
 ```shell
-#------ Github name&token ------
+#------ Github name&ntoken ------
 gpr.user=hacket
-gpr.key={{YOUR_GITHUB_PERSONAL_ACCESS_TOKEN}}
+gpr.key=xxx
 #------ Github name&token ------
 ```
 
@@ -959,7 +959,7 @@ static def isReleaseBuild() {
 class Config {
     static groupId = "me.hacket"
     static versionName = "1.0.0"
-    static gitLabAccessToken = "{{YOUR_GITLAB_ACCESS_TOKEN}}"
+    static gitLabAccessToken = "glpat-xxx"
     static gitLabProjectId = "52451437"
 }
 
