@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Tuesday, November 19th 2020, 11:27:19 pm
-date_updated: Wednesday, August 27th 2025, 8:47:05 am
+date_updated: Wednesday, August 27th 2025, 11:24:20 pm
 title: Gradle 和 Maven
 author: hacket
 categories:
@@ -610,7 +611,7 @@ An exception occurred applying plugin request [id: 'appinit-auto-register']
 > Could not find implementation class 'me.hacket.appinit.autoregister.AppInitAutoRegisterPlugin' for plugin 'appinit-auto-register' specified in jar:file:/C:/Users/hacket/.gradle/caches/jars-9/a6583eb47811da0aaaa4984b4cc74a47/appinit-1.0.0.jar!/META-INF/gradle-plugins/appinit-auto-register.properties.
 ```
 
-**现象：** 生成的 jar 中没有 classes<br>![acu1f](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/acu1f.png)<br>**解决：**<br>将 groovy 代码移动到 groovy 的 sourcesets 目录下
+**现象：** 生成的 jar 中没有 classes<br>![acu1f](attachments/acu1f.png)<br>**解决：**<br>将 groovy 代码移动到 groovy 的 sourcesets 目录下
 
 ### 2、找不到 AppExtension
 
@@ -665,13 +666,13 @@ afterEvaluate {
 
 ### 创建 Project
 
-如 AppInit<br>![wec1d](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/wec1d.png)<br>过几分钟在 `Projects`→`Community Support - Open Source Project Repository Hosting` 下，选择 Switch filter，Reported by me<br>![9cvfn](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/9cvfn.png)<br>[OSSRH-86107 AppInit](https://issues.sonatype.org/projects/OSSRH/issues/OSSRH-86107?filter=reportedbyme)
+如 AppInit<br>![wec1d](attachments/wec1d.png)<br>过几分钟在 `Projects`→`Community Support - Open Source Project Repository Hosting` 下，选择 Switch filter，Reported by me<br>![9cvfn](attachments/9cvfn.png)<br>[OSSRH-86107 AppInit](https://issues.sonatype.org/projects/OSSRH/issues/OSSRH-86107?filter=reportedbyme)
 
 - 证明自己的域名或者在 github 创建公开的仓库 [OSSRH-86107](https://github.com/hacket/OSSRH-86107)
 - 将状态更改为 OPEN
 - 过一会状态改为 RESOLVED 就可以用了
 
-![2kyk0](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2kyk0.png)
+![2kyk0](attachments/2kyk0.png)
 
 ### 登录 maven
 
@@ -798,7 +799,7 @@ version = '1.0.0'
 3. 点击 Release，会弹窗进行二次 Confirm
 4. 确认无误后，发布
 
-![2d656](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/2d656.png)
+![2d656](attachments/2d656.png)
 
 ### 搜索
 
@@ -808,7 +809,7 @@ version = '1.0.0'
 
 #### Cannot get stagingProfiles for account
 
-![smt8v](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/smt8v.png)<br>原因：大概率是账号 hacket 的密码不对
+![smt8v](attachments/smt8v.png)<br>原因：大概率是账号 hacket 的密码不对
 
 #### secret.gpg 找不到
 
@@ -944,7 +945,7 @@ done
 
 1. Preference→Access Tokens→Private Access Tokens
 
-![zw03v](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/zw03v.png)
+![zw03v](attachments/zw03v.png)
 
 2. maven-publish 脚本
 

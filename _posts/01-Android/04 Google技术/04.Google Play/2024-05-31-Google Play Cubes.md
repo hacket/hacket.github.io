@@ -1,7 +1,7 @@
 ---
 banner: 
 date_created: Friday, May 31st 2024, 12:48:09 am
-date_updated: Friday, February 21st 2025, 12:04:39 am
+date_updated: Wednesday, August 27th 2025, 11:29:14 pm
 title: Google Play Cubes
 author: hacket
 categories:
@@ -47,17 +47,17 @@ Cubes 是 Google 开发的一个新的功能。
 
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-1.jpeg)
 
+
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-2.jpeg)
+
 
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-3.jpeg)
 
+
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-4.jpeg)
 
+
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-5.jpeg)
-
-## Google Play Engage Shopping for app 交互流程
-
-![Google_Cubes_for_xxx.jpg|1000](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/Google_Cubes_for_xxx.jpg)
 
 ## Engage 开发者集成流程
 
@@ -1221,5 +1221,3 @@ java.net.UnknownServiceException: CLEARTEXT communication to img.ltwebstatic.com
 ## Ref
 
 - [Engage SDK  |  Android 开发者  |  Android Developers](https://developer.android.com/guide/playcore/engage?hl=zh-cn)
-- [企微文档 Google Play CUBES 调研](https://doc.weixin.qq.com/doc/w3_AYoAawZvANgkO27mwZ2T1O47XiedB?scode=APMA2QcuAAkUXVSqojAV8APQbRAC8)
-- [企微文档 Google Play CUBES](https://doc.weixin.qq.com/doc/w3_AVUAVAb3AAk2qx40WqDQo68avof3W?scode=APMA2QcuAAkAz65qjvAV8APQbRAC8)
