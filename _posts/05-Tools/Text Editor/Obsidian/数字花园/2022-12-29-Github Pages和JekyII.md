@@ -1,7 +1,7 @@
 ---
 banner:
 date_created: Sunday, December 29th 2022, 11:27:11 pm
-date_updated: Wednesday, August 27th 2025, 12:58:08 am
+date_updated: Thursday, August 28th 2025, 12:35:53 am
 title: Github Pages和JekyII
 author: hacket
 categories:
@@ -73,6 +73,83 @@ linter-yaml-title-alias: Jekyll 和 Github Pages
 
 **Ref:**
 [管理 GitHub Pages 站点的自定义域 - GitHub 文档](https://docs.github.com/zh/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
+
+#### 腾讯云 DNS + Github Pages 自定义域名
+
+```markdown
+ 腾讯云 DNS 添加 TXT 记录详细步骤
+
+  第一步：获取 GitHub 验证码
+
+  1. 访问：https://github.com/settings/pages
+  2. 点击 "Add a domain" 按钮
+  3. 输入 hacket.me
+  4. GitHub 会显示验证信息，类似：
+  Add a TXT record with the following information:
+  Name: _github-pages-challenge-hacket
+  Value: xxxxxxxxxxxxxxxxxxxx (一串随机字符)
+  5. ⚠️ 请记下这个 Value 值，稍后需要用到
+
+  第二步：登录腾讯云控制台
+
+  6. 访问：https://console.cloud.tencent.com/
+  7. 登录你的腾讯云账号
+  8. 在顶部搜索框搜索 "DNS解析" 或直接访问：https://console.cloud.tencent.com/cns
+
+  第三步：找到你的域名
+
+  9. 在 DNS 解析页面，找到 hacket.me 域名
+  10. 点击域名进入解析记录管理页面
+
+  第四步：添加 TXT 记录
+
+  11. 点击 "添加记录" 按钮
+  12. 填写以下信息：
+    - 记录类型：选择 TXT
+    - 主机记录：填入 _github-pages-challenge-hacket
+    - 记录值：填入第一步获取的 GitHub 验证码
+    - TTL：选择 600（10分钟）
+    - MX优先级：留空（TXT记录不需要）
+  13. 点击 "保存" 按钮
+
+  第五步：验证记录是否生效
+
+  等待 5-10 分钟后，我们可以检查记录是否生效：
+
+  # 稍后你可以运行这个命令检查
+  dig _github-pages-challenge-hacket.hacket.me TXT
+
+  第六步：在 GitHub 完成验证
+
+  14. 回到 GitHub 的域名验证页面
+  15. 点击 "Verify domain" 按钮
+  16. 如果 TXT 记录正确，GitHub 会显示验证成功
+
+  第七步：配置 GitHub Pages 自定义域名
+
+  验证成功后：
+  17. 访问：https://github.com/hacket/hacket.github.io/settings/pages
+  18. 在 "Custom domain" 输入框中填入 hacket.me
+  19. 点击 "Save" 保存
+  20. 勾选 "Enforce HTTPS"（建议）
+
+  腾讯云界面截图说明
+
+  腾讯云的 DNS 解析界面通常是这样的：
+  - 主机记录：就是子域名部分
+  - 记录类型：选 TXT
+  - 线路类型：选默认
+  - 记录值：GitHub 给的验证码
+  - TTL：选 600
+
+  如果遇到问题
+
+  1. 找不到域名：确认域名是在当前腾讯云账号下
+  2. 权限不够：确认账号有 DNS 管理权限
+  3. 验证失败：等待更长时间让 DNS 传播，或检查记录值是否正确复制
+
+  你现在可以开始第一步获取 GitHub 验证码了。获取到验证码后告诉我，我可以帮你进一步检查配置是否正确！
+```
 
 ## Obsidian 和 Jekyll
 

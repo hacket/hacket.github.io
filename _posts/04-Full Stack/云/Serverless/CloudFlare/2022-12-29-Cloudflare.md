@@ -1,7 +1,7 @@
 ---
 banner: 
 date_created: Sunday, December 29th 2022, 11:27:11 pm
-date_updated: Monday, July 14th 2025, 12:06:48 am
+date_updated: Monday, September 15th 2025, 12:46:00 am
 title: Cloudflare
 author: hacket
 categories:
@@ -37,6 +37,12 @@ LibreTV 是一个轻量级、免费的在线视频搜索与观看平台，提供
 [Cloudfare page 免费搭建 LibreTV 在线影视聚合、播放平台！-零度博客](https://www.freedidi.com/19908.html)
 
 部署后：`libretv.hacket.me`
+
+#### OuonnkiTV
+
+Ouonnki TV —— 一键搭建个人影视站，支持 Vercel 自动部署，基于 LibreTV 修改
+
+<https://github.com/Ouonnki/OuonnkiTV>
 
 ## Cloudflare Worker
 

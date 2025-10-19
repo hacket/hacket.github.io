@@ -1,7 +1,7 @@
 ---
 banner: 
 date_created: Friday, May 31st 2024, 12:48:09 am
-date_updated: Wednesday, August 27th 2025, 11:29:14 pm
+date_updated: Wednesday, August 27th 2025, 11:50:04 pm
 title: Google Play Cubes
 author: hacket
 categories:
@@ -47,15 +47,11 @@ Cubes 是 Google 开发的一个新的功能。
 
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-1.jpeg)
 
-
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-2.jpeg)
-
 
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-3.jpeg)
 
-
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-4.jpeg)
-
 
 ![|300](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/google-play-cubes-5.jpeg)
 

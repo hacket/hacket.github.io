@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Tuesday, September 10th 2018, 1:17:18 am
-date_updated: Wednesday, January 29th 2025, 10:22:48 pm
+date_updated: Tuesday, September 16th 2025, 11:57:57 pm
 title: Lifecycle
 author: hacket
 categories:

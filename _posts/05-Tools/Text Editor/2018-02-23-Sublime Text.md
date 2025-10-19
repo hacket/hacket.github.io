@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Friday, February 23rd 2018, 10:10:45 pm
-date_updated: Monday, January 20th 2025, 12:48:05 am
+date_updated: Wednesday, October 1st 2025, 11:24:30 pm
 title: Sublime Text
 author: hacket
 categories:

@@ -1,12 +1,13 @@
 ---
+banner:
 date_created: Monday, December 16th 2024, 12:23:44 am
-date_updated: Wednesday, January 22nd 2025, 11:33:31 pm
+date_updated: Wednesday, August 27th 2025, 11:51:31 pm
 title: Elasticsearch
 author: hacket
 categories:
   - back-end
 category: 中间件
-tags: [中间件, Elasticsearch]
+tags: [Elasticsearch, 中间件]
 toc: true
 description: 
 dg-publish: true

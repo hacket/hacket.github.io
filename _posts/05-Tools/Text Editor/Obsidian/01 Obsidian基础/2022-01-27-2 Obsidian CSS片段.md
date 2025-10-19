@@ -1,7 +1,7 @@
 ---
 banner:
 date_created: Monday, January 27th 2022, 7:36:31 pm
-date_updated: Wednesday, July 30th 2025, 1:03:27 am
+date_updated: Friday, September 5th 2025, 9:04:29 am
 title: 2 Obsidian CSS片段
 author: hacket
 categories:
@@ -73,7 +73,7 @@ linter-yaml-title-alias: 去除待办的删除线样式
 
 # 编辑模式代码块显示行号
 
-通过 CSS 的方法实现在编辑模式下显示代码行号 ，但因为受限于 Obsidian 的渲染机制，如果代码长度超过一屏幕，代码行号会被重置。
+通过 CSS 的方法实现在编辑模式下显示代码行号 ，但因为受限于 Obsidian 的渲染机制，**如果代码长度超过一屏幕，代码行号会被重置。**
 
 ```css
 .HyperMD-codeblock-begin {

@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Tuesday, May 28th 2018, 12:02:31 am
-date_updated: Tuesday, January 21st 2025, 11:45:20 pm
+date_updated: Monday, September 22nd 2025, 12:04:45 am
 title: ViewModel
 author: hacket
 categories:
@@ -838,12 +839,79 @@ class ViewModelFAQ : Application.ActivityLifecycleCallbacks {
 - 在 `FragmentManager.FragmentLifecycleCallbacks` 中的 onFragmentDestroyed 方法中也不能获取 ViewModel, 会报错
 - 在 Fragment 的 `onDestroy` 方法中不能获取 ViewModel, 会报错
 
-## Fragment 中通过 `activityViewModels` 或 `viewModels` 选择
+## Fragment `activityViewModels` 或 `viewModels` 选择
 
 在 Fragment 中我们可以使用 `activityViewModels()` 或者 `viewModels()` 来创建。<br>不同的选择 ViewModel 的生命周期表现不一样，要注意按照具体的场景来选择：
 
 - `activityViewModels` 和 Activity 的生命周期一样
 - `viewModels` 和 Fragment 的生命周期一样
+
+### activityViewModels
+
+```java
+@MainThread
+public inline fun <reified VM : ViewModel> Fragment.activityViewModels(
+    noinline factoryProducer: (() -> Factory)? = null
+): Lazy<VM> = createViewModelLazy(
+    VM::class, { requireActivity().viewModelStore },
+    factoryProducer ?: { requireActivity().defaultViewModelProviderFactory }
+)
+public fun <VM : ViewModel> Fragment.createViewModelLazy(
+    viewModelClass: KClass<VM>,
+    storeProducer: () -> ViewModelStore,
+    factoryProducer: (() -> Factory)? = null
+): Lazy<VM> {
+    val factoryPromise = factoryProducer ?: {
+        defaultViewModelProviderFactory
+    }
+    return ViewModelLazy(viewModelClass, storeProducer, factoryPromise)
+}
+
+public class ViewModelLazy<VM : ViewModel> @JvmOverloads constructor(
+    private val viewModelClass: KClass<VM>,
+    private val storeProducer: () -> ViewModelStore,
+    private val factoryProducer: () -> ViewModelProvider.Factory,
+    private val extrasProducer: () -> CreationExtras = { CreationExtras.Empty }
+) : Lazy<VM> {
+    private var cached: VM? = null
+
+    override val value: VM
+        get() {
+            val viewModel = cached
+            return if (viewModel == null) {
+                val factory = factoryProducer()
+                val store = storeProducer()
+                ViewModelProvider(
+                    store,
+                    factory,
+                    extrasProducer()
+                ).get(viewModelClass.java).also {
+                    cached = it
+                }
+            } else {
+                viewModel
+            }
+        }
+
+    override fun isInitialized(): Boolean = cached != null
+}
+```
+
+### viewModels
+
+```java
+@MainThread
+public inline fun <reified VM : ViewModel> Fragment.viewModels(
+    noinline ownerProducer: () -> ViewModelStoreOwner = { this },
+    noinline factoryProducer: (() -> Factory)? = null
+): Lazy<VM> = createViewModelLazy(
+    VM::class, { ownerProducer().viewModelStore },
+    factoryProducer ?: {
+        (ownerProducer() as? HasDefaultViewModelProviderFactory)?.defaultViewModelProviderFactory
+            ?: defaultViewModelProviderFactory
+    }
+)
+```
 
 ## ViewModel 数据的首次加载时机？
 

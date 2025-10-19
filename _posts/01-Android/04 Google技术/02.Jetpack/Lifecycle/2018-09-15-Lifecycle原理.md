@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Sunday, September 15th 2018, 12:10:00 am
-date_updated: Wednesday, January 29th 2025, 10:27:02 pm
+date_updated: Tuesday, September 16th 2025, 11:57:05 pm
 title: Lifecycle原理
 author: hacket
 categories:

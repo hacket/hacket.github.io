@@ -1,6 +1,7 @@
 ---
+banner:
 date_created: Monday, December 9th 2024, 12:35:40 am
-date_updated: Wednesday, January 22nd 2025, 11:35:50 pm
+date_updated: Wednesday, August 27th 2025, 11:50:45 pm
 title: Nginx server 配置
 author: hacket
 categories:
