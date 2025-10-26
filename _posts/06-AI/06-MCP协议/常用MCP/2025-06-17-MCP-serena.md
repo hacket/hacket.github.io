@@ -1,7 +1,7 @@
 ---
 banner: 
 date_created: Tuesday, June 17th 2025, 12:15:57 am
-date_updated: Sunday, October 26th 2025, 5:55:24 pm
+date_updated: Monday, October 13th 2025, 11:57:56 pm
 title: MCP-serena
 author: hacket
 categories:
@@ -201,7 +201,7 @@ uvx --from git+https://github.com/oraios/serena serena project generate-yml
 
 也可以问 LLM 是否激活了：
 
-![202510130033294](attachments/202510130033294.png)
+![PixPin_2025-10-13_00-33-09.png](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/202510130033294.png)
 
 激活的项目会自动添加到 `serena_config.yml` 配置文件中去，对于每个项目都会生成 `.serena/project.yml` 文件，你也可以调整，如 name，确保 2 个不同的项目不会有相同的 name。
 

@@ -1,7 +1,7 @@
 ---
 banner:
 date_created: Monday, October 20th 2025, 12:07:09 am
-date_updated: Friday, October 24th 2025, 12:00:49 am
+date_updated: Sunday, October 26th 2025, 6:01:15 pm
 title: Claude Agent Skill
 author: hacket
 categories: 
@@ -19,38 +19,6 @@ feed: show
 format: list
 aliases: [Agent Skill Overviews]
 linter-yaml-title-alias: Agent Skill Overviews
----
-
----
-
-banner:
-
-date_created: Monday, October 20th 2025, 12:07:09 am
-
-date_updated: Tuesday, October 21st 2025, 8:24:50 am
-
-title: Claude Code Agent Skill
-
-author: hacket
-
-categories:
-
-  - AI
-category: ClaudeCode
-tags: [AI, ClaudeCode]
-toc: true
-description:
-dg-publish: true
-dg-enable-search: true
-dg-show-local-graph: true
-dg-show-toc: true
-dg-show-file-tree: true
-image-auto-upload: true
-feed: show
-format: list
-aliases: [Claude Code Agent Skills]
-linter-yaml-title-alias: Claude Code Agent Skills
-
 ---
 
 # Agent Skill Overviews
