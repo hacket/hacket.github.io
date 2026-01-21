@@ -1,7 +1,7 @@
 ---
 banner: 
 date_created: Friday, February 23rd 2017, 10:10:45 pm
-date_updated: Sunday, December 21st 2025, 11:40:59 pm
+date_updated: Wednesday, January 21st 2026, 11:44:36 pm
 title: Mac Software list
 author: hacket
 categories:
@@ -186,6 +186,24 @@ linter-yaml-title-alias: 日常
 ![f785w](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/f785w.png)
 
 # 小工具
+
+## 鼠标增强
+
+### Mac Mouse Fix
+
+几十块的普通鼠标拥有媲美 Apple 触控板的体验。能把原本生硬的滚轮滚动变得极其丝滑，完全模拟触控板的物理惯性。
+
+支持自定义按键映射，配合鼠标侧键或中键，轻轻一拖就能实现多任务视图、桌面切换等手势操作。不再需要安装罗技 Options 这类臃肿的驱动，直接接管鼠标硬件，资源占用极低。提供了安装包直接使用，也可以通过 Homebrew 一键安装。如果你受够了 Mac 上糟糕的鼠标手感，又不想买昂贵的妙控鼠标，这个小工具值得一试。
+
+- [GitHub - noah-nuebling/mac-mouse-fix: Mac Mouse Fix - Make Your $10 Mouse Better Than an Apple Trackpad!](https://github.com/noah-nuebling/mac-mouse-fix)
+
+![](https://raw.githubusercontent.com/hacket/ObsidianOSS/master/obsidian/Apple-Keys-Demo.gif)
+
+用途：
+
+- 拖动滚动设置打开桌面
+- 按住滚动
+- 如果还有第 4、第 5 个键也可以设置
 
 ## Mac 右键
 
